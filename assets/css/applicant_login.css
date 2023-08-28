@@ -1,0 +1,235 @@
+body
+{
+    background-color: white;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* HEADER */
+.header 
+{
+  overflow: hidden;
+  background: transparent;    
+}
+  
+.header a 
+{
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding-top: 15px;
+  text-decoration: none;
+  font-size: 17px;
+  height: 70px;
+}
+  
+.header .icon 
+{
+  display: none;
+}
+
+/* COLUMN */
+.column1
+{
+    float: left;
+    width: 600px;
+    height: 610px;
+    background-image: url(../img/register_bg.png);
+    background-size: 100%;
+  
+}
+
+.column2
+{
+    float: left;
+    width: 700px;
+    height: 610px;
+    background-color: transparent;
+}
+  
+.row:after 
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* CARDS */
+.card1
+{
+    width: 90%;
+    height: 300px;
+    background-color: transparent;
+    margin-top: 100px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    line-height: 10px;
+}
+
+.card1 h1
+{
+    font-size: 22px;
+}
+
+.card1 h2
+{
+    font-size: 45px;
+}
+
+.card1 h3
+{
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.card2
+{
+    width: 80%;
+    height: 400px;
+    background-color: transparent;
+    margin-top: 80px;
+    
+    
+}
+
+.card2 h5
+{
+    font-size: 30px;
+    color: black;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-left: 70px;
+
+}
+
+.card3
+{
+    width: 70%;
+    background-color: transparent;
+    margin: 10px;
+}
+
+.card3 h4
+{
+    font-size: 35px;
+    color: #76165B;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    text-align: center;
+    
+}
+
+.card4
+{
+    background-color: transparent;
+    height: 40px;
+    width: 80%;
+    float: left;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    
+}
+
+.card5
+{
+    background-color: transparent;
+    height: 120px;
+    width: 80%;
+    float: left;
+    padding-top: 0;
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+.card4 h6
+{
+    font-size: 13px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+
+/* COLUMN */
+.col1
+{
+    width: 100%;
+    float: left;
+    background-color: transparent;
+}
+
+.col2
+{
+    width: 50%;
+    float: left;
+    background-color: transparent;
+}
+
+.col3
+{
+    width: 50%;
+    float: left;
+    background-color: transparent;
+}
+
+
+/* INPUTS */
+input[type=text], input[type=password], input[type=number], input[type=email], select
+{
+    width: 400px;
+    height: 25px;
+    float: left;
+    margin-left: 25px;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    border: solid 1.5px #76165B;
+    box-shadow: 1px  1px 3px gray;
+    padding-left: 15px;
+}
+
+::placeholder 
+{
+    color: gray;
+    font-size: 18px;
+    
+}
+
+
+/* BUTTONS */
+.login
+{
+    height: 30px;
+    width: 200px;
+    background-color: #76165B;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    border-radius: 20px;
+    margin: -10px;
+}
+
+.login:hover
+{
+    background-color: #5E1148;
+    
+}
+
+
+
+
+
+
+
+
+/* -------------- RESPONSIVE --------------- */
+@media screen and (max-width: 600px) 
+{
+    /* COLUMN */
+    .column 
+    {
+        width: 100%;
+    }
+}
