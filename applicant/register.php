@@ -1,3 +1,33 @@
+<?php
+include "../conn.php";
+session_start();
+if(isset($_POST["submit"])){
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
+    $age = $_POST["age"];
+    $sex = $_POST["sex"];
+    $Pnum = $_POST["Pnum"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $confirm_password = $_POST["confirm_password"];
+
+    if($password !== $confirm_password){
+        echo "password not match";
+    }
+
+    $insert = "INSERT INTO a_accounttb (firstname, lastname, age, sex, Pnum, email, password) VALUES (?,?,?,?,?,?,?)";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $insert)){
+        echo "error database";
+    } else {
+        mysqli_stmt_bind_param($stmt, "sssssss", $firstname, $lastname, $age, $sex, $Pnum, $email, $password);
+        mysqli_stmt_execute($stmt);
+        header("location: login.php");
+    }
+    
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>

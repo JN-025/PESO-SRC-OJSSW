@@ -1,3 +1,29 @@
+<?php
+include "../conn.php";
+session_start();
+$error = "";
+
+if (isset($_POST['submit'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    $select = "SELECT * FROM a_accounttb WHERE email = '$email' AND password = '$password'";
+    $result = mysqli_query($conn, $select);
+
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_array($result);
+        $_SESSION['applicant_id'] = $row['applicant_id'];
+        if(isset($_REQUEST['remember'])){
+            setcookie('emailid',$_REQUEST['email'],time()+20);
+            setcookie('pwd',$_REQUEST['password'],time()+20);
+        }
+        header("location:homepage.php");
+        exit();
+    } else {
+        $error = "Invalid email or password!";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -54,7 +80,7 @@
                         <br> <br>
                         <center><button type="submit" class="login" name="submit">LOG IN</button></center>
                        
-                        <h6>Create an Account?&nbsp;&nbsp;<a href="login.php">SIGN UP</a></h6>
+                        <h6>Create an Account?&nbsp;&nbsp;<a href="register.php">SIGN UP</a></h6>
                     </div>
 
                     
