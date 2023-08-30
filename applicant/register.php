@@ -62,7 +62,7 @@ if(isset($_POST["submit"])){
 				<div class="container">
                 <form id="" class="" action="" method="post" autocomplete="off">
                    
-
+                   
                     <div class="card3">
                         <div class="col1">
                         
@@ -71,6 +71,7 @@ if(isset($_POST["submit"])){
                         </div>
                     
                     </div>
+
 					<div class="card3">
                         
                         <div class="col1">
@@ -82,12 +83,12 @@ if(isset($_POST["submit"])){
                     <div class="card3">
                         <div class="col2">
                             
-                            <input style="width:170px;" type="number" name="age" placeholder="Age" required min="18" max="90">
+                            <input style="width: 80%;" type="number" name="age" placeholder="Age" required min="18" max="90">
                             
                         </div>
                         <div class="col3">
                            
-                            <select style="float:left;width:200px;height:30px;" class="" name="sex" required>
+                            <select style="float:left;width:90%;margin-left:13px;height: 4.5vh;" class="" name="sex" required>
                             <option value="" style="color:gray;"selected disabled>Sex</option>
                             <option value="Female">Female</option>
                             <option value="Male">Male</option>
@@ -121,7 +122,7 @@ if(isset($_POST["submit"])){
                     <div class="card3">
                         <div class="col1">
                             
-                            <input style="float:left;" type="password" placeholder="Confirm Password" name="confirm_password" id="myInput2" required maxlength="20">
+                            <input type="password" placeholder="Confirm Password" name="confirm_password" id="myInput2" required maxlength="20">
                         </div>
                     </div>
                     
@@ -141,6 +142,7 @@ if(isset($_POST["submit"])){
                         <br>
                         <h5>Already have an Account?&nbsp;&nbsp;<a href="login.php">LOG IN</a></h5>
                     </div>
+                    
 
                     
                     

@@ -22,7 +22,7 @@ body
   padding-top: 15px;
   text-decoration: none;
   font-size: 17px;
-  height: 70px;
+  height: 10vh;
 }
   
 .header .icon 
@@ -34,8 +34,8 @@ body
 .column1
 {
     float: left;
-    width: 600px;
-    height: 610px;
+    width: 45%;
+    height: 100vh;
     background-image: url(../img/register_bg.png);
     background-size: 100%;
   
@@ -44,8 +44,8 @@ body
 .column2
 {
     float: left;
-    width: 700px;
-    height: 610px;
+    width: 55%;
+    height: 100vh;
     background-color: transparent;
 }
   
@@ -61,7 +61,7 @@ body
 .card1
 {
     width: 90%;
-    height: 300px;
+    height: 50vh;
     background-color: transparent;
     margin-top: 100px;
     color: white;
@@ -90,7 +90,7 @@ body
 .card2
 {
     width: 80%;
-    height: 400px;
+    height: 75vh;
     background-color: transparent;
     margin-top: 80px;
     
@@ -111,6 +111,7 @@ body
 .card3
 {
     width: 70%;
+    height: fit-content;
     background-color: transparent;
     margin: 10px;
 }
@@ -122,29 +123,23 @@ body
     font-weight: bolder;
     margin-bottom: 10px;
     text-align: center;
-    
 }
 
 .card4
 {
     background-color: transparent;
-    height: 40px;
+    height: 6vh;
     width: 80%;
-    float: left;
     margin-bottom: 10px;
-    margin-left: 50px;
-    
 }
 
 .card5
 {
     background-color: transparent;
-    height: 120px;
+    height: 20vh;
     width: 80%;
-    float: left;
     padding-top: 0;
     margin-bottom: 10px;
-    margin-left: 50px;
 }
 .card4 h6
 {
@@ -180,10 +175,8 @@ body
 /* INPUTS */
 input[type=text], input[type=password], input[type=number], input[type=email], select
 {
-    width: 400px;
-    height: 25px;
-    float: left;
-    margin-left: 25px;
+    width: 90%;
+    height: 4vh;
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
     border: solid 1.5px #76165B;
@@ -194,16 +187,15 @@ input[type=text], input[type=password], input[type=number], input[type=email], s
 ::placeholder 
 {
     color: gray;
-    font-size: 18px;
-    
+    font-size: 18px;   
 }
 
 
 /* BUTTONS */
 .login
 {
-    height: 30px;
-    width: 200px;
+    height: 6vh;
+    width: 45%;
     background-color: #76165B;
     color: white;
     font-family: 'Times New Roman', Times, serif;
