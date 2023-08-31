@@ -12,9 +12,9 @@
         </center>
         <br>
     <a href="personal_info.php" <?php echo isActivePage("personal_info.php"); ?>>Personal Information</a>
-        <a href="#" <?php echo isActivePage("#"); ?>>Educational Background</a>
-        <a href="#" <?php echo isActivePage("#"); ?>>Job Preference</a>
-        <a href="#" <?php echo isActivePage("#"); ?>>Training</a>
+        <a href="educ_bg.php" <?php echo isActivePage("educ_bg.php"); ?>>Educational Background</a>
+        <a href="job_prefer.php" <?php echo isActivePage("job_prefer.php"); ?>>Job Preference</a>
+        <a href="training.php" <?php echo isActivePage("training.php"); ?>>Training</a>
         <a href="#" <?php echo isActivePage("#"); ?>>Eligibility</a>
         <a href="#" <?php echo isActivePage("#"); ?>>Work Experience</a>
         <a href="#" <?php echo isActivePage("#"); ?>>Skills</a>

@@ -199,8 +199,8 @@
                                     <h5>Are you actively looking for job?</h5>
                                     <select style="width: 30%;" class="" name="activelyLooking" required>
                                             <option value="" style="color:gray;"selected disabled>Choose</option>
-                                            <option value="">Yes</option>
-                                            <option value="">No</option>
+                                            <option value="Yes" disabled>Yes</option>
+                                            <option value="No" disabled>No</option>
                                     </select>
                                 </div>
                             </div>
@@ -210,8 +210,8 @@
                                     <h5>Are you willing to work immediately?</h5>
                                     <select style="width: 30%;" class="" name="willinglyWork" required>
                                             <option value="" style="color:gray;"selected disabled>Choose</option>
-                                            <option value="">Yes</option>
-                                            <option value="">No</option>
+                                            <option value="Yes" disabled>Yes</option>
+                                            <option value="No" disabled>No</option>
                                     </select>
                                 </div>
                             </div>
@@ -221,8 +221,8 @@
                                     <h5>Are you a 4Ps beneficiary?</h5>
                                     <select style="width: 30%;" class="" name="fourPsBeneficiary" required>
                                             <option value="" style="color:gray;"selected disabled>Choose</option>
-                                            <option value="">Yes</option>
-                                            <option value="">No</option>
+                                            <option value="Yes" disabled>Yes</option>
+                                            <option value="No" disabled>No</option>
                                     </select>
                                 </div>
                             </div>
@@ -232,8 +232,8 @@
                                     <h5>Are you an OFW?</h5>
                                     <select style="width: 30%;" class="" name="ofw" required>
                                             <option value="" style="color:gray;"selected disabled>Choose</option>
-                                            <option value="">Yes</option>
-                                            <option value="">No</option>
+                                            <option value="Yes" disabled>Yes</option>
+                                            <option value="No" disabled>No</option>
                                     </select>
                                 </div>
                             </div>
