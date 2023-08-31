@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Homepage</title>
+        <title>Personal Information</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <link rel="stylesheet" href="../assets/css/applicant_personal_info.css">
     </head>
@@ -28,7 +28,7 @@
                                     
                         <form action="" method="post">
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <h2>Personal Information</h2>
                                     <a href="personal_info_update.php" class="edit">Edit</a>
                                 </div>
@@ -36,7 +36,7 @@
 
                             <div class="form-card">
                                 <h3>Name</h3>
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <input type="text" name="firstName" placeholder="First" required maxlength="" disabled>
                                     <div class="field-space-1"></div>
                                     <input type="text" name="midName" placeholder="Middle" required maxlength="" disabled>
@@ -49,7 +49,7 @@
 
                             <div class="form-card">
                                 <h3>Type of Jobseeker</h3>
-                                <div class="form-col-3">
+                                <div class="form-col-2">
                                     <select class="" name="jobseekerType" required>
                                         <option value="" style="color:gray;" selected disabled>Type of Jobseeker</option>
                                         <option value="first time" disabled>First Time</option>
@@ -60,7 +60,7 @@
                             </div>
 
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <div class="column">
                                         <h4>Birthplace</h4>
                                         <input type="text" name="birthplace" placeholder="Birthplace" required min="" max="" disabled>
@@ -74,7 +74,7 @@
                             </div>
 
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <div class="column">
                                         <h4>Age</h4>
                                         <input type="number" name="age" placeholder="Age" required min="" max="" disabled>
@@ -92,7 +92,7 @@
                             </div>
 
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <div class="column">
                                         <h4>Citizenship</h4>
                                         <input type="text" name="citizenship" placeholder="Citizenship" required min="" max="" disabled>
@@ -114,7 +114,7 @@
 
                             <div class="form-card">
                                 <h3>Present Address</h3>
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <input type="text" style="" name="housenumPresent" placeholder="House #/Street" required maxlength="" disabled>
                                     <div class="field-space-1"></div>
                                     <input type="text" name="brgyPresent" placeholder="Barangay" required maxlength="" disabled>
@@ -127,7 +127,7 @@
 
                             <div class="form-card">
                                 <h3>Permanent Address</h3>
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <input type="text" name="housenumPermanent" placeholder="House #/Street" required maxlength="" disabled>
                                     <div class="field-space-1"></div>
                                     <input type="text" name="brgyPermanent" placeholder="Barangay" required maxlength="" disabled>
@@ -139,7 +139,7 @@
                             </div>
 
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <div class="column">
                                         <h4>Weight</h4>
                                         <input type="number" name="weight" placeholder="Weight (kg)" required min="" max="" disabled>
@@ -154,13 +154,13 @@
 
                             <div class="form-card">
                                 <h3>Landline Number</h3>
-                                <div class="form-col-3">
+                                <div class="form-col-2">
                                 <input type="number" name="landlineNum" placeholder="Landline Number" required min="" max="" disabled>
                                 </div>
                             </div>
 
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <div class="column">
                                         <h4>Mobile Number</h4>
                                         <input type="number" name="mobilePnum" placeholder="Primary" required min="" max="" disabled>
@@ -175,13 +175,13 @@
 
                             <div class="form-card">
                                 <h3>Email Address</h3>
-                                <div class="form-col-3">
+                                <div class="form-col-2">
                                 <input type="text" name="email" placeholder="Email Address" required min="" max="" disabled>
                                 </div>
                             </div>
 
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <div class="column">
                                         <h4>Disability</h4>
                                         <input type="text" name="disability" placeholder="Disability" required min="" max="" disabled>
@@ -195,45 +195,45 @@
                             </div>
 
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <h5>Are you actively looking for job?</h5>
                                     <select style="width: 30%;" class="" name="activelyLooking" required>
                                             <option value="" style="color:gray;"selected disabled>Choose</option>
-                                            <option value="" disabled>Yes</option>
-                                            <option value="" disabled>No</option>
+                                            <option value="Yes" disabled>Yes</option>
+                                            <option value="No" disabled>No</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <h5>Are you willing to work immediately?</h5>
                                     <select style="width: 30%;" class="" name="willinglyWork" required>
                                             <option value="" style="color:gray;"selected disabled>Choose</option>
-                                            <option value="" disabled>Yes</option>
-                                            <option value="" disabled>No</option>
+                                            <option value="Yes" disabled>Yes</option>
+                                            <option value="No" disabled>No</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <h5>Are you a 4Ps beneficiary?</h5>
                                     <select style="width: 30%;" class="" name="fourPsBeneficiary" required>
                                             <option value="" style="color:gray;"selected disabled>Choose</option>
-                                            <option value="" disabled>Yes</option>
-                                            <option value="" disabled>No</option>
+                                            <option value="Yes" disabled>Yes</option>
+                                            <option value="No" disabled>No</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-card">
-                                <div class="form-col-2">
+                                <div class="form-col-1">
                                     <h5>Are you an OFW?</h5>
                                     <select style="width: 30%;" class="" name="ofw" required>
                                             <option value="" style="color:gray;"selected disabled>Choose</option>
-                                            <option value="" disabled>Yes</option>
-                                            <option value="" disabled>No</option>
+                                            <option value="Yes" disabled>Yes</option>
+                                            <option value="No" disabled>No</option>
                                     </select>
                                 </div>
                             </div>

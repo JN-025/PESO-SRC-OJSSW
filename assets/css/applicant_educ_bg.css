@@ -80,28 +80,17 @@
     justify-content: space-between; 
 }
 
-.card4 .form-card .form-col-1 .column{
-    width: 50%;
-	float: left;
-	background-color: white;
-}
 
 
 .card4 .form-card .form-col-2{
     padding: 0 5%;
     margin-bottom: 20px;
     text-align: center;
-	margin-right: 30%;
+	margin-right: 20%;
    
 	
 }
-.field-space-1 {
-    margin-left: 10px;
-}
 
-.field-space-2 {
-    margin-left: 40px;
-}
 
 input[type=text], input[type=password], input[type=number], input[type=email], input[type=date], select
 {
