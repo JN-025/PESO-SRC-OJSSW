@@ -1,0 +1,66 @@
+.profilenav {
+    height: 100%;
+    width: 23%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-left: 20%;
+    margin-top: 16vh;
+    border-right: solid 3px #76165B;
+  }
+  
+  .profilenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    text-align: left;
+    margin-left: 10px;
+  }
+  
+  .profilenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .profilenav a.active
+  {
+    color: #76165B;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+    .profilenav {padding-top: 15px;}
+    .profilenav a {font-size: 18px;}
+  }
+
+
+   /* BUTTONS */
+.change
+{
+    height: 4vh;
+    width: 70%;
+    background-color: #76165B;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    border-radius: 20px;
+    margin: -10px;
+}
+
+.change:hover
+{
+    background-color: #5E1148;
+    
+}
+
+
+@media only screen and (max-width: 900px) {
+  .profilenav{
+    margin-left: 0%;
+  }
+}
