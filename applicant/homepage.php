@@ -13,8 +13,21 @@
     include "../function.php";
     include "sidenav.php";
     ?>
-        <div class="hp-container">
-           
+    
+        <div class="card1">
+            <?php 
+                include "topnav.php";
+            ?>
+            <center>
+            <div class="card2">
+            
+
+
+
+            </div>
+            </center>
         </div>
+
+        
 </body>
 </html>
