@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['SESSION_EMAIL'])) {
+        header("Location: index.php");
+        die();
+    }
+include '../conn.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

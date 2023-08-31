@@ -1,6 +1,18 @@
 <?php
-include "../conn.php";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 session_start();
+    if (isset($_SESSION['SESSION_EMAIL'])) {
+        header("Location: welcome.php");
+        die();
+    }
+
+require '../vendor/autoload.php';
+
+include "../conn.php";
+$msg = "";
 if(isset($_POST["submit"])){
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
@@ -10,21 +22,54 @@ if(isset($_POST["submit"])){
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
+    $code = mysqli_real_escape_string($conn, md5(rand()));
 
-    if($password !== $confirm_password){
-        echo "password not match";
-    }
-
-    $insert = "INSERT INTO a_accounttb (firstname, lastname, age, sex, Pnum, email, password) VALUES (?,?,?,?,?,?,?)";
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $insert)){
-        echo "error database";
+    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM a_accounttb WHERE email='$email'")) > 0) {
+        $msg = "<div class='alert alert-danger'>{$email} - This email address has been already exists.</div>";
     } else {
-        mysqli_stmt_bind_param($stmt, "sssssss", $firstname, $lastname, $age, $sex, $Pnum, $email, $password);
-        mysqli_stmt_execute($stmt);
-        header("location: login.php");
+        if ($password === $confirm_password) {
+            $stmt = $conn->prepare("INSERT INTO a_accounttb (firstname, lastname, age, Pnum, sex, email, password, code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssiissss", $firstname, $lastname, $age, $Pnum, $sex, $email, $password, $code);
+        
+            $result = $stmt->execute();
+
+            if($result){
+                echo "<div style='display: none;'>";
+
+                $mail = new PHPMailer(true);
+
+                try {
+                    //Server settings
+                    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                     
+                    $mail->isSMTP();                                            
+                    $mail->Host       = 'smtp.gmail.com';                     
+                    $mail->SMTPAuth   = true;                                   
+                    $mail->Username   = 'rebladen@gmail.com';                   
+                    $mail->Password   = 'oyqexvmbrljpvwuf';                               
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+                    $mail->Port       = 465;                                    
+
+                    $mail->setFrom('from@example.com');
+                    $mail->addAddress($email);
+
+                    $mail->isHTML(true);                                 
+                    $mail->Subject = 'no-reply';
+                    $mail->Body    = 'Para ma-verify po ang iyong email ay paclick po ng link nato->&nbsp;<b><a href="http://localhost/peso-src-ojssw/applicant/?verification='.$code.'">http://localhost/peso-src-ojssw/applicant/?verification='.$code.'</a></b>';
+
+                    $mail->send();
+                    echo 'Message has been sent';
+                } catch (Exception $e) {
+                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                }
+                echo "</div>";
+                $msg = "<div class='alert alert-info'>We've send a verification on your email address</div>";
+            } else {
+                $msg = "<div class='alert alert-danger'>Something went wrong</div>";
+            }
+        } else {
+            $msg = "<div class='alert alert-danger'>Password and Confirm Password do not match</div>";
+        }
     }
-    
 }
 ?>
 <!DOCTYPE html>
@@ -47,6 +92,32 @@ if(isset($_POST["submit"])){
                 </div>
             </div>
             <div class="col-2">
+            <?php echo $msg; ?>
+            <style>
+                .alert {  
+                    position: fixed;  
+                    padding: 1rem;
+                    border-radius: 5px;
+                    color: white;
+                    margin: 1rem 0;
+                }
+
+                .alert-success {
+                    background-color: #42ba96;
+                }
+
+                .alert-danger {
+                    background-color: #fc5555;
+                }
+
+                .alert-info {
+                    background-color: #2E9AFE;
+                }
+
+                .alert-warning {
+                    background-color: #ff9966;
+                }
+            </style>
                 <h1>CREATE YOUR ACCOUNT</h1>
                 <form action="" method="post">
                     <div class="form-col-1">
@@ -80,11 +151,12 @@ if(isset($_POST["submit"])){
                     <h5>By clicking register you agree in our&nbsp;&nbsp;<a href="#" id="myBtn">Terms & Agreement</a></h5>
                     <button name="submit">REGISTER</button>
                     <br><br>
-                    <h5>Already have an Account?&nbsp;&nbsp;<a href="login.php">LOG IN</a></h5>
+                    <h5>Already have an Account?&nbsp;&nbsp;<a href="index.php">LOG IN</a></h5>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <script src="../assets/js/applicant/script.js"></script>
 </body>
 </html>
