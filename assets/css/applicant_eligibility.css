@@ -19,7 +19,7 @@
 {
     margin-left: 30%; /* Same as the width of the sidenav */
     margin-top: 20vh;
-    font-size: 28px; /* Increased text to enable scrolling */
+    font-size: 15px; /* Increased text to enable scrolling */
     padding: 10px;
     background-color: white;
 }
@@ -58,9 +58,11 @@
 
 .card4 .form-card h4
 {
-	font-size: 15px;
+	font-size: 18px;
 	color: black;
-	text-align: left;
+	text-align: center;
+    padding-top: 5px;
+    margin: 0 3px;
 }
 
 .card4 .form-card h5
@@ -68,39 +70,63 @@
 	font-size: 18px;
 	color: black;
 	text-align: left;
+    padding: 0 5%;
 }
 
 
 .card4 .form-card .form-col-1{
     width: 90%;
     padding: 0 5%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
     display: flex;
     justify-content: space-between; 
+    
 }
 
-.card4 .form-card .form-col-1 .column{
+
+
+.card4 .form-card .form-col-2 .column{
     width: 50%;
 	float: left;
-	background-color: white;
+	background-color: aquamarine;
 }
+
+.card4 .form-card .form-col-2 .column-2{
+    width: 10%;
+	float: left;
+	background-color: darkolivegreen;
+    text-align: center;
+    padding-top: 10px;
+   
+}
+
 
 
 .card4 .form-card .form-col-2{
     padding: 0 5%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
-	margin-right: 30%;
+	margin-right: 22%;
+   
    
 	
 }
-.field-space-1 {
-    margin-left: 10px;
+
+.card4 .form-card .form-col-3{
+    width: 70%;
+    padding-left: 5%;
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+   float: left;
+ 
 }
 
-.field-space-2 {
-    margin-left: 40px;
+
+.field-space-1 {
+    margin-left: 18px;
+    
 }
 
 input[type=text], input[type=password], input[type=number], input[type=email], input[type=date], select
@@ -141,23 +167,26 @@ input[type=text], input[type=password], input[type=number], input[type=email], i
 }
 
 
-.save {
-    height: 4vh;
-    width: 70%;
-    background-color: #76165B;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 18px;
-    border-radius: 20px;
-    margin: -10px;
-}
+  .save
+  {
+	  height: 4vh;
+	  width: 70%;
+	  background-color: #76165B;
+	  color: white;
+	  font-family: 'Times New Roman', Times, serif;
+	  font-size: 18px;
+	  border-radius: 20px;
+	  margin: -10px;
+  }
+  
+  .save:hover
+  {
+	  background-color: #5E1148;
+	  
+  }
 
-.save:hover {
-    background-color: #5E1148;
-}
-
-.cancel {
-    display: inline-block;
+  .cancel
+{
     height: 4vh;
     width: 70%;
     background-color: white;
@@ -166,15 +195,14 @@ input[type=text], input[type=password], input[type=number], input[type=email], i
     font-size: 18px;
     border-radius: 20px;
     margin: -10px;
-    border: solid 3px #76165B;
-    text-decoration: none;
+	border: solid 3px #76165B;
 }
 
-.cancel:hover {
+.cancel:hover
+{
     background-color: #5E1148;
+    
 }
-
-
 
 @media only screen and (max-width: 900px) {
 	.card{

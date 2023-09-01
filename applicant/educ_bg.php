@@ -1,3 +1,6 @@
+<?php
+$page_title = "Applicant Profile / Educational Background";
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

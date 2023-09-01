@@ -79,8 +79,10 @@ if(isset($_POST["submit"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="../assets/css/applicant_register.css">
+    <script src="../assets/js/applicant/loader.js"></script>
 </head>
 <body>
+<div class="loader"><div></div><div></div><div></div><div></div></div>
 <div class="main-container">
         <div class="main-row">
             <div class="col-1">
