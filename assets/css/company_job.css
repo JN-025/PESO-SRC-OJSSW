@@ -1,0 +1,39 @@
+.card1
+{
+    height: 250vh;
+    width: 100%;
+    background-color: aquamarine;
+}
+
+.card2
+{
+    height: 200vh;
+    width: 80%;
+    background-color: salmon;
+    margin-left: 20%;
+    padding-top: 20vh;
+}
+
+.card3
+{
+    width:80%;
+    height: 150vh;
+    background-color: darkcyan;
+    padding: 3%;
+    
+}
+
+.card3 h1
+{
+    font-size: 30px;
+    color: #76165B;
+
+}
+
+.card3 h2
+{
+    font-size: 25px;
+    color: black;
+
+}
+
