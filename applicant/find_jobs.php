@@ -1,21 +1,15 @@
 <?php
-$page_title = "Home";
-    session_start();
-    if (!isset($_SESSION['SESSION_EMAIL'])) {
-        header("Location: index.php");
-        die();
-    }
-include '../conn.php';
+$page_title = "Find Jobs";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="../assets/css/applicant_sidenav.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/css/applicant_homepage.css">
+    <title>Find Jobs</title>
+    <link rel="stylesheet" href="../assets/css/applicant_find_jobs.css">
+    <link rel="stylesheet" href="../assets/css/applicant_topnav.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
 <?php 
@@ -24,15 +18,14 @@ include '../conn.php';
 
         ?>
         <div class="main-topnav">
-        <?php 
-
-        include "topnav.php";
-        ?>
+            <?php
+            include "topnav.php"; 
+            ?>
         </div>
-    <div class="main-wrapper">
+        <div class="main-wrapper">
         <div class="main-container">
             <div class="content-title">
-            <h1>RECOMMENDED JOBS</h1>
+            <h1>AVAILABLE JOBS</h1>
             <button>FILTERS</button>
             </div>
             <div class="content-col-1">
