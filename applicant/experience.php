@@ -1,3 +1,6 @@
+<?php
+$page_title = "Applicant Profile / Work Experience";
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

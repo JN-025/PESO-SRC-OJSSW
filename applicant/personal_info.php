@@ -1,5 +1,5 @@
 <?php
-$page_title = "Applicant Profile";
+$page_title = "Applicant Profile / Personal Information";
 ?>
 <!DOCTYPE html>
 <html lang="en">

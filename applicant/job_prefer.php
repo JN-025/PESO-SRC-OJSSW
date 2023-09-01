@@ -1,3 +1,6 @@
+<?php
+$page_title = "Applicant Profile / Job Preference";
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

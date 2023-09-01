@@ -1,3 +1,6 @@
+<?php
+$page_title = "Applicant Profile / Skills";
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
