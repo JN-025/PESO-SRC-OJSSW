@@ -11,8 +11,8 @@
         </div>
         <div class="col-side">
         <a href="homepage.php" <?php echo isActivePage("homepage.php"); ?>><i class="bi bi-house-door"></i>&nbsp;Home</a>
-        <a href="jobposting.php" <?php echo isActivePage("jobposting.php"); ?>><i class="bi bi-file-post"></i>&nbsp;Job Posting</a>
-        <a href="jobpost.php" <?php echo isActivePage("jobpost.php"); ?>><i class="bi bi-search"></i>&nbsp;Job Posts</a>
+        <a href="#" <?php echo isActivePage("#"); ?>><i class="bi bi-file-post"></i>&nbsp;Online</a>
+        <a href="Wapplicant.php" <?php echo isActivePage("Wapplicant.php"); ?>><i class="bi bi-search"></i>&nbsp;Walk-in</a>
         <a href="#" <?php echo isActivePage("#"); ?>><i class="bi bi-bell" style="font-size:20px"></i>&nbsp;Applicantions</a>
         <a href="#" <?php echo isActivePage("#"); ?>><i class="bi bi-person-lines-fill"></i>&nbsp;Settings</a>
         <a href="#" <?php echo isActivePage("#"); ?>><i class="bi bi-sliders2"></i>&nbsp;More Details</a>
