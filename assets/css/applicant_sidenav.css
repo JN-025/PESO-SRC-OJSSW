@@ -28,7 +28,7 @@
     width:100%;
   }
   .sidenav a {
-    font-size: 25px;
+    font-size: 1.8vw;
     color: white;
     display: block;
     background-color: transparent;
@@ -39,8 +39,7 @@
   margin-top: 30px;
 }
 .sidenav .signout{
-  bottom: 0;
-  position: absolute;
+  margin-top: 12%;
 }
   .noHover {
     pointer-events: none;
@@ -64,11 +63,6 @@
     padding: 20px;
     color: #76165B;
   }
-.topnav .active-user{
-  padding: 30px;
-  right: 0;
-  position: absolute;
-}
 .link-button {
   background: none;
   border: none;
@@ -95,8 +89,15 @@
   text-decoration: 0;
 }
 @media only screen and (max-width: 900px) {
-  .sidenav{
-    display: none;
+  .sidenav .col-side a {
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+
+  .sidenav .col-side a i {
+    font-size: 24px;
   }
 }
 

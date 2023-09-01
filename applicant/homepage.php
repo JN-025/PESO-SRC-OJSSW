@@ -17,25 +17,21 @@ include '../conn.php';
     <link rel="stylesheet" href="../assets/css/applicant_homepage.css">
 </head>
 <body>
-    <?php 
-    include "../function.php";
-    include "sidenav.php";
-    ?>
-    
-        <div class="card1">
-            <?php 
-                include "topnav.php";
-            ?>
-            <center>
-            <div class="card2">
-            
-
-
+<?php 
+        include "../function.php";
+        include "sidenav.php";
+        include "topnav.php";
+        ?>
+    <div class="main-wrapper">
+        <div class="main-container">
+            <div class="content-title">
+            <h1>RECOMMENDED JOBS</h1>
+            <button>FILTERS</button>
+            </div>
+            <div class="content-col-1">
 
             </div>
-            </center>
         </div>
-
-        
+    </div>
 </body>
 </html>

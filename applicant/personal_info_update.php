@@ -239,7 +239,8 @@
                             </div>
 
                             <button class="save" name="submit">SAVE</button>
-                            <button class="cancel" name="">CANCEL</button>
+                            <a href="personal_info.php" class="cancel">CANCEL</a>
+
 
 
 

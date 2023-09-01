@@ -15,9 +15,9 @@
         <a href="educ_bg.php" <?php echo isActivePage("educ_bg.php"); ?>>Educational Background</a>
         <a href="job_prefer.php" <?php echo isActivePage("job_prefer.php"); ?>>Job Preference</a>
         <a href="training.php" <?php echo isActivePage("training.php"); ?>>Training</a>
-        <a href="#" <?php echo isActivePage("#"); ?>>Eligibility</a>
-        <a href="#" <?php echo isActivePage("#"); ?>>Work Experience</a>
-        <a href="#" <?php echo isActivePage("#"); ?>>Skills</a>
+        <a href="eligibility.php" <?php echo isActivePage("eligibility.php"); ?>>Eligibility</a>
+        <a href="experience.php" <?php echo isActivePage("experience.php"); ?>>Work Experience</a>
+        <a href="skills.php" <?php echo isActivePage("skills.php"); ?>>Skills</a>
         <a href="#" <?php echo isActivePage("#"); ?>>Authorization</a>
         
                 
