@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_array($result);
-        $_SESSION['company_id'] = $row['company_id'];
+        $_SESSION['peso_id'] = $row['peso_id'];
         if(isset($_REQUEST['remember'])){
             setcookie('emailid',$_REQUEST['email'],time()+20);
             setcookie('pwd',$_REQUEST['password'],time()+20);

@@ -1,3 +1,6 @@
+<?php
+$page_title = "Walk-in Applicant";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

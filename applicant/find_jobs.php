@@ -17,32 +17,63 @@ $page_title = "Find Jobs";
         include "sidenav.php";
 
         ?>
-        <div class="main-topnav">
-            <?php
-            include "topnav.php"; 
+      
+      <div class="card1">
+            <?php 
+                include "topnav.php";
             ?>
-        </div>
-        <div class="main-wrapper">
-        <div class="main-container">
-            <div class="content-title">
-            <h1>AVAILABLE JOBS</h1>
-            <button>FILTERS</button>
-            </div>
-            <div class="content-col-1">
-                <div class="box-job">
-                    <div class="box-info">
-                    <h1>CARD OPERATOR</h1>
-                    <h2>Energitech Construction Company</h2>
-                    <h2>Construction</h2>
-                    <h2>30000 pesos</h2>
-                    <h2>Santa Rosa, Laguna</h2>
-                    <h2>3</h2>
-                    <h2>construction, operator, auto-cad</h2>
-                    <button>More Details</button>
-                    </div>
+            <center>
+            <div class="card2">
+                <div class="card3">
+                <?php
+                    // Include config file
+                    require_once "../conn_jobpost.php";
+                    // Attempt select query execution
+                    $sql = "SELECT * FROM c_jobpost";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 1){
+                            echo "<h1>FIND JOBS<br><br></h1>";
+                            while($row = mysqli_fetch_array($result)){
+                                ?>
+
+                        <div class="card4">
+                            <h2><?php echo $row['jobTitle']; ?></h2>
+                            <h3>Company Name:  <?php echo $row['companyName']; ?></h3>
+                            <h3>Company Industry:  <?php echo $row['industry']; ?></h3>
+                            <h3>Work Location:  <?php echo $row['workLocation']; ?></h3>
+                            <h3>Slots:  <?php echo $row['slot']; ?></h3>
+                            <h3>Salary:  <?php echo $row['salary']; ?></h3>
+                            <h3>Skills:  <?php echo $row['skills']; ?></h3>
+                            <button class="apply"><a href="job.php?c_jobpost_id=<?php echo $row['c_jobpost_id']; ?>" style="text-decoration: none;">Apply</a></button>
+
+                        </div>
+
+                        <?php
+
+                    }
+
+                    // Free result set
+                    mysqli_free_result($result);
+                } else {
+                    echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                }
+            } else {
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close connection
+            mysqli_close($link);
+        ?>
+
+
                 </div>
+
+
+
             </div>
+            </center>
         </div>
-    </div>
+
+        
 </body>
 </html>

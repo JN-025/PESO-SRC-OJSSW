@@ -1,105 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
+.card1
+{
+    height: 250vh;
+    width: 100%;
+    background-color: white;
+}
 
-*{
+.card2
+{
+    height: 200vh;
+    width: 80%;
+    background-color: white;
+    margin-left: 20%;
+    padding-top: 20vh;
+}
 
-  font-family: 'Lato', sans-serif;
-  font-family: 'Roboto Serif', serif;
+.card3
+{
+    width:80%;
+    height: 150vh;
+    background-color: white;
+    padding-left: 3%;
+    
 }
-.main-topnav{
-    z-index: 5;
-    position: absolute;
+
+.card3 h1
+{
+    font-size: 50px;
+    color: black;
+    text-align: left;
 }
-.main-container{
-    width: 78%;
-    margin-top: 8%;
-    margin-left: 21%;
-    position: fixed;
-    background-color: #EEEEEE;
-    border: 2px solid #EEEEEE;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+.card4
+{
+    width: 90%;
+    padding:  3%;
+    background-color: white;
+    border: solid 5px #76165B;
+    float: left;
+    
 }
-.content-title{
-    margin: 5%;
-    display: flex;
-    justify-content: space-between;
-}
-.content-col-1{
-    border-top: 4px solid #76165B;
-    height: 100vh;
-}
-.content-col-1 .box-job{
-    background-color: #F0F0E1;
-    margin: 50px;
-    height: 50%;
-    border: 4px solid #76165B;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 10px;
-}
-.content-col-1 .box-job .box-info{
-    margin: 50px;
-    height: 60%;
-}
-/*temporary*/
-h1{
+
+.card4 h2
+{
+    font-size: 30px;
     color: #76165B;
+    text-align: left;
 }
-h2{
-    font-size: 20px;
+
+.card4 h3
+{
+    font-size: 25px;
+    color: black;
+    text-align: left;
+    padding-left: 3%;
 }
-h2::before {
-    font-size: 28px;
-    content: attr(data-label); /* Use the 'data-label' attribute as the content */
-    font-weight: bold;
-    margin-right: 4px; /* Add some spacing after the label */
-  }
-  
-  /* Add 'data-label' attributes to the <h2> elements */
-  h2:nth-child(2)::before {
-    content: "Company Name:";
-  }
-  
-  h2:nth-child(3)::before {
-    content: "Company Industry:";
-  }
-  
-  h2:nth-child(4)::before {
-    content: "Salary:";
-  }
-  
-  h2:nth-child(5)::before {
-    content: "Work Location:";
-  }
-  
-  h2:nth-child(6)::before {
-    content: "Slots:";
-  }
-  
-  h2:nth-child(7)::before {
-    content: "Skills:";
-  }
-/*temporary*/
-.main-container button{
+
+.apply {
+    background-color: #76165B;
+    color: #ffffff;
+    border-radius: 10px;
+    border: #76165B;
+    padding: 5px;
+    font-size: 25px;
     cursor: pointer;
-    height: 6vh;
-    width: 20%;
-    background-color: #76165B;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2vw;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-.main-container button:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-.content-col-1 .box-job .box-info button{
-    height: 6vh;
-    width: 20%;
-    background-color: #76165B;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2vw;
-    border-radius: 10px;
     float: right;
-}
+    width: 20%;
+    text-decoration: none;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
