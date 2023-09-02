@@ -1,15 +1,15 @@
 <?php
 @session_start();
 include '../conn.php';
-$company_id = $_SESSION["company_id"];
-$query = "SELECT companyName FROM c_accounttb WHERE company_id = ?";
+$peso_id = $_SESSION["peso_id"];
+$query = "SELECT name FROM p_accounttb WHERE peso_id = ?";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("i", $company_id);
+$stmt->bind_param("i", $peso_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
-$companyName = $row['companyName'];
+$name = $row['name'];
 
 ?>
 
@@ -22,7 +22,7 @@ $companyName = $row['companyName'];
            
             <div class="active-user">
             <button id="dropdown-button" class="link-button" onclick="toggleDropdown()">
-                <span id="dropdown-text"><?php echo $companyName; ?></span>
+                <span id="dropdown-text"><?php echo $name; ?></span>
                 <i class="bi bi-caret-down-fill"></i>
             </button>
             </div>
