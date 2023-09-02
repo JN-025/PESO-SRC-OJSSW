@@ -1,3 +1,6 @@
+<?php
+$page_title = "Job Post";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

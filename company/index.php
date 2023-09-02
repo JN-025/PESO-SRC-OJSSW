@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         header("location:homepage.php");
         exit();
     } else {
-        $error = "Invalid email or password!";
+        $error = "<div class='alert alert-danger'>Invalid entry, Please try again</div>";
     }
 }
 ?>
@@ -47,6 +47,32 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
             <div class="col-2">
+            <?php echo $error; ?>
+            <style>
+                .alert {  
+                    position: fixed;  
+                    padding: 1rem;
+                    border-radius: 5px;
+                    color: white;
+                    margin: 1rem 0;
+                }
+
+                .alert-success {
+                    background-color: #42ba96;
+                }
+
+                .alert-danger {
+                    background-color: #fc5555;
+                }
+
+                .alert-info {
+                    background-color: #2E9AFE;
+                }
+
+                .alert-warning {
+                    background-color: #ff9966;
+                }
+            </style>
                 <h1 for="">WELCOME BACK<br> PARTNER!</h1>
                 <form action="" method="post">
                     <div class="form-col-1">

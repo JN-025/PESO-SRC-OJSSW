@@ -10,7 +10,6 @@ $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
 $companyName = $row['companyName'];
-
 ?>
 
 <link rel="stylesheet" href="../assets/css/company_topnav.css">
@@ -18,7 +17,12 @@ $companyName = $row['companyName'];
 
 
 <div class="topnav">
-            <h1>Home</h1>
+<?php
+        echo "<h1>$page_title</h1>";
+    ?>
+    <div class="notification">
+        <i class="bi bi-bell-fill"></i>
+        </div>
             <div class="active-user">
             <button id="dropdown-button" class="link-button" onclick="toggleDropdown()">
                 <span id="dropdown-text"><?php echo $companyName; ?></span>

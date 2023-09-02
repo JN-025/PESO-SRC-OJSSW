@@ -1,6 +1,7 @@
 <?php
 include "../conn.php";
 session_start();
+$error = "";
 if(isset($_POST["submit"])){
     $companyName = $_POST["companyName"];
     $industry = $_POST["industry"];
@@ -11,7 +12,7 @@ if(isset($_POST["submit"])){
     $confirm_password = $_POST["confirm_password"];
 
     if($password !== $confirm_password){
-        echo "password not match";
+        $error = "<div class='alert alert-danger'>Password not match, Please try again</div>";
     }
 
     $insert = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password) VALUES (?,?,?,?,?,?)";
@@ -21,7 +22,7 @@ if(isset($_POST["submit"])){
     } else {
         mysqli_stmt_bind_param($stmt, "ssssss", $companyName, $industry, $contactPerson, $contactNum, $email, $password);
         mysqli_stmt_execute($stmt);
-        header("location: login.php");
+        header("location: index.php");
     }
     
 }
@@ -47,6 +48,32 @@ if(isset($_POST["submit"])){
                 </div>
             </div>
             <div class="col-2">
+            <?php echo $error; ?>
+            <style>
+                .alert {  
+                    position: fixed;  
+                    padding: 1rem;
+                    border-radius: 5px;
+                    color: white;
+                    margin: 1rem 0;
+                }
+
+                .alert-success {
+                    background-color: #42ba96;
+                }
+
+                .alert-danger {
+                    background-color: #fc5555;
+                }
+
+                .alert-info {
+                    background-color: #2E9AFE;
+                }
+
+                .alert-warning {
+                    background-color: #ff9966;
+                }
+            </style>
                 <h1>CREATE YOUR ACCOUNT</h1>
                 <form action="" method="post">
                     <div class="form-col-1">
@@ -80,7 +107,7 @@ if(isset($_POST["submit"])){
                     <h5>By clicking register you agree in our&nbsp;&nbsp;<a href="#" id="myBtn">Terms & Agreement</a></h5>
                     <button name="submit">REGISTER</button>
                     <br><br>
-                    <h5>Already have an Account?&nbsp;&nbsp;<a href="login.php">LOG IN</a></h5>
+                    <h5>Already have an Account?&nbsp;&nbsp;<a href="index.php">LOG IN</a></h5>
                     </div>
                 </form>
             </div>
