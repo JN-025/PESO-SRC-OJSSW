@@ -372,7 +372,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
 <?php 
     include "../function.php";
-    include "sidenav.php";
+    include "applicant_sidenav.php";
     ?>
 
     <div class="cardA">

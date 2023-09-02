@@ -98,7 +98,7 @@ if(isset($_GET["W_applicant_id"]) && !empty(trim($_GET["W_applicant_id"]))){
 <body>
 <?php 
     include "../function.php";
-    include "sidenav.php";
+    include "applicant_sidenav.php";
     ?>
 
     <div class="cardA">
