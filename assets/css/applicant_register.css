@@ -123,11 +123,11 @@ input[type=text], input[type=password], input[type=number], input[type=email], s
     font-family: 'Times New Roman', Times, serif;
     border: solid 1.5px #76165B;
     box-shadow: 1px  1px 3px gray;
+    padding-left: 10px;
 }
 
 ::placeholder 
 {
-    padding-left: 3%;
     color: gray;
     font-size: 18px;   
 }
