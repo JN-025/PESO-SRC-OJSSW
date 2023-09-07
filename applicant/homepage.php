@@ -21,6 +21,7 @@ include '../conn.php';
     <?php 
     include "../function.php";
     include "sidenav.php";
+    include "topnav.php";
     ?>
     <div class="main-container">
         <div class="main-row">
@@ -70,7 +71,7 @@ include '../conn.php';
                                 <div>
                                 <button onclick="openTab('<?php echo $job_post_id; ?>')">Apply</button>
                                 </div>
-                                <img src="../assets/img/cityhall.png" alt="No image" srcset="">
+                                <img src="<?php echo $row['img']; ?>" alt="No image" srcset="../assets/img/default-img.jpg">
                              </div>
                         </div>
                         <?php
@@ -87,7 +88,10 @@ include '../conn.php';
             ?>
                     </div>
                     <div class="col-2-content-full" id="col-2-content-full">
-                        <p>Apply Job to Start</p>
+                    <div class="reminder">
+                    <i class="bi bi-exclamation-diamond"></i><p><span style="font-weight:bolder;">Job Application Reminder:</span>
+                            Before you apply for any job on PESO-SRC-OJSSW, we want to ensure that you're making informed career choices. Take a moment to reflect on your skills, interests, and strengths. When you find a job you're interested in, carefully read the job description and match your skills with the requirements.</p>
+                            </div>
                     </div>
                 </div>
             </div>

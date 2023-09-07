@@ -10,6 +10,7 @@
   display: flex;
 }
 .sidenav {
+  margin-top: 70px;
     height: 100vh;
     width: 20%;
     background-color: #76165B;
@@ -37,9 +38,6 @@
   }
 .sidenav .col-side{
   margin-top: 30px;
-}
-.sidenav .signout{
-  margin-top: 12%;
 }
   .noHover {
     pointer-events: none;
