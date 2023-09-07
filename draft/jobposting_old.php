@@ -250,7 +250,6 @@ $page_title = "Job Posting";
                  // Attempt to execute the prepared statement
                  if(mysqli_stmt_execute($stmt)){
                     // Records created successfully. Redirect to landing page
-                    echo "successful";
                     header("location: jobpost.php");
                     exit();
                 } else{
@@ -283,12 +282,12 @@ mysqli_close($link);
 <body>
     <?php 
     include "../function.php";
-    include "../company/sidenav.php";
+    include "sidenav.php";
     ?>
     
         <div class="card1">
             <?php 
-                include "../company/topnav.php";
+                include "topnav.php";
             ?>
             <center>
             <div class="card2">
@@ -297,10 +296,66 @@ mysqli_close($link);
                     <h1>POST A JOB!</h1>
                     <br>
                     <!-- One "tab" for each step in the form: -->
+
                     
                     <div class="tab">
                         <div class="card4">
                             <h2>Job Description:</h2>
+
+                            <div class="form-card">
+                                <?php
+                                require_once "../conn_jobpost.php";
+		if(isset($_POST['submit']))
+		{	
+			$title=$_POST['title'];
+$folder = "uploads/";
+$image_file=$_FILES['image']['name'];
+ $file = $_FILES['image']['tmp_name'];
+ $path = $folder . $image_file;  
+ $target_file=$folder.basename($image_file);
+ $imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
+//Allow only JPG, JPEG, PNG & GIF etc formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+ $error[] = 'Sorry, only JPG, JPEG, PNG & GIF files are allowed';   
+}
+//Set image upload size 
+    if ($_FILES["image"]["size"] > 1048576) {
+   $error[] = 'Sorry, your image is too large. Upload less than 1 MB in size.';
+}
+if(!isset($error))
+{
+	//move image to the folder 
+move_uploaded_file($file,$target_file); 
+$result=mysqli_query($db,"INSERT INTO c_jobposts(image,title) VALUES('$image_file','$title')"); 
+if($result)
+{
+	$image_success=1;  
+}
+else 
+{
+	echo 'Something went wrong'; 
+}
+}
+		}
+if(isset($error)){ 
+
+foreach ($error as $error) { 
+	echo '<div class="message">'.$error.'</div><br>'; 	
+}
+}
+	?> 
+	<div class="container">
+	<?php if(isset($image_success))
+		{
+		echo '<div class="success">Image Uploaded successfully</div>'; 
+		} ?>
+                                <div class="form-col-2">
+                                    <input type="file" name="image" placeholder="" class="" value="">
+                                    
+                                </div>
+                            </div>
+
                             <div class="form-card">
                                 <div class="form-col-2">
                                     <input type="text" name="jobTitle" placeholder="Job Title" class="form-control <?php echo (!empty($jobTitle_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $jobTitle; ?>">
@@ -518,6 +573,6 @@ mysqli_close($link);
             </center>
         </div>
 
-        <script src="../assets/js/company/jobposting_draft.js"></script>
+        <script src="../assets/js/company/jobposting.js"></script>
 </body>
 </html>

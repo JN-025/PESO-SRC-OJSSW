@@ -58,10 +58,13 @@ if(isset($_GET["W_applicant_id"]) && !empty(trim($_GET["W_applicant_id"]))){
                 $W_activelyLooking = $row["W_activelyLooking"];
                 $W_willinglyWork = $row["W_willinglyWork"];
                 $W_fourPsBeneficiary = $row["W_fourPsBeneficiary"];
+                
+
+
 
             } else{
                 // URL doesn't contain valid id parameter. Redirect to error page
-                header("location: W_APPLICANT_ERROR.php");
+                header("location: Wapplicant_error.php");
                 exit();
             }
             
@@ -77,7 +80,7 @@ if(isset($_GET["W_applicant_id"]) && !empty(trim($_GET["W_applicant_id"]))){
     mysqli_close($link);
 } else{
     // URL doesn't contain id parameter. Redirect to error page
-    header("location: W_APPLICANT_ERROR.php");
+    header("location: Wapplicant_error.php");
     exit();
 }
 ?>
@@ -87,23 +90,20 @@ if(isset($_GET["W_applicant_id"]) && !empty(trim($_GET["W_applicant_id"]))){
 <head>
     <meta charset="UTF-8">
     <title>View Record</title>
+    <link rel="icon" type="image/x-icon" href="../IMAGES/PESO_LOGO.png">
+    <link rel="stylesheet" href="../assets/css/Wapplicant.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .wrapper{
-            width: 600px;
-            margin: 0 auto;
-        }
-    </style>
+    
 </head>
 <body>
 <?php 
     include "../function.php";
-    
+    include "applicant_sidenav.php";
     ?>
 
     <div class="cardA">
             <?php 
-                
+                include "topnav.php";
             ?>
             <center>
             <div class="cardB">
@@ -197,11 +197,22 @@ if(isset($_GET["W_applicant_id"]) && !empty(trim($_GET["W_applicant_id"]))){
                     
                     
                     </div>
+
+                    <br> <br>
                     
-                    <p><a href="Wapplicant.php" class="btn btn-primary">Back</a></p>
+                    <center><a href="Wapplicant.php" style="width: 150px; height: 50px; font-size: 25px; background: #7A0042" class="btn btn-primary">Back</a></center>
                 </div>
             </div>        
         </div>
     </div>
+</div>
+
+
+</div>
+    </div>
+    </center>
+    </div>
+
+
 </body>
 </html>

@@ -23,35 +23,34 @@ $page_title = "Walk-in Applicant";
 <body>
 <?php 
     include "../function.php";
-    include "applicant_sidenav.php";
+    include "../peso/applicant_sidenav.php";
     ?>
 
     <div class="cardA">
             <?php 
-                include "topnav.php";
+                include "../peso/topnav.php";
             ?>
             <center>
             <div class="cardB">
                 <div class="cardC">
 
     <div class="card1">
-        <div class="wrapper" style="background: salmon;">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="mt-5 mb-3 clearfix" style="position: relative;">
-                            
-                                <h2 class="pull-left">WALK IN APPLICANTS</h2>
-                            
+    <div class="wrapper" style="background: salmon;">
+    <div class="container-fluid">
+        <div class="row">
+                            <div class="card2" style="background: pink; width: 100%;">
+                            <h2>WALK IN APPLICANTS</h2>
+                            </div>      
+                            <br>     
                             <div class="card2">
-                                <a href="Wapplicant_create.php" style="background: #7A0042" class="btn btn-success pull-left"><i class="fa fa-plus"></i> ADD NEW APPLICANT</a>
+                                <a href="Wapplicant_create.php" style="background: #7A0042" class="btn btn-success -left"><i class="fa fa-plus"></i> ADD NEW APPLICANT</a>
+                            </div>
                             </div>
                         </div>
                         <div class="card3">
                         <?php
                         // Include config file
-                        require_once "Wapplicant_config.php";
+                        require_once "../peso/Wapplicant_config.php";
                         
                         // Attempt select query execution
                         $sql = "SELECT * FROM walkin_applicant";
@@ -98,9 +97,7 @@ $page_title = "Walk-in Applicant";
                         mysqli_close($link);
                         ?>
                         </div>
-                    </div>
-                </div>        
-            </div>
+                    
         </div>
     </div>
     
