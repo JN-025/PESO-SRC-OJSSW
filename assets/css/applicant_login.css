@@ -13,7 +13,7 @@
     width: 82%;
     height: 100vh;
     overflow: hidden;
-    background-image: url(../img/register_bg.png);
+    background-image: url(../img/cityhall.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -86,6 +86,7 @@ input[type=text], input[type=password], input[type=number], input[type=email], s
     font-size: 18px;   
 }
 .form-col-1 button{
+    cursor: pointer;
     border: none;
     margin-top: 5%;
     height: 6vh;
@@ -96,11 +97,10 @@ input[type=text], input[type=password], input[type=number], input[type=email], s
     border-radius: 20px;
     box-shadow: 0px 4px 4px 0px #D853B3 inset;
     box-shadow: 0px 4px 4px 0px #5B1146;
+    transition: 0.2s;
 }
-
 .form-col-1 button:hover{
-    background-color: #5E1148;
-    
+    opacity: 0.6;
 }
 @media only screen and (max-width: 880px) {
     .col-1{
@@ -108,7 +108,7 @@ input[type=text], input[type=password], input[type=number], input[type=email], s
     }
     .col-2{
         width: 100%;
-        background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(../img/register_bg.png);
+        background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(../img/cityhall.png);
         background-repeat: no-repeat;
         background-size: cover;
     }

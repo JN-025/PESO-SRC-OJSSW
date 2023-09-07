@@ -18,61 +18,98 @@ include '../conn.php';
     <link rel="stylesheet" href="../assets/css/applicant_homepage.css">
 </head>
 <body>
-<?php 
-        include "../function.php";
-        include "sidenav.php";
-
-        ?>
-            <div class="card2">
-                <div class="card3">
-                <?php
-                    // Include config file
-                    require_once "../conn_jobpost.php";
-                    // Attempt select query execution
-                    $sql = "SELECT * FROM c_jobpost";
-                    if($result = mysqli_query($link, $sql)){
-                        if(mysqli_num_rows($result) > 1){
-                            echo "<h1>RECOMMENDED JOB<br><br></h1>";
-                            while($row = mysqli_fetch_array($result)){
-                                ?>
-
-                        <div class="card4">
-                            <h2><?php echo $row['jobTitle']; ?></h2>
-                            <h3>Company Name:  <?php echo $row['companyName']; ?></h3>
-                            <h3>Company Industry:  <?php echo $row['industry']; ?></h3>
-                            <h3>Work Location:  <?php echo $row['workLocation']; ?></h3>
-                            <h3>Slots:  <?php echo $row['slot']; ?></h3>
-                            <h3>Salary:  <?php echo $row['salary']; ?></h3>
-                            <h3>Skills:  <?php echo $row['skills']; ?></h3>
-                            <button class="apply"><a href="job.php?c_jobpost_id=<?php echo $row['c_jobpost_id']; ?>" style="text-decoration: none;">Apply</a></button>
-
+    <?php 
+    include "../function.php";
+    include "sidenav.php";
+    ?>
+    <div class="main-container">
+        <div class="main-row">
+            <div class="col-1">
+            <div class="header">
+                        <form action="">
+                            <h1>Home</h1>
+                            <div class="search-box upper-search">
+                            <input type="text" class="search-engine-1" placeholder="Skills, Company, or Job Title">
+                            <input type="text" class="search-engine-2" placeholder="Location">
+                            <input type="text" class="search-engine-3" placeholder="Experience">
+                            <button>Search</button>
+                            </div>
+                            <div class="search-box lower-search">
+                            <label for="">JOB SEARCH</label>
+                            <input type="text" class="filter-engine-1" placeholder="Manager">
+                            <input type="text" class="filter-engine-2" placeholder="Santa Rosa, Laguna">
+                            <input type="text" class="filter-engine-3" placeholder="30000 Pesos">
+                            <input type="text" class="filter-engine-4" placeholder="2-3 Years Experience">
+                            <input type="text" class="filter-engine-5" placeholder="Construction">
+                            <button>Filter</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+            <div class="col-2">
+                <div class="col-2-row">
+                    <div class="col-2-content">
+                    <?php
+                        $sql = "SELECT * FROM c_jobpost";
+                        if($result = mysqli_query($conn, $sql)){
+                            if (mysqli_num_rows($result) > 0) {
+                                while($row = mysqli_fetch_array($result)){
+                                    $job_post_id = $row['c_jobpost_id'];
+                                    ?>
+                             <div class="description">
+                             <div class="desc-col-1">
+                             <h2><?php echo $row['jobTitle']; ?></h2>
+                            <h3>Company Name:</h3><p><?php echo $row['companyName']; ?></p>
+                            <h3>Company Industry:</h3><p> <?php echo $row['industry']; ?></p>
+                            <h3>Work Location: </h3><p> <?php echo $row['workLocation']; ?></p>
+                            <h3>Slots: </h3><p> <?php echo $row['slot']; ?></p>
+                            <h3>Salary: </h3><p> <?php echo $row['salary']; ?></p>
+                            <h3>Skills: </h3><p> <?php echo $row['skills']; ?></p>
+                             </div>
+                             <div class="desc-col-2">
+                                <div>
+                                <button onclick="openTab('<?php echo $job_post_id; ?>')">Apply</button>
+                                </div>
+                                <img src="../assets/img/cityhall.png" alt="No image" srcset="">
+                             </div>
                         </div>
-
                         <?php
-
+                            }
+                        mysqli_free_result($result);
+                    } else {
+                        echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
                     }
-
-                    // Free result set
-                    mysqli_free_result($result);
                 } else {
-                    echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                    echo "Oops! Something went wrong. Please try again later.";
                 }
-            } else {
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close connection
-            mysqli_close($link);
-        ?>
-
-
+    
+                mysqli_close($conn);
+            ?>
+                    </div>
+                    <div class="col-2-content-full" id="col-2-content-full">
+                        <p>Apply Job to Start</p>
+                    </div>
                 </div>
-
-
-
             </div>
         </div>
-
-        
+    </div>
 </body>
 </html>
+<script>
+function openTab(jobPostId) {
+    // Make an AJAX request to fetch job details
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            // Display the job details in col-2-content-full
+            var col2ContentFull = document.getElementById("col-2-content-full");
+            col2ContentFull.innerHTML = this.responseText;
+
+            // Show col-2-content-full in fullscreen
+            col2ContentFull.style.display = "block";
+        }
+    };
+    xhttp.open("GET", "get_job_details.php?jobPostId=" + jobPostId, true);
+    xhttp.send();
+}
+</script>
