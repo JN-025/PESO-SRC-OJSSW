@@ -14,26 +14,30 @@
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
 
-<?php
+
+        <?php
         if(isset($_POST['signup'])){
             $firstname = $_POST['firstname'];
             $lastname = $_POST['lastname'];
             $password = $_POST['password'];
             $email = $_POST['email'];
+            $confirm_password = $_POST['confirm_password'];
            
             $message = "$lastname $firstname would like to request an account.";
-            
+        
             $query = "INSERT INTO `requests` (`id`, `firstname`, `lastname`, `email`, `password`, `message`, `date`) VALUES (NULL, '$firstname', '$lastname', '$email', '$password', '$message', CURRENT_TIMESTAMP)";
-            if(password === confirm_password){
-            (performQuery($query))
-                echo "<script>alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
-            }else{
-                echo "<script>alert('Unknown error occured.')</script>";
+
+            if($password != $confirm_password){
+                echo "<script> alert('Please enter the same password')</script>";
+            }
+            else{
+                performQuery($query);
+                echo "<script> alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
             }
         }
-    
-    
-    
+        else{
+            echo "<script> alert('Unknown error occurred.')</script>";
+        }
     ?>
 
 
@@ -90,6 +94,9 @@
                     </div>
                     <div class="form-col-1">
                     <input type="password" placeholder="Password" name="password" id="myInput1" oninput="validatePassword()" required maxlength="20">
+                    </div>
+                    <div class="form-col-1">
+                    <input type="password" placeholder="Password" name="confirm_password" id="myInput2"  required maxlength="20">
                     </div>
                     
                     
