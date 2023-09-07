@@ -7,6 +7,7 @@ $page_title = "Find Jobs";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Find Jobs</title>
+    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/applicant_find_jobs.css">
     <link rel="stylesheet" href="../assets/css/applicant_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">

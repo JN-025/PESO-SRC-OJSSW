@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Luckiest+Guy&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Times New Roman', Times, serif;
 }
 /*loader*/
 .loader {
@@ -69,88 +70,153 @@
     width: 40%;
 }
 .col-1 .wordbox{
-    margin-top: 12%;
+    margin-top: 15%;
     text-align: center;
 }
 .col-1 h1{
     font-size: 22px;
     color: #fff;
+    font-family: 'Gelasio', serif;
 }
 .col-1 h2{
     margin-top: 5px;
     font-size: 45px;
     color: #fff;
+    font-family: 'Gelasio', serif;
 }
 .col-1 h3{
-    font-size: 30px;
-    margin-top: 10%;
+    font-weight: 400;
+    font-size: 25px;
     color: #fff;
+    font-family: 'Luckiest Guy', cursive;
+}
+.col-1 .field-space{
+    margin-top: 15%;
 }
 .col-2 {
-    width: 100%;
+    width: 70%;
     height: 100vh;
+    font-family: 'Mohave', sans-serif;
+}
+.col-2 .field-space{
+    margin-top: 5%;
 }
 .col-2 h1{
     font-size: 30px;
     color: #76165B;
-    font-weight: bolder;
-    margin-top: 80px;
     text-align: center;
     justify-content: center;
 }
 .col-2 .form-col-1 {
-    padding: 0 20%;
+    padding: 0 10%;
     margin-top: 20px;
     text-align: center;
 }
+.col-2 .form-col-1 img{
+    width: 30px;
+    z-index: 5;
+}
 .col-2 .form-col-2{
-    width: 60%;
-    padding: 0 20%;
+    padding: 0 10%;
     margin-top: 20px;
-    text-align: center;
     display: flex;
     justify-content: space-between; 
 }
 .field-space {
-    margin-left: 10px;
+    margin-left: 15%;
 }
 
-input[type=text], input[type=password], input[type=number], input[type=email], select
+input[type=text], input[type=password], input[type=number], input[type=email],input[type=tel], select
 {
-    width: 100%;
-    height: 30px;
+    border: none;
+    width: 98%;
+    height: 40px;
     font-size: 18px;
-    font-family: 'Times New Roman', Times, serif;
-    border: solid 1.5px #76165B;
-    box-shadow: 1px  1px 3px gray;
     padding-left: 10px;
+    background-color: #F1E4E4;
+    border-radius: 10px;
 }
-
+select,
+select option {
+  color: #000000;
+}
+select:invalid,
+select option[value=""] {
+  color: #999999;
+}
 ::placeholder 
 {
-    color: gray;
+    color: #999999;
     font-size: 18px;   
 }
 .form-col-1 button{
+    border: none;
     margin-top: 5%;
     height: 6vh;
-    width: 45%;
-    background-color: #76165B;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2vw;
+    width: 50%;
+    background-color: #B0368E;
+    color: #fff;
+    font-size: 20px;
     border-radius: 20px;
+    box-shadow: 0px 4px 4px 0px #D853B3 inset;
+    box-shadow: 0px 4px 4px 0px #5B1146;
 }
 
 .form-col-1 button:hover{
     background-color: #5E1148;
     
 }
+.form-col-1 h5{
+    color: #AD2C89;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Modal */
+.modal {
+    padding: 5% 25%;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+
+}
+.modal-box{
+    padding: 20px;
+    width: 50%;
+    background-color: #fff;
+    height: 80vh;
+    overflow: auto;
+    border-radius: 10px;
+}
+.modal-box .modal-content h2{
+    text-align: center;
+}
+.close {
+    background-color: #fff;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    position: absolute;
+    margin: 0 31%;
+    cursor: pointer;
+    color: red;
+}
+
 @media only screen and (max-width: 880px) {
     .col-1{
         display: none;
     }
     .col-2{
+        width: 100%;
+        height: 100vh;
         background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(../img/register_bg.png);
         background-repeat: no-repeat;
         background-size: cover;

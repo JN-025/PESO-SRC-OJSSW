@@ -1,23 +1,19 @@
-.card1
-{
-    height: 250vh;
-    width: 100%;
-    background-color: white;
+*{
+    margin-left: 20%;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .card2
 {
-    height: 200vh;
-    width: 80%;
-    background-color: white;
+
+
+    background-color: red;
     margin-left: 20%;
-    padding-top: 20vh;
 }
 
 .card3
 {
-    width:80%;
-    height: 150vh;
     background-color: white;
     padding-left: 3%;
     

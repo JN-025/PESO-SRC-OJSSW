@@ -48,6 +48,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Account</title>
     <link rel="stylesheet" href="../assets/css/applicant_login.css">
+    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
 </head>
 <body>
     <div class="main-container">
@@ -57,7 +58,9 @@
                 <div class="wordbox">
             <h1>PUBLIC EMPLOYMENT SERVICE OFFICE (PESO)</h1>
                 <h2>SANTA ROSA, LAGUNA</h2>
-                <h3>YOU PARTNER IN FINDING A BETTER JOB!</h3>
+                <div class="field-space"></div>
+                <h3>YOU PARTNER IN FINDING A BETTER</h3>
+                <h3>JOB!</h3>
                 </div>
             </div>
             <div class="col-2">
@@ -87,19 +90,20 @@
                     background-color: #ff9966;
                 }
             </style>
-                <h1 for="">WELCOME BACK<br> PARTNER!</h1>
+            <div class="field-space"></div>
+                <h1 for="">Welcome Back,<br> Partner!</h1>
                 <form action="" method="post">
                     <div class="form-col-1">
-                    <label for="">LOG IN</label>
+                    <label for="">Login back to your account</label>
                     <input type="email" placeholder="Email Address" name="email" required maxlength="50">
                     </div>
                     <div class="form-col-1">
                     <input type="password" placeholder="Password" name="password" id="myInput1" oninput="validatePassword()" required maxlength="20">
                     </div>
                     <div class="form-col-1">
-                    <button name="submit">LOG IN</button>
+                    <button name="submit">LOGIN</button>
                     <br><br>
-                    <h5>Create an Account?&nbsp;&nbsp;<a href="register.php">SIGN UP</a></h5>
+                    <h5>Don't have an Account?&nbsp;&nbsp;<a href="register.php">SIGN UP</a></h5>
                     </div>
                 </form>
             </div>

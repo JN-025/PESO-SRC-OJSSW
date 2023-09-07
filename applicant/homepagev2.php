@@ -15,28 +15,28 @@ include '../conn.php';
     <title>Homepage</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/css/applicant_homepage.css">
+    <link rel="stylesheet" href="../assets/css/applicant_homepagev2.css">
 </head>
 <body>
 <?php 
         include "../function.php";
         include "sidenav.php";
-
         ?>
-            <div class="card2">
-                <div class="card3">
-                <?php
-                    // Include config file
-                    require_once "../conn_jobpost.php";
-                    // Attempt select query execution
-                    $sql = "SELECT * FROM c_jobpost";
-                    if($result = mysqli_query($link, $sql)){
-                        if(mysqli_num_rows($result) > 1){
-                            echo "<h1>RECOMMENDED JOB<br><br></h1>";
-                            while($row = mysqli_fetch_array($result)){
-                                ?>
-
-                        <div class="card4">
+        <div class="main-container">
+            <div class="main-row">
+                <div class="col-1">
+                    <div class="header">
+                        <h1>RECOMMENDED JOBS</h1>
+                        <button>FILTER</button>
+                    </div>
+                    <div class="content-box">
+                    <?php
+                        $sql = "SELECT * FROM c_jobpost";
+                        if($result = mysqli_query($conn, $sql)){
+                            if (mysqli_num_rows($result) > 1) {
+                                while($row = mysqli_fetch_array($result)){
+                                    ?>
+                             <div class="description">
                             <h2><?php echo $row['jobTitle']; ?></h2>
                             <h3>Company Name:  <?php echo $row['companyName']; ?></h3>
                             <h3>Company Industry:  <?php echo $row['industry']; ?></h3>
@@ -45,34 +45,25 @@ include '../conn.php';
                             <h3>Salary:  <?php echo $row['salary']; ?></h3>
                             <h3>Skills:  <?php echo $row['skills']; ?></h3>
                             <button class="apply"><a href="job.php?c_jobpost_id=<?php echo $row['c_jobpost_id']; ?>" style="text-decoration: none;">Apply</a></button>
-
                         </div>
-
                         <?php
-
+                            }
+                        mysqli_free_result($result);
+                    } else {
+                        echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
                     }
-
-                    // Free result set
-                    mysqli_free_result($result);
                 } else {
-                    echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                    echo "Oops! Something went wrong. Please try again later.";
                 }
-            } else {
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close connection
-            mysqli_close($link);
-        ?>
-
+    
+                mysqli_close($conn);
+            ?>
+                    </div>
+                </div>
+                <div class="col-2">
 
                 </div>
-
-
-
             </div>
         </div>
-
-        
 </body>
 </html>
