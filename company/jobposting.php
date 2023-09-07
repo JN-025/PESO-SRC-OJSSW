@@ -296,10 +296,11 @@ mysqli_close($link);
                     <h1>POST A JOB!</h1>
                     <br>
                     <!-- One "tab" for each step in the form: -->
-                    
+                
                     <div class="tab">
                         <div class="card4">
                             <h2>Job Description:</h2>
+                            <br>
                             <div class="form-card">
                                 <div class="form-col-2">
                                     <input type="text" name="jobTitle" placeholder="Job Title" class="form-control <?php echo (!empty($jobTitle_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $jobTitle; ?>">
@@ -376,12 +377,14 @@ mysqli_close($link);
                             
                         </div>
                     </div>
-                    
+                
             
 
                     <div class="tab">
                         <div class="card4">
                             <h2>Job Qualification:</h2>
+                            <br>
+                            <h3><span style="color: #800;">*</span>Only input <span style="color: #9D1477;">YES</span> or <span style="color: #9D1477;">NO</span> questions.</h3>
                             <br>
                             <div class="form-card">
                                 <div class="form-col-1">
@@ -392,7 +395,7 @@ mysqli_close($link);
                                     <div class="field-space-1"></div>
                                     <div class="columnB">
                                     <select class="form-control <?php echo (!empty($answer1_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $answer1; ?>" name="answer1" required>
-                                            <option value="" selected disabled>Answer</option>
+                                            
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
                                         </select>                                        
@@ -410,7 +413,7 @@ mysqli_close($link);
                                     <div class="field-space-1"></div>
                                     <div class="columnB">
                                     <select class="form-control <?php echo (!empty($answer2_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $answer2; ?>" name="answer2" required>
-                                            <option value="" selected disabled>Answer</option>
+                                           
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
                                         </select>                                        
@@ -429,7 +432,7 @@ mysqli_close($link);
                                     <div class="field-space-1"></div>
                                     <div class="columnB">
                                     <select class="form-control <?php echo (!empty($answer3_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $answer3; ?>" name="answer3" required>
-                                            <option value="" selected disabled>Answer</option>
+                                            
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
                                         </select>                                        
@@ -448,7 +451,7 @@ mysqli_close($link);
                                     <div class="field-space-1"></div>
                                     <div class="columnB">
                                     <select class="form-control <?php echo (!empty($answer4_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $answer4; ?>" name="answer4" required>
-                                            <option value="" selected disabled>Answer</option>
+                                            
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
                                         </select>                                        
@@ -467,7 +470,7 @@ mysqli_close($link);
                                     <div class="field-space-1"></div>
                                     <div class="columnB">
                                     <select class="form-control <?php echo (!empty($answer5_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $answer5; ?>" name="answer5" required>
-                                            <option value="" selected disabled>Answer</option>
+                                            
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
                                         </select>                                        
@@ -481,11 +484,16 @@ mysqli_close($link);
                         
                     </div>
 
+
                     <div class="tab">
                         <div class="card4">
                         <h2>Confirmation:</h2>
-                        <h3>Note: Please make sure that all the details you entered are correct. Are you sure you want to post this job? If yes please click the "Submit" button. Thank you very much.</h3>
-</div>
+                        <br>
+                        <h3 style="color: #800;">Note: Please make sure that all details are correct.</h3>
+                        <br>
+                        <h4>Are you sure you want to post this job?</h4>
+                        <h4>If yes, click "<span style="color: #9E1578;">Submit</span>".</h4>
+                    </div>
                         
                     </div>
                     
