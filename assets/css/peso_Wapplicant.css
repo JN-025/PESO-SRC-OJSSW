@@ -36,8 +36,9 @@
 {
     
     height: 50px;
-    background-color: white;
+    background-color: pink;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .card3
@@ -89,7 +90,8 @@
 .wrapper{
     width: 95%;
     margin: 10px;
-    background-color: transparent;
+    background-color: pink;
+    
 }
 table tr td:first-child{
     width: 50px;

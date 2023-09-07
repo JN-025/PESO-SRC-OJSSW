@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $position = mysqli_real_escape_string($conn, $_POST['position']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    $select = "SELECT * FROM p_accounttb WHERE email = '$email' AND name = '$name' AND position = '$position' AND password = '$password'";
+    $select = "SELECT * FROM p_accounttb_draft WHERE email = '$email' AND name = '$name' AND position = '$position' AND password = '$password'";
     $result = mysqli_query($conn, $select);
 
     if (mysqli_num_rows($result) == 1) {
