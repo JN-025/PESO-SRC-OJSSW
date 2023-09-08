@@ -290,7 +290,7 @@ if ($stmt->execute()) {
                 <!-- Step 1 Content -->
             <div class="wrapper">
                 <section id="step-1" class="form-step">
-                    <h2 class="font-normal">I. PERSONAL INFORMATION</h2>
+                    <h1 class="font-normal">I. PERSONAL INFORMATION</h1>
                     <!-- Step 1 input fields -->
                     <div class="mt-3">
                         <!--input field insert-->
@@ -303,7 +303,7 @@ if ($stmt->execute()) {
                     <div class="mt-3">
   
                         <label for=""><h2>Type of jobseeker</h2></label>
-                        <select style="width:200px;" class="" name="jobseekerType" required>
+                        <select class="" name="jobseekerType" required>
                                         <option value="" selected hidden>Select Type</option>
                                         <option value="first_time">FIRST TIME</option>
                                         <option value="jobseeker">JOBSEEKER</option>
@@ -453,14 +453,13 @@ if ($stmt->execute()) {
                     </div>
                     <!--next button-->
                     <div class="mt-3">
-                        <button class="button btn-navigate-form-step" type="button">Save</button>
                         <button class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
                     </div>
                     </div>
                 </section>
                 <!-- Step 2 Content, default hidden on page load. -->
                 <section id="step-2" class="form-step d-none">
-                    <h2 class="font-normal">II. EDUCATIONAL BACKGROUND</h2>
+                    <h1 class="font-normal">II. EDUCATIONAL BACKGROUND</h1>
                     <!-- Step 2 input fields -->
                     <div class="mt-3">
                         <label for=""><h2>Currently in School</h2></label>
@@ -508,10 +507,10 @@ if ($stmt->execute()) {
                 </section>
                 <!-- Step 3 Content, default hidden on page load. -->
                 <section id="step-3" class="form-step d-none">
-                    <h2 class="font-normal">III. JOB PREFERENCE</h2>
+                    <h1 class="font-normal">III. JOB PREFERENCE</h1>
                     <!-- Step 3 input fields -->
                     <div class="mt-3">
-                    <table style="width:100%">
+                    <table>
                                             
                      <tr>
                         <th><h4>PREFERRED OCCUPATION</h4>
@@ -523,26 +522,26 @@ if ($stmt->execute()) {
                     </tr>
                     <tr>
                         <td>
-                            <input style="width:100%;" type="text" name="occupation1" placeholder="PREFERRED OCCUPATION #1" required maxlength="50">
+                            <input type="text" name="occupation1" placeholder="PREFERRED OCCUPATION #1" required maxlength="50">
                          </td>
                          <td>
-                            <input style="width:100%;" type="text" name="industry1" placeholder="PREFERRED INDUSTRY #1" required maxlength="50">
+                            <input type="text" name="industry1" placeholder="PREFERRED INDUSTRY #1" required maxlength="50">
                           </td>
                      </tr>
                      <tr>
                            <td>
-                            <input style="width:100%;" type="text" name="occupation2" placeholder="PREFERRED OCCUPATION #2" required maxlength="50">
+                            <input type="text" name="occupation2" placeholder="PREFERRED OCCUPATION #2" required maxlength="50">
                             </td>
                               <td>
-                            <input style="width:100%;" type="text" name="industry2" placeholder="PREFERRED INDUSTRY #2" required maxlength="50">
+                            <input type="text" name="industry2" placeholder="PREFERRED INDUSTRY #2" required maxlength="50">
                              </td>
                       </tr>
                     <tr>
                              <td>
-                            <input style="width:100%;" type="text" name="occupation3" placeholder="PREFERRED OCCUPATION #3" required maxlength="50">
+                            <input type="text" name="occupation3" placeholder="PREFERRED OCCUPATION #3" required maxlength="50">
                             </td>
                              <td>
-                            <input style="width:100%;" type="text" name="industry3" placeholder="PREFERRED INDUSTRY #3" required maxlength="50">
+                            <input type="text" name="industry3" placeholder="PREFERRED INDUSTRY #3" required maxlength="50">
                              </td>
                       </tr>
                                            
@@ -552,7 +551,7 @@ if ($stmt->execute()) {
                                         </table>
                             <div class="mt-3">
                         <label for=""><h2>PREFERRED WORK LOCATION</h2></label>
-                        <select style="width:100%;"class="" name="employment_status" required>
+                        <select class="" name="employment_status" required>
                                                 <option value="none" selected hidden></option>
                                                 <option value="none">none</option>
                                                 <option value="local">LOCAL</option>
@@ -567,7 +566,7 @@ if ($stmt->execute()) {
                 </section>
                 <!-- Step 4 Content, default hidden on page load. -->
                 <section id="step-4" class="form-step d-none">
-                    <h2 class="font-normal">IV. TECHNICAL/VOCATIONAL/OTHER TRAINING</h2>
+                    <h1 class="font-normal">IV. TECHNICAL/VOCATIONAL/OTHER TRAINING</h1>
                     <!-- Step 4 input fields -->
                     <div class="mt-3">
                         <label for=""><h2>CURRENTLY IN TRAINING?</h2></label>
@@ -579,7 +578,7 @@ if ($stmt->execute()) {
                     </div>
                     <div class="mt-3">
                         <label for=""><h2></h2></label>
-                        <table style="width:100%;">
+                        <table >
                                             <tr>
                                               <th style="width: 45%">TRAINING</th>
                                               <th style="width: 45%">DURATION OF COURSES</th>
@@ -588,7 +587,7 @@ if ($stmt->execute()) {
         
                                             </tr>
                                             <tr>
-                                              <td><input style=width:100%;float:left; type="text" name="training1" placeholder="TRAINING #1" required maxlength="50"></td>
+                                              <td><input type="text" name="training1" placeholder="TRAINING #1" required maxlength="50"></td>
                                               <td>
                                                 <input style=width:48%;float:left; type="date" name="startDuration1" placeholder="" required>
                                                 <input style=width:48%;float:left; type="date" name="endDuration1" placeholder="" required>
@@ -596,14 +595,14 @@ if ($stmt->execute()) {
                                               
                                             </tr>
                                             <tr>
-                                                <td><input style=width:100%;float:left; type="text" name="training2" placeholder="TRAINING #2" required maxlength="50"></td>
+                                                <td><input type="text" name="training2" placeholder="TRAINING #2" required maxlength="50"></td>
                                                 <td><input style=width:48%;float:left; type="date" name="startDuration2" placeholder="" required>
                                                 <input style=width:48%;float:left; type="date" name="endDuration2" placeholder="" required>
                                             </td>
                                                 
                                             </tr>
                                             <tr>
-                                                <td><input style=width:100%;float:left; type="text" name="training3" placeholder="TRAINING #3" required maxlength="50"></td>
+                                                <td><input type="text" name="training3" placeholder="TRAINING #3" required maxlength="50"></td>
                                                 <td>
                                                 <input style=width:48%;float:left; type="date" name="startDuration3" placeholder="" required>
                                                 <input style=width:48%;float:left; type="date" name="endDuration3" placeholder="" required>
@@ -625,7 +624,7 @@ if ($stmt->execute()) {
                                         </table>
                     </div>
                     <div class="mt-3">
-                    <table style="width:100%;">
+                    <table>
                                             <tr>
 
                                               <th>TRAINING INSTITUTION</th>
@@ -636,10 +635,10 @@ if ($stmt->execute()) {
                                             </tr>
                                             <tr>
                                             
-                                              <td><input style=width:100%;float:left; type="text" name="institution1" placeholder="INSTITUTION #1" required maxlength="50"></td>
-                                              <td><input style=width:100%;float:left; type="text" name="certificate1" placeholder="CERTIFICATE #1" required maxlength="50"></td>
+                                              <td><input type="text" name="institution1" placeholder="INSTITUTION #1" required maxlength="50"></td>
+                                              <td><input type="text" name="certificate1" placeholder="CERTIFICATE #1" required maxlength="50"></td>
                                               <td>
-                                                <select style=width:100%; class="" name="completion1" required>
+                                                <select class="" name="completion1" required>
                                                     <option value="" selected hidden></option>
                                                     <option value="yes">YES</option>
                                                     <option value="no">NO</option>
@@ -648,10 +647,10 @@ if ($stmt->execute()) {
                                             </tr>
                                             <tr>
                                               
-                                                <td><input style=width:100%;float:left; type="text" name="institution2" placeholder="INSTITUTION #2" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="text" name="certificate2" placeholder="CERTIFICATE #2" required maxlength="50"></td>
+                                                <td><input type="text" name="institution2" placeholder="INSTITUTION #2" required maxlength="50"></td>
+                                                <td><input type="text" name="certificate2" placeholder="CERTIFICATE #2" required maxlength="50"></td>
                                                 <td>
-                                                  <select style=width:100%; class="" name="completion2" required>
+                                                  <select class="" name="completion2" required>
                                                       <option value="" selected hidden></option>
                                                       <option value="yes">YES</option>
                                                       <option value="no">NO</option>
@@ -660,10 +659,10 @@ if ($stmt->execute()) {
                                             </tr>
                                             <tr>
                                                 
-                                                <td><input style=width:100%;float:left; type="text" name="institution3" placeholder="INSTITUTION #3" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="text" name="certificate3" placeholder="CERTIFICATE #3" required maxlength="50"></td>
+                                                <td><input type="text" name="institution3" placeholder="INSTITUTION #3" required maxlength="50"></td>
+                                                <td><input type="text" name="certificate3" placeholder="CERTIFICATE #3" required maxlength="50"></td>
                                                 <td>
-                                                  <select style=width:100%; class="" name="completion3" required>
+                                                  <select class="" name="completion3" required>
                                                       <option value="" selected hidden></option>
                                                       <option value="yes">YES</option>
                                                       <option value="no">NO</option>
@@ -679,29 +678,29 @@ if ($stmt->execute()) {
                 </section>
                  <!-- Step 5 Content, default hidden on page load. -->
                  <section id="step-5" class="form-step d-none">
-                    <h2 class="font-normal">Eligibility</h2>
+                    <h1 class="font-normal">Eligibility</h1>
                     <!-- Step 5 input fields -->
                     <div class="mt-3">
-                    <table style="width:100%;">
+                    <table>
                                             <tr>
-                                              <th style="width: 30%;">CAREER SERVICE/BOARD/BAR</th>
-                                              <th style="width: 30%;">LICENCE NUMBER</th>
-                                              <th style="width: 25%;">EXPIRY DATE</th>
+                                              <th>CAREER SERVICE/BOARD/BAR</th>
+                                              <th>LICENCE NUMBER</th>
+                                              <th>EXPIRY DATE</th>
                                             </tr>
                                             <tr>
-                                              <td><input style=width:100%;float:left; type="text" name="careerServ1" placeholder="" required maxlength="50"></td>
-                                              <td><input style=width:100%;float:left; type="text" name="licenceNum1" placeholder="" required maxlength="50"></td>
-                                              <td><input style=width:100%;float:left; type="date" name="expiryDate1" placeholder="MM/DD/YYYY" required></td>
+                                              <td><input type="text" name="careerServ1" placeholder="" required maxlength="50"></td>
+                                              <td><input type="text" name="licenceNum1" placeholder="" required maxlength="50"></td>
+                                              <td><input type="date" name="expiryDate1" placeholder="MM/DD/YYYY" required></td>
                                             </tr>
                                             <tr>
-                                                <td><input style=width:100%;float:left; type="text" name="careerServ2" placeholder="" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="text" name="licenceNum2" placeholder="" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="date" name="expiryDate2" placeholder="MM/DD/YYYY" required></td>
+                                                <td><input type="text" name="careerServ2" placeholder="" required maxlength="50"></td>
+                                                <td><input type="text" name="licenceNum2" placeholder="" required maxlength="50"></td>
+                                                <td><input type="date" name="expiryDate2" placeholder="MM/DD/YYYY" required></td>
                                             </tr>
                                             <tr>
-                                                <td><input style=width:100%;float:left; type="text" name="careerServ3" placeholder="" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="text" name="licenceNum3" placeholder="" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="date" name="expiryDate3" placeholder="MM/DD/YYYY" required></td>
+                                                <td><input type="text" name="careerServ3" placeholder="" required maxlength="50"></td>
+                                                <td><input type="text" name="licenceNum3" placeholder="" required maxlength="50"></td>
+                                                <td><input type="date" name="expiryDate3" placeholder="MM/DD/YYYY" required></td>
                                             </tr>
                                         </table>
                     </div>
@@ -720,12 +719,12 @@ if ($stmt->execute()) {
                                         <label for="cert_5">Test of Proficiency in Korea (TOPIC)</label><br>
                                         <input type="checkbox" id="cert_other" name="cert_other" value="">
                                         <label for="otherCertification">Other:</label>
-                                        <input style="width: 20%; height: 15px;" type="text" id="otherCertification" name="otherCertification" value="" maxlength="50">
+                                        <input type="text" id="otherCertification" name="otherCertification" value="" maxlength="50">
                                     </div>
                     </div>
                     <div class="mt-3">
                     <h4><label for="">VALIDITY DATE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <input style="width: 30%;" type="date" id="valid_date" name="validDate"  placeholder="MM/DD/YYYY" value="">
+                                            <input type="date" id="valid_date" name="validDate"  placeholder="MM/DD/YYYY" value="">
                                             <style>
                                             input[type=date]{
                                                         width: 50%;
@@ -762,40 +761,40 @@ if ($stmt->execute()) {
                 </section>
                 <!-- Step 6 Content, default hidden on page load. -->
                 <section id="step-6" class="form-step d-none">
-                    <h2 class="font-normal">VI. WORK EXPERIENCES</h2>
+                    <h1 class="font-normal">VI. WORK EXPERIENCES</h1>
                     <!-- Step 6 input fields -->
                     <div class="mt-3">
                     <h4 style="padding-left: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Limit the occupation for the last 10 years. Start with the most recent employment)</h4>
-                    <table style="width:100%;">
+                    <table>
                                             <tr>
                                               <th style="width: 25%">NAME OF OFFICE/COMPANY</th>
                                               <th style="width: 23%">ADDRESS</th>
                                             
                                             </tr>
                                             <tr>
-                                              <td><input style=width:100%;float:left; type="text" name="company1" placeholder="COMPANY #1" required maxlength="50"></td>
-                                              <td><input style=width:100%;float:left; type="text" name="cpAddress1" placeholder="ADDRESS #1" required maxlength="50"></td>
+                                              <td><input type="text" name="company1" placeholder="COMPANY #1" required maxlength="50"></td>
+                                              <td><input type="text" name="cpAddress1" placeholder="ADDRESS #1" required maxlength="50"></td>
                                               
                                             </tr>
                                             <tr>
-                                                <td><input style=width:100%;float:left; type="text" name="company2" placeholder="COMPANY #2" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="text" name="cpAddress2" placeholder="ADDRESS #2" required maxlength="50"></td>
+                                                <td><input type="text" name="company2" placeholder="COMPANY #2" required maxlength="50"></td>
+                                                <td><input type="text" name="cpAddress2" placeholder="ADDRESS #2" required maxlength="50"></td>
                                                
                                               </tr>
                                               <tr>
-                                                <td><input style=width:100%;float:left; type="text" name="company3" placeholder="COMPANY #3" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="text" name="cpAddress3" placeholder="ADDRESS #3" required maxlength="50"></td>
+                                                <td><input type="text" name="company3" placeholder="COMPANY #3" required maxlength="50"></td>
+                                                <td><input type="text" name="cpAddress3" placeholder="ADDRESS #3" required maxlength="50"></td>
                                                 
                                               </tr>
                                               <tr>
-                                                <td><input style=width:100%;float:left; type="text" name="company4" placeholder="COMPANY #4" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="text" name="cpAddress4" placeholder="ADDRESS #4" required maxlength="50"></td>
+                                                <td><input type="text" name="company4" placeholder="COMPANY #4" required maxlength="50"></td>
+                                                <td><input type="text" name="cpAddress4" placeholder="ADDRESS #4" required maxlength="50"></td>
                                                
                                               </tr>
                                         </table>
                     </div>
                     <div class="mt-3">
-                    <table style="width:100%;">
+                    <table>
                                             <tr>
                                               
                                               <th style="width: 20%">POSITION HELD</th>
@@ -806,10 +805,10 @@ if ($stmt->execute()) {
                                             </tr>
                                             <tr>
                                               
-                                              <td><input style=width:100%;float:left; type="text" name="position1" placeholder="POSITION #1" required maxlength="50"></td>
-                                              <td><input style=width:100%;float:left; type="text" name="incluDate1" placeholder="MM/YYYY TO MM/YYYY" required></td>
+                                              <td><input type="text" name="position1" placeholder="POSITION #1" required maxlength="50"></td>
+                                              <td><input type="text" name="incluDate1" placeholder="MM/YYYY TO MM/YYYY" required></td>
                                               <td>
-                                                <select style=width:100%; class="" name="appointStat1" required>
+                                                <select class="" name="appointStat1" required>
                                                     <option value="" selected hidden></option>
                                                     <option value="permanent">PERMANENT</option>
                                                     <option value="contractual">CONTRACTUAL</option>
@@ -820,10 +819,10 @@ if ($stmt->execute()) {
                                             </tr>
                                             <tr>
                                                 
-                                                <td><input style=width:100%;float:left; type="text" name="position2" placeholder="POSITION #2" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="text" name="incluDate2" placeholder="MM/YYYY TO MM/YYYY" required></td>
+                                                <td><input type="text" name="position2" placeholder="POSITION #2" required maxlength="50"></td>
+                                                <td><input type="text" name="incluDate2" placeholder="MM/YYYY TO MM/YYYY" required></td>
                                                 <td>
-                                                  <select style=width:100%; class="" name="appointStat2" required>
+                                                  <select class="" name="appointStat2" required>
                                                       <option value="" selected hidden></option>
                                                       <option value="permanent">PERMANENT</option>
                                                       <option value="contractual">CONTRACTUAL</option>
@@ -835,10 +834,10 @@ if ($stmt->execute()) {
                                               <tr>
             
 
-                                                <td><input style=width:100%;float:left; type="text" name="position3" placeholder="POSITION #3" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="text" name="incluDate3" placeholder="MM/YYYY TO MM/YYYY" required></td>
+                                                <td><input type="text" name="position3" placeholder="POSITION #3" required maxlength="50"></td>
+                                                <td><input type="text" name="incluDate3" placeholder="MM/YYYY TO MM/YYYY" required></td>
                                                 <td>
-                                                  <select style=width:100%; class="" name="appointStat3" required>
+                                                  <select class="" name="appointStat3" required>
                                                       <option value="" selected hidden></option>
                                                       <option value="permanent">PERMANENT</option>
                                                       <option value="contractual">CONTRACTUAL</option>
@@ -849,10 +848,10 @@ if ($stmt->execute()) {
                                               </tr>
                                               <tr>
                                                
-                                                <td><input style=width:100%;float:left; type="text" name="position4" placeholder="POSITION #4" required maxlength="50"></td>
-                                                <td><input style=width:100%;float:left; type="text" name="incluDate4" placeholder="MM/YYYY TO MM/YYYY" required></td>
+                                                <td><input type="text" name="position4" placeholder="POSITION #4" required maxlength="50"></td>
+                                                <td><input type="text" name="incluDate4" placeholder="MM/YYYY TO MM/YYYY" required></td>
                                                 <td>
-                                                  <select style=width:100%; class="" name="appointStat4" required>
+                                                  <select class="" name="appointStat4" required>
                                                       <option value="" selected hidden></option>
                                                       <option value="permanent">PERMANENT</option>
                                                       <option value="contractual">CONTRACTUAL</option>
@@ -870,7 +869,7 @@ if ($stmt->execute()) {
                 </section>
                 <!-- Step 7 Content, default hidden on page load. -->
                 <section id="step-7" class="form-step d-none">
-                    <h2 class="font-normal">VII. SKILLS</h2>
+                    <h1 class="font-normal">VII. SKILLS</h1>
                     <!-- Step 7 input fields -->
                     <div class="mt-3 form-row">
                     <div class="stick-object">

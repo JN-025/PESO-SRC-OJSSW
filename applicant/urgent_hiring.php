@@ -33,7 +33,7 @@ include '../conn.php';
                             <input type="text" name="search_engine_1" class="search-engine-1" placeholder="Skills, Company, or Job Title">
                             <input type="text" name="search_engine_2" class="search-engine-2" placeholder="Location">
                             <input type="text" name="search_engine_3" class="search-engine-3" placeholder="Experience">
-                            <button name="search">Search</button>
+                            <button name="search"><i class="bi bi-search" style="margin: 0 5px;"></i>Search</button>
                             </div>
                          <!--   <div class="search-box lower-search">
                             <label for="">JOB SEARCH</label>

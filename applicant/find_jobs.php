@@ -33,7 +33,7 @@ include '../conn.php';
                             <input type="text" name="search_engine_1" class="search-engine-1" placeholder="Skills, Company, or Job Title">
                             <input type="text" name="search_engine_2" class="search-engine-2" placeholder="Location">
                             <input type="text" name="search_engine_3" class="search-engine-3" placeholder="Experience">
-                            <button name="search">Search</button>
+                            <button name="search"><i class="bi bi-search" style="margin: 0 5px;"></i>Search</button>
                             </div>
                             <div class="search-box lower-search">
                             <label for="">JOB SEARCH</label>
@@ -42,7 +42,7 @@ include '../conn.php';
                             <input type="text" name="filter_engine_3" class="filter-engine-3" placeholder="30000 Pesos">
                             <input type="text" name="filter_engine_4" class="filter-engine-4" placeholder="2-3 Years Experience">
                             <input type="text" name="filter_engine_5" class="filter-engine-5" placeholder="Construction">
-                            <button name="filter">Filter</button>
+                            <button name="filter"><i class="bi bi-filter"></i>Filter</button>
                             </div>
                         </form>
                     </div>
