@@ -112,7 +112,7 @@ include '../conn.php';
                 }
                 // SEARCH AND FILTER END
                 ?><label for="" style="padding-left:10px; font-size:20px; font-weight:bold;">Recommended Jobs</label><?php
-                        $sql = "SELECT * FROM c_jobpost";
+                        $sql = "SELECT * FROM c_jobpost ORDER BY date_added DESC";
                         if($result = mysqli_query($conn, $sql)){
                             if (mysqli_num_rows($result) > 0) {
                                 while($row = mysqli_fetch_array($result)){
