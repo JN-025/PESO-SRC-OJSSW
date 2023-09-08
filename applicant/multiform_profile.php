@@ -284,6 +284,14 @@ if ($stmt->execute()) {
                         <div class="label text-muted">Skills</div>
                     </a>
                 </li>
+            <li class="form-stepper-unfinished text-center form-stepper-list" step="8">
+                    <a class="mx-2">
+                        <span class="form-stepper-circle text-muted">
+                            <span>8</span>
+                        </span>
+                        <div class="label text-muted">Authorization</div>
+                    </a>
+                </li>
             </ul>
             <!--------------------------------- Step Wise Form Content --------------------------------------->
             <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST">
@@ -975,6 +983,16 @@ if ($stmt->execute()) {
                   </div>
                     <div class="mt-3">
                         <button class="button btn-navigate-form-step" type="button" step_number="6">Prev</button>
+                        <button class="button btn-navigate-form-step" type="button" step_number="8">Next</button>
+                    </div>
+                </section>
+                <!--Step 8-->
+                <section id="step-8" class="form-step d-none">
+                    <h1 class="font-normal">VIII. Authorization</h1>
+                    <!-- Step 8 input fields -->
+ 
+                    <div class="mt-3">
+                        <button class="button btn-navigate-form-step" type="button" step_number="7">Prev</button>
                         <button class="button submit-btn" type="submit">Submit</button>
                     </div>
                 </section>

@@ -78,6 +78,42 @@
 .notification:last-child {
   border-bottom: none;
 }
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#person-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#person-dropdown {
+  font-size: 15px;
+  color: #000;
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: -10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  z-index: 1;
+}
+
+#person-dropdown a {
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  color: #000;
+}
+#person-dropdown a:hover {
+  background-color: #999999;
+}
+
 @media only screen and (max-width: 880px) {
   .topnav .peso-logo{
     margin: 10px;

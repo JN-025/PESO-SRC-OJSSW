@@ -18,7 +18,14 @@
                 </div>
             </div>
         </div>
-        <i class="bi bi-person"></i>
+        <div class="dropdown">
+            <i class="bi bi-person" id="person-icon"></i>
+            <div class="dropdown-content" id="person-dropdown">
+                <a href="multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
+                <a href="#"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
+                <a href="signout.php"><i class="bi bi-box-arrow-in-right" style="margin-left: 18px;left: 0; position:absolute;"></i>Logout</a>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -26,6 +33,8 @@
     const bellIcon = document.getElementById("bell-icon");
     const notificationDropdown = document.getElementById("notification-dropdown");
     const notificationMessage = document.getElementById("notification-message");
+    const personIcon = document.getElementById("person-icon");
+    const personDropdown = document.getElementById("person-dropdown");
     let notifications = [];
 
     function updateNotificationDropdown() {
@@ -44,11 +53,22 @@
         }
     });
 
+    personIcon.addEventListener("click", () => {
+        if (personDropdown.style.display === "block") {
+            personDropdown.style.display = "none";
+        } else {
+            personDropdown.style.display = "block";
+        }
+    });
     document.addEventListener("click", (event) => {
         if (event.target !== bellIcon && !notificationDropdown.contains(event.target)) {
             notificationDropdown.style.display = "none";
+        }
+        if (event.target !== personIcon && !personDropdown.contains(event.target)) {
+            personDropdown.style.display = "none";
         }
     });
 
     updateNotificationDropdown();
 </script>
+
