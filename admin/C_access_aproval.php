@@ -45,16 +45,13 @@
     </header>
 
     <main role="main">
-
-    <br>
-
-    <h1><a href="C_access_approval.php">COMPANY ACCESS</a></h1>
+      <h1>COMPANY ACCESS APPROVAL</h1>
 
       <section class="jumbotron text-center">
         <div class="container">
             <?php
             
-                $query = "select * from `p_requests`;";
+                $query = "select * from `c_access_requests`;";
                 if(count(fetchAll($query))>0){
                     foreach(fetchAll($query) as $row){
                         ?>
@@ -62,8 +59,8 @@
                     <h1 class="jumbotron-heading"><?php echo $row['email'] ?></h1>
                       <p class="lead text-muted"><?php echo $row['message'] ?></p>
                       <p>
-                        <a href="peso_accept.php?peso_id=<?php echo $row['peso_id'] ?>" class="btn btn-primary my-2">Accept</a>
-                        <a href="peso_reject.php?peso_id=<?php echo $row['peso_id'] ?>" class="btn btn-secondary my-2">Reject</a>
+                        <a href="C_access_accept.php?C_access_id=<?php echo $row['C_access_id'] ?>" class="btn btn-primary my-2">Accept</a>
+                        <a href="C_access_reject.php?C_access_id=<?php echo $row['C_access_id'] ?>" class="btn btn-secondary my-2">Reject</a>
                       </p>
                     <small><i><?php echo $row['date'] ?></i></small>
             <?php

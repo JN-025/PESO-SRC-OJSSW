@@ -11,6 +11,7 @@
     <title>Sign Up</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/peso_homepage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
 
@@ -28,8 +29,14 @@
                 <br> <br>
                 <center>
                 <div class="col-2">
-                <button class="access" onclick="document.location='register.php'">HTML Tutorial</button>
-                <button onclick="document.location='login.php'">log in</button>
+                    <br>
+                    <h1>PESO ACCESS</h1>
+                    <br>
+                    <button class="access" onclick="document.location='A_access_login.php'"><i class="bi bi-people-fill"></i>&nbsp;&nbsp;APPLICANTS</button>
+                    <button class="access" onclick="document.location='C_access_login.php'"><i class="bi bi-building-add"></i>&nbsp;&nbsp;COMPANY</button>
+                    <button class="access" onclick="document.location='J_access_login.php'"><i class="bi bi-briefcase-fill"></i>&nbsp;&nbsp;JOB POSTING</button>
+                    <button class="access" onclick="document.location='R_access_login.php'"><i class="bi bi-bar-chart-fill"></i>&nbsp;&nbsp;REPORTS</button>
+                    <button class="access" onclick="document.location='#'"><i class="bi bi-lock"></i>&nbsp;&nbsp;POLICIES</button>
 
                 
                 </div>
