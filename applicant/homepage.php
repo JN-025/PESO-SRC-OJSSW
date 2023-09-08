@@ -51,31 +51,55 @@ include '../conn.php';
                 <div class="col-2-row">
                     <div class="col-2-content">
                     <?php
-                if (isset($_POST['search'])) {
-                    $searchQuery1 = $_POST['search_engine_1'];
-                    $searchQuery2 = $_POST['search_engine_2'];
-                    $searchQuery3 = $_POST['search_engine_3'];
-
-                    $sql = "SELECT * FROM c_jobpost WHERE 
-                            jobTitle LIKE '%$searchQuery1%' AND 
-                            workLocation LIKE '%$searchQuery2%' AND 
-                            yrsExperience LIKE '%$searchQuery3%'";
-                } elseif (isset($_POST['filter'])) {
-                    $filterQuery1 = $_POST['filter_engine_1'];
-                    $filterQuery2 = $_POST['filter_engine_2'];
-                    $filterQuery3 = $_POST['filter_engine_3'];
-                    $filterQuery4 = $_POST['filter_engine_4'];
-                    $filterQuery5 = $_POST['filter_engine_5'];
-
-                    $sql = "SELECT * FROM c_jobpost WHERE 
-                            companyName LIKE '%$filterQuery1%' AND 
-                            workLocation LIKE '%$filterQuery2%' AND 
-                            salary LIKE '%$filterQuery3%' AND 
-                            yrsExperience LIKE '%$filterQuery4%' AND 
-                            skills LIKE '%$filterQuery5%'";
-                } else {
-                    $sql = "SELECT * FROM c_jobpost";
-                }
+                 $searchQuery1 = isset($_POST['search_engine_1']) ? $_POST['search_engine_1'] : '';
+                 $searchQuery2 = isset($_POST['search_engine_2']) ? $_POST['search_engine_2'] : '';
+                 $searchQuery3 = isset($_POST['search_engine_3']) ? $_POST['search_engine_3'] : '';
+                
+                 $filterQuery1 = isset($_POST['filter_engine_1']) ? $_POST['filter_engine_1'] : '';
+                 $filterQuery2 = isset($_POST['filter_engine_2']) ? $_POST['filter_engine_2'] : '';
+                 $filterQuery3 = isset($_POST['filter_engine_3']) ? $_POST['filter_engine_3'] : '';
+                 $filterQuery4 = isset($_POST['filter_engine_4']) ? $_POST['filter_engine_4'] : '';
+                 $filterQuery5 = isset($_POST['filter_engine_5']) ? $_POST['filter_engine_5'] : '';
+                 
+                 if ((isset($_POST['search']) && (!empty($searchQuery1) || !empty($searchQuery2) || !empty($searchQuery3))) ||
+                     (isset($_POST['filter']) && (!empty($filterQuery1) || !empty($filterQuery2) || !empty($filterQuery3) || !empty($filterQuery4) || !empty($filterQuery5)))) {
+                     if (isset($_POST['search'])) {
+                         $sql = "SELECT * FROM c_jobpost WHERE 1=1";
+                 
+                         if (!empty($searchQuery1)) {
+                             $sql .= " AND jobTitle LIKE '%$searchQuery1%'";
+                         }
+                 
+                         if (!empty($searchQuery2)) {
+                             $sql .= " AND workLocation LIKE '%$searchQuery2%'";
+                         }
+                 
+                         if (!empty($searchQuery3)) {
+                             $sql .= " AND yrsExperience LIKE '%$searchQuery3%'";
+                         }
+                     } elseif (isset($_POST['filter'])) {
+                         $sql = "SELECT * FROM c_jobpost WHERE 1=1";
+                 
+                         if (!empty($filterQuery1)) {
+                             $sql .= " AND companyName LIKE '%$filterQuery1%'";
+                         }
+                 
+                         if (!empty($filterQuery2)) {
+                             $sql .= " AND workLocation LIKE '%$filterQuery2%'";
+                         }
+                 
+                         if (!empty($filterQuery3)) {
+                             $sql .= " AND salary LIKE '%$filterQuery3%'";
+                         }
+                 
+                         if (!empty($filterQuery4)) {
+                             $sql .= " AND yrsExperience LIKE '%$filterQuery4%'";
+                         }
+                 
+                         if (!empty($filterQuery5)) {
+                             $sql .= " AND skills LIKE '%$filterQuery5%'";
+                         }
+                     }
                 // SEARCH AND FILTER SECTION
                 if (isset($_POST['search']) || isset($_POST['filter'])) {
                     if ($result = mysqli_query($conn, $sql)) {
@@ -109,7 +133,7 @@ include '../conn.php';
                     } else {
                         echo "Oops! Something went wrong. Please try again later.";
                     }
-                }
+                }}
                 // SEARCH AND FILTER END
                 ?><label for="" style="padding-left:10px; font-size:20px; font-weight:bold;">Recommended Jobs</label><?php
                         $sql = "SELECT * FROM c_jobpost ORDER BY date_added DESC";
