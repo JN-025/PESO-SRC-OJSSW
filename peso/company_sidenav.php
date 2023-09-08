@@ -4,7 +4,7 @@
 <div class="topside-container">
     <div class="sidenav">
         <div class="col-side">
-        <a href="homepage.php" <?php echo isActivePage("homepage.php"); ?>><i class="bi bi-house-door-fill"></i>&nbsp;Home</a>
+        <a href="company_homepage.php" <?php echo isActivePage("company_homepage.php"); ?>><i class="bi bi-house-door-fill"></i>&nbsp;Home</a>
         <a href="jobposting.php" <?php echo isActivePage("jobposting.php"); ?>><i class="bi bi-arrow-up-square-fill"></i>&nbsp;Job Posting</a>
         <a href="jobpost.php" <?php echo isActivePage("jobpost.php"); ?>><i class="bi bi-file-earmark-spreadsheet"></i>&nbsp;Posted Jobs</a>
         <a href="#" <?php echo isActivePage("#"); ?>><i class="bi bi-person-vcard" style="font-size:20px"></i>&nbsp;Applications</a>

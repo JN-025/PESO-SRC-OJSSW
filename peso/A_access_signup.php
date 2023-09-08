@@ -10,22 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/applicant_register.css">
+    <link rel="stylesheet" href="../assets/css/peso_access_signup.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
-
-    <?php
+<?php
         if(isset($_POST['signup'])){
             $name = $_POST['name'];
-            $position = $_POST['position'];
-            $contactNum = $_POST['contactNum'];
             $password = $_POST['password'];
             $email = $_POST['email'];
             $confirm_password = $_POST['confirm_password'];
            
-            $message = "Our $position , $name would like to request an account.";
+            $message = "Our $name would like to request an account.";
         
-            $query = "INSERT INTO `p_requests` (`peso_id`, `name`, `position`, `contactNum`, `email`, `password`, `message`, `date`) VALUES (NULL, '$name', '$position', '$contactNum', '$email', '$password', '$message', CURRENT_TIMESTAMP)";
+            $query = "INSERT INTO `a_access_requests` (`A_access_id`, `name`, `email`, `password`, `message`, `date`) VALUES (NULL, '$name', '$email', '$password', '$message', CURRENT_TIMESTAMP)";
 
             if($password != $confirm_password){
                 echo "<script> alert('Please enter the same password')</script>";
@@ -40,21 +38,17 @@
         }
     ?>
 
+
 <body>
+
 <div class="loader"><div></div><div></div><div></div><div></div></div>
 <div class="main-container">
         <div class="main-row">
             <div class="col-1">
-            <a href=""><img src="../assets/img/ojssw.png" alt="" srcset=""></a>
-                <div class="wordbox">
-            <h1>PUBLIC EMPLOYMENT SERVICE OFFICE (PESO)</h1>
-                <h2>SANTA ROSA, LAGUNA</h2>
-                <div class="field-space"></div>
-                <h3>YOU PARTNER IN FINDING A BETTER</h3>
-                <h3>JOB!</h3>
-                </div>
-            </div>
-            <div class="col-2">
+                <a href=""><img src="../assets/img/ojssw.png" alt="" srcset=""></a>
+                <br> <br>
+                <center>
+                <div class="col-2">
             
             <style>
                 .alert {  
@@ -89,19 +83,9 @@
                     </div>
                     
                     <div class="form-col-1">
-                        <select class="dropdown" name="position" required>
-                            <option value="" selected disabled>Position</option>
-                            <option value="admin">Admin</option>
-                            <option value="head">Head</option>
-                            <option value="staff">Staff</option>
-                        </select>
-                    </div>
-                    <div class="form-col-1">
-                    <input type="tel" placeholder="Contact Number. eg 0901-***-**89" name="contactNum" pattern="\d{4}-\d{3}-\d{4}"title="Phone Number format eg 0912-345-6789" required maxlength="13" oninput="formatPhoneNumber(this)">
-                    </div>
-                    <div class="form-col-1">
                     <input type="email" placeholder="Email Address" name="email" required maxlength="50">
                     </div>
+
                     <div class="form-col-1">
                     <!--<img src="../assets/img/eye-close.png" alt="" id="eyeicon1" class="eyeicon" data-target="myInput1">-->
                     <input type="password" placeholder="Password" name="password" id="myInput1" oninput="validatePassword()" required maxlength="20">
@@ -114,7 +98,7 @@
                     <h5>By clicking register you agree in our&nbsp;&nbsp;<a href="#" id="myBtn">Terms & Agreement</a></h5>
                     <button name="signup" type="submit">REGISTER</button>
                     <br><br>
-                    <h5>Already have an Account?&nbsp;&nbsp;<a href="login.php">LOG IN</a></h5>
+                    <h5>Already have an Account?&nbsp;&nbsp;<a href="A_access_login.php">LOG IN</a></h5>
                     </div>
                     <div id="myModal" class="modal">
                     <div class="modal-box">
@@ -135,6 +119,10 @@
                 </div>
                 </form>
             </div>
+                </center>
+
+            </div>
+           
         </div>
     </div>
     <script src="../assets/js/applicant/script.js"></script>

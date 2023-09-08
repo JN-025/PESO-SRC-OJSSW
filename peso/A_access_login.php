@@ -21,13 +21,13 @@
             $email = $_POST['email'];
             
 
-            $query = "SELECT * from `c_access_account`;";
+            $query = "SELECT * from `a_access_account`;";
             if(count(fetchAll($query)) > 0){ //this is to catch unknown error.
                   foreach(fetchAll($query) as $row){
                     if($row['email']==$email&&$row['password']==$password){
                         $_SESSION['login'] = true;
                         $_SESSION['type'] = $row['type'];
-                        header('location: company_homepage.php');
+                        header('location: applicant_homepage.php');
                     }else{
                         echo "<script>alert('Wrong login details.')</script>";
                     }
@@ -99,7 +99,7 @@
                     
                     <button name="signin" type="submit">Log In</button>
                     <br><br>
-                    <h5>Create an Account?&nbsp;&nbsp;<a href="C_access_signup.php">SIGN UP</a></h5>
+                    <h5>Create an Account?&nbsp;&nbsp;<a href="A_access_signup.php">SIGN UP</a></h5>
                     </div>
                     
                 </form>

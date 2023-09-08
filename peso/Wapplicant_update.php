@@ -453,24 +453,19 @@ if(isset($_POST["W_applicant_id"]) && !empty($_POST["W_applicant_id"])){
 </head>
 <body>
 <?php 
+    
     include "../function.php";
     include "applicant_sidenav.php";
+    include "topnav.php";
     ?>
-
-    <div class="cardA">
-            <?php 
-                include "topnav.php";
-            ?>
-            <center>
-            <div class="cardB">
-                <div class="cardC">
-
-    <div class="card1">
-    <div class="card4">
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
+<div class="card1" style="background: white; height: 200vh; width: 80%; margin-top: 15vh; margin-left: 20%;">
+    
+    <div class="wrapper" style="background: white;">
+    <div class="container-fluid">
+        <div class="row">
                 <div class="col-md-12">
+                    <center>
+                    <div class="card5">
                     <h2 class="mt-5">Update Record</h2>
                     <p>Please edit the input values and submit to update the employee record.</p>
                     <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">

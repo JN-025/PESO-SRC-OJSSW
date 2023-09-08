@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Londrina Solid');
+@import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -94,19 +94,19 @@
 }
 .col-2 {
     width: 55%;
-    
     border-radius: 11px;
     background: #E1E3E5;
-    margin-top: 5%;
-    
+    margin-top: 3%;
+    padding-top: 10px;
+    padding-bottom: 15px;
 }
 .col-2 .field-space{
     margin-top: 5%;
 }
 .col-2 h1{
-    color: #9D1477;
-    font-family: Londrina Solid;
-    font-size: 40px;
+    color: #AD2C89;
+    font-family: Mohave;
+    font-size: 35px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

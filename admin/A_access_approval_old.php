@@ -2,7 +2,7 @@
     session_start(); //we need session for the log in thingy XD 
     include("../peso_function.php");
     if($_SESSION['login']!==true){
-        header('location:company_access.php');
+        header('location:index.php');
     }
 ?>
 <!doctype html>
@@ -45,12 +45,13 @@
     </header>
 
     <main role="main">
+      <h1>COMPANY ACCESS APPROVAL</h1>
 
       <section class="jumbotron text-center">
         <div class="container">
             <?php
             
-                $query = "select * from `c_requests`;";
+                $query = "select * from `a_access_requests`;";
                 if(count(fetchAll($query))>0){
                     foreach(fetchAll($query) as $row){
                         ?>
@@ -58,8 +59,8 @@
                     <h1 class="jumbotron-heading"><?php echo $row['email'] ?></h1>
                       <p class="lead text-muted"><?php echo $row['message'] ?></p>
                       <p>
-                        <a href="company_accept.php?company_id=<?php echo $row['company_id'] ?>" class="btn btn-primary my-2">Accept</a>
-                        <a href="company_reject.php?company_id=<?php echo $row['company_id'] ?>" class="btn btn-secondary my-2">Reject</a>
+                        <a href="A_access_accept.php?A_access_id=<?php echo $row['A_access_id'] ?>" class="btn btn-primary my-2">Accept</a>
+                        <a href="A_access_reject.php?A_access_id=<?php echo $row['A_access_id'] ?>" class="btn btn-secondary my-2">Reject</a>
                       </p>
                     <small><i><?php echo $row['date'] ?></i></small>
             <?php
