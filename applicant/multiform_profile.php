@@ -208,6 +208,7 @@ if ($stmt->execute()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applicant Profile</title>
     <link rel="stylesheet" href="../assets/css/applicant_profile.css">
+    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
 </head>
 <body>
     <?php

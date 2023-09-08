@@ -28,14 +28,14 @@ include '../conn.php';
             <div class="col-1">
             <div class="header">
                         <form method="POST"action="">
-                            <h1>Home</h1>
+                            <h1><?php echo $page_title?></h1>
                             <div class="search-box upper-search">
                             <input type="text" name="search_engine_1" class="search-engine-1" placeholder="Skills, Company, or Job Title">
                             <input type="text" name="search_engine_2" class="search-engine-2" placeholder="Location">
                             <input type="text" name="search_engine_3" class="search-engine-3" placeholder="Experience">
                             <button name="search">Search</button>
                             </div>
-                            <div class="search-box lower-search">
+                         <!--   <div class="search-box lower-search">
                             <label for="">JOB SEARCH</label>
                             <input type="text" name="filter_engine_1" class="filter-engine-1" placeholder="Manager">
                             <input type="text" name="filter_engine_2" class="filter-engine-2" placeholder="Santa Rosa, Laguna">
@@ -43,7 +43,7 @@ include '../conn.php';
                             <input type="text" name="filter_engine_4" class="filter-engine-4" placeholder="2-3 Years Experience">
                             <input type="text" name="filter_engine_5" class="filter-engine-5" placeholder="Construction">
                             <button name="filter">Filter</button>
-                            </div>
+                            </div>-->
                         </form>
                     </div>
             </div>
