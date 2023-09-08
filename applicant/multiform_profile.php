@@ -1,6 +1,17 @@
 <?php
 include '../conn.php';
 session_start();
+$applicant_id = $_SESSION['applicant_id'];
+$sql_check = "SELECT applicant_id FROM applicant_profile01 WHERE applicant_id = ?";
+$stmt_check = $conn->prepare($sql_check);
+$stmt_check->bind_param("i", $applicant_id);
+$stmt_check->execute();
+$stmt_check->store_result();
+
+if ($stmt_check->num_rows > 0) {
+    echo '<script>alert("You already have data in the database. Form submission is disabled."); window.location.href = "homepage.php";</script>';
+    exit;
+}
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Step 1 form data
     $applicant_id = $_SESSION['applicant_id'];
