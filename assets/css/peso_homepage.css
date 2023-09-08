@@ -94,19 +94,22 @@
 }
 .col-2 {
     width: 70%;
-    height: 70vh;
+    height: 50vh;
     border-radius: 11px;
-background: #E1E3E5;
+    background: #E1E3E5;
+    margin-top: 5%;
     
 }
 .col-2 .field-space{
     margin-top: 5%;
 }
 .col-2 h1{
-    font-size: 30px;
-    color: #76165B;
-    text-align: center;
-    justify-content: center;
+    color: #9D1477;
+    font-family: Londrina Solid;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .col-2 .form-col-1 {
     padding: 0 10%;
@@ -191,7 +194,7 @@ input::-webkit-inner-spin-button {
     line-height: normal;
     padding: 1%;
     margin: 2% 2% 2% 2%;
-    border-radius: 20px;
+    border-radius: 15px;
     width: 25%;
 }
 
