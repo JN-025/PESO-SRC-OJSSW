@@ -1,39 +1,44 @@
+<?php
+    session_start(); //we need session for the log in thingy XD 
+    include("../peso_function.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Account</title>
+    <title>Sign Up</title>
+    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/peso_homepage.css">
+    <script src="../assets/js/applicant/loader.js"></script>
 </head>
+
+
+
 <body>
-    <div class="main-container">
+
+
+
+<div class="loader"><div></div><div></div><div></div><div></div></div>
+<div class="main-container">
         <div class="main-row">
             <div class="col-1">
-            <a href=""><img src="../assets/img/ojssw.png" alt="" srcset=""></a>
-                <div class="wordbox">
-            <h1>PUBLIC EMPLOYMENT SERVICE OFFICE (PESO)</h1>
-                <h2>SANTA ROSA, LAGUNA</h2>
-                
-                </div>
-            </div>
-            <div class="col-2">
+                <a href=""><img src="../assets/img/ojssw.png" alt="" srcset=""></a>
+                <br> <br>
                 <center>
-                <div class="card1">
-                <h1 for="">PESO ACCESS</h1>
-                <br>
+                <div class="col-2">
+                <button class="access" onclick="document.location='register.php'">HTML Tutorial</button>
+                <button onclick="document.location='login.php'">log in</button>
 
-                <button class="access"><a href="Wapplicant.php">Applicant</a><button>
-                <button class="access"><a href="#">Company</a><button>
-                <button class="access"><a href="jobposting.php">Job Posting</a><button>
-                <button class="access"><a href="Wapplicant.php">Reports</a><button>
-                <button class="access"><a href="Wapplicant.php">Policies</a><button>
+                
                 </div>
                 </center>
 
-                
             </div>
+           
         </div>
     </div>
+    <script src="../assets/js/applicant/script.js"></script>
 </body>
 </html>

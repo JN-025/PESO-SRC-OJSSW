@@ -296,7 +296,7 @@ mysqli_close($link);
                     <h1>POST A JOB!</h1>
                     <br>
                     <!-- One "tab" for each step in the form: -->
-                
+               
                     <div class="tab">
                         <div class="card4">
                             <h2>Job Description:</h2>
@@ -377,6 +377,7 @@ mysqli_close($link);
                             
                         </div>
                     </div>
+
                 
             
 
