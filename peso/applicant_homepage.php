@@ -8,7 +8,7 @@ include '../conn.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>PESO COMPANY Homepage</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/applicant_homepage.css">
@@ -16,7 +16,7 @@ include '../conn.php';
 <body>
     <?php 
     include "../function.php";
-    include "sidenav.php";
+    include "applicant_sidenav.php";
     include "topnav.php";
     ?>
     <div class="main-container">

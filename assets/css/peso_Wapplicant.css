@@ -1,32 +1,10 @@
-.cardA
-{
-    height: 250vh;
-    width: 100%;
-    background-color: white;
-}
-
-.cardB
-{
-    height: 200vh;
-    width: 80%;
-    background-color: white;
-    margin-left: 20%;
-    padding-top: 20vh;
-}
-
-.cardC
-{
-    width:80%;
-    height: 150vh;
-    background-color: white;
-    
-    
-}
+@import url('https://fonts.googleapis.com/css?family=Londrina Solid');
+@import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
 
 
 .card1
 {
-    width: 90%;
+    width: 100%;
     height: fit-content;
     background-color: transparent;
    
@@ -38,32 +16,46 @@
     height: 50px;
     background-color: white;
     margin-bottom: 10px;
+    width: 100%;
+}
+
+.card2 h2
+{
+    color: #9D1477;
+font-family: Londrina Solid;
+font-size: 35px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.add
+{
+    border-radius: 10px;
+background: #9D1477;
+box-shadow: 0px 4px 4px 0px rgba(186, 58, 150, 0.97) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+width: 30%;
+padding: 5px;
+border: none;
+color: white;
 }
 
 .card3
 {
     height: fit-content;
     background-color: white;
+
 }
-
-.card4
-{
-    width: 95%;
-    height: 1700px;
-    background-color: transparent;
-    margin: 20px;
-    border: solid 5px #7A0042;
-}
-
-
 
 .card5
 {
-    height: 900px;
-    background-color: white;
-    border: solid 5px black;
+    width: 70%;
     margin-top: 20px;
     padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #D5D5D5;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .card5 h1
@@ -80,17 +72,27 @@
 
 .card5 h3
 {
-    font-size: 20px;
+    color: #000;
+    text-align: center;
+    font-family: Mohave;
+    font-size: 25px;
+    font-style: normal;
     text-align: left;
-    padding-left: 20px;
-}
+    line-height: normal;
 
+}
 
 .wrapper{
     width: 95%;
     margin: 10px;
     background-color: transparent;
 }
+
+table
+{
+    border-radius: 20px;
+}
+
 table tr td:first-child{
     width: 50px;
 }
@@ -99,65 +101,17 @@ table tr td:last-child{
     width: 100px;
 }
 
-.col1
+table tr th
 {
-    width: 50%;
-    float: left;
-    background-color: transparent;
-    margin-bottom: 10px;
-    padding-left: 20px;
-}
-
-.col2
-{
-    width: 50%;
-    float: left;
-    background-color: transparent;
-    margin-bottom: 10px;
-    padding-left: 20px;
-}
-
-.col3
-{
-    width: 100%;
-    float: left;
-    background-color: transparent;
-    margin-bottom: 10px;
-}
-
-.col4
-{
-    width: 50%;
-    float: left;
-    background-color: transparent;
-    margin-bottom: 10px;
-    
-}
-
-.col5
-{
-    width: 50%;
-    float: left;
-    background-color: transparent;
-    margin-bottom: 10px;
-    padding-left: 20px;
+    color: #000;
+    text-align: center;
+    font-family: Londrina Solid;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 
-input[type=text], input[type=password], input[type=number], input[type=email], input[type=date], select
-{
-    width: 100%;
-    height: 30px;
-    font-size: 18px;
-    font-family: 'Times New Roman', Times, serif;
-    border: solid 1.5px #76165B;
-    box-shadow: 1px  1px 3px gray;
-	padding-left: 10px;
-}
-
-::placeholder 
-{
-    padding-left: 3%;
-    color: gray;
-    font-size: 18px;   
-}

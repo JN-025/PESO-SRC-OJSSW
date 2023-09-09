@@ -95,17 +95,31 @@
 }
 .col-2 {
     width: 70%;
-    height: 200vh;
+    height: 100vh;
     font-family: 'Mohave', sans-serif;
 }
 .col-2 .field-space{
     margin-top: 5%;
 }
 .col-2 h1{
-    font-size: 30px;
-    color: #76165B;
+    color: #AD2C89;
     text-align: center;
-    justify-content: center;
+    font-family: Mohave;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.col-2 h2
+{
+    color: #AD2C89;
+    text-align: center;
+    font-family: Mohave;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 .col-2 .form-col-1 {
     padding: 0 10%;
@@ -166,7 +180,13 @@ select option[value=""] {
     opacity: 0.6;
 }
 .form-col-1 h5{
-    color: #AD2C89;
+    color: #000;
+    text-align: center;
+    font-family: Mohave;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

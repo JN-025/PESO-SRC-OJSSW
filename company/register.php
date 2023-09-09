@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/applicant_register.css">
+    <link rel="stylesheet" href="../assets/css/company_register.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
 
@@ -112,7 +112,7 @@
                     <h5>By clicking register you agree in our&nbsp;&nbsp;<a href="#" id="myBtn">Terms & Agreement</a></h5>
                     <button name="signup" type="submit">REGISTER</button>
                     <br><br>
-                    <h5>Already have an Account?&nbsp;&nbsp;<a href="login.php">LOG IN</a></h5>
+                    <h5>Already have an Account?&nbsp;&nbsp;<a href="index.php">LOG IN</a></h5>
                     </div>
                     <div id="myModal" class="modal">
                     <div class="modal-box">

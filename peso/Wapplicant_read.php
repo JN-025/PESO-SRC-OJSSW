@@ -88,36 +88,25 @@ if(isset($_GET["W_applicant_id"]) && !empty(trim($_GET["W_applicant_id"]))){
     <meta charset="UTF-8">
     <title>View Record</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .wrapper{
-            width: 600px;
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/peso_Wapplicant.css">
+   
 </head>
 <body>
 <?php 
-    include "../function.php";
     
+    include "../function.php";
+    include "applicant_sidenav.php";
+    include "topnav.php";
     ?>
-
-    <div class="cardA">
-            <?php 
-                
-            ?>
-            <center>
-            <div class="cardB">
-                <div class="cardC">
-    <div class="card1">
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
+<div class="card1" style="background: white; height: 200vh; width: 80%; margin-top: 15vh; margin-left: 20%;">
+    
+    <div class="wrapper" style="background: white;">
+    <div class="container-fluid">
+        <div class="row">
                 <div class="col-md-12">
+                    <center>
                     <div class="card5">
-                        <h1>PUBLIC EMPLOYMENT SERVICE OFFICE (PESO)</h1>
-                        <h2>Santa Rosa City, Laguna</h2>
-
-                        <br> <br> <br>
+                    <a href="Wapplicant.php" style="border-radius: 50%; border: solid 1px gray; color: gray; float: right;" class="btn">X</a>                     
                         <div class="col3">
                             <h3><b>APPLICANT NO.:</b> <?php echo $row["W_applicant_id"]; ?></3>
                         </div>
@@ -197,6 +186,7 @@ if(isset($_GET["W_applicant_id"]) && !empty(trim($_GET["W_applicant_id"]))){
                     
                     
                     </div>
+                    </center>
                     
                     <p><a href="Wapplicant.php" class="btn btn-primary">Back</a></p>
                 </div>
