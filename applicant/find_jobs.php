@@ -1,5 +1,5 @@
 <?php
-$page_title = "Find jobs";
+$page_title = "Find Jobs";
     session_start();
     if (!isset($_SESSION['SESSION_EMAIL'])) {
         header("Location: index.php");
@@ -28,21 +28,21 @@ include '../conn.php';
             <div class="col-1">
             <div class="header">
                         <form method="POST"action="">
-                            <h1><?php echo $page_title?></h1>
+                            <h1><?php echo $page_title;?></h1>
                             <div class="search-box upper-search">
                             <input type="text" name="search_engine_1" class="search-engine-1" placeholder="Skills, Company, or Job Title">
                             <input type="text" name="search_engine_2" class="search-engine-2" placeholder="Location">
                             <input type="text" name="search_engine_3" class="search-engine-3" placeholder="Experience">
                             <button name="search"><i class="bi bi-search" style="margin: 0 5px;"></i>Search</button>
                             </div>
-                            <div class="search-box lower-search">
+                         <div class="search-box lower-search">
                             <label for="">JOB SEARCH</label>
                             <input type="text" name="filter_engine_1" class="filter-engine-1" placeholder="Manager">
                             <input type="text" name="filter_engine_2" class="filter-engine-2" placeholder="Santa Rosa, Laguna">
                             <input type="text" name="filter_engine_3" class="filter-engine-3" placeholder="30000 Pesos">
                             <input type="text" name="filter_engine_4" class="filter-engine-4" placeholder="2-3 Years Experience">
                             <input type="text" name="filter_engine_5" class="filter-engine-5" placeholder="Construction">
-                            <button name="filter"><i class="bi bi-filter"></i>Filter</button>
+                            <button name="filter">Filter</button>
                             </div>
                         </form>
                     </div>
@@ -64,48 +64,16 @@ include '../conn.php';
                  if ((isset($_POST['search']) && (!empty($searchQuery1) || !empty($searchQuery2) || !empty($searchQuery3))) ||
                      (isset($_POST['filter']) && (!empty($filterQuery1) || !empty($filterQuery2) || !empty($filterQuery3) || !empty($filterQuery4) || !empty($filterQuery5)))) {
                      if (isset($_POST['search'])) {
-                         $sql = "SELECT * FROM c_jobpost WHERE 1=1";
-                 
-                         if (!empty($searchQuery1)) {
-                             $sql .= " AND jobTitle LIKE '%$searchQuery1%'";
-                         }
-                 
-                         if (!empty($searchQuery2)) {
-                             $sql .= " AND workLocation LIKE '%$searchQuery2%'";
-                         }
-                 
-                         if (!empty($searchQuery3)) {
-                             $sql .= " AND yrsExperience LIKE '%$searchQuery3%'";
-                         }
-                     } elseif (isset($_POST['filter'])) {
-                         $sql = "SELECT * FROM c_jobpost WHERE 1=1";
-                 
-                         if (!empty($filterQuery1)) {
-                             $sql .= " AND companyName LIKE '%$filterQuery1%'";
-                         }
-                 
-                         if (!empty($filterQuery2)) {
-                             $sql .= " AND workLocation LIKE '%$filterQuery2%'";
-                         }
-                 
-                         if (!empty($filterQuery3)) {
-                             $sql .= " AND salary LIKE '%$filterQuery3%'";
-                         }
-                 
-                         if (!empty($filterQuery4)) {
-                             $sql .= " AND yrsExperience LIKE '%$filterQuery4%'";
-                         }
-                 
-                         if (!empty($filterQuery5)) {
-                             $sql .= " AND skills LIKE '%$filterQuery5%'";
-                         }
+                         $sql = "SELECT * FROM c_jobpost WHERE jobTitle LIKE '%$searchQuery1%' AND workLocation LIKE '%$searchQuery2%' AND yrsExperience LIKE '%$searchQuery3%' UNION ALL SELECT * FROM p_jobpost WHERE jobTitle LIKE '%$searchQuery1%' AND workLocation LIKE '%$searchQuery2%' AND yrsExperience LIKE '%$searchQuery3%'";
+                        } 
+                        elseif (isset($_POST['filter'])) {
+                        $sql = "SELECT * FROM c_jobpost WHERE companyName LIKE '%$filterQuery1%' AND workLocation LIKE '%$filterQuery2%' AND workLocation LIKE '%$filterQuery2%' AND salary LIKE '%$filterQuery3%' AND yrsExperience LIKE '%$filterQuery4%' AND skills LIKE '%$filterQuery5%' UNION ALL SELECT * FROM p_jobpost WHERE companyName LIKE '%$filterQuery1%' AND workLocation LIKE '%$filterQuery2%' AND workLocation LIKE '%$filterQuery2%' AND salary LIKE '%$filterQuery3%' AND yrsExperience LIKE '%$filterQuery4%' AND skills LIKE '%$filterQuery5%'";
                      }
                 // SEARCH AND FILTER SECTION
                 if (isset($_POST['search']) || isset($_POST['filter'])) {
                     if ($result = mysqli_query($conn, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
-                                $job_post_id = $row['c_jobpost_id'];
                                 ?>
                                 <div class="description">
                                     <div class="desc-col-1">
@@ -121,7 +89,8 @@ include '../conn.php';
                                         <div>
                                             <button onclick="openTab('<?php echo $job_post_id; ?>')">Apply</button>
                                         </div>
-                                        <img src="<?php echo $row['img']; ?>" alt="No image" srcset="../assets/img/default-img.jpg">
+                                        <img src="<?php echo $row['img']; ?>" alt="No image">
+
                                     </div>
                                 </div>
                                 <?php
@@ -135,22 +104,6 @@ include '../conn.php';
                     }
                 }}
                 // SEARCH AND FILTER END
-                ?><label for="" style="padding-left:10px; font-size:20px; font-weight:bold;"></label><?php
-                        $sql = "SELECT * FROM c_jobpost ORDER BY date_added DESC";
-                        if($result = mysqli_query($conn, $sql)){
-                            if (mysqli_num_rows($result) > 0) {
-                                while($row = mysqli_fetch_array($result)){
-                                    $job_post_id = $row['c_jobpost_id'];
-                                    ?>
-                        <?php
-                            }
-                        mysqli_free_result($result);
-                    } else {
-                        echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
-                    }
-                } else {
-                    echo "Oops! Something went wrong. Please try again later.";
-                }
     
                 mysqli_close($conn);
             ?>

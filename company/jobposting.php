@@ -1,13 +1,21 @@
 <?php
 $page_title = "Job Posting";
+session_start();
 // Include config file
-require_once "../conn_jobpost.php";
+include "../conn.php";
+$alert = ""; 
+if (!isset($_SESSION['company_id'])) {
+    $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
+    header("location: homepage.php");
+    exit();
+}
 // Define variables and initialize with empty values
-$jobTitle = $companyName = $industry = $position = $educBg = $yrsExperience = $workLocation = $salary = $slot = $skills = $question1 = $question2 = $question3 = $question4 = $question5 = $answer1 = $answer2 = $answer3 = $answer4 = $answer5 = $img_err = "";
-$jobTitle_err = $companyName_err = $industry_err = $position_err = $educBg_err = $yrsExperience_err = $workLocation_err = $salary_err = $slot_err = $skills_err = $question1_err = $question2_err = $question3_err = $question4_err = $question5_err = $answer1_err = $answer2_err = $answer3_err = $answer4_err = $answer5_err = "";
+$company_id = $jobTitle = $companyName = $industry = $position = $educBg = $yrsExperience = $workLocation = $salary = $slot = $skills = $question1 = $question2 = $question3 = $question4 = $question5 = $answer1 = $answer2 = $answer3 = $answer4 = $answer5 = $img_err = "";
+$company_id = $jobTitle_err = $companyName_err = $industry_err = $position_err = $educBg_err = $yrsExperience_err = $workLocation_err = $salary_err = $slot_err = $skills_err = $question1_err = $question2_err = $question3_err = $question4_err = $question5_err = $answer1_err = $answer2_err = $answer3_err = $answer4_err = $answer5_err = $img_err ="";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $company_id = $_SESSION["company_id"];
     // Validate Job Title
     $input_jobTitle = trim($_POST["jobTitle"]);
     if (empty($input_jobTitle)) {
@@ -169,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (!empty($_FILES["img"]["name"])) {
-        $targetDir = "upload_img/";
+        $targetDir = "../jobpost_img/";
         $targetFile = $targetDir . basename($_FILES["img"]["name"]);
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
@@ -201,13 +209,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         && empty($answer1_err) && empty($answer2_err) && empty($answer3_err)
         && empty($answer4_err) && empty($answer5_err) && empty($img_err)
     ) {
-        $sql = "INSERT INTO c_jobpost (jobTitle, companyName, industry, position, educBg, yrsExperience, workLocation, salary, slot, skills, question1, question2, question3, question4, question5, answer1, answer2, answer3, answer4, answer5, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO c_jobpost (company_id, jobTitle, companyName, industry, position, educBg, yrsExperience, workLocation, salary, slot, skills, question1, question2, question3, question4, question5, answer1, answer2, answer3, answer4, answer5, img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        if ($stmt = mysqli_prepare($link, $sql)) {
+        if ($stmt = mysqli_prepare($conn, $sql)) {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param(
                 $stmt,
-                "sssssssssssssssssssss",
+                "isssssssssssssssssssss",
+                $param_company_id,
                 $param_jobTitle,
                 $param_companyName,
                 $param_industry,
@@ -232,6 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             );
 
             // Set parameters
+            $param_company_id = $company_id;
             $param_jobTitle = $jobTitle;
             $param_companyName = $companyName;
             $param_industry = $industry;
@@ -267,7 +277,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_close($stmt);
     }
     // Close connection
-    mysqli_close($link);
+    mysqli_close($conn);
 }
 ?>
 <!DOCTYPE html>
@@ -297,6 +307,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="card2">
                 <div class="card3">
                 <form id="regForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+                <?php echo $alert;?>
                     <h1>POST A JOB!</h1>
                     <br>
                     <!-- One "tab" for each step in the form: -->

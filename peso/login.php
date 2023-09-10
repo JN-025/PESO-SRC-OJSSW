@@ -1,8 +1,24 @@
 <?php
-    session_start(); //we need session for the log in thingy XD 
-    include("../peso_function.php");
-?>
+    session_start();
+    include("../conn.php");
 
+    if (isset($_POST['submit'])) {
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $position = $_POST['position'];
+
+        $sql = "SELECT * FROM p_accounttb WHERE email='$email' AND position = '$position' AND password='$password'";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['peso_id'] = $row['peso_id'];
+            header('location: homepage.php');
+        } else {
+            $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,9 +128,9 @@
                     
                     <div class="form-col-1">
                     
-                    <button name="signin" type="submit">Log In</button>
+                    <button name="submit" type="submit">Log In</button>
                     <br><br>
-                    <h5>Create an Account?&nbsp;&nbsp;<a href="register.php">LOG IN</a></h5>
+                    <h5>Create an Account?&nbsp;&nbsp;<a href="register.php">SIGN UP</a></h5>
                     </div>
                     
                 </form>

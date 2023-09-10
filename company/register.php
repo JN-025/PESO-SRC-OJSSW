@@ -1,7 +1,33 @@
 <?php
-    session_start(); //we need session for the log in thingy XD 
-    include("../peso_function.php");
+include "../conn.php";
+session_start();
+$msg = "";
+if(isset($_POST["submit"])){
+    $companyName = $_POST['companyName'];
+    $industry = $_POST['industry'];
+    $contactPerson = $_POST['contactPerson'];
+    $contactNum = $_POST['contactNum'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+
+    if($password !== $confirm_password){
+        $msg = "<div class='alert alert-danger'>error database</div>";
+    }
+
+    $insert = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password) VALUES (?,?,?,?,?,?)";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $insert)){
+        $msg = "<div class='alert alert-danger'>error database</div>";
+    } else {
+        mysqli_stmt_bind_param($stmt, "ssssss", $companyName, $industry, $contactPerson, $contactNum, $email, $password);
+        mysqli_stmt_execute($stmt);
+        header("location: index.php");
+    }
+    
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,37 +36,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/company_register.css">
+    <link rel="stylesheet" href="../assets/css/applicant_register.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
-
-    <?php
-        if(isset($_POST['signup'])){
-            $companyName = $_POST['companyName'];
-            $industry = $_POST['industry'];
-            $contactPerson = $_POST['contactPerson'];
-            $contactNum = $_POST['contactNum'];
-            $password = $_POST['password'];
-            $email = $_POST['email'];
-            $confirm_password = $_POST['confirm_password'];
-           
-            $message = "Our $companyName would like to request an account.";
-        
-            $query = "INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `date`) VALUES (NULL, '$companyName', '$industry', '$contactPerson', '$contactNum', '$email', '$password', '$message', CURRENT_TIMESTAMP)";
-
-            if($password != $confirm_password){
-                echo "<script> alert('Please enter the same password')</script>";
-            }
-            else{
-                performQuery($query);
-                echo "<script> alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
-            }
-        }
-        else{
-            echo "<script> alert('Unknown error occurred.')</script>";
-        }
-    ?>
-
 <body>
 <div class="loader"><div></div><div></div><div></div><div></div></div>
 <div class="main-container">
@@ -83,6 +81,7 @@
                 }
             </style>
             <div class="field-space"></div>
+            <?php echo $msg;?>
                 <h1>CREATE ACCOUNT</h1>
                 <form action="" method="post">
                     <div class="form-col-1">
