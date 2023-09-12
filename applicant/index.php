@@ -9,11 +9,26 @@
     $msg = "";
 
     if (isset($_GET['verification'])) {
-        if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM a_accounttb WHERE code='{$_GET['verification']}'")) > 0) {
-            $query = mysqli_query($conn, "UPDATE a_accounttb SET code='' WHERE code='{$_GET['verification']}'");
-            
-            if ($query) {
-                $msg = "<div class='alert alert-success'>Account verification has been successfully completed.</div>";
+        $verificationCode = $_GET['verification'];
+        $currentTimestamp = time();
+    
+        $query = "SELECT * FROM a_accounttb WHERE code='$verificationCode'";
+        $result = mysqli_query($conn, $query);
+    
+        if ($row = mysqli_fetch_assoc($result)) {
+            $codeCreatedAt = strtotime($row['code_created_at']);
+            $expirationTime = 30 * 60;
+    
+
+            if ($currentTimestamp - $codeCreatedAt <= $expirationTime) {
+                $updateQuery = "UPDATE a_accounttb SET code='' WHERE code='$verificationCode'";
+                if (mysqli_query($conn, $updateQuery)) {
+                    $msg = "<div class='alert alert-success'>Account verification has been successfully completed.</div>";
+                } else {
+                    $msg = "<div class='alert alert-danger'>Error updating code status.</div>";
+                }
+            } else {
+                $msg = "<div class='alert alert-danger'>Verification code has expired.</div>";
             }
         } else {
             header("Location: index.php");
