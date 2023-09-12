@@ -1,6 +1,15 @@
 <?php
-    session_start(); //we need session for the log in thingy XD 
-    include("../peso_function.php");
+$page_title = "Homepage";
+session_start();
+// Include config file
+include "../peso_function.php";
+$alert = ""; 
+if (!isset($_SESSION['peso_id'])) {
+    $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
+    header("location: login.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>

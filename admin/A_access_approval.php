@@ -31,7 +31,7 @@
         
         <?php
             
-            $query = "select * from `a_access_requests`;";
+            $query = "select * from `access_requests`;";
             if(count(fetchAll($query))>0){
                 foreach(fetchAll($query) as $row){
                     ?>
@@ -42,8 +42,8 @@
                 <br> <br>
                   <h4><?php echo $row['message'] ?></h4>
                   <p>
-                  <a href="A_access_accept.php?A_access_id=<?php echo $row['A_access_id'] ?>" class="btn btn-primary my-2">Accept</a>
-                        <a href="A_access_reject.php?A_access_id=<?php echo $row['A_access_id'] ?>" class="btn btn-secondary my-2">Reject</a>
+                  <a href="A_access_accept.php?access_id=<?php echo $row['access_id'] ?>" class="btn btn-primary my-2">Accept</a>
+                        <a href="A_access_reject.php?access_id=<?php echo $row['access_id'] ?>" class="btn btn-secondary my-2">Reject</a>
                   </p>
                 <small><i><?php echo $row['date'] ?></i></small>
                 </div>
