@@ -1,4 +1,11 @@
-
+<?php
+include '../conn.php';
+session_start();
+if (isset($_SESSION["company_id"])){
+$company_id = $_SESSION["company_id"];
+}
+$page_title = "Posted Jobs";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +33,12 @@
                 <div class="col-2-row">
                     <div class="col-2-content">
                     <?php
-                        $sql = "SELECT * FROM c_jobpost";
+                    if (isset($_SESSION["company_id"])){
+                        $sql = "SELECT * FROM c_jobpost WHERE company_id = '$company_id'";
                         if($result = mysqli_query($conn, $sql)){
                             if (mysqli_num_rows($result) > 0) {
                                 while($row = mysqli_fetch_array($result)){
-                                    $job_post_id = $row['c_jobpost_id'];
+                                    
                                     ?>
                              <div class="description">
                              <div class="desc-col-1">
@@ -60,6 +68,9 @@
                 }
     
                 mysqli_close($conn);
+            } else {
+                "Please try to login again";
+            }
             ?>
                     </div>
                     <div class="col-2-content-full" id="col-2-content-full">

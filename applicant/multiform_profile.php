@@ -2,7 +2,7 @@
 include '../conn.php';
 session_start();
 $applicant_id = $_SESSION['applicant_id'];
-$sql_check = "SELECT applicant_id FROM applicant_profile01 WHERE applicant_id = ?";
+$sql_check = "SELECT applicant_id FROM ap_info WHERE applicant_id = ?";
 $stmt_check = $conn->prepare($sql_check);
 $stmt_check->bind_param("i", $applicant_id);
 $stmt_check->execute();
@@ -12,7 +12,7 @@ if ($stmt_check->num_rows > 0) {
     echo '<script>alert("You already have data in the database. Form submission is disabled."); window.location.href = "homepage.php";</script>';
     exit;
 }
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if (isset($_POST["submit"])) {
     // Step 1 form data
     $applicant_id = $_SESSION['applicant_id'];
     $lastName = $_POST['lastName'];
@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     /*step 1*/
 
-    $sql_table1 = "INSERT INTO applicant_profile01 (applicant_id, lastName, firstName, midName, suffix, jobseekerType, birthplace, birthday, age, sex, civilStatus, citizenship, housenumPresent, brgyPresent, cityPresent, provincePresent, housenumPermanent, brgyPermanent, cityPermanent, provincePermanent, height, weight, mobilePnum, email, disability, employmentStatus, activelyLooking, willinglyWork, fourpsBeneficiary, ofw) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_table1 = "INSERT INTO ap_info (applicant_id, lastName, firstName, midName, suffix, jobseekerType, birthplace, birthday, age, sex, civilStatus, citizenship, housenumPresent, brgyPresent, cityPresent, provincePresent, housenumPermanent, brgyPermanent, cityPermanent, provincePermanent, height, weight, mobilePnum, email, disability, employmentStatus, activelyLooking, willinglyWork, fourpsBeneficiary, ofw) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql_table1);
     $stmt->bind_param("isssssssssssssssssssssssssssss",$applicant_id, $lastName, $firstName, $midName, $suffix, $jobseekerType, $birthplace, $birthday, $age, $sex, $civilStatus, $citizenship, $housenumPresent, $brgyPresent, $cityPresent, $provincePresent, $housenumPermanent, $brgyPermanent, $cityPermanent, $provincePermanent, $height, $weight,  $mobilePnum, $email, $disability, $employmentStatus, $activelyLooking, $willinglyWork, $fourpsBeneficiary, $ofw);
@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     /*step 2*/
-    $sql_table2 = "INSERT INTO applicant_profile02 (applicant_id, schoolStatus, educLevel, gradYear, school, course, award) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql_table2 = "INSERT INTO ap_educ (applicant_id, schoolStatus, educLevel, gradYear, school, course, award) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql_table2);
     $stmt->bind_param("issssss", $applicant_id, $schoolStatus, $educLevel, $gradYear, $school, $course, $award);
@@ -153,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     /*step 3*/
-    $sql_table3 = "INSERT INTO applicant_profile03 (applicant_id, occupation1, industry1, occupation2, industry2, occupation3, industry3, employment_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_table3 = "INSERT INTO ap_prefer (applicant_id, occupation1, industry1, occupation2, industry2, occupation3, industry3, employment_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql_table3);
     $stmt->bind_param("isssssss", $applicant_id, $occupation1, $industry1, $occupation2, $industry2, $occupation3, $industry3, $employment_status);
@@ -164,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "Error inserting data into employment_info: " . $conn->error;
     }
     /*step 4*/
-    $sql_table4 = "INSERT INTO applicant_profile04 (applicant_id, trainingStatus, training1, startDuration1, endDuration1, training2, startDuration2, endDuration2, training3, startDuration3, endDuration3, institution1, certificate1, completion1, institution2, certificate2, completion2, institution3, certificate3, completion3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_table4 = "INSERT INTO ap_tvo (applicant_id, trainingStatus, training1, startDuration1, endDuration1, training2, startDuration2, endDuration2, training3, startDuration3, endDuration3, institution1, certificate1, completion1, institution2, certificate2, completion2, institution3, certificate3, completion3) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql_table4);
     $stmt->bind_param("isssssssssssssssssss", $applicant_id, $trainingStatus, $training1, $startDuration1, $endDuration1, $training2, $startDuration2, $endDuration2, $training3, $startDuration3, $endDuration3, $institution1, $certificate1, $completion1, $institution2, $certificate2, $completion2, $institution3, $certificate3, $completion3);
@@ -175,7 +175,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo "Error inserting data into training_info: " . $conn->error;
     }
     /*step 5*/
-    $sql_table5 = "INSERT INTO applicant_profile05 (applicant_id, careerServ1, licenceNum1, expiryDate1, careerServ2, licenceNum2, expiryDate2, careerServ3, licenceNum3, expiryDate3, validDate, languageCertifications, otherCertification, dialectsSpoken, otherDialect) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_table5 = "INSERT INTO ap_elig (applicant_id, careerServ1, licenceNum1, expiryDate1, careerServ2, licenceNum2, expiryDate2, careerServ3, licenceNum3, expiryDate3, validDate, languageCertifications, otherCertification, dialectsSpoken, otherDialect) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql_table5);
     $stmt->bind_param("issssssssssssss", $applicant_id, $careerServ1, $licenceNum1, $expiryDate1, $careerServ2, $licenceNum2, $expiryDate2, $careerServ3, $licenceNum3, $expiryDate3, $validDate, $languageCertifications, $otherCertification, $dialectsSpoken, $otherDialect);
@@ -186,7 +186,7 @@ if ($stmt->execute()) {
     echo "Error inserting data into career_info: " . $conn->error;
 }
     /*step 6*/
-    $sql_table6 = "INSERT INTO applicant_profile06 (applicant_id, company1, cpAddress1, company2, cpAddress2, company3, cpAddress3, company4, cpAddress4, position1, incluDate1, appointStat1, position2, incluDate2, appointStat2, position3, incluDate3, appointStat3, position4, incluDate4, appointStat4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_table6 = "INSERT INTO ap_exp (applicant_id, company1, cpAddress1, company2, cpAddress2, company3, cpAddress3, company4, cpAddress4, position1, incluDate1, appointStat1, position2, incluDate2, appointStat2, position3, incluDate3, appointStat3, position4, incluDate4, appointStat4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql_table6);
     $stmt->bind_param("issssssssssssssssssss", $applicant_id, $company1, $cpAddress1, $company2, $cpAddress2, $company3, $cpAddress3, $company4, $cpAddress4, $position1, $incluDate1, $appointStat1, $position2, $incluDate2, $appointStat2, $position3, $incluDate3, $appointStat3, $position4, $incluDate4, $appointStat4);
@@ -197,7 +197,7 @@ if ($stmt->execute()) {
         echo "Error inserting data into work_experience: " . $conn->error;
     }
     /*step 7*/
-    $sql_table7 = "INSERT INTO applicant_profile07 (applicant_id, skill, techSkill, otherTechskill) VALUES (?, ?, ?, ?)";
+    $sql_table7 = "INSERT INTO ap_skills (applicant_id, skill, techSkill, otherTechskill) VALUES (?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql_table7);
     $stmt->bind_param("isss", $applicant_id, $skill, $techSkill, $otherTechskill);
@@ -305,6 +305,15 @@ if ($stmt->execute()) {
                 </li>
             </ul>
             <!--------------------------------- Step Wise Form Content --------------------------------------->
+            <?php
+            if (isset($_SESSION["applicant_id"])){
+                $query = "SELECT * FROM a_accounttb WHERE applicant_id ='$applicant_id'";
+                $fetch = $conn->query($query);
+                if ($fetch->num_rows > 0) {
+                while ($row = $fetch->fetch_assoc()){
+
+                
+            ?>
             <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST">
                 <!-- Step 1 Content -->
             <div class="wrapper">
@@ -314,9 +323,9 @@ if ($stmt->execute()) {
                     <div class="mt-3">
                         <!--input field insert-->
                         <label for=""><h2>Name</h2></label>
-                        <input type="text" placeholder="First Name" name="firstName">
-                        <input type="text" placeholder="Last Name" name="lastName">
-                        <input type="text" placeholder="Middle Name" name="midName">
+                        <input type="text" placeholder="First Name" name="firstName" value="<?php echo $row["firstname"];?>">
+                        <input type="text" placeholder="Last Name" name="lastName" value="<?php echo $row["lastname"];?>">
+                        <input type="text" placeholder="Middle Name" name="midName" value="<?php echo $row["middlename"];?>">
                         <input style="width:80px;"type="text" placeholder="suffix" name="suffix">
                     </div>
                     <div class="mt-3">
@@ -345,7 +354,7 @@ if ($stmt->execute()) {
                     <div class="stick-object">
        
                         <label for=""><h2>Age</h2></label>
-                        <input type="number" id="age"name="age" placeholder="AGE"min="16" max="90"required>
+                        <input type="number" id="age"name="age" placeholder="AGE"min="16" max="90"required value="<?php echo $row["age"];?>">
                     </div>
                     <div class="stick-object">
       
@@ -403,11 +412,11 @@ if ($stmt->execute()) {
                     </div>
                     <div class="mt-3">
                         <label for=""><h2>Mobile Number</h2></label>
-                        <input type="tel" name="mobilePnum" placeholder="PRIMARY NUMBER" required>
+                        <input type="tel" name="mobilePnum" placeholder="PRIMARY NUMBER" required value="<?php echo $row["Pnum"];?>">
                     </div>
                     <div class="mt-3">
                         <label for=""><h2>Email Address</h2></label>
-                        <input type="email" name="email" placeholder="EMAIL ADDRESS" required maxlength="50">
+                        <input type="email" name="email" placeholder="EMAIL ADDRESS" required maxlength="50" value="<?php echo $row["email"];?>">
                     </div>
                     <div class="mt-3 form-row">
                     <div class="stick-object">
@@ -690,6 +699,10 @@ if ($stmt->execute()) {
                                               </tr>
                                         </table>
                     </div>
+                    <?php
+                        }
+                    }}
+                    ?>
                     <div class="mt-3">
                         <button class="button btn-navigate-form-step" type="button" step_number="3">Prev</button>
                         <button class="button btn-navigate-form-step" type="button" step_number="5">Next</button>
@@ -1004,7 +1017,7 @@ if ($stmt->execute()) {
  
                     <div class="mt-3">
                         <button class="button btn-navigate-form-step" type="button" step_number="7">Prev</button>
-                        <button class="button submit-btn" type="submit">Submit</button>
+                        <button class="button submit-btn" type="submit" name="submit">Submit</button>
                     </div>
                 </section>
                 </div>
