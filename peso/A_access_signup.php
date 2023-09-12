@@ -1,6 +1,15 @@
 <?php
-    session_start(); //we need session for the log in thingy XD 
-    include("../peso_function.php");
+$page_title = "Applicant Access Register";
+session_start();
+// Include config file
+include "../peso_function.php";
+$alert = ""; 
+
+if (!isset($_SESSION['peso_id'])) {
+    $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
+    header("location: login.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,14 +25,15 @@
 </head>
 <?php
         if(isset($_POST['signup'])){
+            $peso_id = $_SESSION['peso_id'];
             $name = $_POST['name'];
             $password = $_POST['password'];
             $email = $_POST['email'];
             $confirm_password = $_POST['confirm_password'];
            
-            $message = "Our $name would like to request an account.";
+            $message = "Our $name would like to request an access for Applicant.";
         
-            $query = "INSERT INTO `a_access_requests` (`A_access_id`, `name`, `email`, `password`, `message`, `date`) VALUES (NULL, '$name', '$email', '$password', '$message', CURRENT_TIMESTAMP)";
+            $query = "INSERT INTO `access_requests` (`access_id`, `peso_id`, `name`, `email`, `password`, `message`, `date`) VALUES (NULL, '$peso_id', '$name', '$email', '$password', '$message', CURRENT_TIMESTAMP)";
 
             if($password != $confirm_password){
                 echo "<script> alert('Please enter the same password')</script>";

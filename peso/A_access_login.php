@@ -1,6 +1,39 @@
 <?php
-    session_start(); //we need session for the log in thingy XD 
-    include("../peso_function.php");
+$page_title = "Applicant Access Register";
+session_start();
+// Include config file
+include "../peso_function.php";
+$alert = ""; 
+
+if (!isset($_SESSION['peso_id'])) {
+    $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
+    header("location: login.php");
+    exit();
+}
+
+
+?>
+
+<?php
+   
+
+    if (isset($_POST['submit'])) {
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $type = $_POST['type'];
+        
+
+        $sql = "SELECT * FROM access_account WHERE email='$email' AND type = 'Applicant' AND password='$password'";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['access_id'] = $row['access_id'];
+            header('location: applicant_homepage.php');
+        } else {
+            $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +52,12 @@
         if(isset($_POST['signin'])){
             $password = $_POST['password'];
             $email = $_POST['email'];
-            
+           
 
-            $query = "SELECT * from `a_access_account`;";
+            $query = "SELECT * from `access_account`;";
             if(count(fetchAll($query)) > 0){ //this is to catch unknown error.
                   foreach(fetchAll($query) as $row){
-                    if($row['email']==$email&&$row['password']==$password){
+                    if($row['email']==$email&&$row['password']==$password&&$row['type']=='Applicant'){
                         $_SESSION['login'] = true;
                         $_SESSION['type'] = $row['type'];
                         header('location: applicant_homepage.php');
@@ -99,7 +132,7 @@
                     
                     <button name="signin" type="submit">Log In</button>
                     <br><br>
-                    <h5>Create an Account?&nbsp;&nbsp;<a href="A_access_signup.php">SIGN UP</a></h5>
+                    <h5>Create an Account?&nbsp;&nbsp;<a href="C_access_signup.php">SIGN UP</a></h5>
                     </div>
                     
                 </form>
