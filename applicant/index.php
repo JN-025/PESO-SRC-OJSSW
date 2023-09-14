@@ -82,6 +82,7 @@
             <?php echo $msg; ?>
             <style>
                 .alert {  
+                    top:0;
                     position: fixed;  
                     padding: 1rem;
                     border-radius: 5px;
@@ -105,7 +106,6 @@
                     background-color: #ff9966;
                 }
             </style>
-            <div class="field-space"></div>
                 <h1 for="">Welcome Back,<br> Partner!</h1>
                 <form action="" method="post">
                     <div class="form-col-1">
@@ -115,10 +115,10 @@
                     <div class="form-col-1">
                     <input type="password" placeholder="Password" name="password" id="myInput1" oninput="validatePassword()" required maxlength="20">
                     </div>
-                    <div class="form-col-1">
+                    <div class="form-col-1 display-flex">
+                    <a href="">Forgot Password</a>
                     <button name="submit">LOGIN</button>
-                    <br><br>
-                    <h5>Don't have an Account?&nbsp;&nbsp;<a href="register.php">SIGN UP</a></h5>
+                    <h5>Don’t have an Account?&nbsp;<a href="register.php">SIGN UP</a></h5>
                     </div>
                 </form>
             </div>
