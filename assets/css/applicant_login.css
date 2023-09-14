@@ -87,6 +87,9 @@ input[type=text], input[type=password], input[type=number], input[type=email], s
     color: #999999;
     font-size: 18px;   
 }
+.no-text-align{
+    display: flex;
+}
 .display-flex{
     display: flex;
     flex-direction: column;

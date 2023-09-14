@@ -45,6 +45,14 @@
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
             $_SESSION['applicant_id'] = $row['applicant_id'];
+
+
+        if (isset($_POST['remember'])) {
+            $cookie_name = "remember_me_email";
+            $cookie_value = $email;
+            $cookie_expire = time() + (30 * 24 * 3600); // 30 days
+            setcookie($cookie_name, $cookie_value, $cookie_expire, "/");
+        }
             if (empty($row['code'])) {
                 $_SESSION['SESSION_EMAIL'] = $email;
                 header("Location: homepage.php");
@@ -115,8 +123,12 @@
                     <div class="form-col-1">
                     <input type="password" placeholder="Password" name="password" id="myInput1" oninput="validatePassword()" required maxlength="20">
                     </div>
+                    <div class="form-col-1 no-text-align">
+                    <input type="checkbox" name="remember">
+                    <label for="">&nbsp;Remember Me</label>
+                    </div>
                     <div class="form-col-1 display-flex">
-                    <a href="">Forgot Password</a>
+                    <a href="forgot_password.php">Forgot Password</a>
                     <button name="submit">LOGIN</button>
                     <h5>Don’t have an Account?&nbsp;<a href="register.php">SIGN UP</a></h5>
                     </div>
