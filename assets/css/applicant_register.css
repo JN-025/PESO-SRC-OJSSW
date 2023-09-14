@@ -3,16 +3,17 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Mohave', sans-serif;
 }
 /*loader*/
 .loader {
     background-color: rgba(255,255,255,0.1);
     z-index: 5;
-  display: inline-block;
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  transition: opacity 0.75s, visibility 0.75s;
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    transition: opacity 0.75s, visibility 0.75s;
   }
   .loader-hidden{
     display: none;
@@ -58,11 +59,11 @@
 }
 
 .col-1 {
-    width: 82%;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
     background-image: url(../img/cityhall.png);
-    background-repeat: no-repeat;
+
     background-size: cover;
 }
 .col-1 img{
@@ -97,18 +98,22 @@
     width: 70%;
     height: 100vh;
     font-family: 'Mohave', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 .col-2 .field-space{
     margin-top: 5%;
 }
 .col-2 h1{
     font-size: 30px;
-    color: #76165B;
+    color: #A81E1E;
     text-align: center;
     justify-content: center;
 }
 .col-2 .form-col-1 {
-    padding: 0 10%;
+    padding: 0 5%;
     margin-top: 20px;
     text-align: center;
 }
@@ -117,7 +122,7 @@
     z-index: 5;
 }
 .col-2 .form-col-2{
-    padding: 0 10%;
+    padding: 0 5%;
     margin-top: 20px;
     display: flex;
     justify-content: space-between; 
@@ -151,22 +156,32 @@ select option[value=""] {
 }
 .form-col-1 button{
     border: none;
-    margin-top: 5%;
+    margin: 2% 0;
     height: 6vh;
     width: 50%;
-    background-color: #B0368E;
+    background-color: #A81E1E;
     color: #fff;
     font-size: 20px;
     border-radius: 20px;
-    box-shadow: 0px 4px 4px 0px #D853B3 inset;
-    box-shadow: 0px 4px 4px 0px #5B1146;
+    box-shadow: 0px 4px 4px 0px #D72121 inset;
+    box-shadow: 0px 4px 4px 0px #770B0B;    
     transition: 0.2s;
 }
 .form-col-1 button:hover{
     opacity: 0.6;
 }
 .form-col-1 h5{
-    color: #AD2C89;
+    color: #000000;
+}
+.form-col-1 a{
+    color: #A81E1E;
+    font-family: 'Mohave', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -187,6 +202,7 @@ input::-webkit-inner-spin-button {
 
 }
 .modal-box{
+    position: relative;
     padding: 20px;
     width: 50%;
     background-color: #fff;
@@ -197,16 +213,23 @@ input::-webkit-inner-spin-button {
 .modal-box .modal-content h2{
     text-align: center;
 }
+.modal-box .modal-content p{
+    text-align: justify;
+    text-indent: 1em;
+    margin-top: 1em;
+}
 .close {
     background-color: #fff;
-    text-align: center;
     width: 20px;
     height: 20px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     position: absolute;
-    margin: 0 31%;
+    right: 0;
     cursor: pointer;
     color: red;
+    transition: 0.2s;
+}
+.close:hover{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 @media only screen and (max-width: 880px) {
@@ -216,11 +239,11 @@ input::-webkit-inner-spin-button {
     .col-2{
         width: 100%;
         height: 100vh;
-        background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(../img/register_bg.png);
+        background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(../img/cityhall.png);
         background-repeat: no-repeat;
         background-size: cover;
     }
     .col-2 h1{
-        color: #76165B;
+        color: #770B0B;
     }
   }
