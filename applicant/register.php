@@ -100,6 +100,7 @@ if(isset($_POST["submit"])){
             <?php echo $msg; ?>
             <style>
                 .alert {  
+                    top:0;
                     position: fixed;  
                     padding: 1rem;
                     border-radius: 5px;
