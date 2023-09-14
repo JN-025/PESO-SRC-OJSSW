@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body
+{
+    margin: 0;
+    
+}
+
+.main
+{
+    background: white;
+    height: 300vh;
+}
+
+
+.topnav{
+    display: flex;
+    position: relative;
+    height: 70px;
+    background-color: #A81E1E;;
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+
+  }
+  .topnav .peso-logo{
+    margin: 10px;
+    background-image: url(../img/ojssw.png);
+    background-size: 90%;
+    background-repeat: no-repeat;
+    width: 20%;
+    height: 100px;
+    cursor: pointer;
+  }
+  .topnav .right-corner{
+    
+    position: absolute;
+    right: 3%;
+    
+  }
+
+.login
+{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    background-color: #700101;
+    padding: 10px 30px;
+    margin: 15px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.signup
+{
+    color: #700101;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    background-color: #FFF;
+    padding: 10px 30px;
+    margin: 15px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.row-1
+{
+    height: fit-content;
+    background-image: linear-gradient(180deg, #A81E1E 37.65%, rgba(168, 30, 30, 0.00) 99.99%);
+    padding-bottom: 30vh;
+
+}
+
+.row-1 h1
+{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 4.5vw;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 50%;
+}
+
+.row-1 .col-1
+{
+    height: fit-content;
+    background-color: transparent;
+    width: 80%;
+    padding-top: 25vh;
+    display: flex;
+    
+}
+
+.row-1 .col-1 .search-img
+{
+    background-image: url(../img/landingpage_search.png);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: right;
+    height: 40vh;
+    flex: 15%;
+    margin-right: 5%;
+    
+    
+   
+    
+    
+}
+
+.row-1 .col-1 .search-box
+{
+    background-color: transparent;
+    height: fit-content;
+    flex: 70%;
+    padding-top: 5vh;
+}
+
+.search-box .search-engine-1{
+    width: 35%;
+}
+.search-box .search-engine-2{
+    width: 35%;
+}
+.search-box .search-engine-3{
+    width: 15%;
+}
+
+.search-box .button-search
+{
+    
+    border-radius: 10px;
+    background: #700101;
+    box-shadow: 0px 4px 4px 0px #8D2525 inset, 6px 4px 4px 0px rgba(54, 0, 0, 0.48);
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    padding: 5px 20px;
+    border: none;
+    margin-top: 3vh;
+}
+
+.row-1 .col-1 input
+{
+    
+    padding-left: 10px;
+    height: 30px;
+    border-radius: 6px;
+    border: 2px solid #AFAFAF;
+    background: #FCFCFC;
+    margin: 5px;
+}
+
+.row-2
+{
+    height: 100vh;
+    background-color: salmon;
+    width: 90%;
+}
+
+.row-2 h2
+{
+    color: #B40200;
+    text-align: left;
+    font-family: Poppins;
+    font-size: 4.5vw;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: 50%;
+}
+
+.row-2 h3
+{
+    color: #B40200;
+    font-family: Poppins;
+    font-size: 2vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: left;
+    padding-left: 5%;
+}
+
+.row-2 h4
+{
+    color: #B40200;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 3vw;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 50%;
+}
+
+.row-2 .col-2
+{
+    height: fit-content;
+    background-color: aqua;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.row-2 .col-2 .wordbox
+{
+    flex: 70%;
+    height: fit-content;
+    background-color: white;
+}
+
+.row-2 .col-2 .logo-img
+{
+    flex: 25%;
+    height: fit-content;
+    background-color: seagreen;
+    
+    
+}
+
+.logo-img .peso-logo
+{
+    width: 70%;
+    
+
+}
+
+.row-2 .col-3
+{
+    height: 50vh;
+    background-color: sandybrown;
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+  @media only screen and (max-width: 880px) {
+    .topnav .peso-logo{
+      margin: 10px;
+      background-image: url(../img/peso.png);
+      background-size: 50px;
+      background-repeat: no-repeat;
+      width: 20%;
+      height: 60px;
+    }
+
+    .row-1
+    {
+        padding-bottom: 20vh;
+    }
+
+    .row-1 h1
+    {
+        font-size: 3vw;
+    }
+    .row-1 .col-1
+    {
+        padding-top: 15vh;
+    }
+
+    .row-1 .col-1 .search-img
+    {
+        height: 25vh;
+    
+    }
+
+    .row-1 .col-1 .search-box
+    {
+        padding-top: 2vh;
+        
+    }
+
+    .row-1 .col-1 input
+    {
+        height: 20px;
+    }
+
+    .search-box .button-search
+    {
+        margin-top: 1.5vh;
+    }
+
+   
+  }
+
+  @media only screen and (max-width: 500px) {
+   .signup
+   {
+    display: none;
+   }
+
+   .row-1
+    {
+        padding-bottom: 10vh;
+    }
+
+   .row-1 .col-1
+    {
+        padding-top: 10vh;
+    }
+    .row-1 .col-1 input
+    {
+        height: 15px;
+    }
+
+    .row-1 .col-1 .search-img
+    {
+        height: 15vh;
+    
+    }
+   
+  }
