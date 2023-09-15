@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
 /* SIDENAV */
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
-  font-family: 'Roboto Serif', serif;
 }
 .topside-container{
   display: flex;
@@ -12,8 +11,8 @@
 .sidenav {
   margin-top: 70px;
     height: 100vh;
-    width: 20%;
-    background-color: #76165B;
+    width: 15%;
+    background: linear-gradient(180deg, rgba(255, 108, 2, 0.46) 64.71%, rgba(255, 108, 2, 0) 100%);
     overflow-x: hidden;
     position: fixed;
   }
@@ -29,13 +28,21 @@
     width:100%;
   }
   .sidenav a {
-    font-size: 1.8vw;
-    color: white;
+    font-size: 1.5vw;
+    color: #000000;
     display: block;
     background-color: transparent;
     text-decoration: none;
     padding: 15px 30px;
+    font-family: 'Mohave', sans-serif;
+    font-weight: 700;
+    transition: 0.2s;
+    margin-bottom: 5px;
   }
+.bi{
+
+    font-size: 25px;
+}
 .sidenav .col-side{
   margin-top: 30px;
 }
@@ -44,11 +51,15 @@
   }
 
   .sidenav a:hover {
-    background-color: #5E1148;
+    color: #fff;
+    border-radius: 15px;
+    background-color: #B22623;
   }
 
   .sidenav a.active {
-    background-color: #5E1148;
+    color: #fff;
+    border-radius: 15px;
+    background-color: #B22623;
   }
 @media only screen and (max-width: 900px) {
   .sidenav .col-side a {

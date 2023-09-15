@@ -16,7 +16,7 @@ if (isset($_GET['jobPostId'])) {
             '<h3 style="font-size: 14px;">Company Industry: <span style="font-weight:400">' . $row['industry'] . '</span></h3>' .
             '<h3 style="font-size: 14px;">Work Location: <span style="font-weight:400">' . $row['workLocation'] . '</span></h3>' .
             '<h3 style="font-size: 14px;">Slots: <span style="font-weight:400">' . $row['slot'] . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Salary: <span style="font-weight:400">' . $row['salary'] . '</span></h3>' .
+            '<h3 style="font-size: 14px;">Salary: <span style="font-weight:400">' .'₱'. $row['salary'] . '</span></h3>' .
             '<h3 style="font-size: 14px;">Skills: <span style="font-weight:400">' . $row['skills'] . '</span></h3>' .
             '<h3 style="font-size: 14px;">Description: <span style="font-weight:400">' . '<p style="text-align: justify;">&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mi purus, aliquam in ipsum sit amet, tristique molestie orci. Proin fermentum turpis vitae varius viverra. Mauris placerat sodales sollicitudin. Sed scelerisque velit accumsan dui imperdiet mollis id fermentum orci. Donec vehicula neque ut orci posuere, ac tempus lacus viverra. Suspendisse in magna at risus mattis egestas ut et mi. In accumsan pellentesque cursus. Nam sollicitudin pulvinar arcu. Pellentesque volutpat ipsum nulla, quis venenatis erat dapibus laoreet.
             <br><br>
@@ -27,7 +27,10 @@ if (isset($_GET['jobPostId'])) {
             '<img style="width:150px;height: 150px;border-radius:10px;"src="' . $row['img'] . '" alt="">' .
             '</div>' .
 
-            '<button style="position:absolute;bottom:0;">Apply</button>' .
+            '<form method="post" action="apply_process.php">' .
+            '<input type="hidden" name="jobPostId" value="' . $row['c_jobpost_id'] . '">' .
+            '<button type="submit" name="applyButton">Apply</button>' .
+            '</form>' .
             '</div>' .
             '</div>';
 

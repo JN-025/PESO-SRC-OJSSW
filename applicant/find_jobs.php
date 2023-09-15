@@ -93,7 +93,7 @@ include '../conn.php';
                                     </div>
                                     <div class="desc-col-2">
                                         <div>
-                                            <button onclick="openTab('<?php echo $job_post_id; ?>')">Apply</button>
+                                        <button onclick="openTab(<?php echo $row['c_jobpost_id']; ?>)">Apply</button>
                                         </div>
                                         <img src="<?php echo $row['img']; ?>" alt="No image">
 

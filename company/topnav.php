@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../assets/css/applicant_topnav.css">
+<link rel="stylesheet" href="../assets/css/company_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <div class="topnav">
@@ -6,7 +6,7 @@
     <div class="right-corner">
         <div class="notification-icon">
             <div class="field-space"></div>
-            <i class="bi bi-bell" id="bell-icon"></i>
+            <i class="bi bi-bell icon" id="bell-icon"></i>
             <div class="notification-dropdown" id="notification-dropdown">
                 <div class="col-1">
                     <a href="">Notification</a>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <i class="bi bi-person" id="person-icon"></i>
+            <i class="bi bi-person-fill icon" id="person-icon"></i>
             <div class="dropdown-content" id="person-dropdown">
                 <a href="multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
                 <a href="#"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
@@ -70,5 +70,28 @@
     });
 
     updateNotificationDropdown();
+
+
+
+    bellIcon.addEventListener("click", function(event) {
+    if (bellIcon.classList.contains("clicked")) {
+      bellIcon.classList.remove("clicked");
+    } else {
+      bellIcon.classList.add("clicked");
+    }
+    event.stopPropagation();
+  });
+  personIcon.addEventListener("click", function(event) {
+    if (personIcon.classList.contains("clicked")) {
+        personIcon.classList.remove("clicked");
+    } else {
+        personIcon.classList.add("clicked");
+    }
+    event.stopPropagation();
+  });
+  document.body.addEventListener("click", function() {
+    bellIcon.classList.remove("clicked");
+    personIcon.classList.remove("clicked");
+  });
 </script>
 
