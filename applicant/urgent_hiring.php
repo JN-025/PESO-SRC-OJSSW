@@ -1,5 +1,5 @@
 <?php
-$page_title = "Urgent Hiring";
+$page_title = "Find Jobs";
     session_start();
     if (!isset($_SESSION['SESSION_EMAIL'])) {
         header("Location: index.php");
@@ -35,7 +35,7 @@ include '../conn.php';
                             <input type="text" name="search_engine_3" class="search-engine-3" placeholder="Experience">
                             <button name="search"><i class="bi bi-search" style="margin: 0 5px;"></i>Search</button>
                             </div>
-                         <!--   <div class="search-box lower-search">
+                          <div class="search-box lower-search">
                             <label for="">JOB SEARCH</label>
                             <input type="text" name="filter_engine_1" class="filter-engine-1" placeholder="Manager">
                             <input type="text" name="filter_engine_2" class="filter-engine-2" placeholder="Santa Rosa, Laguna">
@@ -43,7 +43,9 @@ include '../conn.php';
                             <input type="text" name="filter_engine_4" class="filter-engine-4" placeholder="2-3 Years Experience">
                             <input type="text" name="filter_engine_5" class="filter-engine-5" placeholder="Construction">
                             <button name="filter">Filter</button>
-                            </div>-->
+                            </div>
+                            <a href="homepage.php">Recommended Job</a>
+                            <a href="urgent_hiring.php">Urgent Hiring</a>
                         </form>
                     </div>
             </div>
@@ -104,7 +106,7 @@ include '../conn.php';
                     }
                 }}
                 // SEARCH AND FILTER END
-                ?><label for="" style="padding-left:10px; font-size:20px; font-weight:bold;">Urgent Hiring</label><?php
+                ?><label for="" style="padding-left:10px; font-size:20px; font-weight:bold;">Recommended Jobs</label><?php
                         $sql = "SELECT * FROM c_jobpost UNION ALL SELECT * FROM p_jobpost ORDER BY date_added DESC";
                         if($result = mysqli_query($conn, $sql)){
                             if (mysqli_num_rows($result) > 0) {

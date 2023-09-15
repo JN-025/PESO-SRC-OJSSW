@@ -1,8 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Luckiest+Guy&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
 *{
     font-family: 'Gelasio', serif;
 }
+/*loader*/
+.loader {
+    background-color: rgba(255,255,255,0.1);
+    z-index: 5;
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    transition: opacity 0.75s, visibility 0.75s;
+  }
+  .loader-hidden{
+    display: none;
+    opacity: 0;
+    visibility: 0;
+  }
+  .loader div {
+    margin:0;
+    padding:0;
+    top:47%;
+    left:47%;
+    align-items: center;
+    box-sizing: border-box;
+    display: block;
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #ff726f transparent transparent transparent;
+  }
+  .loader div:nth-child(1) {
+  animation-delay: -0.45s;
+  }
+  .loader div:nth-child(2) {
+  animation-delay: -0.3s;
+  }
+  .loader div:nth-child(3) {
+  animation-delay: -0.15s;
+  }
+  @keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+  }
 .main-container{
     margin-top: 60px;
     margin-left: 15%;
@@ -12,8 +59,9 @@
 }
 .col-1{
     width: 100%;
-    height: 200px;
+    height: 210px;
     position: relative;
+    scroll-behavior: smooth;
 }
 .col-1 .header h1{
     padding: 20px 20px;
@@ -54,38 +102,52 @@
 }
 .lower-search{
     font-size: 20px;
-    text-align: left;
 }
 .upper-search button{
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     cursor: pointer;
     border: none;
     height: 6vh;
     width: 10%;
-    background-color: #9D1477;
+    background-color: #A81E1E;
     color: #fff;
     border-radius: 10px;
-    box-shadow: 0px 4px 4px 0px #BA3A96F7 inset;
-    box-shadow: 0px 4px 4px 0px #00000040;
+    box-shadow: 0px 4px 4px 0px #D72121 inset;
+    box-shadow: 0px 4px 4px 0px #770B0B40; 
 
 }
 .lower-search button{
     margin-top: 15px;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     cursor: pointer;
     border: none;
     height: 4vh;
     width: 8%;
-    background-color: #9D1477;
+    background-color: #A81E1E;
     color: #fff;
     border-radius: 10px;
-    box-shadow: 0px 4px 4px 0px #BA3A96F7 inset;
-    box-shadow: 0px 4px 4px 0px #00000040;
+    box-shadow: 0px 4px 4px 0px #D72121 inset;
+    box-shadow: 0px 4px 4px 0px #770B0B40;    
 }
 .lower-search label{
     margin-left: 20px;
     font-size: 1.5vw;
-    color: #AD2C89;
+    color: #A81E1E;
+}
+.sort-by-type{
+    margin-left: 20px;
+    margin-top: 35px;
+}
+.sort-by-type button{
+    cursor: pointer;
+    padding: 5px 2%;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #A81E1E;
+    box-shadow: 0px 4px 4px 0px #D52121 inset;
+    box-shadow: 0px 4px 4px 0px #DEC4C4;
+
 }
 .col-2{
     width: 100%;
@@ -97,15 +159,13 @@
     overflow-y: auto;
     height: 60vh;
     flex: 0 0 40%;
-    border-right: 4px solid #FFC47C;
 }
 .col-2-content .description{
     display: flex;
-    background-color: #FFC47C;
+    background-color: #FFFFFF;
     padding: 10px;
     margin: 5%;
-    border: 2px solid #FFC47C;
-    border-radius: 10px;
+    border-radius: 11px;
     box-shadow: 0px 4px 4px 0px #00000040 inset;
     box-shadow: 0px 4px 4px 0px #00000040;
 }
@@ -113,6 +173,7 @@
     flex: 1;
 }
 .col-2-content .desc-col-1 h2{
+    font-family: 'Sunflower', sans-serif;
     color: #8A240E;
 }
 .col-2-content .desc-col-1 h3{
@@ -137,11 +198,11 @@
     border: none;
     height: 4vh;
     width: 50%;
-    background-color: #9D1477;
+    background-color: #A81E1E;
     color: #fff;
     border-radius: 10px;
-    box-shadow: 0px 4px 4px 0px #BA3A96F7 inset;
-    box-shadow: 0px 4px 4px 0px #00000040;
+    box-shadow: 0px 4px 4px 0px #D72121 inset;
+    box-shadow: 0px 4px 4px 0px #770B0B40;
 }
 .reminder{
     height: 40vh;
@@ -162,6 +223,12 @@
     text-align: center;
     justify-content: center;
     padding: 50px 50px;
+}
+button{
+    font-family: 'Poppins', sans-serif;
+}
+button:hover{
+    opacity: 0.6;
 }
 @media only screen and (max-width: 880px) {
     .col-2-content-full{

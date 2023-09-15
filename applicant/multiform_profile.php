@@ -247,7 +247,7 @@ if ($stmt->execute()) {
                         <span class="form-stepper-circle text-muted">
                             <span>2</span>
                         </span>
-                        <div class="label text-muted">Educational <br>Background</div>
+                        <div class="label text-muted">Educational Background</div>
                     </a>
                 </li>
                 <!-- Step 3 -->
@@ -283,7 +283,7 @@ if ($stmt->execute()) {
                         <span class="form-stepper-circle text-muted">
                             <span>6</span>
                         </span>
-                        <div class="label text-muted">Work<br> Experiences</div>
+                        <div class="label text-muted">Work Experiences</div>
                     </a>
                 </li>
                 <!-- Step 7 -->
@@ -326,7 +326,7 @@ if ($stmt->execute()) {
                         <input type="text" placeholder="First Name" name="firstName" value="<?php echo $row["firstname"];?>">
                         <input type="text" placeholder="Last Name" name="lastName" value="<?php echo $row["lastname"];?>">
                         <input type="text" placeholder="Middle Name" name="midName" value="<?php echo $row["middlename"];?>">
-                        <input style="width:80px;"type="text" placeholder="suffix" name="suffix">
+                        <input style="width:30px;"type="text" placeholder="Jr." name="suffix">
                     </div>
                     <div class="mt-3">
   
@@ -346,18 +346,14 @@ if ($stmt->execute()) {
                     </div>
                     <div class="stick-object">
       
-                        <label for=""><h2>Date of Birth</h2></label>
-                        <input type="date" placeholder="birthday" name="birthday">
+                        <label for="dateofbirth"><h2>Date of Birth</h2></label>
+                        <input style="width:100%"type="date" placeholder="birthday" name="birthday" id="birthday">
                     </div>
-                    </div>
-                    <div class="mt-3 form-row">
                     <div class="stick-object">
-       
-                        <label for=""><h2>Age</h2></label>
+                        <label for="age"><h2>Age</h2></label>
                         <input type="number" id="age"name="age" placeholder="AGE"min="16" max="90"required value="<?php echo $row["age"];?>">
                     </div>
                     <div class="stick-object">
-      
                         <label for=""><h2>Sex</h2></label>
                         <select class="" name="sex" required>
                                             <option value="" selected hidden>Select Gender</option>
@@ -447,7 +443,7 @@ if ($stmt->execute()) {
                                         </select>     
                     </div>
                     </div>
-                    <div class="mt-3">
+                    <div class="mt-3 text-align-right">
                         <label for="">ACTIVELY LOOKING FOR WORK?</label>
                         <select class="" name="activelyLooking" required>
                                             <option value="" selected hidden></option>

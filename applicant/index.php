@@ -55,7 +55,7 @@
         }
             if (empty($row['code'])) {
                 $_SESSION['SESSION_EMAIL'] = $email;
-                header("Location: homepage.php");
+                header("Location: find_jobs.php");
             } else {
                 $msg = "<div class='alert alert-info'>First verify your account and try again.</div>";
             }

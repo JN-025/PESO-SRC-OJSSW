@@ -15,9 +15,11 @@ include '../conn.php';
     <title>Homepage</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/css/applicant_homepage.css">
+    <link rel="stylesheet" href="../assets/css/applicant_find_jobs.css">
+    <script src="../assets/js/applicant/loader.js"></script>
 </head>
 <body>
+<div class="loader"><div></div><div></div><div></div><div></div></div>
     <?php 
     include "../function.php";
     include "sidenav.php";
@@ -28,21 +30,25 @@ include '../conn.php';
             <div class="col-1">
             <div class="header">
                         <form method="POST"action="">
-                            <h1><?php echo $page_title;?></h1>
+                            <h1></h1>
                             <div class="search-box upper-search">
                             <input type="text" name="search_engine_1" class="search-engine-1" placeholder="Skills, Company, or Job Title">
                             <input type="text" name="search_engine_2" class="search-engine-2" placeholder="Location">
                             <input type="text" name="search_engine_3" class="search-engine-3" placeholder="Experience">
-                            <button name="search"><i class="bi bi-search" style="margin: 0 5px;"></i>Search</button>
+                            <button name="search"><i class="bi bi-search" style="font-size: 18px;margin: 0 5px;"></i>Search</button>
                             </div>
-                         <div class="search-box lower-search">
-                            <label for="">JOB SEARCH</label>
+                          <div class="search-box lower-search">
+                            <label for=""></label>
                             <input type="text" name="filter_engine_1" class="filter-engine-1" placeholder="Manager">
                             <input type="text" name="filter_engine_2" class="filter-engine-2" placeholder="Santa Rosa, Laguna">
                             <input type="text" name="filter_engine_3" class="filter-engine-3" placeholder="30000 Pesos">
                             <input type="text" name="filter_engine_4" class="filter-engine-4" placeholder="2-3 Years Experience">
                             <input type="text" name="filter_engine_5" class="filter-engine-5" placeholder="Construction">
-                            <button name="filter">Filter</button>
+                            <button name="filter"><i class="bi bi-filter " style="font-size: 18px;"></i>Filter</button>
+                            </div>
+                            <div class="sort-by-type">
+                            <button>Recommended Jobs</button>
+                            <button>Urgent Hiring</button>
                             </div>
                         </form>
                     </div>
@@ -82,7 +88,7 @@ include '../conn.php';
                                         <h3>Company Industry:</h3><p><?php echo $row['industry']; ?></p>
                                         <h3>Work Location:</h3><p><?php echo $row['workLocation']; ?></p>
                                         <h3>Slots:</h3><p><?php echo $row['slot']; ?></p>
-                                        <h3>Salary:</h3><p><?php echo $row['salary']; ?></p>
+                                        <h3>Salary:</h3><p>₱<?php echo $row['salary']; ?></p>
                                         <h3>Skills:</h3><p><?php echo $row['skills']; ?></p>
                                     </div>
                                     <div class="desc-col-2">
@@ -104,15 +110,49 @@ include '../conn.php';
                     }
                 }}
                 // SEARCH AND FILTER END
+                ?><label for="" style="padding-left:10px; font-size:20px; font-weight:bold;">Recommended Jobs</label><?php
+                        $sql = "SELECT * FROM c_jobpost UNION ALL SELECT * FROM p_jobpost ORDER BY date_added DESC";
+                        if($result = mysqli_query($conn, $sql)){
+                            if (mysqli_num_rows($result) > 0) {
+                                while($row = mysqli_fetch_array($result)){
+                                    ?>
+                                    <div class="description">
+                             <div class="desc-col-1">
+                             <h2><?php echo $row['jobTitle']; ?></h2>
+                            <h3>Company Name:</h3><p><?php echo $row['companyName']; ?></p>
+                            <h3>Company Industry:</h3><p> <?php echo $row['industry']; ?></p>
+                            <h3>Work Location: </h3><p> <?php echo $row['workLocation']; ?></p>
+                            <h3>Slots: </h3><p> <?php echo $row['slot']; ?></p>
+                            <h3>Salary: </h3><p>₱<?php echo $row['salary']; ?></p>
+                            <h3>Skills: </h3><p> <?php echo $row['skills']; ?></p>
+                             </div>
+                             <div class="desc-col-2">
+                                <div>
+                                <button onclick="openTab(<?php echo $row['c_jobpost_id']; ?>)">Apply</button>
+<!--backup hehehe-->
+                                </div>
+                                <img src="<?php echo $row['img']; ?>" alt="No image">
+
+                             </div>
+                        </div>
+                        <?php
+                            }
+                        mysqli_free_result($result);
+                    } else {
+                        echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                    }
+                } else {
+                    echo "Oops! Something went wrong. Please try again later.";
+                }
     
                 mysqli_close($conn);
             ?>
                     </div>
                     <div class="col-2-content-full" id="col-2-content-full">
-                    <div class="reminder">
+                    <!--<div class="reminder">
                     <i class="bi bi-exclamation-diamond"></i><p><span style="font-weight:bolder;">Job Application Reminder:</span>
                             Before you apply for any job on PESO-SRC-OJSSW, we want to ensure that you're making informed career choices. Take a moment to reflect on your skills, interests, and strengths. When you find a job you're interested in, carefully read the job description and match your skills with the requirements.</p>
-                            </div>
+                            </div>-->
                     </div>
                 </div>
             </div>
