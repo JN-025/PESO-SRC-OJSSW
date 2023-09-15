@@ -52,9 +52,9 @@ $page_title = "Posted Jobs";
                              </div>
                              <div class="desc-col-2">
                                 <div>
-                                <button onclick="openTab('<?php echo $job_post_id; ?>')">Apply</button>
+                                <button onclick="openTab('<?php echo $job_post_id; ?>')">Delete</button>
                                 </div>
-                                <img src="<?php echo $row['img']; ?>" alt="No image" srcset="../assets/img/default-img.jpg">
+                                <img src="<?php echo $row['img']; ?>" alt="No image"">
                              </div>
                         </div>
                         <?php
@@ -75,8 +75,8 @@ $page_title = "Posted Jobs";
                     </div>
                     <div class="col-2-content-full" id="col-2-content-full">
                     <div class="reminder">
-                    <i class="bi bi-exclamation-diamond"></i><p><span style="font-weight:bolder;">Job Application Reminder:</span>
-                            Before you apply for any job on PESO-SRC-OJSSW, we want to ensure that you're making informed career choices. Take a moment to reflect on your skills, interests, and strengths. When you find a job you're interested in, carefully read the job description and match your skills with the requirements.</p>
+                    <i class="bi bi-exclamation-diamond"></i><p><span style="font-weight:bolder;">Company Reminder:</span>
+                    Please be patient as we carefully search for the best and most suitable applicant for the job. Your understanding and patience in this process are greatly appreciated.</p>
                             </div>
                     </div>
                 </div>
