@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Luckiest+Guy&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
 .topnav{
   display: flex;
   position: relative;
   height: 70px;
-  background-color: #76165B;
+  background-color: #B22623;
   width: 100%;
   position: fixed;
   z-index: 5;
 }
 .topnav .peso-logo{
+    position: absolute;
   margin: 10px;
   background-image: url(../img/ojssw.png);
-  background-size: 90%;
+  background-size: 75%;
   background-repeat: no-repeat;
   width: 20%;
   height: 100px;
@@ -27,14 +29,26 @@
 .notification-icon {
   position: relative;
   display: inline-block;
-  margin-right: 20px;
 }
 
 #bell-icon {
-  font-size: 24px;
-  cursor: pointer;
+    position: relative;
+    padding: 13px;
+    font-size: 24px;
+    border-radius: 100%;
+    cursor: pointer;   
+    transition: 0.2s;
 }
-
+.icon:hover{
+    color: #B22623;
+    background-color: #fff;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.icon.clicked {
+    color: #B22623;
+    background-color: #fff;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  }
 #notification-dropdown {
   font-size: 15px;
   color: #000;
@@ -80,9 +94,13 @@
   margin-right: 20px;
 }
 
-#person-fill {
-  font-size: 24px;
-  cursor: pointer;
+#person-icon {
+    position: relative;
+    padding: 13px;
+    font-size: 24px;
+    border-radius: 100%;
+    cursor: pointer;   
+    transition: 0.2s;
 }
 
 #person-dropdown {
