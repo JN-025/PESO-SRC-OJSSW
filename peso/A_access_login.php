@@ -132,7 +132,7 @@ if (!isset($_SESSION['peso_id'])) {
                     
                     <button name="signin" type="submit">Log In</button>
                     <br><br>
-                    <h5>Create an Account?&nbsp;&nbsp;<a href="C_access_signup.php">SIGN UP</a></h5>
+                    <h5>Create an Account?&nbsp;&nbsp;<a href="A_access_signup.php">SIGN UP</a></h5>
                     </div>
                     
                 </form>

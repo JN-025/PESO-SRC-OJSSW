@@ -33,7 +33,7 @@ if (!isset($_SESSION['peso_id'])) {
            
             $message = "Our $name would like to request an access for Applicant.";
         
-            $query = "INSERT INTO `access_requests` (`access_id`, `peso_id`, `name`, `email`, `password`, `message`, `date`) VALUES (NULL, '$peso_id', '$name', '$email', '$password', '$message', CURRENT_TIMESTAMP)";
+            $query = "INSERT INTO `access_requests` (`access_id`, `peso_id`, `name`, `email`, `password`, `message`, `accessType`, `date`) VALUES (NULL, '$peso_id', '$name', '$email', '$password', '$message', 'Applicant', CURRENT_TIMESTAMP)";
 
             if($password != $confirm_password){
                 echo "<script> alert('Please enter the same password')</script>";
@@ -60,7 +60,7 @@ if (!isset($_SESSION['peso_id'])) {
                 <center>
                 <div class="col-2">
             
-            <style>
+                <style>
                 .alert {  
                     position: fixed;  
                     padding: 1rem;
@@ -105,28 +105,12 @@ if (!isset($_SESSION['peso_id'])) {
                     <input type="password" placeholder="Confirm Password" name="confirm_password" id="myInput2" required maxlength="20">
                     </div>
                     <div class="form-col-1">
-                    <h5>By clicking register you agree in our&nbsp;&nbsp;<a href="#" id="myBtn">Terms & Agreement</a></h5>
-                    <button name="signup" type="submit">REGISTER</button>
+                    <button class="access" name="signup" type="submit">REGISTER</button>
                     <br><br>
                     <h5>Already have an Account?&nbsp;&nbsp;<a href="A_access_login.php">LOG IN</a></h5>
                     </div>
-                    <div id="myModal" class="modal">
-                    <div class="modal-box">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <h2>Terms & Agreement</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis nisl eget pharetra ultricies. Donec lacinia, ante vel commodo fringilla, elit dolor ornare ante, et placerat risus mauris et tellus. Vestibulum a orci ac mauris auctor semper. Pellentesque pulvinar magna sit amet eleifend sollicitudin. Duis sem nulla, viverra ut varius nec, ullamcorper sit amet ex. Proin id sagittis neque. Nullam venenatis ligula id est cursus dapibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-                        Maecenas magna nisi, cursus sit amet tempor mattis, vehicula vel ex. Fusce molestie elit eget mattis molestie. Nam odio metus, varius at enim vitae, tincidunt rhoncus urna. Quisque viverra porttitor hendrerit. Quisque semper, sem in eleifend viverra, leo tellus interdum justo, vitae interdum odio diam vitae erat. Proin ornare ornare pulvinar. Maecenas a volutpat orci, eu fermentum augue. Cras dictum metus ut lorem aliquam auctor. Pellentesque sit amet elementum lectus. Aliquam ultricies, lectus quis volutpat facilisis, urna nibh molestie dui, dapibus luctus ex eros ut dui.
-
-                        Nullam in ante augue. Nulla lacinia augue ut nunc aliquet luctus. Quisque vitae semper nulla. Mauris ac ullamcorper metus. Mauris ultricies eros a mauris tincidunt, dapibus iaculis elit faucibus. Donec sed ipsum a sem dignissim sagittis. Nunc placerat ex id interdum condimentum. Pellentesque eu eros sit amet velit hendrerit auctor vitae vel mi. Duis iaculis, arcu eu congue auctor, enim purus cursus augue, non sollicitudin quam velit et metus. Morbi tristique ipsum sit amet ipsum sollicitudin, eget vulputate enim convallis. Quisque finibus blandit arcu quis ornare. In sodales eros facilisis, interdum elit at, iaculis nibh. Aliquam sed tincidunt nisl.
-
-                        Mauris tempor, justo vitae blandit pharetra, odio eros vulputate risus, vitae molestie justo turpis sed nibh. Donec suscipit tristique eleifend. Curabitur vitae sodales lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris eget tristique nisl. Integer sit amet arcu neque. Mauris lacus nisi, venenatis et congue sit amet, faucibus eget urna.
-
-                        In hac habitasse platea dictumst. Cras orci nunc, volutpat quis finibus ut, fringilla non magna. Sed pharetra, est eget euismod bibendum, leo lectus scelerisque urna, vitae vestibulum justo urna a lacus. Mauris viverra tortor ac lacus commodo bibendum. Aliquam id magna eu urna fermentum molestie. Donec aliquam et est eu ullamcorper. Aenean faucibus vehicula massa a mattis. Curabitur gravida mi ut sagittis lacinia. Quisque ut luctus elit.</p>
-                    </div>
-                    </div>
-                </div>
+                    
+                
                 </form>
             </div>
                 </center>

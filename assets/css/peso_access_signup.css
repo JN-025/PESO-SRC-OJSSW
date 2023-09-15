@@ -95,7 +95,7 @@
 .col-2 {
     width: 55%;
     border-radius: 11px;
-    background: #E1E3E5;
+    background: #fff;
     margin-top: 1%;
     padding-top: 5px;
     padding-bottom: 10px;
@@ -104,7 +104,7 @@
     margin-top: 5%;
 }
 .col-2 h1{
-    color: #AD2C89;
+    color: #B22623;
     font-family: Mohave;
     font-size: 35px;
     font-style: normal;
@@ -181,58 +181,23 @@ input::-webkit-inner-spin-button {
 /* BUTTONS */
 .access
 {
-    background: #AA1D83;
-    box-shadow: 0px 4px 4px 0px #C95EAA inset;
-    filter: drop-shadow(2px 6px 4px #5D0043);
-    border: none;
+    width: 20%;
+    padding: 5px 15px;
+    background-color: #A81E1E;
+    box-shadow: 0px 4px 4px 0px #D72121 inset;
+    filter: drop-shadow(0px 4px 4px rgba(119, 11, 11, 0.25));
     color: #FFF;
     text-align: center;
-    font-family: Londrina Solid;
-    font-size: 30px;
+    font-family: Mohave;
+    font-size: 25px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: normal;
-    padding: 1%;
-    margin: 2% 2% 2% 2%;
-    border-radius: 15px;
-    width: 25%;
-}
-
-/* Modal */
-.modal {
-    padding: 5% 25%;
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-
-}
-.modal-box{
-    padding: 20px;
-    width: 50%;
-    background-color: #fff;
-    height: 80vh;
-    overflow: auto;
+    border:none;
     border-radius: 10px;
+
 }
-.modal-box .modal-content h2{
-    text-align: center;
-}
-.close {
-    background-color: #fff;
-    text-align: center;
-    width: 20px;
-    height: 20px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    position: absolute;
-    margin: 0 31%;
-    cursor: pointer;
-    color: red;
-}
+
 
 /*
 @media only screen and (max-width: 880px) {
