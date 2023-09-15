@@ -52,13 +52,140 @@
             
             <div class="col-3">
                 <h4>Learn more about PESO Santa Rosa</h4>
+                <center>
+                <div class="button-box">
+                    
+                    <button class="learn-more" onclick="document.location='#'">Laws</button>
+                    
+                    <button class="learn-more" style="font-size: 1.8vw;" onclick="document.location='#'">About PESO Santa Rosa</button>
+                   
+                    <button class="learn-more" style="font-size: 1.5vw;" onclick="document.location='#'">Benefits of Applying through PESO</button>
+                    
 
+
+                    
+                    <button class="learn-more" onclick="document.location='#'">Events</button>
+                
+                </div>
+                </center>
             </div>
-       \
+       
             
 
         </div>
         </center>
+        
+        <div class="row-3">
+            <center>
+            <h5>STAY UPDATED WITH OUR EVENTS!</h5>
+            
+            <div class="modal-box">
+
+                <button id="myBtn" class="modal-button">Sept 9</button>
+                <button id="myBtn2" class="modal-button">Oct 12</button>
+                <button id="myBtn2" class="modal-button">Oct 24</button>
+                <button id="myBtn2" class="modal-button">Nov 15</button>
+                <button id="myBtn2" class="modal-button">Nov 15</button>
+
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content-box">
+                    <div class="modal-content">
+
+                        <span class="close">&times;</span>
+                        
+                        <h1><span style="color: #520000; font-weight: bolder;">WHAT:</span> Job Fair Caravan</h1>
+                        <br>
+                        <h1><span style="color: #520000; font-weight: bolder;">WHERE:</span> Brgy. Kanluran, Covered Court</h1>
+                        <img src="assets/img/sample.png" class="event-location">
+                        <br>
+                        <h1><span style="color: #520000; font-weight: bolder;">TIME:</span> 9:00am</h1>
+                        <br>
+                        <h1><span style="color: #520000; font-weight: bolder;">Companies included:</span></h1>
+                        <h2>  > Miniso</h2>
+                        <h2>  > Chowking Santa Rosa</h2>
+                        <h2>  > McDonalds Santa Rosa</h2>
+                        <h2>  > San Miguel Corporation</h2>
+                        <br>
+                        <h1><span style="color: #520000; font-weight: bolder;">!! Reminders !!</span></h1>
+                        <h2>  > Wear a facemask and observe social distancing.</h2>
+                        <h2>  > Bring your own ballpen.</h2>
+                        <br>
+                        <h1><span style="color: #520000; font-weight: bolder;">What should I prepare?</span></h1>
+                        <button id="myBtn3" class="requirements">Requirements to Bring</button>
+
+
+                    </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            
+
+
+
+            </center>
+        </div>
+
+        <div class="row-4">
+            <center>
+            <h1>TRAIN YOURSELF IN A FUN WAY</h1>
+            <div class="wordbox">
+            <button class="button-training" onclick="document.location='#'">Learn more</button>
+            </div>
+            </center>
+        </div>
+
+        <div class="row-5">
+            <center>
+            <div class="image-gallery">
+                <img src="assets/img/gallery.jpg" class="gallery">
+                <img src="assets/img/gallery.jpg" class="gallery">
+                <img src="assets/img/gallery.jpg" class="gallery">
+                <img src="assets/img/gallery.jpg" class="gallery">
+            </div>
+            <button class="button-gallery" onclick="document.location='#'">See Full Gallery</button>
+        
+            </center>
+        </div>
+        
+
     </div>
+    <footer class="footer">
+        <h4>Learn more about PESO Santa Rosa</h4>
+        </footer>
+        
 </body>
 </html>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>

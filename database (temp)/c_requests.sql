@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2023 at 01:33 PM
+-- Generation Time: Sep 15, 2023 at 02:36 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -36,6 +36,7 @@ CREATE TABLE `c_requests` (
   `email` varchar(255) NOT NULL,
   `password` varchar(50) NOT NULL,
   `message` text NOT NULL,
+  `companyType` varchar(255) NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -43,9 +44,10 @@ CREATE TABLE `c_requests` (
 -- Dumping data for table `c_requests`
 --
 
-INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `date`) VALUES
-(12, 'Capstone Company', 'IT', 'Juan Dela Cruz', '0912-345-67', 'juandelacruz123@gmail.com', 'JuanDelaCruz_123', 'Our Capstone Company would like to request an account.', '2023-09-08 16:19:39'),
-(15, '', 'IT', 'Company Two', '0912-345-67', 'companytwo2@gmail.com', 'CompanyTwo_2', 'Company Two would like to request an account.', '2023-09-13 10:30:57');
+INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `companyType`, `date`) VALUES
+(12, 'Capstone Company', 'IT', 'Juan Dela Cruz', '0912-345-67', 'juandelacruz123@gmail.com', 'JuanDelaCruz_123', 'Our Capstone Company would like to request an account.', '', '2023-09-08 16:19:39'),
+(15, '', 'IT', 'Company Two', '0912-345-67', 'companytwo2@gmail.com', 'CompanyTwo_2', 'Company Two would like to request an account.', '', '2023-09-13 10:30:57'),
+(17, 'Company Four', 'Technology', 'Company Four', '0912-345-67', 'companyfour4@gmail.com', 'CompanyFour_4', 'Company Four would like to request an account.', 'Direct Company', '2023-09-15 20:27:56');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +67,7 @@ ALTER TABLE `c_requests`
 -- AUTO_INCREMENT for table `c_requests`
 --
 ALTER TABLE `c_requests`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

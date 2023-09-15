@@ -5,14 +5,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/applicant_register.css">
-    <script src="../assets/js/applicant/loader.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up</title>
+        <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
+        <link rel="stylesheet" href="../assets/css/company_register.css">
+        <script src="../assets/js/applicant/loader.js"></script>
+    </head>
 
     <?php
         if(isset($_POST['signup'])){
@@ -25,8 +25,10 @@
             $confirm_password = $_POST['confirm_password'];
             
             $message = "$companyName would like to request an account.";
+            
 
-            $query = "INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `date`) VALUES (NULL, '$companyName', '$industry', '$contactPerson', '$contactNum', '$email', '$password', '$message', CURRENT_TIMESTAMP)";
+            
+            $query = "INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `companyType`, `date`) VALUES (NULL, '$companyName', '$industry', '$contactPerson', '$contactNum', '$email', '$password', '$message', 'Direct Company', CURRENT_TIMESTAMP)";
 
             
             if($password != $confirm_password){
@@ -44,8 +46,9 @@
         else{
             echo "<script> alert('Unknown error occurred.')</script>";
         }
-        
+                
     ?>
+    
 
 <body>
 <div class="loader"><div></div><div></div><div></div><div></div></div>
@@ -88,10 +91,20 @@
                     background-color: #ff9966;
                 }
             </style>
-            <div class="field-space"></div>
+
+                <center>
                 <h1>CREATE ACCOUNT</h1>
-                <form action="" method="post">
-                <div class="form-col-1">
+                <form id="regForm" action="">
+                    
+                    <!-- One "tab" for each step in the form: -->
+                    <div style="overflow:auto;">
+                        <div style="">
+                        <button class="prev" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        
+                        </div>
+                    </div>
+                    <div class="tab">
+                    <div class="form-col-1">
                     
                     <input type="text" name="companyName" placeholder="Company Name" required maxlength="50">
                     </div>
@@ -108,17 +121,72 @@
                     <input type="email" placeholder="Email Address" name="email" required maxlength="50">
                     </div>
                     <div class="form-col-1">
-                    <!--<img src="../assets/img/eye-close.png" alt="" id="eyeicon1" class="eyeicon" data-target="myInput1">-->
+
+                    <!-- <img src="../assets/img/eye-close.png" alt="" id="eyeicon1" class="eyeicon" data-target="myInput1"> -->
                     <input type="password" placeholder="Password" name="password" id="myInput1" oninput="validatePassword()" required maxlength="20">
                     </div>
                     <div class="form-col-1">
-                    <!--<img src="../assets/img/eye-close.png" alt="" id="eyeicon2" class="eyeicon" data-target="myInput2">-->
+                    <!-- <img src="../assets/img/eye-close.png" alt="" id="eyeicon2" class="eyeicon" data-target="myInput2"> -->
                     <input type="password" placeholder="Confirm Password" name="confirm_password" id="myInput2" required maxlength="20">
                     </div>
-                    <div class="form-col-1">
+                    </div>
+                    
+                    <div class="tab">
+                        <!--
+                        <h2>Requirements</h2>
+                    
+                        <div class="form-col-2">
+                            <div class="col-left">
+                                <h3>Company Profile:</h3>
+                            </div>
+                            <div class="col-right">
+                                <input type="file" name="" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-col-2">
+                            <div class="col-left">
+                                <h3>Business Permit:</h3>
+                            </div>
+                            <div class="col-right">
+                                <input type="file" name="" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-col-2">
+                            <div class="col-left">
+                                <h3>Job Openings:</h3>
+                            </div>
+                            <div class="col-right">
+                                <input type="file" name="" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-col-2">
+                        <h4><b>NOTE:</b> All files must be in PDF or JPEG. Must not exceed 3MB</h4>
+                        </div>
+            -->
+
+                        
+                    </div>
+                    
+                    <div style="overflow:auto;">
+                        <div style="float:center;">
+                        <button class="next" type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                        </div>
+                    </div>
+                    <!-- Circles which indicates the steps of the form: -->
+                    <div style="text-align:center;margin-top:10px;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        
+                    </div>
+                    
+                    
+                </form>
+                <div class="form-col-1">
                     <h5>By clicking register you agree in our&nbsp;&nbsp;<a href="#" id="myBtn">Terms & Agreement</a></h5>
-                    <button name="signup" type="submit">REGISTER</button>
-                    <br><br>
+                    
                     <h5>Already have an Account?&nbsp;&nbsp;<a href="index.php">LOG IN</a></h5>
                     </div>
                     <div id="myModal" class="modal">
@@ -136,12 +204,12 @@
 
                         In hac habitasse platea dictumst. Cras orci nunc, volutpat quis finibus ut, fringilla non magna. Sed pharetra, est eget euismod bibendum, leo lectus scelerisque urna, vitae vestibulum justo urna a lacus. Mauris viverra tortor ac lacus commodo bibendum. Aliquam id magna eu urna fermentum molestie. Donec aliquam et est eu ullamcorper. Aenean faucibus vehicula massa a mattis. Curabitur gravida mi ut sagittis lacinia. Quisque ut luctus elit.</p>
                     </div>
-                    </div>
-                </div>
-                </form>
+                </center>
+                
             </div>
         </div>
     </div>
     <script src="../assets/js/applicant/script.js"></script>
+    <script src="../assets/js/company/script.js"></script>
 </body>
 </html>
