@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 $msg = "";
 include "../conn.php";
-
 if (isset($_GET['reset'])) {
     if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM a_accounttb WHERE code='{$_GET['reset']}'")) > 0) {
+        $msg = "<div class='alert alert-success' id='popup'>You can now change password</div>";
         if (isset($_POST['submit'])) {
             $password = $_POST['password'];
             $confirm_password = $_POST['confirm_password'];
@@ -13,7 +13,9 @@ if (isset($_GET['reset'])) {
                 $query = mysqli_query($conn, "UPDATE a_accounttb SET password='{$password}', code='' WHERE code='{$_GET['reset']}'");
 
                 if ($query) {
+                    $_SESSION['success_message'] = "Password successfully changed.";
                     header("Location: index.php");
+                    exit();
                 }
             } else {
                 $msg = "<div class='alert alert-danger'>Password and Confirm Password do not match.</div>";
@@ -34,8 +36,10 @@ if (isset($_GET['reset'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Password</title>
     <link rel="stylesheet" href="../assets/css/applicant_login.css">
+    <script src="../assets/js/applicant/loader.js"></script>
 </head>
 <body>
+<div class="loader"><div></div><div></div><div></div><div></div></div>
 <div class="main-container">
         <div class="main-row">
             <div class="col-1">
@@ -96,5 +100,17 @@ if (isset($_GET['reset'])) {
         </div>
     </div>
     <script src="../assets/js/applicant/script.js"></script>
+    <script>
+        function showPopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "block";
+
+            // Hide the popup after 5 seconds
+            setTimeout(function() {
+                popup.style.display = "none";
+            }, 5000);
+        }
+        window.onload = showPopup;
+    </script>
 </body>
 </html>

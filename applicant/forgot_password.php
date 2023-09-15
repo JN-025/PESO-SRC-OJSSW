@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
 
                 $mail->isHTML(true);                                 
                 $mail->Subject = 'no-reply';
-                $mail->Body    = 'Click the link to Reset your Password <b><a href="http://localhost/peso-src-ojssw/applicant/change_password.php?reset='.$code.'">http://localhost/peso-src-ojssw/applicant/change_password.php?reset='.$code.'</a></b>';
+                $mail->Body    = '<h4 style="color: #000">Click the link to Reset your Password</h4><div style="width:100%; display: flex; justify-content: center;"><a style="border-radius: 10px; font-size: 30px; padding: 20px 50px; text-align: center; text-decoration: none; background-color: #2E9AFE; color:#fff;" href="http://localhost/peso-src-ojssw/applicant/change_password.php?reset='.$code.'">Reset Password</a></div>';
 
                 $mail->send();
                 echo 'Message has been sent';

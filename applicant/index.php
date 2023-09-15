@@ -72,8 +72,10 @@
     <title>Login Account</title>
     <link rel="stylesheet" href="../assets/css/applicant_login.css">
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
+    <script src="../assets/js/applicant/loader.js"></script>
 </head>
 <body>
+<div class="loader"><div></div><div></div><div></div><div></div></div>
     <div class="main-container">
         <div class="main-row">
             <div class="col-1">
@@ -87,6 +89,12 @@
                 </div>
             </div>
             <div class="col-2">
+            <?php
+    if (isset($_SESSION['success_message'])) {
+        echo "<div class='alert alert-success'>{$_SESSION['success_message']}</div>";
+        unset($_SESSION['success_message']);
+    }
+    ?>
             <?php echo $msg; ?>
             <style>
                 .alert {  

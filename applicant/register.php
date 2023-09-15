@@ -54,7 +54,7 @@ if(isset($_POST["submit"])){
 
                     $mail->isHTML(true);                                 
                     $mail->Subject = 'no-reply';
-                    $mail->Body    = 'Para ma-verify po ang iyong email ay paclick po ng link nato->&nbsp;<b><a href="http://localhost/peso-src-ojssw/applicant/?verification='.$code.'">http://localhost/peso-src-ojssw/applicant/?verification='.$code.'</a></b>';
+                    $mail->Body    = '<h4 style="color: #000">Para ma-verify po ang iyong email ay paclick po ang button sa baba.</h4><div style="width:100%; display: flex; justify-content: center;"><a style="border-radius: 10px; font-size: 30px; padding: 20px 50px; text-align: center; text-decoration: none; background-color: #A81E1E; color:#fff;" href="http://localhost/peso-src-ojssw/applicant/?verification='.$code.'">Verify Account</a></div>';
 
                     $mail->send();
                     echo 'Message has been sent';
