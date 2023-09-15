@@ -3,16 +3,17 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Mohave', sans-serif;
 }
 /*loader*/
 .loader {
     background-color: rgba(255,255,255,0.1);
     z-index: 5;
-  display: inline-block;
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  transition: opacity 0.75s, visibility 0.75s;
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    transition: opacity 0.75s, visibility 0.75s;
   }
   .loader-hidden{
     display: none;
@@ -58,11 +59,11 @@
 }
 
 .col-1 {
-    width: 82%;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
     background-image: url(../img/cityhall.png);
-    background-repeat: no-repeat;
+
     background-size: cover;
 }
 .col-1 img{
@@ -95,21 +96,41 @@
 }
 .col-2 {
     width: 70%;
-    height: 200vh;
+    height: 100vh;
     font-family: 'Mohave', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #FFF;
 }
 .col-2 .field-space{
-    margin-top: 5%;
+    margin-top: 1%;
 }
 .col-2 h1{
-    font-size: 30px;
-    color: #76165B;
-    text-align: center;
-    justify-content: center;
+    color: #DF6B00;
+    font-family: Mohave;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
+
+.col-2 h2
+{
+    color: #DF6B00;
+    font-family: Mohave;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+
 .col-2 .form-col-1 {
-    padding: 0 10%;
-    margin-top: 20px;
+    padding: 0 5%;
+    margin-top: 15px;
     text-align: center;
 }
 .col-2 .form-col-1 img{
@@ -117,11 +138,42 @@
     z-index: 5;
 }
 .col-2 .form-col-2{
-    padding: 0 10%;
+    padding: 0 5%;
     margin-top: 20px;
     display: flex;
     justify-content: space-between; 
 }
+
+.col-2 .form-col-2 h3
+{
+    color: #656565;
+    font-family: Mohave;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.col-2 .form-col-2 h4
+{
+    color: #A20000;
+    font-family: Mohave;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.form-col-2 .col-left
+{
+    flex: 30%
+}
+
+.form-col-2 .col-right
+{
+    flex: 70%
+}
+
 .field-space {
     margin-left: 15%;
 }
@@ -130,11 +182,35 @@ input[type=text], input[type=password], input[type=number], input[type=email],in
 {
     border: none;
     width: 98%;
-    height: 40px;
+    height: 35px;
     font-size: 18px;
     padding-left: 10px;
     background-color: #F1E4E4;
     border-radius: 10px;
+}
+
+input[type=file]
+{
+    width: 95%;
+    height: 25px;
+    border-radius: 4px;
+    border: 1px solid #656565;
+    background: #FFF;
+    color: #656565;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+}
+input[type=file]::file-selector-button
+{
+    border-radius: 4px;
+    border: 1px solid #656565;
+    background: #FFF;
+    box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    height: 25px;
 }
 select,
 select option {
@@ -149,24 +225,25 @@ select option[value=""] {
     color: #999999;
     font-size: 18px;   
 }
-.form-col-1 button{
-    border: none;
-    margin-top: 5%;
-    height: 6vh;
-    width: 50%;
-    background-color: #B0368E;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px 0px #D853B3 inset;
-    box-shadow: 0px 4px 4px 0px #5B1146;
-    transition: 0.2s;
-}
-.form-col-1 button:hover{
-    opacity: 0.6;
-}
+
 .form-col-1 h5{
-    color: #AD2C89;
+    color: #000;
+    text-align: center;
+    font-family: Mohave;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50%;
+}
+.form-col-1 a{
+    color: #DF6B00;
+    font-family: Mohave;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -187,6 +264,7 @@ input::-webkit-inner-spin-button {
 
 }
 .modal-box{
+    position: relative;
     padding: 20px;
     width: 50%;
     background-color: #fff;
@@ -197,16 +275,23 @@ input::-webkit-inner-spin-button {
 .modal-box .modal-content h2{
     text-align: center;
 }
+.modal-box .modal-content p{
+    text-align: justify;
+    text-indent: 1em;
+    margin-top: 1em;
+}
 .close {
     background-color: #fff;
-    text-align: center;
     width: 20px;
     height: 20px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     position: absolute;
-    margin: 0 31%;
+    right: 0;
     cursor: pointer;
     color: red;
+    transition: 0.2s;
+}
+.close:hover{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 @media only screen and (max-width: 880px) {
@@ -216,11 +301,79 @@ input::-webkit-inner-spin-button {
     .col-2{
         width: 100%;
         height: 100vh;
-        background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(../img/register_bg.png);
+        background-image: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url(../img/cityhall.png);
         background-repeat: no-repeat;
         background-size: cover;
     }
     .col-2 h1{
-        color: #76165B;
+        color: #770B0B;
     }
+
+    .input
+    {
+        height: 20px;
+    }
+  }
+
+
+  #regForm {
+    background-color: transparent;
+    margin-top: 5px;
+    padding: 5px;
+    width: 90%;
+    height: fit-content;
+    
+  }
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+  }
+  
+  /* Hide all steps by default: */
+  .tab {
+    display: none;
+  }
+  
+.next
+{
+    width: 40%;
+    background-color: #DF6B00;
+    box-shadow: 0px 4px 4px 0px #FFA653 inset;
+    filter: drop-shadow(0px 4px 4px #7A3B00);
+    color: #FFF;
+    font-family: Mohave;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    padding: 3px;
+}
+
+.prev
+{
+    width: 20%;
+    background-color: #DF6B00;
+    box-shadow: 0px 4px 4px 0px #FFA653 inset;
+    filter: drop-shadow(0px 4px 4px #7A3B00);
+    color: #FFF;
+    font-family: Mohave;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    padding: 3px;
+    float: right;
+}
+  
+  button:hover {
+    opacity: 0.8;
   }

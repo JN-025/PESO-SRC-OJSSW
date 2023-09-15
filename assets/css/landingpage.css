@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Racing Sans One');
 
 body
 {
@@ -9,7 +11,7 @@ body
 .main
 {
     background: white;
-    height: 300vh;
+    height: fit-content;
 }
 
 
@@ -81,11 +83,12 @@ body
 {
     color: #FFF;
     text-align: center;
-    font-family: Poppins;
+    font-family: Racing Sans One;
     font-size: 4.5vw;
     font-style: normal;
     font-weight: 800;
     line-height: 50%;
+    letter-spacing: 3px;
 }
 
 .row-1 .col-1
@@ -163,15 +166,16 @@ body
 
 .row-2
 {
-    height: 100vh;
-    background-color: salmon;
+    height: fit-content;
+    background-color: transparent;
     width: 90%;
+    margin-bottom: 50px;
 }
 
 .row-2 h2
 {
     color: #B40200;
-    text-align: left;
+    text-align: center;
     font-family: Poppins;
     font-size: 4.5vw;
     font-style: normal;
@@ -198,14 +202,14 @@ body
     font-family: Poppins;
     font-size: 3vw;
     font-style: normal;
-    font-weight: 800;
+    font-weight: bolder;
     line-height: 50%;
 }
 
 .row-2 .col-2
 {
     height: fit-content;
-    background-color: aqua;
+    background-color: transparent;
     display: flex;
     margin-bottom: 20px;
 }
@@ -214,14 +218,14 @@ body
 {
     flex: 70%;
     height: fit-content;
-    background-color: white;
+    background-color: transparent;
 }
 
 .row-2 .col-2 .logo-img
 {
     flex: 25%;
     height: fit-content;
-    background-color: seagreen;
+    background-color: transparent;
     
     
 }
@@ -235,10 +239,294 @@ body
 
 .row-2 .col-3
 {
-    height: 50vh;
-    background-color: sandybrown;
-    display: flex;
+    height: fit-content;
+    background-color: transparent;
+    
+    width: 90%;
+    text-align: center;
 }
+
+.row-2 .col-3 .button-box
+{
+    width: 90%;
+    height: fit-content;
+    background-color: transparent;
+    display: flex;
+    
+}
+
+
+ .learn-more
+{
+
+    
+    width: 90%;
+    border-radius: 14px;
+    background: #FC0;
+    box-shadow: 4px 6px 4px 0px #887218;
+    color: #970B0A;
+    text-align: center;
+    text-shadow: 0px 1px 4px #FFF;
+    font-family: Poppins;
+    font-size: 2vw;
+    font-style: normal;
+    font-weight: 800;
+    margin-left: 20px;
+    border: none;
+    height: 100px;
+    
+    
+}
+
+
+.row-3
+{
+    height: fit-content;
+    width: 100%;
+    background-color: #A81F1F;
+    padding-top: 10px;
+    padding-bottom: 200px;
+    
+}
+
+.row-3 h5
+{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 50%;
+}
+
+.row-3 .modal-box
+{
+    height: fit-content;
+    background-color: transparent;
+    width: 90%;
+}
+
+.modal-box .modal-button
+{
+    background-color: #DB400F;
+    box-shadow: 4px 4px 4px 0px #FC6839 inset;
+    filter: drop-shadow(5px 4px 4px #8B2100);
+    width: 12vw;
+    height: 12vw;
+    border: none;
+    border-radius: 50%;
+    color: #FFF;
+    text-align: center;
+    font-family: Mohave;
+    font-size: 2.5vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 15px;
+}
+
+.modal-box .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: fit-content; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: transparent;
+    
+  }
+  
+  
+  /* Modal Content */
+
+.modal .modal-content-box
+{
+    background-color: #FA6434;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    width: 40%;
+    height: fit-content;
+    padding: 5px;
+}
+  .modal-box .modal .modal-content {
+    background-color: transparent;
+    
+    border-radius: 13px;
+    border: 2px dashed #6D1A00;
+    height: fit-content;
+    padding: 10px;
+    
+    
+  }
+
+.modal-content h1
+{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50%;
+    text-align: left;
+}
+
+.modal-content h2
+{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50%;
+    text-align: left;
+}
+
+.modal-content .event-location
+{
+    width: 50%;
+    height: auto;
+}
+
+.modal-content .requirements
+{
+   
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    background: #FBD953;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    color: #461100;
+    font-family: Poppins;
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+  
+  /* The Close Button */
+  .modal .close {
+    color: #931111;
+    float: right;
+    margin: 5px 15px;
+    font-size: 28px;
+    font-weight: bold;
+    border: 1px solid #931111;
+    border-radius: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+  }
+  
+  .modal .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+.row-4
+{
+    width: 100%;
+    height: fit-content;
+    background-image: linear-gradient(181deg, #A81F1F 1.88%, rgba(107, 37, 87, 0.00) 97.46%);
+    padding-top: 20px;
+    margin-bottom: 25vh;
+}
+
+.row-4 h1
+{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 3vw;
+    font-style: normal;
+    font-weight: 800;
+    
+
+
+}
+
+.row-4 .wordbox
+{
+    width: 70%;
+    height: 70vh;
+    background-image: url(../img/landingpage_training.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+.wordbox .button-training
+{
+    background-color: #A81F1F;
+    box-shadow: 0px 4px 4px 0px #E94E4E inset;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: none;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 2vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 45vh;
+    padding: 10px 30px;
+    border-radius: 10px;
+    
+    
+}
+
+
+.row-5
+{
+    background-color: transparent;
+    height: fit-content;
+    width: 100%;
+    margin-bottom: 20vh;
+}
+
+.row-5 .image-gallery
+{
+    width: 90%;
+    background-color: transparent;
+    height: fit-content;
+}
+
+.image-gallery .gallery
+{
+    width: 20%;
+    height: auto;
+    margin: 10px;
+}
+
+.row-5 .button-gallery
+{
+    border-radius: 11px;
+    background: #A81F1F;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(255, 85, 85, 0.25) inset;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: none;
+    padding: 10px 50px;
+    margin-top: 30px;
+}
+
+
+.footer
+{
+    background-color: #700101;
+    width: 100%;
+    height: 10vh;
+}
+
 
 
 
@@ -321,6 +609,22 @@ body
     {
         height: 15vh;
     
+    }
+
+    .learn-more
+    {
+        height: 50px;
+    }
+
+    .row-4 .wordbox
+    {
+        height: 25vh;
+
+    }
+
+    .wordbox .button-training
+    {
+        margin-top: 15vh;
     }
    
   }
