@@ -11,7 +11,7 @@
             $name = $row['name'];
             $email = $row['email'];
             $password = $row['password'];
-            $insertQuery = "INSERT INTO `access_account` (`access_id`, `peso_id`, `name`, `email`, `type`, `password`) VALUES (NULL, '$peso_id', '$name', '$email', 'Company', '$password');";
+            $insertQuery = "INSERT INTO `access_account` (`access_id`, `peso_id`, `name`, `email`, `type`, `password`) VALUES (NULL, '$peso_id', '$name', '$email', 'Job Posting', '$password');";
         }
         $insertQuery .= "DELETE FROM `access_requests` WHERE `access_requests`.`access_id` = '$access_id';";
         if(performQuery($insertQuery)){

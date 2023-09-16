@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+
+body
+{
+    margin: 0;
+    
+}
+
+.main
+{
+    background: sandybrown;
+    height: 100vh;
+    
+}
+
+.row-1
+{
+    width: 80%;
+    height: 80vh;
+    background-color: aquamarine;
+    padding-top: 30vh;
+    
+}
+
+.row-1 .col-1
+{
+    width: 95%;
+    height: fit-content;
+}
+.row-1 .access
+{
+    border-radius: 8px;
+    background: #B22623;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 2vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 20%;
+    height: 130px;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    margin: 10px;
+}

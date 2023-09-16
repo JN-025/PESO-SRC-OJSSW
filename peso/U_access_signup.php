@@ -31,9 +31,9 @@ if (!isset($_SESSION['peso_id'])) {
             $email = $_POST['email'];
             $confirm_password = $_POST['confirm_password'];
            
-            $message = "Our $name would like to request an access for Company.";
+            $message = "Our $name would like to request an access for Updates.";
         
-            $query = "INSERT INTO `access_requests` (`access_id`, `peso_id`, `name`, `email`, `password`, `message`, `accessType`, `date`) VALUES (NULL, '$peso_id', '$name', '$email', '$password', '$message', 'Company', CURRENT_TIMESTAMP)";
+            $query = "INSERT INTO `access_requests` (`access_id`, `peso_id`, `name`, `email`, `password`, `message`, `accessType`, `date`) VALUES (NULL, '$peso_id', '$name', '$email', '$password', '$message', 'Update', CURRENT_TIMESTAMP)";
 
             if($password != $confirm_password){
                 echo "<script> alert('Please enter the same password')</script>";
@@ -107,7 +107,7 @@ if (!isset($_SESSION['peso_id'])) {
                     <div class="form-col-1">
                     <button class="access" name="signup" type="submit">REGISTER</button>
                     <br><br>
-                    <h5>Already have an Account?&nbsp;&nbsp;<a href="C_access_login.php">LOG IN</a></h5>
+                    <h5>Already have an Account?&nbsp;&nbsp;<a href="U_access_login.php">LOG IN</a></h5>
                     </div>
                     
                 

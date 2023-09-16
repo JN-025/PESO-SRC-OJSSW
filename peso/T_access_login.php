@@ -10,6 +10,30 @@ if (!isset($_SESSION['peso_id'])) {
     header("location: login.php");
     exit();
 }
+
+
+?>
+
+<?php
+   
+
+    if (isset($_POST['submit'])) {
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $type = $_POST['type'];
+        
+
+        $sql = "SELECT * FROM access_account WHERE email='$email' AND type = 'Training' AND password='$password'";
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['access_id'] = $row['access_id'];
+            header('location: training_homepage.php');
+        } else {
+            $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,37 +43,40 @@ if (!isset($_SESSION['peso_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/peso_access_signup.css">
+    <link rel="stylesheet" href="../assets/css/peso_access_login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
 <?php
-        if(isset($_POST['signup'])){
-            $peso_id = $_SESSION['peso_id'];
-            $name = $_POST['name'];
+      
+        if(isset($_POST['signin'])){
             $password = $_POST['password'];
             $email = $_POST['email'];
-            $confirm_password = $_POST['confirm_password'];
            
-            $message = "Our $name would like to request an access for Company.";
-        
-            $query = "INSERT INTO `access_requests` (`access_id`, `peso_id`, `name`, `email`, `password`, `message`, `accessType`, `date`) VALUES (NULL, '$peso_id', '$name', '$email', '$password', '$message', 'Company', CURRENT_TIMESTAMP)";
 
-            if($password != $confirm_password){
-                echo "<script> alert('Please enter the same password')</script>";
+            $query = "SELECT * from `access_account`;";
+            if(count(fetchAll($query)) > 0){ //this is to catch unknown error.
+                  foreach(fetchAll($query) as $row){
+                    if($row['email']==$email&&$row['password']==$password&&$row['type']=='Training'){
+                        $_SESSION['login'] = true;
+                        $_SESSION['type'] = $row['type'];
+                        header('location: training_homepage.php');
+                    }else{
+                        echo "<script>alert('Wrong login details.')</script>";
+                    }
+                }
+            }else{
+                echo "<script>alert('Error.')</script>";
             }
-            else{
-                performQuery($query);
-                echo "<script> alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
-            }
+
         }
-        else{
-            echo "<script> alert('Unknown error occurred.')</script>";
-        }
-    ?>
+      
+      ?>
 
 
 <body>
+
+
 
 <div class="loader"><div></div><div></div><div></div><div></div></div>
 <div class="main-container">
@@ -60,7 +87,7 @@ if (!isset($_SESSION['peso_id'])) {
                 <center>
                 <div class="col-2">
             
-                <style>
+            <style>
                 .alert {  
                     position: fixed;  
                     padding: 1rem;
@@ -86,31 +113,28 @@ if (!isset($_SESSION['peso_id'])) {
                 }
             </style>
             <div class="field-space"></div>
-                <h1>CREATE ACCOUNT</h1>
+                <h1>Log in to Access</h1>
                 <form action="" method="post">
-                    <div class="form-col-1">
-                    <input type="text" onkeydown="restrictName(event)"name="name" placeholder="Name" required maxlength="50">
-                    </div>
-                    
+
                     <div class="form-col-1">
                     <input type="email" placeholder="Email Address" name="email" required maxlength="50">
                     </div>
 
+                    
+                    
+                    
                     <div class="form-col-1">
                     <!--<img src="../assets/img/eye-close.png" alt="" id="eyeicon1" class="eyeicon" data-target="myInput1">-->
-                    <input type="password" placeholder="Password" name="password" id="myInput1" oninput="validatePassword()" required maxlength="20">
-                    </div>
-                    <div class="form-col-1">
-                    <!--<img src="../assets/img/eye-close.png" alt="" id="eyeicon2" class="eyeicon" data-target="myInput2">-->
-                    <input type="password" placeholder="Confirm Password" name="confirm_password" id="myInput2" required maxlength="20">
-                    </div>
-                    <div class="form-col-1">
-                    <button class="access" name="signup" type="submit">REGISTER</button>
-                    <br><br>
-                    <h5>Already have an Account?&nbsp;&nbsp;<a href="C_access_login.php">LOG IN</a></h5>
+                    <input type="password" placeholder="Password" name="password" id="" oninput="" required maxlength="20">
                     </div>
                     
-                
+                    <div class="form-col-1">
+                    
+                    <button name="signin" type="submit">Log In</button>
+                    <br><br>
+                    <h5>Create an Account?&nbsp;&nbsp;<a href="T_access_signup.php">SIGN UP</a></h5>
+                    </div>
+                    
                 </form>
             </div>
                 </center>
