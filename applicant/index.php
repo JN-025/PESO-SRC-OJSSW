@@ -47,12 +47,12 @@
             $_SESSION['applicant_id'] = $row['applicant_id'];
 
 
-        if (isset($_POST['remember'])) {
+      /*  if (isset($_POST['remember'])) {
             $cookie_name = "remember_me_email";
             $cookie_value = $email;
             $cookie_expire = time() + (30 * 24 * 3600); // 30 days
             setcookie($cookie_name, $cookie_value, $cookie_expire, "/");
-        }
+        }*/
             if (empty($row['code'])) {
                 $_SESSION['SESSION_EMAIL'] = $email;
                 header("Location: find_jobs.php");
