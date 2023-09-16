@@ -14,8 +14,8 @@
         <div class="topnav">
             <div class="peso-logo"></div>
             <div class="right-corner">
-                <button class="login" onclick="document.location='#'">Log In</button>
-                <button class="signup" onclick="document.location='#'">Sign Up</button>
+                <button class="login" onclick="document.location='services_login.php'">Log In</button>
+                <button class="signup" onclick="document.location='services_signup.php'">Sign Up</button>
             </div>
         </div>
         <div class="row-1">

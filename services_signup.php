@@ -19,9 +19,9 @@
                     <img src="assets/img/ojssw.png" class="logo">
                 </div>
 
-                <button class="applicant" onclick="document.location='applicant/index.php'">Applicant</button>
+                <button class="applicant" onclick="document.location='applicant/register.php'">Applicant</button>
                 <br>
-                <button class="company" onclick="document.location='company/index.php'">Company</button>
+                <button class="company" onclick="document.location='company_register.php'">Company</button>
                 <br>
                 <button class="other-services" onclick="document.location='#'">Other Services</button>
 

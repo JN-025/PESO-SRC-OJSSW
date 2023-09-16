@@ -24,11 +24,11 @@
             $password = $_POST['password'];
             $confirm_password = $_POST['confirm_password'];
             
-            $message = "Direct Company, $companyName would like to request an account.";
+            $message = "Local Manpower Agency, $companyName would like to request an account.";
             
 
             
-            $query = "INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `companyType`, `date`) VALUES (NULL, '$companyName', '$industry', '$contactPerson', '$contactNum', '$email', '$password', '$message', 'Direct Company', CURRENT_TIMESTAMP)";
+            $query = "INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `companyType`, `date`) VALUES (NULL, '$companyName', '$industry', '$contactPerson', '$contactNum', '$email', '$password', '$message', 'Local Manpower Ageny', CURRENT_TIMESTAMP)";
 
             
             if($password != $confirm_password){
@@ -146,7 +146,16 @@
 
                         <div class="form-col-2">
                             <div class="col-left">
-                                <h3>Business Permit:</h3>
+                                <h3>DOLE Permit:</h3>
+                            </div>
+                            <div class="col-right">
+                                <input type="file" name="" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-col-2">
+                            <div class="col-left">
+                                <h3>List of Clients:</h3>
                             </div>
                             <div class="col-right">
                                 <input type="file" name="" placeholder="">
@@ -156,6 +165,15 @@
                         <div class="form-col-2">
                             <div class="col-left">
                                 <h3>Job Openings:</h3>
+                            </div>
+                            <div class="col-right">
+                                <input type="file" name="" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-col-2">
+                            <div class="col-left">
+                                <h3 style="font-size: 15px;">Dole Certificate of no Pending Case</h3>
                             </div>
                             <div class="col-right">
                                 <input type="file" name="" placeholder="">

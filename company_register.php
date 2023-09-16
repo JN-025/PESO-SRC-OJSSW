@@ -39,7 +39,7 @@ for registration:</span></h2>
 and number of vacancies</span>)</h2>
                     <h2><span style="color: #A81E1E;">NOTE: All of these must be in PDF or JPEG form</span></h2>
                     <br> <br>
-                    <button class="button-continue" onclick="document.location='#'">Continue</button>
+                    <button class="button-continue" onclick="document.location='company/register_direct.php'">Continue</button>
                     
                 </div>
 
@@ -60,7 +60,7 @@ and number of vacancies</span>)</h2>
                     <h2>  > DOLE Permit of No Pending Case</h2>
                     <h2><span style="color: #A81E1E;">NOTE: All of these must be in PDF or JPEG form</span></h2>
                     <br> <br>
-                    <button class="button-continue" onclick="document.location='#'">Continue</button>
+                    <button class="button-continue" onclick="document.location='company/register_local.php'">Continue</button>
                 </div>
 
                 </div>
@@ -80,7 +80,7 @@ by POEA</span>)</h2>
 and number of vacancies</span>)</h2>
                     <h2><span style="color: #A81E1E;">NOTE: All of these must be in PDF or JPEG form</span></h2>
                     <br> <br>
-                    <button class="button-continue" onclick="document.location='#'">Continue</button>
+                    <button class="button-continue" onclick="document.location='company/register_overseas.php'">Continue</button>
                 </div>
 
                 </div>

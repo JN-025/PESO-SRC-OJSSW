@@ -70,8 +70,8 @@
             <h1>PUBLIC EMPLOYMENT SERVICE OFFICE (PESO)</h1>
                 <h2>SANTA ROSA, LAGUNA</h2>
                 <div class="field-space"></div>
-                <h3>YOU PARTNER IN FINDING A BETTER</h3>
-                <h3>JOB!</h3>
+                <h3>Connecting Dreams to Careers:</h3>
+                <h3>You're the Bridge.</h3>
                 </div>
             </div>
             <div class="col-2">

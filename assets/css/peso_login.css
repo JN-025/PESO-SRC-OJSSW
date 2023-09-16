@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Luckiest+Guy&family=Mohave&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Luckiest+Guy&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
-
-* {
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Luckiest+Guy&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');* {
     margin: 0;
     padding: 0;
     font-family: 'Mohave', sans-serif;
@@ -117,24 +115,10 @@
     margin-top: 5%;
 }
 .col-2 h1{
+    font-size: 30px;
     color: #A81E1E;
     text-align: center;
-    font-family: Mohave;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.col-2 h2
-{
-    color: #A81E1E;
-    text-align: center;
-    font-family: Mohave;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
+    justify-content: center;
 }
 .col-2 .form-col-1 {
     padding: 0 5%;
