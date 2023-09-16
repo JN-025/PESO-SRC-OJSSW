@@ -6,8 +6,8 @@ $alertmsg = "";
 if (isset($_SESSION['applicant_id'])) {
     $applicantId = $_SESSION['applicant_id'];
 } else {
-    $alertmsg = "<div class='popup popup-danger'><h1>Process Error, please try again</h1></div>";
-    exit;
+    header("location: index.php");
+    exit();
 }
 
 if (isset($_POST['applyButton'])) {
@@ -17,14 +17,15 @@ if (isset($_POST['applyButton'])) {
                  VALUES ('$jobPostId', '$applicantId', NOW(), 'Pending')";
 
     if (mysqli_query($conn, $insertSql)) {
-        $alertmsg = "<div class='popup popup-success'><h1>Your Request has been sent!</h1><h4>An email will be sent to you quickly once your request has been approved or rejected.</h4><h5>Please be patient.</h5></div>";
+        $alertmsg = "<div class='popup popup-success'><i class='bi bi-check-circle'></i><h1>Your Request has been sent!</h1><h4>An email will be sent to you quickly once your request has been approved or rejected.</h4><h5>Please be patient.</h5></div>";
     } else {
         echo "Error: " . mysqli_error($conn);
     }
 
     mysqli_close($conn);
 } else {
-    echo "Form submission error.";
+    header("location: find_jobs.php");
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -75,10 +76,14 @@ if (isset($_POST['applyButton'])) {
     ?>
     <div class="popup-container">
         <div class="popup">
-        <i class="bi bi-check-circle"></i>
             <?php echo $alertmsg; ?>
             <a href="find_jobs.php">Return</a>
         </div>
     </div>
 </body>
 </html>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>

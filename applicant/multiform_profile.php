@@ -1,6 +1,9 @@
 <?php
 include '../conn.php';
 session_start();
+if(!isset($_SESSION["applicant_id"])){
+    header("location: index.php");
+}
 $applicant_id = $_SESSION['applicant_id'];
 $sql_check = "SELECT applicant_id FROM ap_info WHERE applicant_id = ?";
 $stmt_check = $conn->prepare($sql_check);
