@@ -24,11 +24,11 @@
             $password = $_POST['password'];
             $confirm_password = $_POST['confirm_password'];
             
-            $message = "Direct Company, $companyName would like to request an account.";
+            $message = "Local Manpower Agency, $companyName would like to request an account.";
             
 
             
-            $query = "INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `companyType`, `date`) VALUES (NULL, '$companyName', '$industry', '$contactPerson', '$contactNum', '$email', '$password', '$message', 'Direct Company', CURRENT_TIMESTAMP)";
+            $query = "INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `companyType`, `date`) VALUES (NULL, '$companyName', '$industry', '$contactPerson', '$contactNum', '$email', '$password', '$message', 'Overseas Manpower Ageny', CURRENT_TIMESTAMP)";
 
             
             if($password != $confirm_password){
@@ -146,7 +146,16 @@
 
                         <div class="form-col-2">
                             <div class="col-left">
-                                <h3>Business Permit:</h3>
+                                <h3>POEA Permit:</h3>
+                            </div>
+                            <div class="col-right">
+                                <input type="file" name="" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-col-2">
+                            <div class="col-left">
+                                <h3>Job Order:</h3>
                             </div>
                             <div class="col-right">
                                 <input type="file" name="" placeholder="">
@@ -161,6 +170,8 @@
                                 <input type="file" name="" placeholder="">
                             </div>
                         </div>
+
+                        
 
                         <div class="form-col-2">
                         <h4><b>NOTE:</b> All files must be in PDF or JPEG. Must not exceed 3MB</h4>

@@ -32,17 +32,17 @@ if (!isset($_SESSION['peso_id'])) {
         <center>
         <div class="row-1">
             <div class="col-1">
-                <button class="access" onclick="document.location='A_access_login.php'"><i class="bi bi-bar-chart-fill"></i><br>APPLICANTS</button>
-                <button class="access" onclick="document.location='C_access_login.php'"><i class="bi bi-bar-chart-fill"></i><br>COMPANIES</button>
-                <button class="access" onclick="document.location='J_access_login.php'"><i class="bi bi-bar-chart-fill"></i><br>JOB POSTING</button>
+                <button class="access" onclick="document.location='A_access_login.php'"><i class="bi bi-people-fill"></i><br>APPLICANTS</button>
+                <button class="access" onclick="document.location='C_access_login.php'"><i class="bi bi-buildings-fill"></i><br>COMPANIES</button>
+                <button class="access" onclick="document.location='J_access_login.php'"><i class="bi bi-briefcase-fill"></i><br>JOB POSTING</button>
                 <button class="access" onclick="document.location='R_access_login.php'"><i class="bi bi-bar-chart-fill"></i><br>REPORTS</button>
             </div>
 
             <div class="col-1">
-                <button class="access" onclick="document.location='U_access_login.php'"><i class="bi bi-bar-chart-fill"></i><br>UPDATES</button>
-                <button class="access" onclick="document.location='T_access_login.php'"><i class="bi bi-bar-chart-fill"></i><br>TRAINING</button>
-                <button style="font-size: 1.7vw;" class="access" onclick="document.location='O_access_login.php'"><i class="bi bi-bar-chart-fill"></i><br>OTHER SERVICES</button>
-                <button class="access" onclick="document.location='#'"><i class="bi bi-bar-chart-fill"></i><br>POLICIES</button>
+                <button class="access" onclick="document.location='U_access_login.php'"><i class="bi bi-file-plus-fill"></i><br>UPDATES</button>
+                <button class="access" onclick="document.location='T_access_login.php'"><i class="bi bi-person-video3"></i><br>TRAINING</button>
+                <button style="font-size: 1.7vw;" class="access" onclick="document.location='O_access_login.php'"><i class="bi bi-gear-wide"></i><br>OTHER SERVICES</button>
+                <button class="access" onclick="document.location='#'"><i class="bi bi-shield-shaded"></i><br>POLICIES</button>
             </div>
         
 

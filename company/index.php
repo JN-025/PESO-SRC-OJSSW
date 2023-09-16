@@ -28,7 +28,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/applicant_register.css">
+    <link rel="stylesheet" href="../assets/css/company_login.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
 <body>
@@ -41,8 +41,8 @@
             <h1>PUBLIC EMPLOYMENT SERVICE OFFICE (PESO)</h1>
                 <h2>SANTA ROSA, LAGUNA</h2>
                 <div class="field-space"></div>
-                <h3>YOU PARTNER IN FINDING A BETTER</h3>
-                <h3>JOB!</h3>
+                <h3>EMPOWERING CAREER JOURNEYS TOGETHER:</h3>
+                <h3>BRIDGING DREAMS AND OPPORTUNITIES.</h3>
                 </div>
             </div>
             <div class="col-2">
@@ -73,7 +73,8 @@
                 }
             </style>
             <div class="field-space"></div>
-                <h1>CREATE ACCOUNT</h1>
+                <h1>Welcome Back</h1>
+                <h2>Log in back your account</h2>
                 <form action="" method="post">
 
                     <div class="form-col-1">
@@ -97,10 +98,12 @@
                     </div>
                     
                     <div class="form-col-1">
-                    
+                        <br>
+                    <a href="forgot_password.php">Forgot Password</a>
+                    <br>
                     <button name="submit" type="submit">Log In</button>
                     <br><br>
-                    <h5>Create an Account?&nbsp;&nbsp;<a href="register.php">SIGN UP</a></h5>
+                    <h5>Create an Account?&nbsp;&nbsp;<a href="../company_register.php">SIGN UP</a></h5>
                     </div>
                     
                 </form>

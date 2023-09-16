@@ -153,24 +153,9 @@ select option[value=""] {
     color: #999999;
     font-size: 18px;   
 }
-.form-col-1 button{
-    border: none;
-    margin-top: 5%;
-    height: 6vh;
-    width: 50%;
-    background-color: #B0368E;
-    color: #fff;
-    font-size: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 4px 0px #D853B3 inset;
-    box-shadow: 0px 4px 4px 0px #5B1146;
-    transition: 0.2s;
-}
-.form-col-1 button:hover{
-    opacity: 0.6;
-}
+
 .form-col-1 h5{
-    color: #AD2C89;
+    color: #B22623;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -179,7 +164,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* BUTTONS */
-.access
+.form-col-1 .access
 {
     width: 20%;
     padding: 5px 15px;

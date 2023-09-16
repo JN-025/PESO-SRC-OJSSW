@@ -74,9 +74,9 @@ include '../conn.php';
                                             echo "<td>" . $row['W_midName'] . "</td>";
                                             echo "<td>" . $row['W_email'] . "</td>";
                                             echo "<td>";
-                                                echo '<a href="Wapplicant_read.php?W_applicant_id='. $row['W_applicant_id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span style="color:#76165B;" class="fa fa-eye"></span></a>';
-                                                echo '<a href="Wapplicant_update.php?W_applicant_id='. $row['W_applicant_id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span style="color:#76165B;" class="fa fa-pencil"></span></a>';
-                                                echo '<a href="Wapplicant_delete.php?W_applicant_id='. $row['W_applicant_id'] .'" title="Delete Record" data-toggle="tooltip"><span style="color:#76165B;" class="fa fa-trash"></span></a>';
+                                                echo '<a href="Wapplicant_read.php?W_applicant_id='. $row['W_applicant_id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-eye"></span></a>';
+                                                echo '<a href="Wapplicant_update.php?W_applicant_id='. $row['W_applicant_id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-pencil"></span></a>';
+                                                echo '<a href="Wapplicant_delete.php?W_applicant_id='. $row['W_applicant_id'] .'" title="Delete Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-trash"></span></a>';
                                             echo "</td>";
                                         echo "</tr>";
                                     }
