@@ -1,3 +1,6 @@
+<?php
+include "../conn.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,11 @@
     <link rel="stylesheet" href="job_posting.css">
 </head>
 <body>
+    <?php
+    include "../function.php";
+    include "sidenav.php";
+    include "topnav.php";
+    ?>
     <div class="main-container">
         <form action="" method="post">
             <div class="wrapper">
@@ -55,12 +63,12 @@
                     </div>
                 </section>
                 <!--Step 2-->
-                <section id="step-2" class="form-step">
+                <section id="step-2" class="form-step d-none">
                     <label for="">Post a Jobs!</label>
                     <h2>Job Description</h2>
                     <h4>Describe the job position. Maximum of 250 words</h4>
                     <div class="form-col-1">
-                        <textarea name="description-box" placeholder="Job Posting Description" id="description" cols="30" rows="10" maxlength="250"></textarea>
+                        <textarea class="description-box" name="description" placeholder="Job Posting Description" id="description" cols="30" rows="10" maxlength="250"></textarea>
                     </div>
                     <div class="form-col-2">
                         <div class="flex-button">

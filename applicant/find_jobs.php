@@ -75,7 +75,6 @@ include '../conn.php';
                         elseif (isset($_POST['filter'])) {
                         $sql = "SELECT * FROM c_jobpost WHERE companyName LIKE '%$filterQuery1%' AND workLocation LIKE '%$filterQuery2%' AND workLocation LIKE '%$filterQuery2%' AND salary LIKE '%$filterQuery3%' AND yrsExperience LIKE '%$filterQuery4%' AND skills LIKE '%$filterQuery5%' UNION ALL SELECT * FROM p_jobpost WHERE companyName LIKE '%$filterQuery1%' AND workLocation LIKE '%$filterQuery2%' AND workLocation LIKE '%$filterQuery2%' AND salary LIKE '%$filterQuery3%' AND yrsExperience LIKE '%$filterQuery4%' AND skills LIKE '%$filterQuery5%'";
                      }
-                // SEARCH AND FILTER SECTION
                 if (isset($_POST['search']) || isset($_POST['filter'])) {
                     if ($result = mysqli_query($conn, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
@@ -109,7 +108,6 @@ include '../conn.php';
                         echo "Oops! Something went wrong. Please try again later.";
                     }
                 }}
-                // SEARCH AND FILTER END
                 ?><label for="" style="padding-left:10px; font-size:20px; font-weight:bold;">Recommended Jobs</label><?php
                         $sql = "SELECT * FROM c_jobpost UNION ALL SELECT * FROM p_jobpost ORDER BY date_added DESC";
                         if($result = mysqli_query($conn, $sql)){
@@ -165,11 +163,9 @@ function openTab(jobPostId) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            // Display the job details in col-2-content-full
             var col2ContentFull = document.getElementById("col-2-content-full");
             col2ContentFull.innerHTML = this.responseText;
 
-            // Show col-2-content-full in fullscreen
             col2ContentFull.style.display = "block";
         }
     };

@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Londrina+Solid&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
 *{
     margin: 0;
     padding: 0;
 }
 .main-container{
+    margin-top: 70px;
+    margin-left: 15%;
     width: 100%;
 }
 .wrapper{
+    height: 89vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -13,7 +18,7 @@
 }
 .form-step{
     width: 50%;
-    padding: 30px 20px;
+    padding: 10px 20px;
     border-radius: 11px;
     border: 2px solid #000;
     background-color: #999999;
@@ -30,7 +35,7 @@
 }
 .form-col-1{
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .form-col-2{
     display: flex;
@@ -42,10 +47,14 @@
     margin-left: 35%;
 }
 input[type="text"], select, textarea{
+    font-family: 'Mohave', sans-serif;
     padding-left: 10px;
     height: 30px;
     width: 80%;
     border-radius: 11px;
+    background-color: #F1E4E4;
+    border-radius: 10px;
+    border: 2px solid #C59287;
 
 }
 select{
@@ -55,22 +64,37 @@ select{
     width: 38.5%;
 }
 .form-step button{
-    color: #ffffff;
     margin-top: 20px;
-    border: #76165B;
     border-radius: 20px;
     padding: 10px 20px;
-    background-color: #9D1477;
-    box-shadow: 0px 4px 4px 0px rgba(186, 58, 150, 0.97) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #A81E1E;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px #D72121 inset;
+    box-shadow: 0px 4px 4px 0px #770B0B40;
 }
+button{
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  button:hover{
+    transform: scale(1.1) perspective(1px);
+  }
+  button:active{
+    transform: translateY(4px);
+  }
 .d-none{
     display: none;
 }
-.description-box{
+.form-step .description-box{
+    height: 50vh;
 }
 
 @media only screen and (max-width: 880px) {
     .field-space{
         margin-left: 0;
+    }
+    .form-step{
+        width: 80%;
     }
   }

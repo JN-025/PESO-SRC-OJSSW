@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Luckiest+Guy&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
 .topnav{
   display: flex;
-  position: relative;
   height: 70px;
   background-color: #B22623;
   width: 100%;

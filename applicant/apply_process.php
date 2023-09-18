@@ -12,16 +12,27 @@ if (isset($_SESSION['applicant_id'])) {
 
 if (isset($_POST['applyButton'])) {
     $jobPostId = $_POST['jobPostId'];
+    $answer_1 = $_POST["answer_1"];
+    $answer_2 = $_POST["answer_2"];
+    $answer_3 = $_POST["answer_3"];
+    $answer_4 = $_POST["answer_4"];
+    $answer_5 = $_POST["answer_5"];
 
-    $insertSql = "INSERT INTO application_log (c_jobpost_id, applicant_id, date_requested, status)
-                 VALUES ('$jobPostId', '$applicantId', NOW(), 'Pending')";
+    $insertSql = "INSERT INTO application_log (c_jobpost_id, applicant_id, date_requested, status, answer_1, answer_2, answer_3, answer_4, answer_5)
+                 VALUES (?, ?, NOW(), 'Pending', ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $insertSql);
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "iisssss", $jobPostId, $applicantId, $answer_1, $answer_2, $answer_3, $answer_4, $answer_5);
 
-    if (mysqli_query($conn, $insertSql)) {
-        $alertmsg = "<div class='popup popup-success'><i class='bi bi-check-circle'></i><h1>Your Request has been sent!</h1><h4>An email will be sent to you quickly once your request has been approved or rejected.</h4><h5>Please be patient.</h5></div>";
+        if (mysqli_stmt_execute($stmt)) {
+            $alertmsg = "<div class='popup popup-success'><i class='bi bi-check-circle'></i><h1>Your Request has been sent!</h1><h4>An email will be sent to you quickly once your request has been approved or rejected.</h4><h5>Please be patient.</h5></div>";
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
+        mysqli_stmt_close($stmt);
     } else {
         echo "Error: " . mysqli_error($conn);
     }
-
     mysqli_close($conn);
 } else {
     header("location: find_jobs.php");
@@ -41,7 +52,6 @@ if (isset($_POST['applyButton'])) {
         margin: 0;
         padding: 0;
     }
-
     .popup-container {
         font-family: 'Mohave', sans-serif;
         display: flex;

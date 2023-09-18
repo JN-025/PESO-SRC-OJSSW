@@ -185,7 +185,6 @@
 }
 .col-2-content .description img{
     padding: 10px;
-    background-color: #fff;
     border-radius: 10px;
     margin-top: 15px;
     width: 100px;
@@ -226,14 +225,32 @@
 }
 button{
     font-family: 'Poppins', sans-serif;
-}
-button:hover{
-    opacity: 0.6;
-}
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  button:hover{
+    transform: scale(1.1) perspective(1px);
+  }
+  button:active{
+    transform: translateY(4px);
+  }
 .col-2-content-full{
-
     width: 100%;
 }
+.col-2-content-full button{
+    margin-top: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    height: 30px;
+    width: 80px;
+    background-color: #A81E1E;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px #D72121 inset;
+    box-shadow: 0px 4px 4px 0px #770B0B40;
+}
+
 @media only screen and (max-width: 880px) {
     .col-2-content-full{
         display: none;
