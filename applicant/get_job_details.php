@@ -115,10 +115,10 @@ if (isset($_GET['jobPostId'])) {
         }
         .question-content{
             font-weight: 600;
-            font-size: 18px;
+            font-size: 16px;
             margin-top: 10px;
             text-align:left;
-            width: 80%;
+            width: 70%;
         }
         .question-content h5{
             color: #D0342C;
