@@ -16,6 +16,7 @@ include '../conn.php';
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/applicant_find_jobs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
 <body>
@@ -32,9 +33,9 @@ include '../conn.php';
                         <form method="POST"action="">
                             <h1></h1>
                             <div class="search-box upper-search">
-                            <input type="text" name="search_engine_1" class="search-engine-1" placeholder="Skills, Company, or Job Title">
-                            <input type="text" name="search_engine_2" class="search-engine-2" placeholder="Location">
-                            <input type="text" name="search_engine_3" class="search-engine-3" placeholder="Experience">
+                            <input type="text" name="search_engine_1" class="search-engine-1" placeholder="&#xf0b1; Skills, Company, or Job Title" style="font-family:Arial, FontAwesome">
+                            <input type="text" name="search_engine_2" class="search-engine-2" placeholder="&#xF842; Location">
+                            <input type="text" name="search_engine_3" class="search-engine-3" placeholder="&#xF2DC; Experience">
                             <button name="search"><i class="bi bi-search" style="font-size: 18px;margin: 0 5px;"></i>Search</button>
                             </div>
                           <div class="search-box lower-search">

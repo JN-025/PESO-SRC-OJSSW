@@ -10,7 +10,7 @@ if (isset($_GET['jobPostId'])) {
 
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        $jobDetails = '<div class="col-2-content">'.'<div class="description"style="position:relative;max-height: calc(100vh - 20px); ">' .
+        $jobDetails = '<div class="col-2-content">'.'<div class="description"style="position:relative; min-height: 100vh; ">' .
             '<div class="desc-col-1" style="padding: 10px; margin: 0; border: 2px solid none; border-radius: 10px; flex: 1;">' .
             '<h2 style="margin-bottom: 10px;font-size: 30px; font-weight: bold;">' . $row['jobTitle'] . '</h2>' .
             '<h3 style="font-size: 14px;">Company Name: <span style="font-weight:400">' . $row['companyName'] . '</span></h3>' .
@@ -123,6 +123,9 @@ if (isset($_GET['jobPostId'])) {
             width: 70%;
         }
         .question-content h5{
+            color: #D0342C;
+        }
+        h2{
             color: #D0342C;
         }
         .company-question .question-option{
