@@ -1,6 +1,7 @@
 <?php
+session_start();
 include '../conn.php';
-
+$applicant_id = $_SESSION["applicant_id"];
 if (isset($_GET['jobPostId'])) {
     $jobPostId = $_GET['jobPostId'];
 
@@ -37,7 +38,6 @@ if (isset($_GET['jobPostId'])) {
     } else {
         echo "Job details not found.";
     }
-    mysqli_close($conn);
 }
 ?>
 <!DOCTYPE html>
@@ -46,6 +46,7 @@ if (isset($_GET['jobPostId'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
         .full-img{
@@ -85,6 +86,7 @@ if (isset($_GET['jobPostId'])) {
         }
 
         .modal-content {
+            display: none;
             font-family: 'Roboto Serif', serif;
             background-color: #fefefe;
             border-radius: 10px;
@@ -138,10 +140,52 @@ if (isset($_GET['jobPostId'])) {
             box-shadow: 0px 4px 4px 0px #D72121 inset;
             box-shadow: 0px 4px 4px 0px #770B0B40;
         }
+        .d-none{
+            display: none;
+        }
+        .require-stage{
+            font-family: 'Roboto Serif', serif;
+            background-color: #fefefe;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 80%;
+            margin: auto;
+            text-align: center;
+        }
+        .bi{
+            font-size: 15px;
+        }
+        .bi-check{
+            color: green;
+        }
+        .bi-x{
+            color: red;
+        }
     </style>
 </head>
 <body>
       <div id="question_form" class="modal">
+        <div class="require-stage">
+        <a href="#" class="close">&times;</a>
+        <h2>Requirements</h2>
+        <h4>Please complete first the following to proceed</h4>
+        <div class="profile-progress">
+            <h5>Applicant Profile
+                <?php 
+                if(isset($_SESSION["applicant_id"])){
+                $profileQuery = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
+                $profileResult = mysqli_query($conn, $profileQuery);
+                if(mysqli_num_rows($profileResult) === 1){
+                    echo '<style>.require-stage { display: none; }</style>';
+                    echo '<style>.modal-content { display: block; }</style>';
+                }
+                else{
+                    echo "<i class='bi bi-x'>required</i>";
+                }}
+                ?>
+            </h5>
+        </div>
+        </div>
         <div class="modal-content">
             <a href="#" class="close">&times;</a>
             <h2>Apply for the Job</h2>

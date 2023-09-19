@@ -5,14 +5,14 @@ if(!isset($_SESSION["applicant_id"])){
     header("location: index.php");
 }
 $applicant_id = $_SESSION['applicant_id'];
-$sql_check = "SELECT applicant_id FROM ap_info WHERE applicant_id = ?";
+$sql_check = "SELECT applicant_id FROM applicant_profile WHERE applicant_id = ?";
 $stmt_check = $conn->prepare($sql_check);
 $stmt_check->bind_param("i", $applicant_id);
 $stmt_check->execute();
 $stmt_check->store_result();
 
 if ($stmt_check->num_rows > 0) {
-    echo '<script>alert("You already have data in the database. Form submission is disabled."); window.location.href = "homepage.php";</script>';
+    echo '<script>alert("You already have data in the database. Form submission is disabled."); window.location.href = "find_jobs.php";</script>';
     exit;
 }
 if (isset($_POST["submit"])) {
@@ -97,10 +97,10 @@ if (isset($_POST["submit"])) {
     $licenceNum3 = $_POST["licenceNum3"];
     $expiryDate3 = $_POST["expiryDate3"];
     $validDate = $_POST["validDate"];
-    $languageCertifications = implode(', ', $_POST["languageCertifications"]);
-    $otherCertification = $_POST["otherCertification"];
-    $dialectsSpoken = implode(', ', $_POST["dialectsSpoken"]);
-    $otherDialect = $_POST["otherDialect"];
+    $languageCertifications = isset($_POST["languageCertifications"]) ? implode(', ', $_POST["languageCertifications"]) : "";
+    $otherCertification = isset($_POST["otherCertification"]) ? $_POST["otherCertification"] : "";
+    $dialectsSpoken = isset($_POST["dialectsSpoken"]) ? implode(', ', $_POST["dialectsSpoken"]) : "";
+    $otherDialect = isset($_POST["otherDialect"]) ? $_POST["otherDialect"] : "";
 
     // Step 6 form data
     $company1 = $_POST["company1"];
@@ -125,9 +125,9 @@ if (isset($_POST["submit"])) {
     $appointStat4 = $_POST["appointStat4"];
 
     // Step 7 form data
-    $skill = implode(', ', $_POST["skill"]);
-    $techSkill = implode(', ', $_POST["techSkill"]);
-    $otherTechskill = $_POST["otherTechskill"];
+    $skill = isset($_POST["skill"]) ? implode(', ', $_POST["skill"]) : "";
+    $techSkill = isset($_POST["techSkill"]) ? implode(', ', $_POST["techSkill"]) : "";
+    $otherTechskill = isset($_POST["otherTechskill"]) ? $_POST["otherTechskill"] : "";
 
     
     /*step 1*/
@@ -138,7 +138,7 @@ if (isset($_POST["submit"])) {
     $stmt->bind_param("isssssssssssssssssssssssssssss",$applicant_id, $lastName, $firstName, $midName, $suffix, $jobseekerType, $birthplace, $birthday, $age, $sex, $civilStatus, $citizenship, $housenumPresent, $brgyPresent, $cityPresent, $provincePresent, $housenumPermanent, $brgyPermanent, $cityPermanent, $provincePermanent, $height, $weight,  $mobilePnum, $email, $disability, $employmentStatus, $activelyLooking, $willinglyWork, $fourpsBeneficiary, $ofw);
 
     if ($stmt->execute()) {
-        
+        $ap_info_id = $conn->insert_id;
     } else {
         echo "Error inserting data into table1: " . $conn->error;
     }
@@ -150,7 +150,7 @@ if (isset($_POST["submit"])) {
     $stmt->bind_param("issssss", $applicant_id, $schoolStatus, $educLevel, $gradYear, $school, $course, $award);
 
     if ($stmt->execute()) {
-        
+        $ap_educ_id = $conn->insert_id;
     } else {
         echo "Error inserting data into education_info: " . $conn->error;
     }
@@ -162,7 +162,7 @@ if (isset($_POST["submit"])) {
     $stmt->bind_param("isssssss", $applicant_id, $occupation1, $industry1, $occupation2, $industry2, $occupation3, $industry3, $employment_status);
 
     if ($stmt->execute()) {
-        
+        $ap_prefer_id = $conn->insert_id;
     } else {
         echo "Error inserting data into employment_info: " . $conn->error;
     }
@@ -173,7 +173,7 @@ if (isset($_POST["submit"])) {
     $stmt->bind_param("isssssssssssssssssss", $applicant_id, $trainingStatus, $training1, $startDuration1, $endDuration1, $training2, $startDuration2, $endDuration2, $training3, $startDuration3, $endDuration3, $institution1, $certificate1, $completion1, $institution2, $certificate2, $completion2, $institution3, $certificate3, $completion3);
 
     if ($stmt->execute()) {
-        
+        $ap_tvo_id = $conn->insert_id;
     } else {
         echo "Error inserting data into training_info: " . $conn->error;
     }
@@ -184,7 +184,7 @@ if (isset($_POST["submit"])) {
     $stmt->bind_param("issssssssssssss", $applicant_id, $careerServ1, $licenceNum1, $expiryDate1, $careerServ2, $licenceNum2, $expiryDate2, $careerServ3, $licenceNum3, $expiryDate3, $validDate, $languageCertifications, $otherCertification, $dialectsSpoken, $otherDialect);
 
 if ($stmt->execute()) {
-    
+    $ap_elig_id = $conn->insert_id;
 } else {
     echo "Error inserting data into career_info: " . $conn->error;
 }
@@ -195,7 +195,7 @@ if ($stmt->execute()) {
     $stmt->bind_param("issssssssssssssssssss", $applicant_id, $company1, $cpAddress1, $company2, $cpAddress2, $company3, $cpAddress3, $company4, $cpAddress4, $position1, $incluDate1, $appointStat1, $position2, $incluDate2, $appointStat2, $position3, $incluDate3, $appointStat3, $position4, $incluDate4, $appointStat4);
 
     if ($stmt->execute()) {
-        
+        $ap_exp_id = $conn->insert_id;
     } else {
         echo "Error inserting data into work_experience: " . $conn->error;
     }
@@ -206,11 +206,26 @@ if ($stmt->execute()) {
     $stmt->bind_param("isss", $applicant_id, $skill, $techSkill, $otherTechskill);
 
     if ($stmt->execute()) {
-        header("location:homepage.php");
+        $ap_skills_id = $conn->insert_id;
     } else {
         echo "Error inserting data into skills_info: " . $conn->error;
 
     }
+        // Insert into the applicant_profile table
+        $sql_applicant_profile = "INSERT INTO applicant_profile (applicant_id, ap_info_id, ap_educ_id, ap_prefer_id, ap_tvo_id, ap_elig_id, ap_exp_id, ap_skills_id) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+$stmt = $conn->prepare($sql_applicant_profile);
+$stmt->bind_param("iiiiiiii", $applicant_id, $ap_info_id, $ap_educ_id, $ap_prefer_id, $ap_tvo_id, $ap_elig_id, $ap_exp_id, $ap_skills_id);
+
+// Assuming you have obtained the IDs for each table (e.g., $ap_info_id, $ap_educ_id, etc.)
+
+if ($stmt->execute()) {
+header("location:find_jobs.php");
+} else {
+echo "Error inserting data into applicant_profile: " . $conn->error;
+}
+
 }
 
 ?>
@@ -317,7 +332,7 @@ if ($stmt->execute()) {
 
                 
             ?>
-            <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST">
+            <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST" novalidate>
                 <!-- Step 1 Content -->
             <div class="wrapper">
                 <section id="step-1" class="form-step">
