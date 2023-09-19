@@ -87,9 +87,12 @@ button{
     display: none;
 }
 .form-step .description-box{
-    height: 50vh;
+    padding: 10px;
+    height: 40vh;
 }
-
+.question-container input{
+    width: 70%;
+}
 @media only screen and (max-width: 880px) {
     .field-space{
         margin-left: 0;
