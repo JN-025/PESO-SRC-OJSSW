@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
 *{
-    font-family: 'Gelasio', serif;
+    font-family: 'Poppins', sans-serif;
 }
 /*loader*/
 .loader {
@@ -68,6 +68,7 @@
     color: #AD2C89;
 }
 .col-1 .header input{
+    background-color: #FCFCFC;
     border: 2px solid #AFAFAF;
     padding-left: 10px;
     height: 30px;

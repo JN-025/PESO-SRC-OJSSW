@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Gelasio';
+    src: url(../font/Gelasio/Gelasio-Regular.ttf)format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url(../font/Lato/Lato-Regular.ttf)format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lilita One';
+    src: url(../font/Lilita_One/LilitaOne-Regular.ttf)format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lodrina';
+    src: url(../font/Londrina_Solid/LondrinaSolid-Regular.ttf)format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Luckiest Guy';
+    src: url(../font/Luckiest_Guy/LuckiestGuy-Regular.ttf)format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mohave';
+    src: url(../font/Mohave/Mohave-VariableFont_wght.ttf)format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(../font/Poppins/Poppins-Regular.ttf)format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url(../font/Roboto_Serif/RobotoSerif-VariableFont_GRAD\,opsz\,wdth\,wght.ttf)format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sunflower';
+    src: url(../font/Sunflower/Sunflower-Bold.ttf)format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
