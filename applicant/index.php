@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (isset($_SESSION['SESSION_EMAIL'])) {
-        header("Location: homepage.php");
+        header("Location: find_jobs.php");
         die();
     }
 

@@ -192,7 +192,16 @@ body
     line-height: normal;
     text-align: left;
 }
-  
+button{
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:hover{
+  transform: scale(1.1) perspective(1px);
+}
+button:active{
+  transform: translateY(4px);
+}
   /* The Close Button */
   .close {
     color: #A81E1E;
