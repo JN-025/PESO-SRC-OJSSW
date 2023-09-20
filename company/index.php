@@ -2,6 +2,7 @@
     session_start();
     include("../conn.php");
 
+    $msg = "";
     if (isset($_POST['submit'])) {
         $email = $_POST['email'];
         $companyName = $_POST['companyName'];
@@ -46,14 +47,12 @@
                 </div>
             </div>
             <div class="col-2">
-            
+            <?php echo $msg;?>
             <style>
                 .alert {  
-                    position: fixed;  
                     padding: 1rem;
                     border-radius: 5px;
                     color: white;
-                    margin: 1rem 0;
                 }
 
                 .alert-success {

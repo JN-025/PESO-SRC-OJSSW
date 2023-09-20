@@ -11,10 +11,6 @@ $stmt_check->bind_param("i", $applicant_id);
 $stmt_check->execute();
 $stmt_check->store_result();
 
-if ($stmt_check->num_rows > 0) {
-    echo '<script>alert("You already have data in the database. Form submission is disabled."); window.location.href = "find_jobs.php";</script>';
-    exit;
-}
 if (isset($_POST["submit"])) {
     // Step 1 form data
     $applicant_id = $_SESSION['applicant_id'];
@@ -129,7 +125,16 @@ if (isset($_POST["submit"])) {
     $techSkill = isset($_POST["techSkill"]) ? implode(', ', $_POST["techSkill"]) : "";
     $otherTechskill = isset($_POST["otherTechskill"]) ? $_POST["otherTechskill"] : "";
 
-    
+   /* //check if the input already exist
+    $check_query="SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
+    $check_result = mysqli_query($conn, $check_query);
+    if(!$check_result){
+        echo "database error";
+    }
+    $checkrow = mysqli_num_rows($check_result);
+    if($checkrow > 0){
+        echo '<script>alert("woops"); window.location.href = "homepage.php";</script>';
+    } else {*/
     /*step 1*/
 
     $sql_table1 = "INSERT INTO ap_info (applicant_id, lastName, firstName, midName, suffix, jobseekerType, birthplace, birthday, age, sex, civilStatus, citizenship, housenumPresent, brgyPresent, cityPresent, provincePresent, housenumPermanent, brgyPermanent, cityPermanent, provincePermanent, height, weight, mobilePnum, email, disability, employmentStatus, activelyLooking, willinglyWork, fourpsBeneficiary, ofw) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -227,6 +232,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
 }
 
 }
+/*}*/
 
 ?>
 
@@ -323,6 +329,11 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                 </li>
             </ul>
             <!--------------------------------- Step Wise Form Content --------------------------------------->
+            <style>
+                .is-invalid {
+                        border-color: #dc3545;
+                    }
+            </style>
             <?php
             if (isset($_SESSION["applicant_id"])){
                 $query = "SELECT * FROM a_accounttb WHERE applicant_id ='$applicant_id'";
@@ -343,8 +354,9 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                         <label for=""><h2>Name</h2></label>
                         <input type="text" placeholder="First Name" name="firstName" value="<?php echo $row["firstname"];?>">
                         <input type="text" placeholder="Last Name" name="lastName" value="<?php echo $row["lastname"];?>">
-                        <input type="text" placeholder="Middle Name" name="midName" value="<?php echo $row["middlename"];?>">
-                        <input style="width:30px;"type="text" placeholder="Jr." name="suffix">
+                        <input type="text" placeholder="Middle Name" name="midName" oninput="noNumber(event); validateForm()" value="">
+                        <div id="error-message" class="text-danger"></div>
+                        <input style="width:30px;"type="text" placeholder="Jr." name="suffix" oninput="noNumber(event); validateForm()">
                     </div>
                     <div class="mt-3">
   
@@ -421,7 +433,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                     <div class="stick-object">
       
                         <label for=""><h2>Weight</h2></label>
-                        <input type="text" name="weight" id="body-size" placeholder="WEIGHT (kg)" required>
+                        <input type="number" name="weight" id="body-size" placeholder="WEIGHT (kg)" required>
                     </div>
                     </div>
                     <div class="mt-3">
@@ -495,7 +507,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                     </div>
                     <!--next button-->
                     <div class="mt-3">
-                        <button class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
+                        <button id="nextButton" class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
                     </div>
                     </div>
                 </section>

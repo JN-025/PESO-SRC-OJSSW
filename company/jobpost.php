@@ -15,6 +15,7 @@ $page_title = "Posted Jobs";
     <link rel="stylesheet" href="../assets/css/sidenav.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/company_jobpost.css">
+    <script src="../assets/js/company/jobpost.js"></script>
 
 </head>
 <body>
@@ -27,9 +28,9 @@ $page_title = "Posted Jobs";
     <div class="main-container">
         <div class="main-row">
             <div class="col-1">
-            
             </div>
             <div class="col-2">
+            <div class="header"><h2>"Submitted Job"</h2></div>
                 <div class="col-2-row">
                     <div class="col-2-content">
                     <?php
@@ -52,9 +53,25 @@ $page_title = "Posted Jobs";
                              </div>
                              <div class="desc-col-2">
                                 <div>
-                                <button onclick="openTab('<?php echo $job_post_id; ?>')">Delete</button>
+                                <button id="deleteBtn" class="delete-btn">Delete</button>
+
+                                <div id="modalBlock" class="modal">
+                                    <div class="modal-content">
+                                        <h2>Are you sure you want to delete the job?</h2>
+                                        <form action="">
+                                            <div class="modal-choices">
+                                                <div class="choices-btn">
+                                                    <button id="noBtn">No</button>
+                                                </div>
+                                                <div class="choices-btn">
+                                                    <button>Yes</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                                <img src="<?php echo $row['img']; ?>" alt="No image"">
+                                </div>
+                                <img src="<?php echo $row['img']; ?>" alt="No image">
                              </div>
                         </div>
                         <?php

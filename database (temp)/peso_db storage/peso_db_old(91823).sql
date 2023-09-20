@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2023 at 05:48 PM
+-- Generation Time: Sep 15, 2023 at 08:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -41,7 +41,7 @@ CREATE TABLE `access_account` (
 --
 
 INSERT INTO `access_account` (`access_id`, `peso_id`, `name`, `email`, `type`, `password`) VALUES
-(4, 9, 'sample', 'sample@gmail.com', 'Applicant', 'sample');
+(4, 9, 'Aaccess One', 'aaccessone1@gmail.com', 'Applicant', 'AaccessOne_1');
 
 -- --------------------------------------------------------
 
@@ -86,32 +86,6 @@ CREATE TABLE `access_requests_draft` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `applicant_profile`
---
-
-CREATE TABLE `applicant_profile` (
-  `applicant_profile_id` int(11) NOT NULL,
-  `applicant_id` int(11) NOT NULL,
-  `ap_info_id` int(11) NOT NULL,
-  `ap_educ_id` int(11) NOT NULL,
-  `ap_prefer_id` int(11) NOT NULL,
-  `ap_tvo_id` int(11) NOT NULL,
-  `ap_elig_id` int(11) NOT NULL,
-  `ap_exp_id` int(11) NOT NULL,
-  `ap_skills_id` int(11) NOT NULL,
-  `date_created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `applicant_profile`
---
-
-INSERT INTO `applicant_profile` (`applicant_profile_id`, `applicant_id`, `ap_info_id`, `ap_educ_id`, `ap_prefer_id`, `ap_tvo_id`, `ap_elig_id`, `ap_exp_id`, `ap_skills_id`, `date_created_at`) VALUES
-(1, 2, 1, 1, 1, 1, 1, 1, 1, '2023-09-20 15:47:09');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `applicant_roles`
 --
 
@@ -141,19 +115,209 @@ CREATE TABLE `application_log` (
   `applicant_id` int(11) NOT NULL,
   `date_requested` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` varchar(50) NOT NULL,
-  `answer_1` varchar(20) NOT NULL,
-  `answer_2` varchar(20) NOT NULL,
-  `answer_3` varchar(20) NOT NULL,
-  `answer_4` varchar(20) NOT NULL,
-  `answer_5` varchar(20) NOT NULL
+  `answer1` varchar(255) NOT NULL,
+  `answer2` varchar(255) NOT NULL,
+  `answer3` varchar(255) NOT NULL,
+  `answer4` varchar(255) NOT NULL,
+  `answer5` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `application_log`
 --
 
-INSERT INTO `application_log` (`application_log_id`, `c_jobpost_id`, `applicant_id`, `date_requested`, `status`, `answer_1`, `answer_2`, `answer_3`, `answer_4`, `answer_5`) VALUES
-(1, 19, 2, '2023-09-20 15:47:25', 'Pending', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes');
+INSERT INTO `application_log` (`application_log_id`, `c_jobpost_id`, `applicant_id`, `date_requested`, `status`, `answer1`, `answer2`, `answer3`, `answer4`, `answer5`) VALUES
+(2, 18, 2, '2023-09-15 15:51:11', 'Submitted', '', '', '', '', ''),
+(3, 18, 2, '2023-09-15 15:55:37', 'Submitted', '', '', '', '', ''),
+(4, 18, 2, '2023-09-15 15:59:07', 'Submitted', '', '', '', '', ''),
+(5, 18, 2, '2023-09-15 16:07:44', 'Pending', '', '', '', '', ''),
+(6, 18, 2, '2023-09-15 16:07:47', 'Pending', '', '', '', '', ''),
+(7, 18, 2, '2023-09-15 16:08:07', 'Pending', '', '', '', '', ''),
+(8, 18, 2, '2023-09-15 16:08:54', 'Pending', '', '', '', '', ''),
+(9, 18, 2, '2023-09-15 16:09:13', 'Pending', '', '', '', '', ''),
+(10, 18, 2, '2023-09-15 16:09:52', 'Pending', '', '', '', '', ''),
+(11, 18, 2, '2023-09-15 16:10:17', 'Pending', '', '', '', '', ''),
+(12, 18, 2, '2023-09-15 16:10:36', 'Pending', '', '', '', '', ''),
+(13, 18, 2, '2023-09-15 16:10:44', 'Pending', '', '', '', '', ''),
+(14, 18, 2, '2023-09-15 16:10:51', 'Pending', '', '', '', '', ''),
+(15, 18, 2, '2023-09-15 16:11:04', 'Pending', '', '', '', '', ''),
+(16, 18, 2, '2023-09-15 16:11:16', 'Pending', '', '', '', '', ''),
+(17, 18, 2, '2023-09-15 16:11:32', 'Pending', '', '', '', '', ''),
+(18, 18, 2, '2023-09-15 16:12:08', 'Pending', '', '', '', '', ''),
+(19, 18, 2, '2023-09-15 16:12:11', 'Pending', '', '', '', '', ''),
+(20, 18, 2, '2023-09-15 16:12:33', 'Pending', '', '', '', '', ''),
+(21, 18, 2, '2023-09-15 16:12:51', 'Pending', '', '', '', '', ''),
+(22, 18, 2, '2023-09-15 16:13:15', 'Pending', '', '', '', '', ''),
+(23, 18, 2, '2023-09-15 16:13:25', 'Pending', '', '', '', '', ''),
+(24, 18, 2, '2023-09-15 16:13:33', 'Pending', '', '', '', '', ''),
+(25, 18, 2, '2023-09-15 16:13:37', 'Pending', '', '', '', '', ''),
+(26, 18, 2, '2023-09-15 16:13:48', 'Pending', '', '', '', '', ''),
+(27, 18, 2, '2023-09-15 16:14:28', 'Pending', '', '', '', '', ''),
+(28, 18, 2, '2023-09-15 16:15:52', 'Pending', '', '', '', '', ''),
+(29, 18, 2, '2023-09-15 16:16:04', 'Pending', '', '', '', '', ''),
+(30, 18, 2, '2023-09-15 16:17:54', 'Pending', '', '', '', '', ''),
+(31, 18, 2, '2023-09-15 16:18:08', 'Pending', '', '', '', '', ''),
+(32, 18, 2, '2023-09-15 16:18:28', 'Pending', '', '', '', '', ''),
+(33, 18, 2, '2023-09-15 16:18:32', 'Pending', '', '', '', '', ''),
+(34, 18, 2, '2023-09-15 16:21:06', 'Pending', '', '', '', '', ''),
+(35, 18, 2, '2023-09-15 16:22:35', 'Pending', '', '', '', '', ''),
+(36, 18, 2, '2023-09-15 16:22:42', 'Pending', '', '', '', '', ''),
+(37, 18, 2, '2023-09-15 16:26:35', 'Pending', '', '', '', '', ''),
+(38, 18, 2, '2023-09-15 16:37:43', 'Pending', '', '', '', '', ''),
+(39, 18, 2, '2023-09-15 16:38:33', 'Pending', '', '', '', '', ''),
+(40, 18, 2, '2023-09-15 16:39:41', 'Pending', '', '', '', '', ''),
+(41, 18, 2, '2023-09-15 16:39:47', 'Pending', '', '', '', '', ''),
+(42, 18, 2, '2023-09-15 16:40:10', 'Pending', '', '', '', '', ''),
+(43, 18, 2, '2023-09-15 16:40:15', 'Pending', '', '', '', '', ''),
+(44, 18, 2, '2023-09-15 16:40:46', 'Pending', '', '', '', '', ''),
+(45, 18, 2, '2023-09-15 16:41:25', 'Pending', '', '', '', '', ''),
+(46, 18, 2, '2023-09-15 16:41:34', 'Pending', '', '', '', '', ''),
+(47, 18, 2, '2023-09-15 16:42:00', 'Pending', '', '', '', '', ''),
+(48, 18, 2, '2023-09-15 16:42:09', 'Pending', '', '', '', '', ''),
+(49, 18, 2, '2023-09-15 16:43:09', 'Pending', '', '', '', '', ''),
+(50, 18, 2, '2023-09-15 16:43:22', 'Pending', '', '', '', '', ''),
+(51, 18, 2, '2023-09-15 16:43:27', 'Pending', '', '', '', '', ''),
+(52, 18, 2, '2023-09-15 16:43:31', 'Pending', '', '', '', '', ''),
+(53, 18, 2, '2023-09-15 16:43:45', 'Pending', '', '', '', '', ''),
+(54, 18, 2, '2023-09-15 16:43:49', 'Pending', '', '', '', '', ''),
+(55, 18, 2, '2023-09-15 16:44:04', 'Pending', '', '', '', '', ''),
+(56, 18, 2, '2023-09-15 16:44:12', 'Pending', '', '', '', '', ''),
+(57, 18, 2, '2023-09-15 16:44:38', 'Pending', '', '', '', '', ''),
+(58, 18, 2, '2023-09-15 16:44:42', 'Pending', '', '', '', '', ''),
+(59, 18, 2, '2023-09-15 16:44:57', 'Pending', '', '', '', '', ''),
+(60, 18, 2, '2023-09-15 16:45:05', 'Pending', '', '', '', '', ''),
+(61, 18, 2, '2023-09-15 16:45:10', 'Pending', '', '', '', '', ''),
+(62, 18, 2, '2023-09-15 16:45:21', 'Pending', '', '', '', '', ''),
+(63, 18, 2, '2023-09-15 16:45:29', 'Pending', '', '', '', '', ''),
+(64, 18, 2, '2023-09-15 16:45:36', 'Pending', '', '', '', '', ''),
+(65, 18, 2, '2023-09-15 16:45:49', 'Pending', '', '', '', '', ''),
+(66, 18, 2, '2023-09-15 16:45:52', 'Pending', '', '', '', '', ''),
+(67, 18, 2, '2023-09-15 16:45:57', 'Pending', '', '', '', '', ''),
+(68, 18, 2, '2023-09-15 16:46:19', 'Pending', '', '', '', '', ''),
+(69, 18, 2, '2023-09-15 16:46:34', 'Pending', '', '', '', '', ''),
+(70, 18, 2, '2023-09-15 16:46:49', 'Pending', '', '', '', '', ''),
+(71, 18, 2, '2023-09-15 16:46:54', 'Pending', '', '', '', '', ''),
+(72, 18, 2, '2023-09-15 16:46:59', 'Pending', '', '', '', '', ''),
+(73, 18, 2, '2023-09-15 16:47:09', 'Pending', '', '', '', '', ''),
+(74, 18, 2, '2023-09-15 16:47:34', 'Pending', '', '', '', '', ''),
+(75, 18, 2, '2023-09-15 16:47:47', 'Pending', '', '', '', '', ''),
+(76, 18, 2, '2023-09-15 16:48:08', 'Pending', '', '', '', '', ''),
+(77, 18, 2, '2023-09-15 16:48:21', 'Pending', '', '', '', '', ''),
+(78, 18, 2, '2023-09-15 16:49:09', 'Pending', '', '', '', '', ''),
+(79, 18, 2, '2023-09-15 16:49:17', 'Pending', '', '', '', '', ''),
+(80, 18, 2, '2023-09-15 16:49:36', 'Pending', '', '', '', '', ''),
+(81, 18, 2, '2023-09-15 16:50:08', 'Pending', '', '', '', '', ''),
+(82, 18, 2, '2023-09-15 16:50:17', 'Pending', '', '', '', '', ''),
+(83, 18, 2, '2023-09-15 16:50:26', 'Pending', '', '', '', '', ''),
+(84, 18, 2, '2023-09-15 16:50:34', 'Pending', '', '', '', '', ''),
+(85, 18, 2, '2023-09-15 16:50:59', 'Pending', '', '', '', '', ''),
+(86, 18, 2, '2023-09-15 16:52:24', 'Pending', '', '', '', '', ''),
+(87, 18, 2, '2023-09-15 16:53:57', 'Pending', '', '', '', '', ''),
+(88, 18, 2, '2023-09-15 16:54:32', 'Pending', '', '', '', '', ''),
+(89, 18, 2, '2023-09-15 16:54:37', 'Pending', '', '', '', '', ''),
+(90, 18, 2, '2023-09-15 16:54:42', 'Pending', '', '', '', '', ''),
+(91, 18, 2, '2023-09-15 16:55:21', 'Pending', '', '', '', '', ''),
+(92, 18, 2, '2023-09-15 16:55:43', 'Pending', '', '', '', '', ''),
+(93, 18, 2, '2023-09-15 16:56:00', 'Pending', '', '', '', '', ''),
+(94, 18, 2, '2023-09-15 16:56:06', 'Pending', '', '', '', '', ''),
+(95, 18, 2, '2023-09-15 16:56:13', 'Pending', '', '', '', '', ''),
+(96, 18, 2, '2023-09-15 16:59:23', 'Pending', '', '', '', '', ''),
+(97, 18, 2, '2023-09-15 16:59:26', 'Pending', '', '', '', '', ''),
+(98, 18, 2, '2023-09-15 16:59:56', 'Pending', '', '', '', '', ''),
+(99, 18, 2, '2023-09-15 16:59:58', 'Pending', '', '', '', '', ''),
+(100, 18, 2, '2023-09-15 17:00:26', 'Pending', '', '', '', '', ''),
+(101, 18, 2, '2023-09-15 17:00:38', 'Pending', '', '', '', '', ''),
+(102, 18, 2, '2023-09-15 17:00:51', 'Pending', '', '', '', '', ''),
+(103, 18, 2, '2023-09-15 17:01:01', 'Pending', '', '', '', '', ''),
+(104, 18, 2, '2023-09-15 17:01:27', 'Pending', '', '', '', '', ''),
+(105, 18, 2, '2023-09-15 17:02:00', 'Pending', '', '', '', '', ''),
+(106, 18, 2, '2023-09-15 17:02:21', 'Pending', '', '', '', '', ''),
+(107, 18, 2, '2023-09-15 17:02:29', 'Pending', '', '', '', '', ''),
+(108, 18, 2, '2023-09-15 17:02:56', 'Pending', '', '', '', '', ''),
+(109, 18, 2, '2023-09-15 17:03:08', 'Pending', '', '', '', '', ''),
+(110, 18, 2, '2023-09-15 17:03:17', 'Pending', '', '', '', '', ''),
+(111, 18, 2, '2023-09-15 17:03:23', 'Pending', '', '', '', '', ''),
+(112, 18, 2, '2023-09-15 17:03:41', 'Pending', '', '', '', '', ''),
+(113, 18, 2, '2023-09-15 17:04:01', 'Pending', '', '', '', '', ''),
+(114, 18, 2, '2023-09-15 17:04:15', 'Pending', '', '', '', '', ''),
+(115, 18, 2, '2023-09-15 17:04:28', 'Pending', '', '', '', '', ''),
+(116, 18, 2, '2023-09-15 17:04:38', 'Pending', '', '', '', '', ''),
+(117, 18, 2, '2023-09-15 17:04:47', 'Pending', '', '', '', '', ''),
+(118, 18, 2, '2023-09-15 17:05:11', 'Pending', '', '', '', '', ''),
+(119, 18, 2, '2023-09-15 17:05:16', 'Pending', '', '', '', '', ''),
+(120, 18, 2, '2023-09-15 17:05:22', 'Pending', '', '', '', '', ''),
+(121, 18, 2, '2023-09-15 17:05:27', 'Pending', '', '', '', '', ''),
+(122, 18, 2, '2023-09-15 17:06:29', 'Pending', '', '', '', '', ''),
+(123, 18, 2, '2023-09-15 17:06:32', 'Pending', '', '', '', '', ''),
+(124, 18, 2, '2023-09-15 17:06:44', 'Pending', '', '', '', '', ''),
+(125, 18, 2, '2023-09-15 17:06:51', 'Pending', '', '', '', '', ''),
+(126, 18, 2, '2023-09-15 17:07:01', 'Pending', '', '', '', '', ''),
+(127, 18, 2, '2023-09-15 17:07:18', 'Pending', '', '', '', '', ''),
+(128, 18, 2, '2023-09-15 17:07:27', 'Pending', '', '', '', '', ''),
+(129, 18, 2, '2023-09-15 17:07:35', 'Pending', '', '', '', '', ''),
+(130, 18, 2, '2023-09-15 17:07:56', 'Pending', '', '', '', '', ''),
+(131, 18, 2, '2023-09-15 17:08:21', 'Pending', '', '', '', '', ''),
+(132, 18, 2, '2023-09-15 17:09:58', 'Pending', '', '', '', '', ''),
+(133, 18, 2, '2023-09-15 17:10:04', 'Pending', '', '', '', '', ''),
+(134, 18, 2, '2023-09-15 17:12:15', 'Pending', '', '', '', '', ''),
+(135, 18, 2, '2023-09-15 17:13:52', 'Pending', '', '', '', '', ''),
+(136, 18, 2, '2023-09-15 17:13:58', 'Pending', '', '', '', '', ''),
+(137, 18, 2, '2023-09-15 17:14:03', 'Pending', '', '', '', '', ''),
+(138, 18, 2, '2023-09-15 17:14:16', 'Pending', '', '', '', '', ''),
+(139, 18, 2, '2023-09-15 17:14:35', 'Pending', '', '', '', '', ''),
+(140, 18, 2, '2023-09-15 17:16:00', 'Pending', '', '', '', '', ''),
+(141, 18, 2, '2023-09-15 17:16:15', 'Pending', '', '', '', '', ''),
+(142, 18, 2, '2023-09-15 17:16:22', 'Pending', '', '', '', '', ''),
+(143, 18, 2, '2023-09-15 17:16:27', 'Pending', '', '', '', '', ''),
+(144, 18, 2, '2023-09-15 17:16:35', 'Pending', '', '', '', '', ''),
+(145, 18, 2, '2023-09-15 17:17:00', 'Pending', '', '', '', '', ''),
+(146, 18, 2, '2023-09-15 17:17:19', 'Pending', '', '', '', '', ''),
+(147, 18, 2, '2023-09-15 17:17:58', 'Pending', '', '', '', '', ''),
+(148, 18, 2, '2023-09-15 17:18:08', 'Pending', '', '', '', '', ''),
+(149, 18, 2, '2023-09-15 17:18:46', 'Pending', '', '', '', '', ''),
+(150, 18, 2, '2023-09-15 17:19:22', 'Pending', '', '', '', '', ''),
+(151, 18, 2, '2023-09-15 17:19:34', 'Pending', '', '', '', '', ''),
+(152, 18, 2, '2023-09-15 17:19:44', 'Pending', '', '', '', '', ''),
+(153, 18, 2, '2023-09-15 17:19:51', 'Pending', '', '', '', '', ''),
+(154, 18, 2, '2023-09-15 17:20:06', 'Pending', '', '', '', '', ''),
+(155, 18, 2, '2023-09-15 17:20:21', 'Pending', '', '', '', '', ''),
+(156, 18, 2, '2023-09-15 17:20:38', 'Pending', '', '', '', '', ''),
+(157, 18, 2, '2023-09-15 17:21:06', 'Pending', '', '', '', '', ''),
+(158, 18, 2, '2023-09-15 17:21:28', 'Pending', '', '', '', '', ''),
+(159, 18, 2, '2023-09-15 17:21:41', 'Pending', '', '', '', '', ''),
+(160, 18, 2, '2023-09-15 17:23:03', 'Pending', '', '', '', '', ''),
+(161, 18, 2, '2023-09-15 17:23:21', 'Pending', '', '', '', '', ''),
+(162, 18, 2, '2023-09-15 17:23:26', 'Pending', '', '', '', '', ''),
+(163, 18, 2, '2023-09-15 17:23:31', 'Pending', '', '', '', '', ''),
+(164, 18, 2, '2023-09-15 17:23:37', 'Pending', '', '', '', '', ''),
+(165, 18, 2, '2023-09-15 17:23:44', 'Pending', '', '', '', '', ''),
+(166, 18, 2, '2023-09-15 17:23:48', 'Pending', '', '', '', '', ''),
+(167, 18, 2, '2023-09-15 17:23:58', 'Pending', '', '', '', '', ''),
+(168, 18, 2, '2023-09-15 17:24:03', 'Pending', '', '', '', '', ''),
+(169, 18, 2, '2023-09-15 17:25:40', 'Pending', '', '', '', '', ''),
+(170, 18, 2, '2023-09-15 17:26:06', 'Pending', '', '', '', '', ''),
+(171, 18, 2, '2023-09-15 17:27:30', 'Pending', '', '', '', '', ''),
+(172, 18, 2, '2023-09-15 17:27:38', 'Pending', '', '', '', '', ''),
+(173, 18, 2, '2023-09-15 17:27:58', 'Pending', '', '', '', '', ''),
+(174, 18, 2, '2023-09-15 17:28:16', 'Pending', '', '', '', '', ''),
+(175, 18, 2, '2023-09-15 17:28:23', 'Pending', '', '', '', '', ''),
+(176, 18, 2, '2023-09-15 17:28:31', 'Pending', '', '', '', '', ''),
+(177, 18, 2, '2023-09-15 17:29:43', 'Pending', '', '', '', '', ''),
+(178, 18, 2, '2023-09-15 17:29:54', 'Pending', '', '', '', '', ''),
+(179, 18, 2, '2023-09-15 17:32:18', 'Pending', '', '', '', '', ''),
+(180, 18, 2, '2023-09-15 17:32:20', 'Pending', '', '', '', '', ''),
+(181, 18, 2, '2023-09-15 17:32:27', 'Pending', '', '', '', '', ''),
+(182, 18, 2, '2023-09-15 17:34:24', 'Pending', '', '', '', '', ''),
+(183, 18, 2, '2023-09-15 17:34:26', 'Pending', '', '', '', '', ''),
+(184, 18, 2, '2023-09-15 17:34:30', 'Pending', '', '', '', '', ''),
+(185, 18, 2, '2023-09-15 17:34:31', 'Pending', '', '', '', '', ''),
+(186, 18, 2, '2023-09-15 17:34:35', 'Pending', '', '', '', '', ''),
+(187, 18, 2, '2023-09-15 17:35:15', 'Pending', '', '', '', '', ''),
+(188, 18, 2, '2023-09-15 17:35:18', 'Pending', '', '', '', '', ''),
+(189, 18, 2, '2023-09-15 17:35:22', 'Pending', '', '', '', '', ''),
+(190, 18, 2, '2023-09-15 17:36:14', 'Pending', '', '', '', '', ''),
+(191, 18, 2, '2023-09-15 17:36:17', 'Pending', '', '', '', '', ''),
+(192, 18, 2, '2023-09-15 17:37:33', 'Pending', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -171,13 +335,6 @@ CREATE TABLE `ap_educ` (
   `course` varchar(50) NOT NULL,
   `award` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ap_educ`
---
-
-INSERT INTO `ap_educ` (`a_profile2_id`, `applicant_id`, `schoolStatus`, `educLevel`, `gradYear`, `school`, `course`, `award`) VALUES
-(1, 2, '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -203,13 +360,6 @@ CREATE TABLE `ap_elig` (
   `dialectsSpoken` varchar(50) NOT NULL,
   `otherDialect` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ap_elig`
---
-
-INSERT INTO `ap_elig` (`a_profile5_id`, `applicant_id`, `careerServ1`, `licenceNum1`, `expiryDate1`, `careerServ2`, `licenceNum2`, `expiryDate2`, `careerServ3`, `licenceNum3`, `expiryDate3`, `validDate`, `languageCertifications`, `otherCertification`, `dialectsSpoken`, `otherDialect`) VALUES
-(1, 2, '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -241,13 +391,6 @@ CREATE TABLE `ap_exp` (
   `incluDate4` varchar(50) NOT NULL,
   `appointStat4` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ap_exp`
---
-
-INSERT INTO `ap_exp` (`a_profile6_id`, `applicant_id`, `company1`, `cpAddress1`, `company2`, `cpAddress2`, `company3`, `cpAddress3`, `company4`, `cpAddress4`, `position1`, `incluDate1`, `appointStat1`, `position2`, `incluDate2`, `appointStat2`, `position3`, `incluDate3`, `appointStat3`, `position4`, `incluDate4`, `appointStat4`) VALUES
-(1, 2, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -291,13 +434,6 @@ CREATE TABLE `ap_info` (
   `ofw` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `ap_info`
---
-
-INSERT INTO `ap_info` (`a_profile1_id`, `applicant_id`, `lastName`, `firstName`, `midName`, `suffix`, `jobseekerType`, `birthplace`, `birthday`, `age`, `sex`, `civilStatus`, `citizenship`, `housenumPresent`, `brgyPresent`, `cityPresent`, `provincePresent`, `housenumPermanent`, `brgyPermanent`, `cityPermanent`, `provincePermanent`, `height`, `weight`, `landlineNum`, `mobilePnum`, `mobileSnum`, `email`, `disability`, `employmentStatus`, `activelyLooking`, `willinglyWork`, `fourPsBeneficiary`, `ofw`) VALUES
-(1, 2, 'Manguerra', 'Rebo', '', '', '', '', '0000-00-00', 22, '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 2147483647, 0, 'rebrebmanguerra@gmail.com', 'None', '', '', '', '', '');
-
 -- --------------------------------------------------------
 
 --
@@ -318,13 +454,6 @@ CREATE TABLE `ap_prefer` (
   `location2` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `ap_prefer`
---
-
-INSERT INTO `ap_prefer` (`a_profile3_id`, `applicant_id`, `occupation1`, `industry1`, `occupation2`, `industry2`, `occupation3`, `industry3`, `employment_status`, `location1`, `location2`) VALUES
-(1, 2, '', '', '', '', '', '', 'none', '', '');
-
 -- --------------------------------------------------------
 
 --
@@ -338,13 +467,6 @@ CREATE TABLE `ap_skills` (
   `techSkill` varchar(50) NOT NULL,
   `otherTechskill` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `ap_skills`
---
-
-INSERT INTO `ap_skills` (`a_profile7_id`, `applicant_id`, `skill`, `techSkill`, `otherTechskill`) VALUES
-(1, 2, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -376,13 +498,6 @@ CREATE TABLE `ap_tvo` (
   `completion3` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `ap_tvo`
---
-
-INSERT INTO `ap_tvo` (`a_profile4_id`, `applicant_id`, `trainingStatus`, `training1`, `startDuration1`, `endDuration1`, `training2`, `startDuration2`, `endDuration2`, `training3`, `startDuration3`, `endDuration3`, `institution1`, `certificate1`, `completion1`, `institution2`, `certificate2`, `completion2`, `institution3`, `certificate3`, `completion3`) VALUES
-(1, 2, '', '', '0000-00-00', '0000-00-00', '', '0000-00-00', '0000-00-00', '', '0000-00-00', '0000-00-00', '', '', '', '', '', '', '', '', '');
-
 -- --------------------------------------------------------
 
 --
@@ -402,8 +517,7 @@ CREATE TABLE `a_access_account` (
 --
 
 INSERT INTO `a_access_account` (`A_access_id`, `name`, `email`, `type`, `password`) VALUES
-(1, 'Aaccess One', 'aaccessone1@gmail.com', 'user', 'AaccessOne_1'),
-(2, 'sample', 'sample@gmail.com', 'sample', 'sample');
+(1, 'Aaccess One', 'aaccessone1@gmail.com', 'user', 'AaccessOne_1');
 
 -- --------------------------------------------------------
 
@@ -448,8 +562,7 @@ CREATE TABLE `a_accounttb` (
 
 INSERT INTO `a_accounttb` (`applicant_id`, `lastname`, `firstname`, `middlename`, `age`, `sex`, `Pnum`, `email`, `password`, `profile_img`, `email_verified`, `code`, `code_created_at`) VALUES
 (1, 'Crown', 'Kreston', '', 23, 'Male', '9123456789', 'kreston52@gmail.com', 'KresTon_52', '', 0, '', '2023-09-14 13:55:56'),
-(2, 'Manguerra', 'Rebo', '', 22, 'Male', '9011231234', 'rebrebmanguerra@gmail.com', 'Password_123', '', 0, '', '2023-09-15 13:43:29'),
-(3, 'sample', 'sample', 'sample', 21, 'Male', '9123456789', 'sample@gmail.com', 'sample', '', 0, '', '2023-09-16 00:18:26');
+(2, 'Manguerra', 'Rebo', '', 22, 'Male', '9011231234', 'rebrebmanguerra@gmail.com', 'Password_123', '', 0, '', '2023-09-15 13:43:29');
 
 -- --------------------------------------------------------
 
@@ -585,7 +698,7 @@ INSERT INTO `c_accounttb` (`company_id`, `companyName`, `industry`, `contactPers
 (1, ' Juan Dela Cruz', 'head', '', 0, 'juandelacruz123@gmail.com', 'admin', 'JuanDelaCruz_123', '', '2023-09-15 19:56:15'),
 (4, 'Jeremy', 'Ruta', '', 0, 'jeremyruta@isda.com', 'user', 'jeremy', '', '2023-09-15 19:56:15'),
 (5, 'super', 'admin', '', 0, 'superadmin@gmail.com', 'user', 'SuperAdmin', '', '2023-09-15 19:56:15'),
-(6, 'sample', 'staff', 'sample', 0, 'sample@gmail.com', 'user', 'sample', '', '2023-09-16 10:17:40'),
+(6, 'sample', 'three', 'sample', 0, 'sample@gmail.com', 'user', 'sample', '', '2023-09-15 21:45:55'),
 (7, 'sampletwo', 'staff', 'sampletwo', 912, 'sampletwo@gmail.com', 'user', 'sampletwo', '', '2023-09-15 22:20:41'),
 (8, 'samplethree', 'staff', 'samplethree', 912, 'samplethree@gmail.com', 'user', 'samplethree', '', '2023-09-15 22:27:20'),
 (9, 'dummy', 'staff', 'dummy', 912, 'dummy@gmail.com', 'user', 'dummy', '', '2023-09-15 22:36:39'),
@@ -686,11 +799,11 @@ CREATE TABLE `c_jobpost` (
 --
 
 INSERT INTO `c_jobpost` (`c_jobpost_id`, `company_id`, `companyName`, `industry`, `position`, `educBg`, `yrsExperience`, `workLocation`, `jobTitle`, `slot`, `salary`, `skills`, `question1`, `question2`, `question3`, `question4`, `question5`, `answer1`, `answer2`, `answer3`, `answer4`, `answer5`, `img`, `date_added`) VALUES
-(17, 6, 'Mitsubishi Motors Philippines Corporation', 'Manufacturing / Production', 'Supervisor', 'Supervisor/5 Years & Up Experienced Employee', '3', 'Laguna (Sta. Rosa City)', 'Supervisor IT Application', 1, '12,000', 'Computer/Information Technology, IT-Software', 'Do you manage conflict well?', 'Do you manage pressure well?', 'Are you a goal-oriented employee?', 'Are you a team player?', 'Have you done anything to enhance your skillset?', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '../jobpost_img/mitsubishi.png', '2023-09-18 12:35:40'),
-(18, 7, 'Nestle Philippines, Inc.', 'Consumer Products / FMCG', 'Analyst II - Microbiology', 'Fresh Graduates', '1', 'Cabuyao Factory', 'NQAC analyst II - Microbiology', 2, '15,000-18,000', 'Sciences, Science & Technology', 'Are you ready to put this company before your own personal interests?', 'Are you okay with the amount of travel required for this position?', 'Do you have experience in business-to-business sales?', 'Are you able to work variable shifts?', 'Can you operate a cash register?', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '../jobpost_img/nestle.png', '2023-09-18 12:37:16'),
-(19, 8, 'Shakey’s Pizza Asia Ventures Inc. (SPAVI)', 'Food & Beverage / Catering / Restaurant', 'Restaurant Manager', 'Bachelor\'s/College Degree', '2', 'Laguna (Sta. Rosa City)', 'Restaurant Managers - SM Sta. Rosa & Nuvali', 1, 'Unspecified', 'Hotel/Restaurant, Food/Beverage/Restaurant', 'Do you know how to use or operate a restuarant', 'Have you ever been fired from a job?', 'Are you able to work variable shifts?', 'Can you operate a cash register?', 'Do you manage pressure well?', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '../jobpost_img/shakeys.jpg', '2023-09-18 12:41:22'),
-(20, 9, 'Monde Nissin Corporation', 'Manufacturing / Production', 'Network Engineer', 'Bachelor\'s/College Degree', '4', 'Laguna (Sta. Rosa City)', 'Network Engineer', 2, '25,000-26,000', 'Computer/Information Technology, IT-Network/Sys/DB Admin', 'Do you like giving presentations?', 'Do you ever take work home with you?', 'Do you manage pressure well?', 'Are you ready to put this company before your own personal interests?', 'Have you ever worked in a different industry?', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '../jobpost_img/monde_nissin.png', '2023-09-18 12:41:36'),
-(21, 10, 'Toyota Motor Philippines Corporation', 'Manufacturing / Production', 'Safety Officer', 'Bachelor\'s/College Degree', '2', 'Laguna (Sta. Rosa City)', 'Safety Officer', 3, '20,000-25,000', 'Engineering, Environmental', 'Have you ever worked in a different industry?', 'You know a lot about team building, don\'t you?', 'I bet you\'re good at setting long-term goals. Right?', 'Is this the job that interests you most?', 'Do you ever talk to yourself?', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '../jobpost_img/toyota.jpg', '2023-09-18 12:32:41');
+(17, 6, 'Mitsubishi Motors Philippines Corporation', 'Manufacturing / Production', 'Supervisor', 'Supervisor/5 Years & Up Experienced Employee', '3', 'Laguna (Sta. Rosa City)', 'Supervisor IT Application', 1, '12,000', 'Computer/Information Technology, IT-Software', 'Question #1', 'Question #2', 'Question #3', 'Question #4', 'Question #5', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '../jobpost_img/mitsubishi.png', '2023-09-15 14:32:10'),
+(18, 7, 'Nestle Philippines, Inc.', 'Consumer Products / FMCG', 'Analyst II - Microbiology', 'Fresh Graduates', '1', 'Cabuyao Factory', 'NQAC analyst II - Microbiology', 2, '15,000-18,000', 'Sciences, Science & Technology', 'Question #1', 'Question #2', 'Question #3', 'Question #4', 'Question #5', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '../jobpost_img/nestle.png', '2023-09-15 15:09:40'),
+(19, 8, 'Shakey’s Pizza Asia Ventures Inc. (SPAVI)', 'Food & Beverage / Catering / Restaurant', 'Restaurant Manager', 'Bachelor\'s/College Degree', '2', 'Laguna (Sta. Rosa City)', 'Restaurant Managers - SM Sta. Rosa & Nuvali', 1, 'Unspecified', 'Hotel/Restaurant, Food/Beverage/Restaurant', 'Question #1', 'Question #2', 'Question #3', 'Question #4', 'Question #5', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '../jobpost_img/shakeys.jpg', '2023-09-15 14:31:54'),
+(20, 9, 'Monde Nissin Corporation', 'Manufacturing / Production', 'Network Engineer', 'Bachelor\'s/College Degree', '4', 'Laguna (Sta. Rosa City)', 'Network Engineer', 2, '25,000-26,000', 'Computer/Information Technology, IT-Network/Sys/DB Admin', 'Question #1', 'Question #2', 'Question #3', 'Question #4', 'Question #5', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '../jobpost_img/monde_nissin.png', '2023-09-15 14:39:17'),
+(21, 10, 'Toyota Motor Philippines Corporation', 'Manufacturing / Production', 'Safety Officer', 'Bachelor\'s/College Degree', '2', 'Laguna (Sta. Rosa City)', 'Safety Officer', 3, '20,000-25,000', 'Engineering, Environmental', 'Question #1', 'Question #2', 'Question #3', 'Question #4', 'Question #5', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', '../jobpost_img/toyota.jpg', '2023-09-15 14:48:59');
 
 -- --------------------------------------------------------
 
@@ -866,12 +979,11 @@ CREATE TABLE `p_accounttb` (
 INSERT INTO `p_accounttb` (`peso_id`, `name`, `position`, `contactNum`, `email`, `type`, `password`) VALUES
 (1, ' Juan Dela Cruz', 'head', 0, 'juandelacruz123@gmail.com', 'admin', 'JuanDelaCruz_123'),
 (4, 'Jeremy', 'Ruta', 0, 'jeremyruta@isda.com', 'user', 'jeremy'),
-(5, 'admin', 'admin', 0, 'admin@gmail.com', 'user', 'admin'),
-(6, 'sample', 'staff', 0, 'sample@gmail.com', 'user', 'sample'),
+(5, 'super', 'admin', 0, 'superadmin@gmail.com', 'user', 'SuperAdmin'),
+(6, 'sample', 'three', 0, 'samplethree@gmail.com', 'user', 'SampleThree'),
 (7, 'Sample Four', 'staff', 912, 'samplefour4@gmail.com', 'user', 'SampleFour_4'),
 (8, 'Sample Five', 'staff', 912, 'samplefive_5@gmail.com', 'user', 'SampleFive_5'),
-(9, 'sample', 'staff', 912, 'sample@gmail.com', 'user', 'sample'),
-(10, 'Rebo Barrameda Manguerra', 'staff', 901, 'rebrebmanguerra@gmail.com', 'user', 'Password_123');
+(9, 'Peso One', 'staff', 912, 'pesoone1@gmail.com', 'user', 'PesoOne_1');
 
 -- --------------------------------------------------------
 
@@ -1082,20 +1194,6 @@ ALTER TABLE `access_requests_draft`
   ADD PRIMARY KEY (`access_id`);
 
 --
--- Indexes for table `applicant_profile`
---
-ALTER TABLE `applicant_profile`
-  ADD PRIMARY KEY (`applicant_profile_id`),
-  ADD KEY `applicant_id_pk` (`applicant_id`),
-  ADD KEY `ap_info_id_pk` (`ap_info_id`),
-  ADD KEY `ap_educ_id_pk` (`ap_educ_id`),
-  ADD KEY `ap_prefer_id_pk` (`ap_prefer_id`),
-  ADD KEY `ap_tvo_id_pk` (`ap_tvo_id`),
-  ADD KEY `ap_elig_id_pk` (`ap_elig_id`),
-  ADD KEY `ap_exp_id_pk` (`ap_exp_id`),
-  ADD KEY `ap_skills_id_pk` (`ap_skills_id`);
-
---
 -- Indexes for table `applicant_roles`
 --
 ALTER TABLE `applicant_roles`
@@ -1302,7 +1400,7 @@ ALTER TABLE `walkin_company`
 -- AUTO_INCREMENT for table `access_account`
 --
 ALTER TABLE `access_account`
-  MODIFY `access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `access_requests`
@@ -1317,12 +1415,6 @@ ALTER TABLE `access_requests_draft`
   MODIFY `access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `applicant_profile`
---
-ALTER TABLE `applicant_profile`
-  MODIFY `applicant_profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `applicant_roles`
 --
 ALTER TABLE `applicant_roles`
@@ -1332,7 +1424,7 @@ ALTER TABLE `applicant_roles`
 -- AUTO_INCREMENT for table `application_log`
 --
 ALTER TABLE `application_log`
-  MODIFY `application_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `application_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
 
 --
 -- AUTO_INCREMENT for table `ap_educ`
@@ -1374,13 +1466,13 @@ ALTER TABLE `ap_skills`
 -- AUTO_INCREMENT for table `ap_tvo`
 --
 ALTER TABLE `ap_tvo`
-  MODIFY `a_profile4_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `a_profile4_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `a_access_account`
 --
 ALTER TABLE `a_access_account`
-  MODIFY `A_access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `A_access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `a_access_requests`
@@ -1392,7 +1484,7 @@ ALTER TABLE `a_access_requests`
 -- AUTO_INCREMENT for table `a_accounttb`
 --
 ALTER TABLE `a_accounttb`
-  MODIFY `applicant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `applicant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `a_accounttb_draft`
@@ -1476,7 +1568,7 @@ ALTER TABLE `job_post_roles`
 -- AUTO_INCREMENT for table `p_accounttb`
 --
 ALTER TABLE `p_accounttb`
-  MODIFY `peso_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `peso_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `p_accounttb_draft`
@@ -1494,7 +1586,7 @@ ALTER TABLE `p_jobpost`
 -- AUTO_INCREMENT for table `p_requests`
 --
 ALTER TABLE `p_requests`
-  MODIFY `peso_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `peso_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `walkin_applicant`
@@ -1519,19 +1611,6 @@ ALTER TABLE `access_account`
   ADD CONSTRAINT `access_pk` FOREIGN KEY (`peso_id`) REFERENCES `p_accounttb` (`peso_id`);
 
 --
--- Constraints for table `applicant_profile`
---
-ALTER TABLE `applicant_profile`
-  ADD CONSTRAINT `ap_educ_id_pk` FOREIGN KEY (`ap_educ_id`) REFERENCES `ap_educ` (`a_profile2_id`),
-  ADD CONSTRAINT `ap_elig_id_pk` FOREIGN KEY (`ap_elig_id`) REFERENCES `ap_elig` (`a_profile5_id`),
-  ADD CONSTRAINT `ap_exp_id_pk` FOREIGN KEY (`ap_exp_id`) REFERENCES `ap_exp` (`a_profile6_id`),
-  ADD CONSTRAINT `ap_info_id_pk` FOREIGN KEY (`ap_info_id`) REFERENCES `ap_info` (`a_profile1_id`),
-  ADD CONSTRAINT `ap_prefer_id_pk` FOREIGN KEY (`ap_prefer_id`) REFERENCES `ap_prefer` (`a_profile3_id`),
-  ADD CONSTRAINT `ap_skills_id_pk` FOREIGN KEY (`ap_skills_id`) REFERENCES `ap_skills` (`a_profile7_id`),
-  ADD CONSTRAINT `ap_tvo_id_pk` FOREIGN KEY (`ap_tvo_id`) REFERENCES `ap_tvo` (`a_profile4_id`),
-  ADD CONSTRAINT `applicant_id_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb` (`applicant_id`);
-
---
 -- Constraints for table `application_log`
 --
 ALTER TABLE `application_log`
@@ -1542,43 +1621,43 @@ ALTER TABLE `application_log`
 -- Constraints for table `ap_educ`
 --
 ALTER TABLE `ap_educ`
-  ADD CONSTRAINT `a_profile2_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb` (`applicant_id`);
+  ADD CONSTRAINT `a_profile2_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb_draft` (`applicant_id`);
 
 --
 -- Constraints for table `ap_elig`
 --
 ALTER TABLE `ap_elig`
-  ADD CONSTRAINT `a_profile5_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb` (`applicant_id`);
+  ADD CONSTRAINT `a_profile5_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb_draft` (`applicant_id`);
 
 --
 -- Constraints for table `ap_exp`
 --
 ALTER TABLE `ap_exp`
-  ADD CONSTRAINT `a_profile6_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb` (`applicant_id`);
+  ADD CONSTRAINT `a_profile6_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb_draft` (`applicant_id`);
 
 --
 -- Constraints for table `ap_info`
 --
 ALTER TABLE `ap_info`
-  ADD CONSTRAINT `a_profile1_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb` (`applicant_id`);
+  ADD CONSTRAINT `a_profile1_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb_draft` (`applicant_id`);
 
 --
 -- Constraints for table `ap_prefer`
 --
 ALTER TABLE `ap_prefer`
-  ADD CONSTRAINT `a_profile3_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb` (`applicant_id`);
+  ADD CONSTRAINT `a_profile3_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb_draft` (`applicant_id`);
 
 --
 -- Constraints for table `ap_skills`
 --
 ALTER TABLE `ap_skills`
-  ADD CONSTRAINT `a_profile7_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb` (`applicant_id`);
+  ADD CONSTRAINT `a_profile7_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb_draft` (`applicant_id`);
 
 --
 -- Constraints for table `ap_tvo`
 --
 ALTER TABLE `ap_tvo`
-  ADD CONSTRAINT `a_profile4_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb` (`applicant_id`);
+  ADD CONSTRAINT `a_profile4_pk` FOREIGN KEY (`applicant_id`) REFERENCES `a_accounttb_draft` (`applicant_id`);
 
 --
 -- Constraints for table `c_jobpost`

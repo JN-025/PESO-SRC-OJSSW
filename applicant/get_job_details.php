@@ -50,12 +50,12 @@ if (isset($_GET['jobPostId'])) {
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
         .full-img{
-            transition: 10s;
+            margin: 10px;
+            transition: 5s;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         }
         .full-img:hover{
-            transform: rotate(360deg);
             background-color: #fff;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
         }
         .a-modal{
             right: 0;
@@ -133,6 +133,7 @@ if (isset($_GET['jobPostId'])) {
             position: absolute;
         }
         .company-question .question-option select{
+            cursor: pointer;
             font-size: 15px;
             text-align:center;
             height: 30px;
@@ -178,7 +179,7 @@ if (isset($_GET['jobPostId'])) {
                 if(isset($_SESSION["applicant_id"])){
                 $profileQuery = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
                 $profileResult = mysqli_query($conn, $profileQuery);
-                if(mysqli_num_rows($profileResult) === 1){
+                if(mysqli_num_rows($profileResult) >= 1){
                     echo '<style>.require-stage { display: none; }</style>';
                     echo '<style>.modal-content { display: block; }</style>';
                 }
