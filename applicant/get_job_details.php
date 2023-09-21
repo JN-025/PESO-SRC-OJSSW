@@ -51,11 +51,9 @@ if (isset($_GET['jobPostId'])) {
         @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
         .full-img{
             margin: 10px;
-            transition: 5s;
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        }
-        .full-img:hover{
-            background-color: #fff;
+            border-radius: 11px;
+
         }
         .a-modal{
             right: 0;
@@ -156,13 +154,13 @@ if (isset($_GET['jobPostId'])) {
             margin: auto;
             text-align: center;
         }
-        .bi{
+        .require-stage .bi{
             font-size: 15px;
         }
-        .bi-check{
+        .require-stage .bi-check{
             color: green;
         }
-        .bi-x{
+        .require-stage .bi-x{
             color: red;
         }
     </style>

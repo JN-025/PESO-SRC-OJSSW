@@ -347,7 +347,11 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                 <!-- Step 1 Content -->
             <div class="wrapper">
                 <section id="step-1" class="form-step">
-                    <h1 class="font-normal">I. PERSONAL INFORMATION</h1>
+                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <div class="button-selection">
+                <button id="nextButton" class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
+                    </div>
+                    <h1 class="mt-3 font-normal">I. PERSONAL INFORMATION</h1>
                     <!-- Step 1 input fields -->
                     <div class="mt-3">
                         <!--input field insert-->
@@ -473,47 +477,73 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                                         </select>     
                     </div>
                     </div>
-                    <div class="mt-3 text-align-right">
+                    <div class="mt-3">
+                        <div class="qna">
+                            <div class="qna-select">
                         <label for="">ACTIVELY LOOKING FOR WORK?</label>
+                        </div>
+                        <div class="qna-select">
                         <select class="" name="activelyLooking" required>
                                             <option value="" selected hidden></option>
                                             <option value="yes">Yes</option>
                                             <option value="no">No</option>
-                                        </select>   
+                                        </select>  
+                                        </div>
+                        </div> 
                     </div>
                     <div class="mt-3">
+                    <div class="qna">
+                            <div class="qna-select">
                         <label for="">WILLING TO WORK IMMEDIATELY?</label>
+                        </div>
+                        <div class="qna-select">
                         <select class="drop-down" name="willinglyWork" required>
                                             <option value="" selected hidden></option>
                                             <option value="yes">Yes</option>
                                             <option value="no">No</option>
                                         </select>    
+                                        </div>
+                        </div> 
                     </div>
                     <div class="mt-3">
+                    <div class="qna">
+                            <div class="qna-select">
                         <label for="">ARE YOU A 4Ps BENEFICIARY?</label>
+                        </div>
+                        <div class="qna-select">
                         <select class="" name="fourpsBeneficiary" required>
                                             <option value="" selected hidden></option>
                                             <option value="yes">Yes</option>
                                             <option value="no">No</option>
-                                        </select>     
+                                        </select>    
+                                        </div>
+                        </div>  
                     </div>
                     <div class="mt-3">
+                    <div class="qna">
+                            <div class="qna-select">
                         <label for="">ARE YOU AN OFW?</label>
+                        </div>
+                        <div class="qna-select">
                         <select class="" name="ofw" required>
                                             <option value="" selected hidden></option>
                                             <option value="yes">Yes</option>
                                             <option value="no">No</option>
-                                        </select>        
+                                        </select>    
+                                        </div>
+                        </div>     
                     </div>
                     <!--next button-->
-                    <div class="mt-3">
-                        <button id="nextButton" class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
-                    </div>
                     </div>
                 </section>
                 <!-- Step 2 Content, default hidden on page load. -->
                 <section id="step-2" class="form-step d-none">
-                    <h1 class="font-normal">II. EDUCATIONAL BACKGROUND</h1>
+                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <div class="button-selection">
+                <button class="button btn-navigate-form-step" type="button" step_number="1">Prev</button>
+                <button class="button btn-navigate-form-step" type="button" step_number="3">Next</button>
+                    </div>
+                    <h1 class="mt-3 font-normal">II. EDUCATIONAL BACKGROUND</h1>
                     <!-- Step 2 input fields -->
                     <div class="mt-3">
                         <label for=""><h2>Currently in School</h2></label>
@@ -554,14 +584,15 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                         <label for=""><h2>Award/Honor Recieved</h2></label>
                         <input type="text" name="award" placeholder="AWARDS" required>
                     </div>
-                    <div class="mt-3">
-                        <button class="button btn-navigate-form-step" type="button" step_number="1">Prev</button>
-                        <button class="button btn-navigate-form-step" type="button" step_number="3">Next</button>
-                    </div>
                 </section>
                 <!-- Step 3 Content, default hidden on page load. -->
                 <section id="step-3" class="form-step d-none">
-                    <h1 class="font-normal">III. JOB PREFERENCE</h1>
+                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <div class="button-selection">
+                <button class="button btn-navigate-form-step" type="button" step_number="2">Prev</button>
+                <button class="button btn-navigate-form-step" type="button" step_number="4">Next</button>
+                    </div>
+                    <h1 class="mt-3 font-normal">III. JOB PREFERENCE</h1>
                     <!-- Step 3 input fields -->
                     <div class="mt-3">
                     <table>
@@ -613,14 +644,15 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                                             </select>   
                     </div>
                     </div>
-                    <div class="mt-3">
-                        <button class="button btn-navigate-form-step" type="button" step_number="2">Prev</button>
-                        <button class="button btn-navigate-form-step" type="button" step_number="4">Next</button>
-                    </div>
                 </section>
                 <!-- Step 4 Content, default hidden on page load. -->
                 <section id="step-4" class="form-step d-none">
-                    <h1 class="font-normal">IV. TECHNICAL/VOCATIONAL/OTHER TRAINING</h1>
+                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <div class="button-selection">
+                <button class="button btn-navigate-form-step" type="button" step_number="3">Prev</button>
+                <button class="button btn-navigate-form-step" type="button" step_number="5">Next</button>
+                    </div>
+                    <h1 class="mt-3 font-normal">IV. TECHNICAL/VOCATIONAL/OTHER TRAINING</h1>
                     <!-- Step 4 input fields -->
                     <div class="mt-3">
                         <label for=""><h2>CURRENTLY IN TRAINING?</h2></label>
@@ -729,14 +761,15 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                         }
                     }}
                     ?>
-                    <div class="mt-3">
-                        <button class="button btn-navigate-form-step" type="button" step_number="3">Prev</button>
-                        <button class="button btn-navigate-form-step" type="button" step_number="5">Next</button>
-                    </div>
                 </section>
                  <!-- Step 5 Content, default hidden on page load. -->
                  <section id="step-5" class="form-step d-none">
-                    <h1 class="font-normal">Eligibility</h1>
+                 <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                 <div class="button-selection">
+                 <button class="button btn-navigate-form-step" type="button" step_number="4">Prev</button>
+                 <button class="button btn-navigate-form-step" type="button" step_number="6">Next</button>
+                    </div>
+                    <h1 class="mt-3 font-normal">V. Eligibility</h1>
                     <!-- Step 5 input fields -->
                     <div class="mt-3">
                     <table>
@@ -812,14 +845,15 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                                         <label for="dialect_other">Other:</label>
                                         <input style="width: 20%; height: 15px;" type="text" id="dialect_other" name="otherDialect" value="" maxlength="50">
                     </div>
-                    <div class="mt-3">
-                        <button class="button btn-navigate-form-step" type="button" step_number="4">Prev</button>
-                        <button class="button btn-navigate-form-step" type="button" step_number="6">Next</button>
-                    </div>
                 </section>
                 <!-- Step 6 Content, default hidden on page load. -->
                 <section id="step-6" class="form-step d-none">
-                    <h1 class="font-normal">VI. WORK EXPERIENCES</h1>
+                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                 <div class="button-selection">
+                 <button class="button btn-navigate-form-step" type="button" step_number="5">Prev</button>
+                 <button class="button btn-navigate-form-step" type="button" step_number="7">Next</button>
+                    </div>
+                    <h1 class="mt-3 font-normal">VI. WORK EXPERIENCES</h1>
                     <!-- Step 6 input fields -->
                     <div class="mt-3">
                     <h4 style="padding-left: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Limit the occupation for the last 10 years. Start with the most recent employment)</h4>
@@ -920,14 +954,15 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                                               </tr>
                                         </table>
                     </div>
-                    <div class="mt-3">
-                        <button class="button btn-navigate-form-step" type="button" step_number="5">Prev</button>
-                        <button class="button btn-navigate-form-step" type="button" step_number="7">Next</button>
-                    </div>
                 </section>
                 <!-- Step 7 Content, default hidden on page load. -->
                 <section id="step-7" class="form-step d-none">
-                    <h1 class="font-normal">VII. SKILLS</h1>
+                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <div class="button-selection">
+                <button class="button btn-navigate-form-step" type="button" step_number="6">Prev</button>
+                <button class="button btn-navigate-form-step" type="button" step_number="8">Next</button>
+                    </div>
+                    <h1 class="mt-3 font-normal">VII. SKILLS</h1>
                     <!-- Step 7 input fields -->
                     <div class="mt-3 form-row">
                     <div class="stick-object">
@@ -1031,19 +1066,40 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                                         <input style="width: 40%; height: 15px;" type="text" id="Techskill_13" name="otherTechskill" value="">
                     </div>
                   </div>
-                    <div class="mt-3">
-                        <button class="button btn-navigate-form-step" type="button" step_number="6">Prev</button>
-                        <button class="button btn-navigate-form-step" type="button" step_number="8">Next</button>
-                    </div>
                 </section>
                 <!--Step 8-->
                 <section id="step-8" class="form-step d-none">
-                    <h1 class="font-normal">VIII. Authorization</h1>
-                    <!-- Step 8 input fields -->
- 
+                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <div class="button-selection">
+                <button class="button btn-navigate-form-step" type="button" step_number="7">Prev</button>
+                <button class="button submit-btn" type="submit" name="submit">Submit</button>
+                    </div>
+                    <h1 class="mt-3 font-normal">VIII. Authorization</h1>
                     <div class="mt-3">
-                        <button class="button btn-navigate-form-step" type="button" step_number="7">Prev</button>
-                        <button class="button submit-btn" type="submit" name="submit">Submit</button>
+                        <div class ="cert-cons">
+                            <h1>Certification/Authorization</h1>
+                            <p>This is to certify that all data/information that I have provided in this form are true to the best of my knowledge. This is also to authorize the DOLE to include my profile in the Skills Registry System, which is maintained in PhilJobNet. It is understood hat my name shall be made available to employers who have access to the Registry. I am also aware that DOLE is not obliged to seek employment on my behalf</p>
+                            <div class="ca-inputbox">
+                                <div class ="inputbox">
+                                    <label for="">
+                                        <input type="file">
+                                        Signature
+                                    </label>
+                                </div>
+                                <div class ="inputbox">
+                                    <input type="date">
+                                    Date
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="cert-cons">
+                            <h1>Consent Form</h1>
+                            <p>1. For legitimate purposes including but not limited to employment facilitation, labor market profiling, and other administration.</p>
+                            <p>2. To provide services to me in relation to job matching activity; and</p>
+                            <p>3. to comply with PESOCSRL’s reporting obligation in accordance with applicable law, internal policies or procedures, or to respond to any demand and/or request from any governmental authority for purposes of reporting, regulatory measures, disclosures or other obligations under the applicable law</p>
+                        </div>
                     </div>
                 </section>
                 </div>
