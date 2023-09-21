@@ -31,13 +31,43 @@
         
         <?php
             
-            $query = "select * from `c_requests`;";
+            $query = "select * from `c_requests` where companyType = 'Direct Company';";
             if(count(fetchAll($query))>0){
                 foreach(fetchAll($query) as $row){
                     ?>
                 <div class="card2">
                 <h2><?php echo $row['companyName'] ?> </h2>
                 <h3><?php echo $row['email'] ?></h3>
+                <h3>Direct Company</h3>
+
+                <br> <br>
+                  <h4><?php echo $row['message'] ?></h4>
+                  <p>
+                    <br>
+                  <a href="company_accept.php?company_id=<?php echo $row['company_id'] ?>" class="approve">Approve</a>
+                        <a href="company_reject.php?company_id=<?php echo $row['company_id'] ?>" class="reject">Reject</a>
+                  </p>
+                  <br>
+                <small><i><?php echo $row['date'] ?></i></small>
+                </div>
+        <?php
+                }
+            }else{
+                echo "No Pending Requests.";
+            }
+        ?>
+
+
+<?php
+            
+            $query = "select * from `c_requests` where companyType = 'Local Manpower Agency';";
+            if(count(fetchAll($query))>0){
+                foreach(fetchAll($query) as $row){
+                    ?>
+                <div class="card2">
+                <h2><?php echo $row['companyName'] ?> </h2>
+                <h3><?php echo $row['email'] ?></h3>
+                <h3>Local Power Agency</h3>
 
                 <br> <br>
                   <h4><?php echo $row['message'] ?></h4>

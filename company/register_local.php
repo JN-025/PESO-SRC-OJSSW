@@ -28,7 +28,7 @@
             
 
             
-            $query = "INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `companyType`, `date`) VALUES (NULL, '$companyName', '$industry', '$contactPerson', '$contactNum', '$email', '$password', '$message', 'Local Manpower Ageny', CURRENT_TIMESTAMP)";
+            $query = "INSERT INTO `c_requests` (`company_id`, `companyName`, `industry`, `contactPerson`, `contactNum`, `email`, `password`, `message`, `companyType`, `date`) VALUES (NULL, '$companyName', '$industry', '$contactPerson', '$contactNum', '$email', '$password', '$message', 'Local Manpower Agency', CURRENT_TIMESTAMP)";
 
             
             if($password != $confirm_password){

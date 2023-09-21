@@ -1,117 +1,295 @@
-@import url('https://fonts.googleapis.com/css?family=Londrina Solid');
-@import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
-
-
-.card1
-{
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Londrina+Solid&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
+.main-container{
     width: 100%;
-    height: fit-content;
-    background-color: transparent;
-   
+    margin-left: 15%;
+    overflow-y: hidden;
 }
 
-.card2
-{
-    
-    height: 50px;
-    background-color: white;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.card2 h2
-{
-    color: #B22623;
-font-family: Londrina Solid;
-font-size: 35px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-
-.add
-{
-    border-radius: 10px;
-background: #B22623;
-box-shadow: 0px 4px 4px 0px rgba(186, 58, 150, 0.97) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-width: 30%;
-padding: 5px;
-border: none;
-color: white;
-}
-
-.card3
-{
-    height: fit-content;
-    background-color: white;
-
-}
-
-.card5
-{
-    width: 70%;
-    margin-top: 20px;
-    padding: 20px;
+#regForm {
+    margin-top: 100px;
+    padding: 30px;
+    width: 85%;
+    height: 200vh;
     border-radius: 12px;
     border: 2px solid #D5D5D5;
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.card5 h1
+#regForm h1
 {
+    color: #B22623;
+    text-align: center;
+    font-family: Mohave;
     font-size: 30px;
-    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
-.card5 h2
+
+.form {
+  margin-top: 100px;
+  padding: 30px;
+  width: 85%;
+  height: 200vh;
+  border-radius: 12px;
+  border: 2px solid #D5D5D5;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.form h1
 {
-    font-size: 20px;
-    text-align: center;
+  color: #B22623;
+  text-align: center;
+  font-family: Mohave;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
-
-.card5 h3
+  .form-box
+  {
+      height: fit-content;
+      background: wheat;
+      width: 100%;
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+  }
+  
+.form-box h2
 {
     color: #000;
     text-align: center;
     font-family: Mohave;
-    font-size: 25px;
-    font-style: normal;
-    text-align: left;
-    line-height: normal;
-
-}
-
-.wrapper{
-    width: 95%;
-    margin: 10px;
-    background-color: transparent;
-}
-
-table
-{
-    border-radius: 20px;
-}
-
-table tr td:first-child{
-    width: 50px;
-}
-
-table tr td:last-child{
-    width: 100px;
-}
-
-table tr th
-{
-    color: #000;
-    text-align: center;
-    font-family: Londrina Solid;
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    padding-top: 15px;
-    padding-bottom: 15px;
+}
+
+.col-10
+{
+    float: left;
+    width: 10%;
+    height: fit-content; 
+}
+  
+.col-15 
+{
+    float: left;
+    width: 15%;
+    height: fit-content;
+     
+}
+
+.col-20
+{
+    float: left;
+    width: 20%;
+    height: fit-content; 
+}
+
+.col-25 
+{
+    float: left;
+    width: 25%;
+    height: fit-content; 
+}
+  
+.col-30
+{
+    float: left;
+    width: 30%;
+    height: fit-content; 
+}
+
+.col-33
+{
+    float: left;
+    width: 33.33%;
+    height: fit-content; 
+}
+
+.col-35
+{
+    float: left;
+    width: 35%;
+    height: fit-content; 
+}
+
+.col-40
+{
+    float: left;
+    width: 40%;
+    height: fit-content; 
+}
+
+.col-45
+{
+    float: left;
+    width: 45%;
+    height: fit-content; 
 }
 
 
+
+  
+  
+.row:after 
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+   
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+  }
+  
+  /* Hide all steps by default: */
+  .tab {
+    display: none;
+  }
+
+  .tab h3
+  {
+    padding-top: 20px;
+    color: #B22623;
+    text-align: center;
+    font-family: Mohave;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+
+
+
+
+
+input[type=text], input[type=tel], input[type=number], input[type=date],input[type=email], select
+{
+    width: 80%;
+    margin: 10px;
+    height: 23px;
+    font-size: 15px;
+    padding-left: 10px;
+    border-radius: 6px;
+    border: 2px solid #EAEAEA;
+    background: #FFF;
+    float: left;
+}
+.stick-object input[type=date] 
+{
+    border: 2px solid #EAEAEA;
+    
+}
+select,
+select option {
+  color: #000000;
+}
+select:invalid,
+select option[value=""] {
+  color: #EAEAEA;
+}
+::placeholder 
+{
+    color: #c2c0c0;
+    font-size: 14px;   
+}
+.invalid {
+    background-color: #ffdddd;
+  }
+ .text-align-right select{
+    text-align: right;
+  }
+
+  
+.next
+{
+    width: 20%;
+    background-color: #DF6B00;
+    box-shadow: 0px 4px 4px 0px #FFA653 inset;
+    filter: drop-shadow(0px 4px 4px #7A3B00);
+    color: #FFF;
+    font-family: Mohave;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 3px;
+    float: right;
+}
+
+.prev
+{
+    width: 20%;
+    background-color: #DF6B00;
+    box-shadow: 0px 4px 4px 0px #FFA653 inset;
+    filter: drop-shadow(0px 4px 4px #7A3B00);
+    color: #FFF;
+    font-family: Mohave;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 3px;
+    float: left;
+}
+  
+  button:hover {
+    opacity: 0.8;
+  }
+
+
+  .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #F4CBA5;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    
+  }
+  
+  .step.active {
+    background-color: #DF6B00;
+  }
+  
+ 
+  .step.finish {
+    background-color: #DF6B00;
+  }
+
+  
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .col-25, .col-15 {
+    width: 50%;
+
+  }
+
+  
+  
+}
+
+@media screen and (max-width: 400px) {
+  .col-25, .col-15 {
+    width: 100%;
+  }
+  
+}
