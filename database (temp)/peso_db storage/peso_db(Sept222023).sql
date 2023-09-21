@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2023 at 04:33 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Sep 20, 2023 at 05:48 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,6 +66,22 @@ CREATE TABLE `access_requests` (
 
 INSERT INTO `access_requests` (`access_id`, `peso_id`, `name`, `email`, `message`, `accessType`, `date`, `password`) VALUES
 (3, 9, 'Aaccess Two', 'aacesstwo2@gmail.com', 'Our Aaccess Two would like to request an access for Applicant.', 'Applicant', '2023-09-15 21:11:51', 'AaccessTwo_2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `access_requests_draft`
+--
+
+CREATE TABLE `access_requests_draft` (
+  `access_id` int(11) NOT NULL,
+  `peso_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -370,6 +386,43 @@ INSERT INTO `ap_tvo` (`a_profile4_id`, `applicant_id`, `trainingStatus`, `traini
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `a_access_account`
+--
+
+CREATE TABLE `a_access_account` (
+  `A_access_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `a_access_account`
+--
+
+INSERT INTO `a_access_account` (`A_access_id`, `name`, `email`, `type`, `password`) VALUES
+(1, 'Aaccess One', 'aaccessone1@gmail.com', 'user', 'AaccessOne_1'),
+(2, 'sample', 'sample@gmail.com', 'sample', 'sample');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `a_access_requests`
+--
+
+CREATE TABLE `a_access_requests` (
+  `A_access_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `a_accounttb`
 --
 
@@ -451,6 +504,59 @@ CREATE TABLE `company_profile` (
   `language` varchar(255) NOT NULL,
   `benefits` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `c_access_account`
+--
+
+CREATE TABLE `c_access_account` (
+  `C_access_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `c_access_account`
+--
+
+INSERT INTO `c_access_account` (`C_access_id`, `name`, `email`, `type`, `password`) VALUES
+(1, ' Juan Dela Cruz', 'juandelacruz123@gmail.com', 'admin', 'JuanDelaCruz_123'),
+(4, 'Jeremy', 'jeremyruta@isda.com', 'user', 'jeremy'),
+(5, 'super', 'superadmin@gmail.com', 'user', 'SuperAdmin'),
+(6, 'sample', 'samplethree@gmail.com', 'user', 'SampleThree'),
+(7, 'Sample Four', 'samplefour4@gmail.com', 'user', 'SampleFour_4'),
+(8, 'Caccess One', 'caccessone1@gmail.com', 'user', 'CaccessOne_1'),
+(9, 'Caccess Two', 'caccesstwo2@gmail.com', 'user', 'CaccessTwo_2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `c_access_requests`
+--
+
+CREATE TABLE `c_access_requests` (
+  `C_access_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `c_access_requests`
+--
+
+INSERT INTO `c_access_requests` (`C_access_id`, `name`, `email`, `password`, `message`, `date`) VALUES
+(3, 'sample', 'sampletwo@gmail.com', 'SampleTwo', 'two sample would like to request an account.', '2023-09-05 11:19:08'),
+(9, 'Sample Three', 'samplethree3@gmail.com', 'SampleThree_3', 'Our head , Sample Three would like to request an account.', '2023-09-07 17:45:02'),
+(11, 'Sample Five', 'samplefive_5@gmail.com', 'SampleFive_5', 'Our staff , Sample Five would like to request an account.', '2023-09-08 14:28:08'),
+(15, 'Aaccess One', 'aaccessone1@gmail.com', 'AaccessOne_1', 'Our Aaccess One would like to request an account.', '2023-09-12 12:12:33'),
+(16, 'Aaccess Two', 'aacesstwo2@gmail.com', 'AaccessTwo_2', 'Our Aaccess Two would like to request an account.', '2023-09-15 21:00:53');
 
 -- --------------------------------------------------------
 
@@ -622,12 +728,12 @@ CREATE TABLE `c_jobposts_draft` (
 --
 
 INSERT INTO `c_jobposts_draft` (`c_jobposts_id`, `company_id`, `jobTitle`, `companyName`, `industry`, `position`, `yrsExperience`, `workLocation`, `salary`, `educBg`, `numSlot`, `skills`, `question1`, `answer1`, `question2`, `answer2`, `question3`, `answer3`, `question4`, `answer4`, `question5`, `answer5`) VALUES
-(1, 2, 'adjha', '', '', 'aksjdh', 'aksjdh', 'askdj', 2312.00, 'askjdha', 32131, '', '', '', '', '', '', '', '', '', '', ''),
-(2, 3, 'dasjdgk', '', '', 'asjkdhga', 'jkdashgd', 'ajhd', 37481.00, 'dasgd', 34323, '', '', '', '', '', '', '', '', '', '', ''),
-(3, 4, 'a', '', '', 'a', 'a', 'a', 1000.00, 'a', 13, '', '', '', '', '', '', '', '', '', '', ''),
-(4, 4, 'g', '', '', 'g', 'g', 'g', 123.00, 'g', 2, '', '', '', '', '', '', '', '', '', '', ''),
-(5, 4, 'y', '', '', 'y', 'y', 'y', 123.00, 'y', 3, '', '', '', '', '', '', '', '', '', '', ''),
-(6, 4, 'c', '', '', 'c', 'c', 'c', 123.00, 'c', 8, '', 'c', 'Yes', 'c', 'Yes', 'c', 'Yes', 'cc', 'Yes', 'c', 'Yes');
+(1, 2, 'adjha', '', '', 'aksjdh', 'aksjdh', 'askdj', '2312.00', 'askjdha', 32131, '', '', '', '', '', '', '', '', '', '', ''),
+(2, 3, 'dasjdgk', '', '', 'asjkdhga', 'jkdashgd', 'ajhd', '37481.00', 'dasgd', 34323, '', '', '', '', '', '', '', '', '', '', ''),
+(3, 4, 'a', '', '', 'a', 'a', 'a', '1000.00', 'a', 13, '', '', '', '', '', '', '', '', '', '', ''),
+(4, 4, 'g', '', '', 'g', 'g', 'g', '123.00', 'g', 2, '', '', '', '', '', '', '', '', '', '', ''),
+(5, 4, 'y', '', '', 'y', 'y', 'y', '123.00', 'y', 3, '', '', '', '', '', '', '', '', '', '', ''),
+(6, 4, 'c', '', '', 'c', 'c', 'c', '123.00', 'c', 8, '', 'c', 'Yes', 'c', 'Yes', 'c', 'Yes', 'cc', 'Yes', 'c', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -934,210 +1040,22 @@ INSERT INTO `walkin_applicant` (`W_applicant_id`, `W_lastName`, `W_firstName`, `
 --
 
 CREATE TABLE `walkin_company` (
-  `Wcompany_id` int(11) NOT NULL,
-  `WcompanyName` varchar(255) NOT NULL,
-  `Windustry` varchar(255) NOT NULL,
-  `WcontactPerson` varchar(255) NOT NULL,
-  `WcontactNum` int(11) NOT NULL,
-  `Wemail` varchar(255) NOT NULL,
-  `Wlocation` varchar(255) NOT NULL,
-  `WregNum` varchar(255) NOT NULL,
-  `WcompanyWeb` varchar(255) NOT NULL,
-  `WcompanySize` int(11) NOT NULL,
-  `WworkingHrs` int(11) NOT NULL,
-  `WdressCode` varchar(255) NOT NULL,
-  `WspokenLanguage` varchar(255) NOT NULL
+  `W_company_id` int(11) NOT NULL,
+  `W_companyName` varchar(255) NOT NULL,
+  `W_industry` varchar(255) NOT NULL,
+  `W_contactPerson` varchar(255) NOT NULL,
+  `W_contactNum` int(11) NOT NULL,
+  `W_email` varchar(255) NOT NULL,
+  `W_location` varchar(255) NOT NULL,
+  `W_regNum` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `walkin_company`
 --
 
-INSERT INTO `walkin_company` (`Wcompany_id`, `WcompanyName`, `Windustry`, `WcontactPerson`, `WcontactNum`, `Wemail`, `Wlocation`, `WregNum`, `WcompanyWeb`, `WcompanySize`, `WworkingHrs`, `WdressCode`, `WspokenLanguage`) VALUES
-(1, 'Capstone Company', 'IT', 'Juan Dela Cruz', 2147483647, 'juandelacruz123@gmail.com', 'Santa Rosa, Laguna', '0123456789', '', 0, 0, '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wap_educ`
---
-
-CREATE TABLE `wap_educ` (
-  `Wa_profile2_id` int(11) NOT NULL,
-  `peso_id` int(11) NOT NULL,
-  `WschoolStatus` varchar(50) NOT NULL,
-  `WeducLevel` varchar(50) NOT NULL,
-  `WgradYear` varchar(50) NOT NULL,
-  `Wschool` varchar(50) NOT NULL,
-  `Wcourse` varchar(50) NOT NULL,
-  `Waward` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wap_elig`
---
-
-CREATE TABLE `wap_elig` (
-  `Wa_profile5_id` int(11) NOT NULL,
-  `peso_id` int(11) NOT NULL,
-  `WcareerServ1` varchar(50) NOT NULL,
-  `WlicenceNum1` varchar(50) NOT NULL,
-  `WexpiryDate1` varchar(50) NOT NULL,
-  `WcareerServ2` varchar(50) NOT NULL,
-  `WlicenceNum2` varchar(50) NOT NULL,
-  `WexpiryDate2` varchar(50) NOT NULL,
-  `WcareerServ3` varchar(50) NOT NULL,
-  `WlicenceNum3` varchar(50) NOT NULL,
-  `WexpiryDate3` varchar(50) NOT NULL,
-  `WvalidDate` varchar(50) NOT NULL,
-  `WlanguageCertifications` varchar(50) NOT NULL,
-  `WotherCertification` varchar(50) NOT NULL,
-  `WdialectsSpoken` varchar(50) NOT NULL,
-  `WotherDialect` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wap_exp`
---
-
-CREATE TABLE `wap_exp` (
-  `Wa_profile6_id` int(11) NOT NULL,
-  `peso_id` int(11) NOT NULL,
-  `WincluEDate1` varchar(50) NOT NULL,
-  `WincluEDate2` varchar(50) NOT NULL,
-  `WincluEDate3` varchar(50) NOT NULL,
-  `WincluEDate4` varchar(50) NOT NULL,
-  `Wcompany1` varchar(255) NOT NULL,
-  `WcpAddress1` varchar(255) NOT NULL,
-  `Wcompany2` varchar(255) NOT NULL,
-  `WcpAddress2` varchar(255) NOT NULL,
-  `Wcompany3` varchar(255) NOT NULL,
-  `WcpAddress3` varchar(255) NOT NULL,
-  `Wcompany4` varchar(255) NOT NULL,
-  `WcpAddress4` varchar(255) NOT NULL,
-  `Wposition1` varchar(50) NOT NULL,
-  `WincluSDate1` varchar(50) NOT NULL,
-  `WappointStat1` varchar(50) NOT NULL,
-  `Wposition2` varchar(50) NOT NULL,
-  `WincluSDate2` varchar(50) NOT NULL,
-  `WappointStat2` varchar(50) NOT NULL,
-  `Wposition3` varchar(50) NOT NULL,
-  `WincluSDate3` varchar(50) NOT NULL,
-  `WappointStat3` varchar(50) NOT NULL,
-  `Wposition4` varchar(50) NOT NULL,
-  `WincluSDate4` varchar(50) NOT NULL,
-  `WappointStat4` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wap_info`
---
-
-CREATE TABLE `wap_info` (
-  `Wa_profile1_id` int(11) NOT NULL,
-  `peso_id` int(11) NOT NULL,
-  `WlastName` varchar(50) NOT NULL,
-  `WfirstName` varchar(50) NOT NULL,
-  `WmidName` varchar(50) NOT NULL,
-  `Wsuffix` varchar(50) NOT NULL,
-  `WjobseekerType` varchar(50) NOT NULL,
-  `Wbirthplace` varchar(50) NOT NULL,
-  `Wbirthday` date NOT NULL,
-  `Wage` int(11) NOT NULL,
-  `Wsex` varchar(50) NOT NULL,
-  `WcivilStatus` varchar(50) NOT NULL,
-  `Wcitizenship` varchar(50) NOT NULL,
-  `WhousenumPresent` varchar(50) NOT NULL,
-  `WbrgyPresent` varchar(50) NOT NULL,
-  `WcityPresent` varchar(50) NOT NULL,
-  `WprovincePresent` varchar(50) NOT NULL,
-  `WhousenumPermanent` varchar(50) DEFAULT NULL,
-  `WbrgyPermanent` varchar(50) NOT NULL,
-  `WcityPermanent` varchar(50) NOT NULL,
-  `WprovincePermanent` varchar(50) NOT NULL,
-  `Wheight` int(11) NOT NULL,
-  `Wweight` int(11) NOT NULL,
-  `WlandlineNum` int(11) NOT NULL,
-  `WmobilePnum` int(11) NOT NULL,
-  `WmobileSnum` int(11) NOT NULL,
-  `Wemail` varchar(50) NOT NULL,
-  `Wdisability` varchar(50) NOT NULL,
-  `WemploymentStatus` varchar(50) NOT NULL,
-  `WactivelyLooking` varchar(50) NOT NULL,
-  `WwillinglyWork` varchar(50) NOT NULL,
-  `WfourPsBeneficiary` varchar(50) NOT NULL,
-  `Wofw` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wap_prefer`
---
-
-CREATE TABLE `wap_prefer` (
-  `Wa_profile3_id` int(11) NOT NULL,
-  `peso_id` int(11) NOT NULL,
-  `Wpoccupation1` varchar(50) NOT NULL,
-  `Wpindustry1` varchar(50) NOT NULL,
-  `Wpoccupation2` varchar(50) NOT NULL,
-  `Wpindustry2` varchar(50) NOT NULL,
-  `Wpoccupation3` varchar(50) NOT NULL,
-  `Wpindustry3` varchar(50) NOT NULL,
-  `WplocationType` varchar(50) NOT NULL,
-  `Wplocation1` varchar(50) NOT NULL,
-  `Wplocation2` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wap_skills`
---
-
-CREATE TABLE `wap_skills` (
-  `Wa_profile7_id` int(11) NOT NULL,
-  `peso_id` int(11) NOT NULL,
-  `Wskill` varchar(50) NOT NULL,
-  `WtechSkill` varchar(50) NOT NULL,
-  `WotherTechskill` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `wap_tvo`
---
-
-CREATE TABLE `wap_tvo` (
-  `Wa_profile4_id` int(11) NOT NULL,
-  `peso_id` int(11) NOT NULL,
-  `WtrainingStatus` varchar(50) NOT NULL,
-  `Wtraining1` varchar(50) NOT NULL,
-  `WstartDuration1` date NOT NULL,
-  `WendDuration1` date NOT NULL,
-  `Wtraining2` varchar(50) NOT NULL,
-  `WstartDuration2` date NOT NULL,
-  `WendDuration2` date NOT NULL,
-  `Wtraining3` varchar(50) NOT NULL,
-  `WstartDuration3` date NOT NULL,
-  `WendDuration3` date NOT NULL,
-  `Winstitution1` varchar(50) NOT NULL,
-  `Wcertificate1` varchar(50) NOT NULL,
-  `Wcompletion1` varchar(50) NOT NULL,
-  `Winstitution2` varchar(50) NOT NULL,
-  `Wcertificate2` varchar(50) NOT NULL,
-  `Wcompletion2` varchar(50) NOT NULL,
-  `Winstitution3` varchar(50) NOT NULL,
-  `Wcertificate3` varchar(50) NOT NULL,
-  `Wcompletion3` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `walkin_company` (`W_company_id`, `W_companyName`, `W_industry`, `W_contactPerson`, `W_contactNum`, `W_email`, `W_location`, `W_regNum`) VALUES
+(1, 'Capstone Company', 'IT', 'Juan Dela Cruz', 2147483647, 'juandelacruz123@gmail.com', 'Santa Rosa, Laguna', '0123456789');
 
 --
 -- Indexes for dumped tables
@@ -1156,6 +1074,12 @@ ALTER TABLE `access_account`
 ALTER TABLE `access_requests`
   ADD PRIMARY KEY (`access_id`),
   ADD KEY `access_pk` (`peso_id`);
+
+--
+-- Indexes for table `access_requests_draft`
+--
+ALTER TABLE `access_requests_draft`
+  ADD PRIMARY KEY (`access_id`);
 
 --
 -- Indexes for table `applicant_profile`
@@ -1235,6 +1159,18 @@ ALTER TABLE `ap_tvo`
   ADD KEY `a_profile4_pk` (`applicant_id`);
 
 --
+-- Indexes for table `a_access_account`
+--
+ALTER TABLE `a_access_account`
+  ADD PRIMARY KEY (`A_access_id`);
+
+--
+-- Indexes for table `a_access_requests`
+--
+ALTER TABLE `a_access_requests`
+  ADD PRIMARY KEY (`A_access_id`);
+
+--
 -- Indexes for table `a_accounttb`
 --
 ALTER TABLE `a_accounttb`
@@ -1251,6 +1187,18 @@ ALTER TABLE `a_accounttb_draft`
 --
 ALTER TABLE `company_profile`
   ADD PRIMARY KEY (`c_profile_id`);
+
+--
+-- Indexes for table `c_access_account`
+--
+ALTER TABLE `c_access_account`
+  ADD PRIMARY KEY (`C_access_id`);
+
+--
+-- Indexes for table `c_access_requests`
+--
+ALTER TABLE `c_access_requests`
+  ADD PRIMARY KEY (`C_access_id`);
 
 --
 -- Indexes for table `c_accounttb`
@@ -1344,56 +1292,7 @@ ALTER TABLE `walkin_applicant`
 -- Indexes for table `walkin_company`
 --
 ALTER TABLE `walkin_company`
-  ADD PRIMARY KEY (`Wcompany_id`);
-
---
--- Indexes for table `wap_educ`
---
-ALTER TABLE `wap_educ`
-  ADD PRIMARY KEY (`Wa_profile2_id`),
-  ADD KEY `Wa_profile2_pk` (`peso_id`);
-
---
--- Indexes for table `wap_elig`
---
-ALTER TABLE `wap_elig`
-  ADD PRIMARY KEY (`Wa_profile5_id`),
-  ADD KEY `Wa_profile5_pk` (`peso_id`);
-
---
--- Indexes for table `wap_exp`
---
-ALTER TABLE `wap_exp`
-  ADD PRIMARY KEY (`Wa_profile6_id`),
-  ADD KEY `Wa_profile6_pk` (`peso_id`);
-
---
--- Indexes for table `wap_info`
---
-ALTER TABLE `wap_info`
-  ADD PRIMARY KEY (`Wa_profile1_id`),
-  ADD KEY `Wa_profile1_pk` (`peso_id`);
-
---
--- Indexes for table `wap_prefer`
---
-ALTER TABLE `wap_prefer`
-  ADD PRIMARY KEY (`Wa_profile3_id`),
-  ADD KEY `Wa_profile3_pk` (`peso_id`);
-
---
--- Indexes for table `wap_skills`
---
-ALTER TABLE `wap_skills`
-  ADD PRIMARY KEY (`Wa_profile7_id`),
-  ADD KEY `Wa_profile7_pk` (`peso_id`);
-
---
--- Indexes for table `wap_tvo`
---
-ALTER TABLE `wap_tvo`
-  ADD PRIMARY KEY (`Wa_profile4_id`),
-  ADD KEY `Wa_profile4_pk` (`peso_id`);
+  ADD PRIMARY KEY (`W_company_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1410,6 +1309,12 @@ ALTER TABLE `access_account`
 --
 ALTER TABLE `access_requests`
   MODIFY `access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `access_requests_draft`
+--
+ALTER TABLE `access_requests_draft`
+  MODIFY `access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `applicant_profile`
@@ -1472,6 +1377,18 @@ ALTER TABLE `ap_tvo`
   MODIFY `a_profile4_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `a_access_account`
+--
+ALTER TABLE `a_access_account`
+  MODIFY `A_access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `a_access_requests`
+--
+ALTER TABLE `a_access_requests`
+  MODIFY `A_access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `a_accounttb`
 --
 ALTER TABLE `a_accounttb`
@@ -1488,6 +1405,18 @@ ALTER TABLE `a_accounttb_draft`
 --
 ALTER TABLE `company_profile`
   MODIFY `c_profile_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `c_access_account`
+--
+ALTER TABLE `c_access_account`
+  MODIFY `C_access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `c_access_requests`
+--
+ALTER TABLE `c_access_requests`
+  MODIFY `C_access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `c_accounttb`
@@ -1577,49 +1506,7 @@ ALTER TABLE `walkin_applicant`
 -- AUTO_INCREMENT for table `walkin_company`
 --
 ALTER TABLE `walkin_company`
-  MODIFY `Wcompany_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `wap_educ`
---
-ALTER TABLE `wap_educ`
-  MODIFY `Wa_profile2_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `wap_elig`
---
-ALTER TABLE `wap_elig`
-  MODIFY `Wa_profile5_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `wap_exp`
---
-ALTER TABLE `wap_exp`
-  MODIFY `Wa_profile6_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `wap_info`
---
-ALTER TABLE `wap_info`
-  MODIFY `Wa_profile1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `wap_prefer`
---
-ALTER TABLE `wap_prefer`
-  MODIFY `Wa_profile3_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `wap_skills`
---
-ALTER TABLE `wap_skills`
-  MODIFY `Wa_profile7_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `wap_tvo`
---
-ALTER TABLE `wap_tvo`
-  MODIFY `Wa_profile4_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `W_company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -1716,48 +1603,6 @@ ALTER TABLE `file`
 --
 ALTER TABLE `p_jobpost`
   ADD CONSTRAINT `p_jobpost_pk` FOREIGN KEY (`peso_id`) REFERENCES `p_accounttb` (`peso_id`);
-
---
--- Constraints for table `wap_educ`
---
-ALTER TABLE `wap_educ`
-  ADD CONSTRAINT `Wa_profile2_pk` FOREIGN KEY (`peso_id`) REFERENCES `p_accounttb` (`peso_id`);
-
---
--- Constraints for table `wap_elig`
---
-ALTER TABLE `wap_elig`
-  ADD CONSTRAINT `Wa_profile5_pk` FOREIGN KEY (`peso_id`) REFERENCES `p_accounttb` (`peso_id`);
-
---
--- Constraints for table `wap_exp`
---
-ALTER TABLE `wap_exp`
-  ADD CONSTRAINT `Wa_profile6_pk` FOREIGN KEY (`peso_id`) REFERENCES `p_accounttb` (`peso_id`);
-
---
--- Constraints for table `wap_info`
---
-ALTER TABLE `wap_info`
-  ADD CONSTRAINT `Wa_profile1_pk` FOREIGN KEY (`peso_id`) REFERENCES `p_accounttb` (`peso_id`);
-
---
--- Constraints for table `wap_prefer`
---
-ALTER TABLE `wap_prefer`
-  ADD CONSTRAINT `Wa_profile3_pk` FOREIGN KEY (`peso_id`) REFERENCES `p_accounttb` (`peso_id`);
-
---
--- Constraints for table `wap_skills`
---
-ALTER TABLE `wap_skills`
-  ADD CONSTRAINT `Wa_profile7_pk` FOREIGN KEY (`peso_id`) REFERENCES `p_accounttb` (`peso_id`);
-
---
--- Constraints for table `wap_tvo`
---
-ALTER TABLE `wap_tvo`
-  ADD CONSTRAINT `Wa_profile4_pk` FOREIGN KEY (`peso_id`) REFERENCES `p_accounttb` (`peso_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

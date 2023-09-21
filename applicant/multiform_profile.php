@@ -217,13 +217,11 @@ if ($stmt->execute()) {
 
     }
         // Insert into the applicant_profile table
-        $sql_applicant_profile = "INSERT INTO applicant_profile (applicant_id, ap_info_id, ap_educ_id, ap_prefer_id, ap_tvo_id, ap_elig_id, ap_exp_id, ap_skills_id) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql_applicant_profile = "INSERT INTO applicant_profile (applicant_id, peso_id, ap_info_id, ap_educ_id, ap_prefer_id, ap_tvo_id, ap_elig_id, ap_exp_id, ap_skills_id, date_created_at, type) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Online')";
 
 $stmt = $conn->prepare($sql_applicant_profile);
-$stmt->bind_param("iiiiiiii", $applicant_id, $ap_info_id, $ap_educ_id, $ap_prefer_id, $ap_tvo_id, $ap_elig_id, $ap_exp_id, $ap_skills_id);
-
-// Assuming you have obtained the IDs for each table (e.g., $ap_info_id, $ap_educ_id, etc.)
+$stmt->bind_param("iiiiiiiiis", $applicant_id,$peso_id, $ap_info_id, $ap_educ_id, $ap_prefer_id, $ap_tvo_id, $ap_elig_id, $ap_exp_id, $ap_skills_id, $date_create_at);
 
 if ($stmt->execute()) {
 header("location:find_jobs.php");
@@ -1083,12 +1081,12 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                                 <div class ="inputbox">
                                     <label for="">
                                         <input type="file">
-                                        Signature
+                                        <p style="text-align:center;">Signature of Applicant</p>
                                     </label>
                                 </div>
                                 <div class ="inputbox">
                                     <input type="date">
-                                    Date
+                                    <p style="text-align:center;">Date</p>
                                 </div>
                             </div>
                         </div>

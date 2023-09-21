@@ -48,15 +48,13 @@ h2 {
 }
 .button {
     padding: 0.7rem 1.5rem;
-    border: 1px solid #fff;
-    background-color: #FF008B;
+    border: none;
+    background-color: #A81E1E;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
-}
-.submit-btn {
-    border: 1px solid #fff;
-    background-color: #FF008B;
+    box-shadow: 0px 4px 4px 0px #D52121 inset;
+    box-shadow: 0px 4px 4px 0px #DEC4C4;
 }
 .mt-3 {
     margin-top: 10px;
