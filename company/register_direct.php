@@ -15,7 +15,7 @@
     </head>
 
     <?php
-        if(isset($_POST['signup'])){
+        if(isset($_POST['submit'])){
             $companyName = $_POST['companyName'];
             $industry = $_POST['industry'];
             $contactPerson = $_POST['contactPerson'];

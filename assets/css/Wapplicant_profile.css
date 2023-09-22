@@ -62,7 +62,7 @@ h2 {
 .button {
     padding: 0.7rem 1.5rem;
     border: none;
-    background-color: #A81E1E;
+    background-color: #be1a1a;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
@@ -457,6 +457,7 @@ select option[value=""] {
 }
 .cert-cons h1{
     color: #B22623;
+
 }
   .cert-cons .ca-inputbox{
     padding-top: 30px;

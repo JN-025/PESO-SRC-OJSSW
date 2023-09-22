@@ -23,7 +23,7 @@ include '../conn.php';
         <div class="main-row">
             <div class="col-1">
                 <div class="header">
-                    <h1><?php echo $page_title?></h1>
+                    
                 </div>
             </div>
 

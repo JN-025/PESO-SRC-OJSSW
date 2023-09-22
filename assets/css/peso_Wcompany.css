@@ -1,4 +1,11 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Londrina+Solid&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
+.main-container{
+    margin-top: 70px;
+    width: 100%;
+    margin-left: 15%;
+    overflow-y: hidden;
+    background-color: white;
+}
 
 
 .container-fluid
@@ -9,4 +16,117 @@
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     width: 90%;
+    height: fit-content;
+    padding-bottom: 5%;
+    margin-bottom: 20vh;
+}
+
+.form-group
+{
+width: 30%;
+background-color: transparent;
+margin-bottom: 10px;
+margin-left: 30px;
+float: left;
+}
+
+.form-group-read
+{
+width: 45%;
+background-color: transparent;
+margin-bottom: 10px;
+margin-left: 30px;
+float: left;
+margin-top: 30px;
+}
+
+.form-group-read h3
+{
+    color: #000;
+    font-family: Mohave;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.exit
+{
+    font-size: 20px;
+    padding: 5px 10px;
+    background-color: #B22623;
+    border-radius: 50%;
+    float: right;
+    margin-right: 20px;
+    color: white;
+}
+
+.exit:hover
+{
+    font-size: 20px;
+    padding: 5px 10px;
+    background-color: #B22623;
+    border-radius: 50%;
+    float: right;
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+h1
+{
+    color: #B22623;
+    text-align: center;
+    font-family: Mohave;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.form-group h2
+{
+    color: #000;
+    text-align: center;
+    font-family: Mohave;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50%;
+}
+
+
+
+.form
+{
+    background-color: sienna;
+    width: 90%;
+}
+
+input[type=text], input[type=tel], input[type=number], input[type=date],input[type=email], select
+{
+    flex: 1;
+    height: 23px;
+    font-size: 20px;
+    padding-left: 10px;
+    border-radius: 6px;
+    border: 2px solid #EAEAEA;
+    background: #FFF;
+    float: left;
+    width: 100%;
+    height: 30px;
+}
+
+.container-fluid-read
+{
+    margin-top: 100px;
+    border-radius: 12px;
+    border: 2px solid #D5D5D5;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    height: fit-content;
+    padding-bottom: 5%;
+    margin-bottom: 20vh;
+    padding-top: 20px;
 }
