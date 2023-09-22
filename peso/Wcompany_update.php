@@ -7,7 +7,11 @@ $WcompanyName = $Windustry = $WcontactPerson = $WcontactNum = $Wemail = $Wlocati
 $WcompanyName_err = $Windustry_err = $WcontactPerson_err = $WcontactNum_err = $Wemail_err = $Wlocation_err = $WregNum_err = $WcompanyWeb_err = $WcompanySize_err = $WworkingHrs_err = $WdressCode_err = $WspokenLanguage_err = "";
 
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if(isset($_POST["Wcompany_id"]) && !empty($_POST["Wcompany_id"])){
+    // Get hidden input value
+    $Wcompany_id = $_POST["Wcompany_id"];
+
+
     // Validate name
     $input_WcompanyName = trim($_POST["WcompanyName"]);
     if(empty($input_WcompanyName)){
@@ -108,12 +112,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Check input errors before inserting in database
     if(empty($WcompanyName_err) && empty($Windustry_err) && empty($WcompanyPerson_err) && empty($WcontactNum_err) && empty($Wemail_err) && empty($Wlocation_err) && empty($WregNum_err) && empty($WcompanyWeb_err) && empty($WcompanySize_err) && empty($WworkingHrs_err) && empty($WdressCode_err) && empty($WspokenLanguage_err)){
-        // Prepare an insert statement
-        $sql = "INSERT INTO walkin_company (WcompanyName, Windustry, WcontactPerson, WcontactNum, Wemail, Wlocation, WregNum, WcompanyWeb, WcompanySize, WworkingHrs, WdressCode, WspokenLanguage) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        // Prepare an update statement
+        $sql = "UPDATE walkin_company SET WcompanyName=?, Windustry=?, WcontactPerson=?, WcontactNum=?, Wemail=?, Wlocation=?, WregNum=?, WcompanyWeb=?, WcompanySize=?, WworkingHrs=?, WdressCode=?, WspokenLanguage=?) WHERE Wcompany_id=?";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssssssssss", $param_WcompanyName, $param_Windustry, $param_WcontactPerson, $param_WcontactNum, $param_Wemail, $param_Wlocation, $param_WregNum, $param_WcompanyWeb, $param_WcompanySize, $param_WworkingHrs, $param_WdressCode, $param_WspokenLanguage);
+            mysqli_stmt_bind_param($stmt, "ssssssssssssi", $param_WcompanyName, $param_Windustry, $param_WcontactPerson, $param_WcontactNum, $param_Wemail, $param_Wlocation, $param_WregNum, $param_WcompanyWeb, $param_WcompanySize, $param_WworkingHrs, $param_WdressCode, $param_WspokenLanguage, $param_Wcompany_id);
             
             // Set parameters
             $param_WcompanyName = $WcompanyName;
@@ -128,6 +133,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_WworkingHrs = $WworkingHrs;
             $param_WdressCode = $WdressCode;
             $param_WspokenLanguage = $WspokenLanguage;
+            $param_Wcompany_id = $Wcompany_id;
 
             
             // Attempt to execute the prepared statement
@@ -146,6 +152,64 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Close connection
     mysqli_close($link);
+} else{
+    // Check existence of id parameter before processing further
+    if(isset($_GET["Wcompany_id"]) && !empty(trim($_GET["Wcompany_id"]))){
+        // Get URL parameter
+        $Wcompany_id =  trim($_GET["Wcompany_id"]);
+        
+        // Prepare a select statement
+        $sql = "SELECT * FROM walkin_company WHERE Wcompany_id = ?";
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "i", $param_Wcompany_id);
+            
+            // Set parameters
+            $param_Wcompany_id = $Wcompany_id;
+            
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                $result = mysqli_stmt_get_result($stmt);
+    
+                if(mysqli_num_rows($result) == 1){
+                    /* Fetch result row as an associative array. Since the result set
+                    contains only one row, we don't need to use while loop */
+                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                    
+                    // Retrieve individual field value
+                    $WcompanyName = $row["WcompanyName"];
+                    $Windustry = $row["Windustry"];
+                    $WcontactPerson = $row["WcontactPerson"];
+                    $WcontactNum = $row["WcontactNum"];
+                    $Wemail = $row["Wemail"];
+                    $Wlocation = $row["Wlocation"];
+                    $WregNum = $row["WregNum"];
+                    $WcompanyWeb = $row["WcompanyWeb"];
+                    $WcompanySize = $row["WcompanySize"];
+                    $WworkingHrs = $row["WworkingHrs"];
+                    $WdressCode = $row["WdressCode"];
+                    $WspokenLanguage = $row["WspokenLanguage"];
+                } else{
+                    // URL doesn't contain valid id. Redirect to error page
+                    header("location: Wapplicant_error.php");
+                    exit();
+                }
+                
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+        }
+        
+        // Close statement
+        mysqli_stmt_close($stmt);
+        
+        // Close connection
+        mysqli_close($link);
+    }  else{
+        // URL doesn't contain id parameter. Redirect to error page
+        header("location: Wapplicant_error.php");
+        exit();
+    }
 }
 ?>
 
@@ -180,7 +244,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     <h1 class="mt-5">WALK-IN COMPANY</h1>
                     <br>
                     <center>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
                        
                         <div class="form-group">
                             <label><h2>Company Name</h2></label>
@@ -244,7 +308,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         </div>
                         
                         
-                        
+                        <input type="hidden" name="Wcompany_id" value="<?php echo $Wcompany_id; ?>"/>
                         <input type="submit" style="background: #A81E1E; box-shadow: 0px 4px 4px 0px #D72121 inset; filter: drop-shadow(0px 4px 4px rgba(119, 11, 11, 0.25)); border: none; border-radius: 20px; margin: 10px;" class="btn btn-primary" value="Submit">
                         <a href="Wcompany.php" style="background: #A81E1E; box-shadow: 0px 4px 4px 0px #D72121 inset; filter: drop-shadow(0px 4px 4px rgba(119, 11, 11, 0.25)); border: none; border-radius: 20px; margin: 10px;" class="btn btn-secondary ml-2">Cancel</a>
                         

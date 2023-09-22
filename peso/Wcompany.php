@@ -1,82 +1,121 @@
+<?php
+$page_title = "Home";
+    
+include '../conn.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>WALK-IN COMPANY</title>
-    <link rel="icon" type="image/x-icon" href="../IMAGES/PESO_LOGO.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PESO COMPANY Homepage</title>
+    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/peso_Wapplicant.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Londrina Solid">
     <script>
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();   
         });
     </script>
+    <style>
+        input[type=text]
+        {
+            border-radius: 6px;
+            background: #FFF;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+            width: 300px;
+            float: left;
+            color: #919191;
+            text-align: center;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            font-family: Poppins;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            border: none;
+            padding: 8px 8px;
+            margin-right: 20px;
+        }
+        .add
+            {
+                background-color: #A81E1E;
+                box-shadow: 0px 4px 4px 0px #D72121 inset;
+                filter: drop-shadow(0px 4px 4px #770B0B);
+                color: #FFF;
+                text-align: center;
+                font-family: Poppins;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 700;
+                padding: 0px 8px;
+                border: none;
+                border-radius: 20px;
+                float: left;
+            }
+    </style>
 </head>
 <body>
-<?php 
+    <?php 
     include "../function.php";
-    include "applicant_sidenav.php";
+    include "company_sidenav.php";
+    include "topnav.php";
     ?>
-
-    <div class="cardA">
-            <?php 
-                include "topnav.php";
-            ?>
-            <center>
-            <div class="cardB">
-                <div class="cardC">
-
-    <div class="card1">
-        <div class="wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="mt-5 mb-3 clearfix">
-                            <div class="card2">
-                                <h2 class="pull-left">WALK IN COMPANY</h2>
+    <div class="card1" style="background: white; height: 200vh; width: 80%; margin-top: 15vh; margin-left: 20%;">
+    
+    <div class="wrapper" style="background: white;">
+    <div class="container-fluid">
+        <div class="row">
+                                
+                            <br>     
+                            <div class="card2" style="width: 100%;">
+                                
+                                <input type="text" placeholder="Search.." name="search">
+                                
+                                
+                                <button class="add" onclick="document.location='Wcompany_create.php'"><i class="bi bi-plus"></i>&nbsp;&nbsp;ADD A NEW WALK-IN COMPANY</button>
+                                
                             </div>
-                            <div class="card2">
-                                <a href="Wcompany_create.php" style="background: #7A0042" class="btn btn-success pull-left"><i class="fa fa-plus"></i> ADD NEW COMPANY</a>
+                            <br>
                             </div>
-                        </div>
-                        <div class="card3">
+                        <div class="card3" style="margin-top: 20px;">
                         <?php
                         // Include config file
-                        require_once "Wapplicant_config.php";
+                        require_once "../peso/Wapplicant_config.php";
                         
                         // Attempt select query execution
                         $sql = "SELECT * FROM walkin_company";
                         if($result = mysqli_query($link, $sql)){
                             if(mysqli_num_rows($result) > 0){
-                                echo '<table class="table table-bordered table-striped">';
-                                    echo "<thead>";
+                                echo '<table style="border-radius: 30px; text-align: center;" class="table table-bordered">';
+                                    echo '<thead >';
                                         echo "<tr>";
                                             echo "<th>ID</th>";
                                             echo "<th>Company Name</th>";
                                             echo "<th>Industry</th>";
                                             echo "<th>Contact Person</th>";
-                                            echo "<th>Contact Number</th>";
+                                            echo "<th>Email Address</th>";
                                             echo "<th>Action</th>";
                                         echo "</tr>";
                                     echo "</thead>";
                                     echo "<tbody>";
                                     while($row = mysqli_fetch_array($result)){
                                         echo "<tr>";
-                                            echo "<td>" . $row['W_company_id'] . "</td>";
-                                            echo "<td>" . $row['W_companyName'] . "</td>";
-                                            echo "<td>" . $row['W_industry'] . "</td>";
-                                            echo "<td>" . $row['W_contactPerson'] . "</td>";
-                                            echo "<td>" . $row['W_contactNum'] . "</td>";
+                                            echo "<td>" . $row['Wcompany_id'] . "</td>";
+                                            echo "<td>" . $row['WcompanyName'] . "</td>";
+                                            echo "<td>" . $row['Windustry'] . "</td>";
+                                            echo "<td>" . $row['WcontactPerson'] . "</td>";
+                                            echo "<td>" . $row['Wemail'] . "</td>";
                                             echo "<td>";
-                                                echo '<a href="Wcompany_read.php?W_company_id='. $row['W_company_id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span style="color:#7A0042;" class="fa fa-eye"></span></a>';
-                                                echo '<a href="Wcompany_update.php?W_company_id='. $row['W_company_id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span style="color:#7A0042;" class="fa fa-pencil"></span></a>';
-                                                echo '<a href="Wcompany_delete.php?W_company_id='. $row['W_company_id'] .'" title="Delete Record" data-toggle="tooltip"><span style="color:#7A0042;" class="fa fa-trash"></span></a>';
+                                                echo '<a href="Wcompany_read.php?Wcompany_id='. $row['Wcompany_id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-eye"></span></a>';
+                                                echo '<a href="Wcompany_update.php?Wcompany_id='. $row['Wcompany_id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-pencil"></span></a>';
+                                                echo '<a href="Wcompany_delete.php?Wcompany_id='. $row['Wcompany_id'] .'" title="Delete Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-trash"></span></a>';
                                             echo "</td>";
                                         echo "</tr>";
                                     }
@@ -95,18 +134,9 @@
                         mysqli_close($link);
                         ?>
                         </div>
-                    </div>
-                </div>        
-            </div>
+                    
         </div>
-    </div>
     
     </div>
-    </div>
-    </center>
-    </div>
-
-    
-
 </body>
 </html>
