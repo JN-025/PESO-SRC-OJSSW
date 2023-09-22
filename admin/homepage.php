@@ -25,8 +25,7 @@
     
     
     <div class="card1">
-        <h1>APPROVALS</h1>
-        <br> <br>
+        
         <center>
         
         <?php
@@ -36,16 +35,16 @@
                 foreach(fetchAll($query) as $row){
                     ?>
                 <div class="card2">
-                <h2><?php echo $row['name'] ?>  <span style="color: #8A240E; font-family: Londrina Solid;">(<?php echo $row['position'] ?>)</span></h2>
+                <h2><?php echo $row['name'] ?>  <span style="color: #C17720;">(<?php echo $row['position'] ?>)</span></h2>
                 <h3><?php echo $row['email'] ?></h3>
 
                 <br> <br>
                   <h4><?php echo $row['message'] ?></h4>
                   <p>
-                    <a href="peso_accept.php?peso_id=<?php echo $row['peso_id'] ?>" class="btn btn-primary my-2">Accept</a>
-                    <a href="peso_reject.php?peso_id=<?php echo $row['peso_id'] ?>" class="btn btn-secondary my-2">Reject</a>
+                    <a href="peso_accept.php?peso_id=<?php echo $row['peso_id'] ?>" class="approve">Accept</a>
+                    <a href="peso_reject.php?peso_id=<?php echo $row['peso_id'] ?>" class="reject">Reject</a>
                   </p>
-                <small><i><?php echo $row['date'] ?></i></small>
+                
                 </div>
         <?php
                 }
