@@ -5,26 +5,8 @@
     overflow-y: hidden;
 }
 
-#regForm {
-    margin-top: 100px;
-    padding: 30px;
-    width: 85%;
-    height: 200vh;
-    border-radius: 12px;
-    border: 2px solid #D5D5D5;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-#regForm h1
-{
-    color: #B22623;
-    text-align: center;
-    font-family: Mohave;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+#userAccountSetupForm{
+    font-family: 'Mohave', sans-serif;
 }
 
 

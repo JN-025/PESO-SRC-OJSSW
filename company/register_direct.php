@@ -129,11 +129,12 @@
                     <div class="tab">
                         
                         <h2>Requirements</h2>
-                    
+                    <!--
                         <div class="form-col-2">
                             <div class="col-left">
                                 <h3>Company Profile:</h3>
                             </div>
+
                             <div class="col-right">
                                 <input type="file" name="" placeholder="">
                             </div>
@@ -161,7 +162,7 @@
                         <h4><b>NOTE:</b> All files must be in PDF or JPEG. Must not exceed 3MB</h4>
                         </div>
             
-
+            -->
                         
                     </div>
                     
