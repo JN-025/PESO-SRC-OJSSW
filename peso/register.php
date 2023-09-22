@@ -35,9 +35,6 @@
                 echo "<script> alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
             }
         }
-        else{
-            echo "<script> alert('Unknown error occurred.')</script>";
-        }
     ?>
 
 <body>

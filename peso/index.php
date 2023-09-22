@@ -1,7 +1,7 @@
 <?php
     session_start();
     include("../conn.php");
-
+$msg = "";
     if (isset($_POST['submit'])) {
         $password = $_POST['password'];
         $email = $_POST['email'];
@@ -15,7 +15,7 @@
             $_SESSION['peso_id'] = $row['peso_id'];
             header('location: homepage.php');
         } else {
-            $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
+            $msg = "<div class='alert alert-danger'>Email, Position or Password do not match.</div>";
         }
     }
 ?>
@@ -78,6 +78,7 @@
             
             <style>
                 .alert {  
+                    top:0;
                     position: fixed;  
                     padding: 1rem;
                     border-radius: 5px;
@@ -101,6 +102,7 @@
                     background-color: #ff9966;
                 }
             </style>
+            <?php echo $msg; ?>
             <div class="field-space"></div>
                 <h1>CREATE ACCOUNT</h1>
                 <form action="" method="post">

@@ -50,9 +50,12 @@
             <?php echo $msg;?>
             <style>
                 .alert {  
+                    top:0;
+                    position: fixed;  
                     padding: 1rem;
                     border-radius: 5px;
                     color: white;
+                    margin: 1rem 0;
                 }
 
                 .alert-success {
@@ -98,7 +101,7 @@
                     
                     <div class="form-col-1">
                         <br>
-                    <a href="forgot_password.php">Forgot Password</a>
+                    <a href="#">Forgot Password</a>
                     <br>
                     <button name="submit" type="submit">Log In</button>
                     <br><br>

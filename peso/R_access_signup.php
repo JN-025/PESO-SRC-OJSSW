@@ -7,7 +7,7 @@ $alert = "";
 
 if (!isset($_SESSION['peso_id'])) {
     $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
-    header("location: login.php");
+    header("location: index.php");
     exit();
 }
 ?>
@@ -42,9 +42,6 @@ if (!isset($_SESSION['peso_id'])) {
                 performQuery($query);
                 echo "<script> alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
             }
-        }
-        else{
-            echo "<script> alert('Unknown error occurred.')</script>";
         }
     ?>
 
