@@ -1,18 +1,18 @@
 <?php
 // Check existence of id parameter before processing further
-if(isset($_GET["W_applicant_id"]) && !empty(trim($_GET["W_applicant_id"]))){
+if(isset($_GET["Wa_profile1_id"]) && !empty(trim($_GET["Wa_profile1_id"]))){
     // Include config file
     require_once "Wapplicant_config.php";
     
     // Prepare a select statement
-    $sql = "SELECT * FROM walkin_applicant WHERE W_applicant_id = ?";
+    $sql = "SELECT * FROM wap_info WHERE Wa_profile1_id = ?";
     
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "i", $param_W_applicant_id);
+        mysqli_stmt_bind_param($stmt, "i", $param_Wa_profile1_id);
         
         // Set parameters
-        $param_W_applicant_id = trim($_GET["W_applicant_id"]);
+        $param_Wa_profile1_id = trim($_GET["Wa_profile1_id"]);
         
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
@@ -24,33 +24,33 @@ if(isset($_GET["W_applicant_id"]) && !empty(trim($_GET["W_applicant_id"]))){
                 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                 
                 // Retrieve individual field value
-                $W_lastName = $row["W_lastName"];
-                $W_firstName = $row["W_firstName"];
-                $W_midName = $row["W_midName"];
-                $W_suffix = $row["W_suffix"];
-                $W_jobseekerType = $row["W_jobseekerType"];
-                $W_birthplace = $row["W_birthplace"];
-                $W_birthday = $row["W_birthday"];
-                $W_age = $row["W_age"];
-                $W_sex = $row["W_sex"];
-                $W_civilStatus = $row["W_civilStatus"];
-                $W_citizenship = $row["W_citizenship"];
-                $W_email = $row["W_email"];
-                $W_housenumPresent = $row["W_housenumPresent"];
-                $W_brgyPresent = $row["W_brgyPresent"];
-                $W_cityPresent = $row["W_cityPresent"];
-                $W_provincePresent = $row["W_provincePresent"];
-                $W_housenumPermanent = $row["W_housenumPermanent"];
-                $W_brgyPermanent = $row["W_brgyPermanent"];
-                $W_cityPermanent = $row["W_cityPermanent"];
-                $W_provincePermanent = $row["W_provincePermanent"];
-                $W_height = $row["W_height"];
-                $W_weight = $row["W_weight"];
-                $W_landlineNum = $row["W_landlineNum"];
-                $W_mobilePnum = $row["W_mobilePnum"];
-                $W_disability = $row["W_disability"];
-                $W_employmentStatus = $row["W_employmentStatus"];
-                $W_educLevel = $row["W_educLevel"];
+                $lastName = $row["W_lastName"];
+                $firstName = $row["W_firstName"];
+                $midName = $row["W_midName"];
+                $suffix = $row["W_suffix"];
+                $jobseekerType = $row["W_jobseekerType"];
+                $birthplace = $row["W_birthplace"];
+                $birthday = $row["W_birthday"];
+                $age = $row["W_age"];
+                $sex = $row["W_sex"];
+                $civilStatus = $row["W_civilStatus"];
+                $citizenship = $row["W_citizenship"];
+                $email = $row["W_email"];
+                $housenumPresent = $row["W_housenumPresent"];
+                $brgyPresent = $row["W_brgyPresent"];
+                $cityPresent = $row["W_cityPresent"];
+                $provincePresent = $row["W_provincePresent"];
+                $housenumPermanent = $row["W_housenumPermanent"];
+                $brgyPermanent = $row["W_brgyPermanent"];
+                $cityPermanent = $row["W_cityPermanent"];
+                $provincePermanent = $row["W_provincePermanent"];
+                $height = $row["W_height"];
+                $weight = $row["W_weight"];
+                $landlineNum = $row["W_landlineNum"];
+                $mobilePnum = $row["W_mobilePnum"];
+                $disability = $row["W_disability"];
+                $employmentStatus = $row["W_employmentStatus"];
+                $educLevel = $row["W_educLevel"];
                 $W_gradYear = $row["W_gradYear"];
                 $W_school = $row["W_school"];
                 $W_course = $row["W_course"];

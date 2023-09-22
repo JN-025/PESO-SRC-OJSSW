@@ -122,7 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <body>
         <?php
         include "../function.php";
-        include "applicant_sidenav.php";
+        include "company_sidenav.php";
         include "topnav.php";
         ?>
 

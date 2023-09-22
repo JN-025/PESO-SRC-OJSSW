@@ -11,7 +11,6 @@ include '../conn.php';
     <title>PESO COMPANY Homepage</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/css/applicant_homepage.css">
     <link rel="stylesheet" href="../assets/css/peso_Wapplicant.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,6 +23,43 @@ include '../conn.php';
             $('[data-toggle="tooltip"]').tooltip();   
         });
     </script>
+    <style>
+        input[type=text]
+        {
+            border-radius: 6px;
+            background: #FFF;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+            width: 300px;
+            float: left;
+            color: #919191;
+            text-align: center;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+            font-family: Poppins;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            border: none;
+            padding: 8px 8px;
+            margin-right: 20px;
+        }
+        .add
+            {
+                background-color: #A81E1E;
+                box-shadow: 0px 4px 4px 0px #D72121 inset;
+                filter: drop-shadow(0px 4px 4px #770B0B);
+                color: #FFF;
+                text-align: center;
+                font-family: Poppins;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 700;
+                padding: 0px 8px;
+                border: none;
+                border-radius: 20px;
+                float: left;
+            }
+    </style>
 </head>
 <body>
     <?php 
@@ -36,12 +72,15 @@ include '../conn.php';
     <div class="wrapper" style="background: white;">
     <div class="container-fluid">
         <div class="row">
-                            <div class="card2" style="width: 100%;">
-                            <h2>WALK IN APPLICANTS</h2>
-                            </div>      
+                                
                             <br>     
-                            <div class="card2">
+                            <div class="card2" style="width: 100%;">
+                                
+                                <input type="text" placeholder="Search.." name="search">
+                                
+                                
                                 <button class="add" onclick="document.location='Wapplicant_create.php'"><i class="bi bi-plus"></i>&nbsp;&nbsp;ADD A NEW WALK-IN APPLICANT</button>
+                                
                             </div>
                             <br>
                             </div>
@@ -51,7 +90,7 @@ include '../conn.php';
                         require_once "../peso/Wapplicant_config.php";
                         
                         // Attempt select query execution
-                        $sql = "SELECT * FROM walkin_applicant";
+                        $sql = "SELECT * FROM wap_info";
                         if($result = mysqli_query($link, $sql)){
                             if(mysqli_num_rows($result) > 0){
                                 echo '<table style="border-radius: 30px; text-align: center;" class="table table-bordered">';
@@ -68,15 +107,15 @@ include '../conn.php';
                                     echo "<tbody>";
                                     while($row = mysqli_fetch_array($result)){
                                         echo "<tr>";
-                                            echo "<td>" . $row['W_applicant_id'] . "</td>";
-                                            echo "<td>" . $row['W_lastName'] . "</td>";
-                                            echo "<td>" . $row['W_firstName'] . "</td>";
-                                            echo "<td>" . $row['W_midName'] . "</td>";
-                                            echo "<td>" . $row['W_email'] . "</td>";
+                                            echo "<td>" . $row['Wa_profile1_id'] . "</td>";
+                                            echo "<td>" . $row['lastName'] . "</td>";
+                                            echo "<td>" . $row['firstName'] . "</td>";
+                                            echo "<td>" . $row['midName'] . "</td>";
+                                            echo "<td>" . $row['email'] . "</td>";
                                             echo "<td>";
-                                                echo '<a href="Wapplicant_read.php?W_applicant_id='. $row['W_applicant_id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-eye"></span></a>';
-                                                echo '<a href="Wapplicant_update.php?W_applicant_id='. $row['W_applicant_id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-pencil"></span></a>';
-                                                echo '<a href="Wapplicant_delete.php?W_applicant_id='. $row['W_applicant_id'] .'" title="Delete Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-trash"></span></a>';
+                                                echo '<a href="Wapplicant_read.php?Wa_profile1_id='. $row['Wa_profile1_id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-eye"></span></a>';
+                                                echo '<a href="Wapplicant_update.php?Wa_profile1_id='. $row['Wa_profile1_id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-pencil"></span></a>';
+                                                echo '<a href="Wapplicant_delete.php?Wa_profile1_id='. $row['Wa_profile1_id'] .'" title="Delete Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-trash"></span></a>';
                                             echo "</td>";
                                         echo "</tr>";
                                     }
