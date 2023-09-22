@@ -17,9 +17,88 @@ include '../conn.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/applicant_find_jobs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
 <body>
+<?php
+    if(isset($_SESSION["form_submitted"])){
+    echo "<div class='form-modal' id='formModal'><div class='form-modal-content'><a href='#' class='close' id='closeModal'>&times;</a>{$_SESSION['form_submitted']}</div></div>";
+    unset($_SESSION["form_submitted"]);
+    }
+
+?>
+<style>
+            .form-modal{
+                font-family: 'Poppins', sans-serif;
+                text-align: center;
+                z-index: 1;
+                position: fixed;
+                background-color: rgba(0,0,0,0.5);
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items:center; 
+                opacity: 1;
+                animation: fadeIn 0.5s ease-in-out forwards;
+            }
+            .form-modal-content{
+                position: relative;
+                border-radius: 11px;
+                background-color: green;
+                padding: 100px;
+                color: #fff;
+                opacity: 0;
+                animation: dropDown 0.5s ease-in-out 0.5s forwards;
+            }
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes dropDown {
+                0% {
+                    transform: translateY(-50%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            .close {
+                position:absolute;
+                color: #fff;
+                top: 0;
+                right: 0;
+                margin: 20px;
+                font-size: 28px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                cursor: pointer;
+            }
+
+        </style>
+        <script>
+    var formModal = document.getElementById('formModal');
+    var closeModal = document.getElementById('closeModal');
+    
+    function closeModalHandler() {
+        formModal.style.display = 'none';
+    }
+    closeModal.addEventListener('click', closeModalHandler);
+</script>
 <div class="loader"><div></div><div></div><div></div><div></div></div>
     <?php 
     include "../function.php";

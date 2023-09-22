@@ -224,6 +224,7 @@ $stmt = $conn->prepare($sql_applicant_profile);
 $stmt->bind_param("iiiiiiiiis", $applicant_id,$peso_id, $ap_info_id, $ap_educ_id, $ap_prefer_id, $ap_tvo_id, $ap_elig_id, $ap_exp_id, $ap_skills_id, $date_create_at);
 
 if ($stmt->execute()) {
+$_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>you are now eligible to apply for jobs.</h4>";
 header("location:find_jobs.php");
 } else {
 echo "Error inserting data into applicant_profile: " . $conn->error;
@@ -345,7 +346,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                 <!-- Step 1 Content -->
             <div class="wrapper">
                 <section id="step-1" class="form-step">
-                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button id="nextButton" class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
                     </div>
@@ -536,7 +537,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                 </section>
                 <!-- Step 2 Content, default hidden on page load. -->
                 <section id="step-2" class="form-step d-none">
-                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="1">Prev</button>
                 <button class="button btn-navigate-form-step" type="button" step_number="3">Next</button>
@@ -585,7 +586,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                 </section>
                 <!-- Step 3 Content, default hidden on page load. -->
                 <section id="step-3" class="form-step d-none">
-                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="2">Prev</button>
                 <button class="button btn-navigate-form-step" type="button" step_number="4">Next</button>
@@ -645,7 +646,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                 </section>
                 <!-- Step 4 Content, default hidden on page load. -->
                 <section id="step-4" class="form-step d-none">
-                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="3">Prev</button>
                 <button class="button btn-navigate-form-step" type="button" step_number="5">Next</button>
@@ -762,7 +763,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                 </section>
                  <!-- Step 5 Content, default hidden on page load. -->
                  <section id="step-5" class="form-step d-none">
-                 <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                  <div class="button-selection">
                  <button class="button btn-navigate-form-step" type="button" step_number="4">Prev</button>
                  <button class="button btn-navigate-form-step" type="button" step_number="6">Next</button>
@@ -846,7 +847,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                 </section>
                 <!-- Step 6 Content, default hidden on page load. -->
                 <section id="step-6" class="form-step d-none">
-                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                  <div class="button-selection">
                  <button class="button btn-navigate-form-step" type="button" step_number="5">Prev</button>
                  <button class="button btn-navigate-form-step" type="button" step_number="7">Next</button>
@@ -955,7 +956,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                 </section>
                 <!-- Step 7 Content, default hidden on page load. -->
                 <section id="step-7" class="form-step d-none">
-                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="6">Prev</button>
                 <button class="button btn-navigate-form-step" type="button" step_number="8">Next</button>
@@ -1067,7 +1068,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                 </section>
                 <!--Step 8-->
                 <section id="step-8" class="form-step d-none">
-                <button class="button btn-navigate-form-step save-btn" type="button">Save</button>
+                <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="7">Prev</button>
                 <button class="button submit-btn" type="submit" name="submit">Submit</button>

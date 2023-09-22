@@ -81,9 +81,11 @@ if (isset($_GET['jobPostId'])) {
             background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
+            animation: fadeIn 0.5s ease-in-out forwards;
         }
 
         .modal-content {
+            position: relative;
             display: none;
             font-family: 'Roboto Serif', serif;
             background-color: #fefefe;
@@ -93,6 +95,25 @@ if (isset($_GET['jobPostId'])) {
             margin: auto;
             text-align: center;
         }
+        @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes dropDown {
+                0% {
+                    transform: translateY(-50%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
         .modal:target {
             display: flex;
         }
