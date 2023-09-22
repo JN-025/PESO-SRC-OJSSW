@@ -167,6 +167,7 @@ if (isset($_GET['jobPostId'])) {
             display: none;
         }
         .require-stage{
+            position: relative;
             font-family: 'Roboto Serif', serif;
             background-color: #fefefe;
             border-radius: 10px;

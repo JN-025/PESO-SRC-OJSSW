@@ -114,7 +114,7 @@
                     <h5>By clicking register you agree in our&nbsp;&nbsp;<a href="#" id="myBtn">Terms & Agreement</a></h5>
                     <button name="signup" type="submit">REGISTER</button>
                     <br><br>
-                    <h5>Already have an Account?&nbsp;&nbsp;<a href="login.php">LOG IN</a></h5>
+                    <h5>Already have an Account?&nbsp;&nbsp;<a href="index.php">LOG IN</a></h5>
                     </div>
                     <div id="myModal" class="modal">
                     <div class="modal-box">

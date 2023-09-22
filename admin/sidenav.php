@@ -4,7 +4,7 @@
 <div class="topside-container">
     <div class="sidenav">
         <div class="col-side">
-        <a href="approval.php" <?php echo isActivePage("approval.php"); ?>><i class=""></i>&nbsp;APPROVALS</a>
+        <a href="homepage.php" <?php echo isActivePage("homepage.php"); ?>><i class=""></i>&nbsp;APPROVALS</a>
         <a href="#" <?php echo isActivePage("#"); ?>><i class=""></i>&nbsp;ACCESS</a>
         <a href="A_access_approval.php" <?php echo isActivePage("A_access_approval.php"); ?>><i class=""></i>&nbsp;Applicant</a>
         <a href="C_access_approval.php" <?php echo isActivePage("C_access_approval.php"); ?>><i class="" style="font-size:20px"></i>&nbsp;Company</a>

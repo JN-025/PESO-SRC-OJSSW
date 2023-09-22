@@ -125,6 +125,17 @@ if (isset($_POST["submit"])) {
     $techSkill = isset($_POST["techSkill"]) ? implode(', ', $_POST["techSkill"]) : "";
     $otherTechskill = isset($_POST["otherTechskill"]) ? $_POST["otherTechskill"] : "";
 
+    // Step 8 form data
+    $date_submitted_at = $_POST["date_submitted_at"];
+    $target_dir = "../assets/img/applicant/signature_img/";
+    $target_file = $target_dir . basename($_FILES["sign_img"]["name"]);
+
+    if (move_uploaded_file($_FILES["sign_img"]["tmp_name"], $target_file)) {
+        $signatureFilePath = $target_file;
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+
    /* //check if the input already exist
     $check_query="SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
     $check_result = mysqli_query($conn, $check_query);
@@ -188,11 +199,11 @@ if (isset($_POST["submit"])) {
     $stmt = $conn->prepare($sql_table5);
     $stmt->bind_param("issssssssssssss", $applicant_id, $careerServ1, $licenceNum1, $expiryDate1, $careerServ2, $licenceNum2, $expiryDate2, $careerServ3, $licenceNum3, $expiryDate3, $validDate, $languageCertifications, $otherCertification, $dialectsSpoken, $otherDialect);
 
-if ($stmt->execute()) {
-    $ap_elig_id = $conn->insert_id;
-} else {
-    echo "Error inserting data into career_info: " . $conn->error;
-}
+    if ($stmt->execute()) {
+        $ap_elig_id = $conn->insert_id;
+    } else {
+        echo "Error inserting data into career_info: " . $conn->error;
+    }
     /*step 6*/
     $sql_table6 = "INSERT INTO ap_exp (applicant_id, company1, cpAddress1, company2, cpAddress2, company3, cpAddress3, company4, cpAddress4, position1, incluDate1, appointStat1, position2, incluDate2, appointStat2, position3, incluDate3, appointStat3, position4, incluDate4, appointStat4) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -216,21 +227,34 @@ if ($stmt->execute()) {
         echo "Error inserting data into skills_info: " . $conn->error;
 
     }
+    /*step 7*/
+    $sql_table8 = "INSERT INTO ap_auth (applicant_id, sign_img, date_submitted_at) VALUES (?, ?, ?)";
+
+    $stmt = $conn->prepare($sql_table8);
+    $stmt->bind_param("iss", $applicant_id, $target_file, $date_submitted_at);
+
+    if ($stmt->execute()) {
+        $ap_auth_id = $conn->insert_id;
+    } else {
+        echo "Error inserting data into skills_info: " . $conn->error;
+
+    }
+
         // Insert into the applicant_profile table
-        $sql_applicant_profile = "INSERT INTO applicant_profile (applicant_id, peso_id, ap_info_id, ap_educ_id, ap_prefer_id, ap_tvo_id, ap_elig_id, ap_exp_id, ap_skills_id, date_created_at, type) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Online')";
+        $sql_applicant_profile = "INSERT INTO applicant_profile (applicant_id, peso_id, ap_info_id, ap_educ_id, ap_prefer_id, ap_tvo_id, ap_elig_id, ap_exp_id, ap_skills_id, ap_auth_id, date_created_at, type) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Online')";
 
-$stmt = $conn->prepare($sql_applicant_profile);
-$stmt->bind_param("iiiiiiiiis", $applicant_id,$peso_id, $ap_info_id, $ap_educ_id, $ap_prefer_id, $ap_tvo_id, $ap_elig_id, $ap_exp_id, $ap_skills_id, $date_create_at);
+        $stmt = $conn->prepare($sql_applicant_profile);
+        $stmt->bind_param("iiiiiiiiiis", $applicant_id,$peso_id, $ap_info_id, $ap_educ_id, $ap_prefer_id, $ap_tvo_id, $ap_elig_id, $ap_exp_id, $ap_skills_id,$ap_auth_id, $date_create_at);
 
-if ($stmt->execute()) {
-$_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>you are now eligible to apply for jobs.</h4>";
-header("location:find_jobs.php");
-} else {
-echo "Error inserting data into applicant_profile: " . $conn->error;
-}
+        if ($stmt->execute()) {
+        $_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>you are now eligible to apply for jobs.</h4>";
+        header("location:find_jobs.php");
+        } else {
+        echo "Error inserting data into applicant_profile: " . $conn->error;
+        }
 
-}
+        }
 /*}*/
 
 ?>
@@ -1081,12 +1105,12 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
                             <div class="ca-inputbox">
                                 <div class ="inputbox">
                                     <label for="">
-                                        <input type="file">
+                                        <input type="file" name="sign_img">
                                         <p style="text-align:center;">Signature of Applicant</p>
                                     </label>
                                 </div>
                                 <div class ="inputbox">
-                                    <input type="date">
+                                    <input type="date" name="date_submitted_at">
                                     <p style="text-align:center;">Date</p>
                                 </div>
                             </div>
