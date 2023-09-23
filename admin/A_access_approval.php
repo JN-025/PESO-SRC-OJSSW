@@ -25,8 +25,7 @@
     
     
     <div class="card1">
-        <h1>APPROVALS</h1>
-        <br> <br>
+        
         <center>
         
         <?php
@@ -41,11 +40,12 @@
 
                 <br> <br>
                   <h4><?php echo $row['message'] ?></h4>
+                  
                   <p>
-                  <a href="A_access_accept.php?access_id=<?php echo $row['access_id'] ?>" class="btn btn-primary my-2">Accept</a>
-                        <a href="access_reject.php?access_id=<?php echo $row['access_id'] ?>" class="btn btn-secondary my-2">Reject</a>
+                  <a href="A_access_accept.php?access_id=<?php echo $row['access_id'] ?>" class="approve">Accept</a>
+                        <a href="access_reject.php?access_id=<?php echo $row['access_id'] ?>" class="reject">Reject</a>
                   </p>
-                <small><i><?php echo $row['date'] ?></i></small>
+                
                 </div>
         <?php
                 }

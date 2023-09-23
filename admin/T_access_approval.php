@@ -25,8 +25,7 @@
     
     
     <div class="card1">
-        <h1>APPROVALS</h1>
-        <br> <br>
+        
         <center>
         
         <?php
