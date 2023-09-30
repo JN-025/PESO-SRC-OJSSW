@@ -19,6 +19,84 @@ $page_title = "Posted Jobs";
 
 </head>
 <body>
+<?php
+    if(isset($_SESSION["success_jobposting"])){
+    echo "<div class='form-modal' id='formModal'><div class='form-modal-content'><a href='#' class='close' id='closeModal'>&times;</a>{$_SESSION['success_jobposting']}</div></div>";
+    unset($_SESSION["success_jobposting"]);
+    }
+
+?>
+<style>
+            .form-modal{
+                font-family: 'Poppins', sans-serif;
+                text-align: center;
+                z-index: 1;
+                position: fixed;
+                background-color: rgba(0,0,0,0.5);
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items:center; 
+                opacity: 1;
+                animation: fadeIn 0.5s ease-in-out forwards;
+            }
+            .form-modal-content{
+                position: relative;
+                border-radius: 11px;
+                background-color: green;
+                padding: 100px;
+                color: #fff;
+                opacity: 0;
+                animation: dropDown 0.5s ease-in-out 0.5s forwards;
+            }
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes dropDown {
+                0% {
+                    transform: translateY(-50%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            .close {
+                position:absolute;
+                color: #fff;
+                top: 0;
+                right: 0;
+                margin: 20px;
+                font-size: 28px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                cursor: pointer;
+            }
+
+        </style>
+        <script>
+    var formModal = document.getElementById('formModal');
+    var closeModal = document.getElementById('closeModal');
+    
+    function closeModalHandler() {
+        formModal.style.display = 'none';
+    }
+    closeModal.addEventListener('click', closeModalHandler);
+</script>
 <?php 
     
     include "../function.php";
@@ -35,7 +113,7 @@ $page_title = "Posted Jobs";
                     <div class="col-2-content">
                     <?php
                     if (isset($_SESSION["company_id"])){
-                        $sql = "SELECT * FROM c_jobpost WHERE company_id = '$company_id'";
+                        $sql = "SELECT * FROM c_jobpost WHERE company_id = '$company_id' ORDER BY date_added DESC";
                         if($result = mysqli_query($conn, $sql)){
                             if (mysqli_num_rows($result) > 0) {
                                 while($row = mysqli_fetch_array($result)){
