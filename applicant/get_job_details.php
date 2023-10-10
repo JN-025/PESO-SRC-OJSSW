@@ -219,10 +219,10 @@ if (isset($_GET['jobPostId'])) {
             <div class="company-question">
             <div class="question-content">
             <h5>Question #1</h5>
-            <?php echo $row["question1"];?>
+            <?php echo $row["questionNo1"];?>
             </div>
             <div class="question-option">
-            <select name="answer_1" id="answer" required>
+            <select name="answerNo1" id="answer" required>
                 <option value="" selected hidden>Choose</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
@@ -232,10 +232,10 @@ if (isset($_GET['jobPostId'])) {
             <div class="company-question">
             <div class="question-content">
                 <h5>Question #2</h5>
-            <?php echo $row["question2"];?>
+            <?php echo $row["questionNo2"];?>
             </div>
             <div class="question-option">
-            <select name="answer_2" id="answer" required>
+            <select name="answerNo2" id="answer" required>
                 <option value="" selected hidden>Choose</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
@@ -245,10 +245,10 @@ if (isset($_GET['jobPostId'])) {
             <div class="company-question">
             <div class="question-content">
             <h5>Question #3</h5>
-            <?php echo $row["question3"];?>
+            <?php echo $row["questionNo3"];?>
             </div>
             <div class="question-option">
-            <select name="answer_3" id="answer" required>
+            <select name="answerNo3" id="answer" required>
                 <option value="" selected hidden>Choose</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
@@ -258,10 +258,10 @@ if (isset($_GET['jobPostId'])) {
             <div class="company-question">
             <div class="question-content">
             <h5>Question #4</h5>
-            <?php echo $row["question4"];?>
+            <?php echo $row["questionNo4"];?>
             </div>
             <div class="question-option">
-            <select name="answer_4" id="answer" required>
+            <select name="answerNo4" id="answer" required>
                 <option value="" selected hidden>Choose</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
@@ -271,10 +271,10 @@ if (isset($_GET['jobPostId'])) {
             <div class="company-question">
             <div class="question-content">
             <h5>Question #5</h5>
-            <?php echo $row["question5"];?>
+            <?php echo $row["questionNo5"];?>
             </div>
             <div class="question-option">
-            <select name="answer_5" id="answer" required>
+            <select name="answerNo5" id="answer" required>
                 <option value="" selected hidden>Choose</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>

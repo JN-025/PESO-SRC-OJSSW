@@ -12,17 +12,17 @@ if (isset($_SESSION['applicant_id'])) {
 
 if (isset($_POST['applyButton'])) {
     $jobPostId = $_POST['jobPostId'];
-    $answer_1 = $_POST["answer_1"];
-    $answer_2 = $_POST["answer_2"];
-    $answer_3 = $_POST["answer_3"];
-    $answer_4 = $_POST["answer_4"];
-    $answer_5 = $_POST["answer_5"];
+    $answerNo1 = $_POST["answerNo1"];
+    $answerNo2 = $_POST["answerNo2"];
+    $answerNo3 = $_POST["answerNo3"];
+    $answerNo4 = $_POST["answerNo4"];
+    $answerNo5 = $_POST["answerNo5"];
 
-    $insertSql = "INSERT INTO application_log (c_jobpost_id, applicant_id, date_requested, status, answer_1, answer_2, answer_3, answer_4, answer_5)
+    $insertSql = "INSERT INTO application_log (c_jobpost_id, applicant_id, date_requested, status, answerNo1, answerNo2, answerNo3, answerNo4, answerNo5)
                  VALUES (?, ?, NOW(), 'Pending', ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $insertSql);
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "iisssss", $jobPostId, $applicantId, $answer_1, $answer_2, $answer_3, $answer_4, $answer_5);
+        mysqli_stmt_bind_param($stmt, "iisssss", $jobPostId, $applicantId, $answerNo1, $answerNo2, $answerNo3, $answerNo4, $answerNo5);
 
         if (mysqli_stmt_execute($stmt)) {
             $alertmsg = "<div class='popup popup-success'><i class='bi bi-check-circle'></i><h1>Your Request has been sent!</h1><h4>An email will be sent to you quickly once your request has been approved or rejected.</h4><h5>Please be patient.</h5></div>";
