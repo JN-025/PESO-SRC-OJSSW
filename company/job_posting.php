@@ -58,6 +58,7 @@ if(isset($_POST["submit"])) {
     if ($stmt->execute()){
         header("location: jobpost.php");
         $_SESSION["success_jobposting"] = "Successfully Posted Job!";
+        exit();
     } else {
         echo "error database insertion";
     }
@@ -130,7 +131,7 @@ if(isset($_POST["submit"])) {
                     <h2>Job Description</h2>
                     <h4>Describe the job position. Maximum of 250 words</h4>
                     <div class="form-col-1">
-                        <textarea class="description-box" name="description" placeholder="Job Posting Description" id="description" cols="30" rows="10" maxlength="250" required></textarea>
+                        <textarea class="description-box" name="description" placeholder="Job Posting Description" id="description" cols="30" rows="10" maxlength="2000" required></textarea>
                     </div>
                     <div class="form-col-2">
                         <div class="flex-button">

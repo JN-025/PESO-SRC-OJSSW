@@ -4,6 +4,21 @@ session_start();
 if (isset($_SESSION["company_id"])){
 $company_id = $_SESSION["company_id"];
 }
+if (isset($_POST['delete'])) {
+    $c_jobpost_id = $_POST['c_jobpost_id'];
+
+    $sql = "DELETE FROM c_jobpost WHERE c_jobpost_id = '$c_jobpost_id' AND company_id = '$company_id'";
+    if (mysqli_query($conn, $sql)) {
+        $_SESSION["success_jobdeletion"] = $_SESSION["success_jobposting"] = "Job posting deleted successfully!";
+        header("location: jobpost.php");
+        exit();
+    } else {
+        $_SESSION["error_jobdeletion"] = $_SESSION["success_jobposting"] = "Error deleting job posting. Please try again.";
+        header("location: jobpost.php");
+        exit();
+    }
+}
+
 $page_title = "Posted Jobs";
 ?>
 <!DOCTYPE html>
@@ -136,13 +151,14 @@ $page_title = "Posted Jobs";
                                 <div id="modalBlock" class="modal">
                                     <div class="modal-content">
                                         <h2>Are you sure you want to delete the job?</h2>
-                                        <form action="">
+                                        <form action="" method="POST">
+                                        <input type="hidden" name="c_jobpost_id" value="<?php echo $row['c_jobpost_id']; ?>">
                                             <div class="modal-choices">
                                                 <div class="choices-btn">
                                                     <button id="noBtn">No</button>
                                                 </div>
                                                 <div class="choices-btn">
-                                                    <button>Yes</button>
+                                                    <button type="submit" name="delete">Yes</button>
                                                 </div>
                                             </div>
                                         </form>

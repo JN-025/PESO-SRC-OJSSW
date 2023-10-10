@@ -352,21 +352,14 @@ if (isset($_POST["submit"])) {
                 </li>
             </ul>
             <!--------------------------------- Step Wise Form Content --------------------------------------->
-            <style>
-                .is-invalid {
-                        border-color: #dc3545;
-                    }
-            </style>
             <?php
             if (isset($_SESSION["applicant_id"])){
                 $query = "SELECT * FROM a_accounttb WHERE applicant_id ='$applicant_id'";
                 $fetch = $conn->query($query);
                 if ($fetch->num_rows > 0) {
-                while ($row = $fetch->fetch_assoc()){
-
-                
+                while ($row = $fetch->fetch_assoc()){   
             ?>
-            <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST" novalidate>
+            <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST">
                 <!-- Step 1 Content -->
             <div class="wrapper">
                 <section id="step-1" class="form-step">
@@ -379,10 +372,9 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3">
                         <!--input field insert-->
                         <label for=""><h2>Name</h2></label>
-                        <input type="text" placeholder="First Name" name="firstName" value="<?php echo $row["firstname"];?>">
-                        <input type="text" placeholder="Last Name" name="lastName" value="<?php echo $row["lastname"];?>">
-                        <input type="text" placeholder="Middle Name" name="midName" oninput="noNumber(event); validateForm()" value="">
-                        <div id="error-message" class="text-danger"></div>
+                        <input type="text" placeholder="First Name" name="firstName" value="<?php echo $row["firstname"];?>" required>
+                        <input type="text" placeholder="Last Name" name="lastName" value="<?php echo $row["lastname"];?>" required>
+                        <input type="text" placeholder="Middle Name" name="midName" oninput="noNumber(event); validateForm()" value="" required>
                         <input style="width:30px;"type="text" placeholder="Jr." name="suffix" oninput="noNumber(event); validateForm()">
                     </div>
                     <div class="mt-3">
@@ -404,11 +396,11 @@ if (isset($_POST["submit"])) {
                     <div class="stick-object">
       
                         <label for="dateofbirth"><h2>Date of Birth</h2></label>
-                        <input style="width:100%"type="date" placeholder="birthday" name="birthday" id="birthday">
+                        <input style="width:100%"type="date" placeholder="birthday" name="birthday" id="birthday" required>
                     </div>
                     <div class="stick-object">
                         <label for="age"><h2>Age</h2></label>
-                        <input type="number" id="age"name="age" placeholder="AGE"min="16" max="90"required value="<?php echo $row["age"];?>">
+                        <input type="number" id="age"name="age" placeholder="AGE"min="16" max="90"required value="<?php echo $row["age"];?>" required>
                     </div>
                     <div class="stick-object">
                         <label for=""><h2>Sex</h2></label>
@@ -434,22 +426,22 @@ if (isset($_POST["submit"])) {
                     <div class="stick-object">
       
                         <label for=""><h2>Citizenship</h2></label>
-                        <input type="text" name="citizenship" placeholder="CITIZENSHIP" required maxlength="50">
+                        <input type="text" name="citizenship" placeholder="CITIZENSHIP" required maxlength="50" required>
                     </div>
                     </div>
                     <div class="mt-3">
                         <label for=""><h2>Present Address</h2></label>
                         <input style="width:50px;"type="text" name="housenumPresent" placeholder="HOUSE NO." required maxlength="50">
                         <input style="width:90px;"type="text"name="brgyPresent" placeholder="BARANGAY" required maxlength="50">
-                        <input type="text" name="cityPresent" placeholder="MUNICIPALITY/CITY" required maxlength="50">
-                        <input type="text" name="provincePresent" placeholder="PROVINCE" required maxlength="50">
+                        <input type="text" name="cityPresent" placeholder="MUNICIPALITY/CITY" required maxlength="50" required>
+                        <input type="text" name="provincePresent" placeholder="PROVINCE" required maxlength="50" required>
                     </div>
                     <div class="mt-3">
                         <label for=""><h2>Permanent Address</h2></label>
                         <input style="width: 50px"type="text" name="housenumPermanent" placeholder="HOUSE NO." required maxlength="50">
                         <input style="width:90px;"type="text" name="brgyPermanent" placeholder="BARANGAY" required maxlength="50">
-                        <input type="text" name="cityPermanent" placeholder="MUNICIPALITY/CITY" required maxlength="50">
-                         <input type="text" name="provincePermanent" placeholder="PROVINCE" required maxlength="50">
+                        <input type="text" name="cityPermanent" placeholder="MUNICIPALITY/CITY" required maxlength="50" required>
+                         <input type="text" name="provincePermanent" placeholder="PROVINCE" required maxlength="50" required>
                     </div>
                     <div class="mt-3 form-row">
                     <div class="stick-object">
@@ -465,11 +457,11 @@ if (isset($_POST["submit"])) {
                     </div>
                     <div class="mt-3">
                         <label for=""><h2>Mobile Number</h2></label>
-                        <input type="tel" name="mobilePnum" placeholder="PRIMARY NUMBER" required value="<?php echo $row["Pnum"];?>">
+                        <input type="tel" name="mobilePnum" placeholder="PRIMARY NUMBER" required value="<?php echo $row["Pnum"];?>" required>
                     </div>
                     <div class="mt-3">
                         <label for=""><h2>Email Address</h2></label>
-                        <input type="email" name="email" placeholder="EMAIL ADDRESS" required maxlength="50" value="<?php echo $row["email"];?>">
+                        <input type="email" name="email" placeholder="EMAIL ADDRESS" required maxlength="50" value="<?php echo $row["email"];?>" required>
                     </div>
                     <div class="mt-3 form-row">
                     <div class="stick-object">
