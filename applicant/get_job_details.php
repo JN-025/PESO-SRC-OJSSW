@@ -168,12 +168,16 @@ if (isset($_GET['jobPostId'])) {
         .require-stage{
             position: relative;
             font-family: 'Roboto Serif', serif;
-            background-color: #fefefe;
+            background-color: #A81E1E;
             border-radius: 10px;
-            padding: 20px;
+            padding: 40px;
             max-width: 80%;
             margin: auto;
             text-align: center;
+        }
+        .require-stage h4{
+            color: #FFFFFF;
+            margin-bottom: 30px;
         }
         .require-stage .bi{
             font-size: 15px;
@@ -188,12 +192,9 @@ if (isset($_GET['jobPostId'])) {
 </head>
 <body>
       <div id="question_form" class="modal">
-        <div class="require-stage">
-        <a href="#" class="close">&times;</a>
-        <h2>Requirements</h2>
-        <h4>Please complete first the following to proceed</h4>
+        <div id="requirestage" class="require-stage">
+        <h4>Please fill up the NSRS Form before applying</h4>
         <div class="profile-progress">
-            <h5>Applicant Profile
                 <?php 
                 if(isset($_SESSION["applicant_id"])){
                 $profileQuery = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
@@ -203,10 +204,10 @@ if (isset($_GET['jobPostId'])) {
                     echo '<style>.modal-content { display: block; }</style>';
                 }
                 else{
-                    echo "<i class='bi bi-x'>required</i>";
+                    echo "<a href='multiform_profile.php' style='padding: 10px 40px; border-radius: 10px;background-color: #D9D9D9; color: #A81E1E; text-decoration: none; font-weight: 900; box-shadow: 0px 4px 4px 0px #00000040; cursor: pointer; '>Go to NSRS Form</a>";
+                    
                 }}
                 ?>
-            </h5>
         </div>
         </div>
         <div class="modal-content">
@@ -288,6 +289,14 @@ if (isset($_GET['jobPostId'])) {
 </body>
 </html>
 <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        var requirestage = document.getElementById("requirestage");
+        window.onclick = function(event){
+            if(event.target == modal){
+                requirestage.style.display = "none";
+            }
+        }
+    })
     document.getElementById("questionForm").addEventListener("submit", function (e) {
         var selectElement = document.getElementById("answer");
         var selectedOption = selectElement.options[selectElement.selectedIndex].value;

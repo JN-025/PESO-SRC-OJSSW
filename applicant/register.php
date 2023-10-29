@@ -62,7 +62,7 @@ if(isset($_POST["submit"])){
                     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 }
                 echo "</div>";
-                $msg = "<div class='alert alert-info'>We've send a verification on your email address</div>";
+                $msg = "<div class='alert alert-info'>We've send a verification to your email address</div>";
             } else {
                 $msg = "<div class='alert alert-danger'>Something went wrong</div>";
             }
