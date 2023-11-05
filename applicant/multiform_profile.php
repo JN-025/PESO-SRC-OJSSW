@@ -272,7 +272,6 @@ if (isset($_POST["submit"])) {
 <body>
     <?php
     include "../function.php";
-    include "sidenav.php";
     include "topnav.php";
     ?>
     <div class="main-container">
