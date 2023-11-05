@@ -1,8 +1,18 @@
-<link rel="stylesheet" href="../assets/css/topnav.css">
+<link rel="stylesheet" href="../assets/css/applicant_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <div class="topnav">
     <div class="peso-logo"></div>
+    <div class="list-dropdown">
+        <a href="" class="active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
+        <div class="sub-list">
+                <a href="#"><i class="bi bi-house-door-fill"></i> Home</a>
+                <a href="find_jobs.php"><i class="bi bi-search"></i> Find Jobs</a>
+                <a href="multiform_profile.php"><i class="bi bi-bookmark"></i> NSRS FORM</a>
+                <a href="#"><i class="bi bi-controller"></i> Training</a>
+                 <a href="#"><i class="bi bi-exclamation-circle"></i> More Details</a>
+                 </div>
+    </div>
     <div class="right-corner">
         <div class="notification-icon">
             <div class="field-space"></div>

@@ -102,7 +102,6 @@ include '../conn.php';
 <div class="loader"><div></div><div></div><div></div><div></div></div>
     <?php 
     include "../function.php";
-    include "sidenav.php";
     include "topnav.php";
     ?>
     <div class="main-container">

@@ -1,4 +1,5 @@
 <?php
+$page_title = "NSRS Form";
 include '../conn.php';
 session_start();
 if(!isset($_SESSION["applicant_id"])){
