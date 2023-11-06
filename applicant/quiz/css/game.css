@@ -34,7 +34,20 @@
 }
 
 /* HUD */
-
+#question{
+    font-size: 17px;
+}
+#question.animating {
+  
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    animation: type 4s steps(60, end);
+}
+  
+  @keyframes type{ 
+    from { width: 0; } 
+  } 
 #hud{
     display: flex;
     justify-content: space-around;
@@ -60,6 +73,13 @@
     height: 3.4rem;
     background-color: #56a5eb;
     width: 0%;
+    background-image: linear-gradient(
+            -225deg,
+            #231557 0%,
+            #44107a 29%,
+             #ff1361 67%,
+             #fff800 100%
+             );
 }
 
 /* Loader */

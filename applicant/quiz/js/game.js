@@ -57,33 +57,37 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
-    // go to the new page after the answer all questions
     if (availableQuestions.length === 0 || questionCounter >= Max_Questions) {
         localStorage.setItem("mostRecentScore", score);
-        // go to the end of page
-        return window.location.assign("end.php")
+
+        return window.location.assign("end.php");
     }
 
     questionCounter++;
 
     progressText.innerText = `Question ${questionCounter}/${Max_Questions}`;
 
-    //Update the progress Bar
-
     progressBarFull.style.width = ` ${(questionCounter / Max_Questions) * 100}%`;
 
-    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-    currentQuestion = availableQuestions[questionIndex];
-    question.innerHTML = currentQuestion.question;
+    question.classList.remove('animating');
+    setTimeout(() => {
+        const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+        currentQuestion = availableQuestions[questionIndex];
 
-    choices.forEach(choice => {
-        const number = choice.dataset["number"];
-        choice.innerHTML = currentQuestion["choice" + number];
-    });
+        question.classList.add('animating');
+        
+        question.innerHTML = currentQuestion.question;
 
-    availableQuestions.splice(questionIndex, 1);
-    acceptingAnswers = true;
+        choices.forEach(choice => {
+            const number = choice.dataset["number"];
+            choice.innerHTML = currentQuestion["choice" + number];
+        });
+
+        availableQuestions.splice(questionIndex, 1);
+        acceptingAnswers = true;
+    }, 100);
 };
+
 
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
