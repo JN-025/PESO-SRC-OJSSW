@@ -113,7 +113,7 @@ if (!isset($_SESSION['peso_id'])) {
                 }
             </style>
             <div class="field-space"></div>
-                <h1>Log in to Access</h1>
+                <h1 style="color: #B22623">Log in to Access</h1>
                 <form action="" method="post">
 
                     <div class="form-col-1">
@@ -130,7 +130,7 @@ if (!isset($_SESSION['peso_id'])) {
                     
                     <div class="form-col-1">
                     
-                    <button name="signin" type="submit">Log In</button>
+                    <button name="signin" type="submit" class="access">Log In</button>
                     <br><br>
                     <h5>Create an Account?&nbsp;&nbsp;<a href="A_access_signup.php">SIGN UP</a></h5>
                     </div>

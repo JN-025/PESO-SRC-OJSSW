@@ -6,10 +6,12 @@ body
 }
 
 .main-container{
-    margin-top: 0;
+    margin-left: 0;
     width: 100%;
-    padding: 100px;
+    padding-top: 100px;
     overflow-y: hidden;
+    background-color: white;
+    
 }
 
 .card
@@ -17,11 +19,15 @@ body
     border: solid 2px #CFCFCF;
     border-radius: 10px;
     background-color: white;
+    width: 100%;
+    margin: 0;
+    
 }
 
 .card-header
 {
     background-color: transparent;
+    padding-top: 15px;
 }
 
 .card-header h4
@@ -30,6 +36,63 @@ body
     font-size: 30px;
     font-weight: bolder;
     font-family: Mohave;
+    
+}
+
+.modal-dialog
+{
+    margin: 0;
+
+}
+.modal-content
+{
+    background-color: white;
+    width: 800px;
+}
+
+input[type=text], input[type=number]
+{
+    border: 1px solid #B9B9B9;
+    border-radius: 3px;
+    height: 30px;
+    font-size: 13px;
+    font-family: Poppins;
+    
+}
+
+label
+{
+    font-family: Mohave;
+    font-size: 1.3vw;
+    color: black;
+    font-weight: bold;
+}
+
+table
+{
+    text-align: center;
+    font-family: Poppins;
+    font-size: 1vw;
+}
+
+thead
+{
+    font-family: Poppins;
+    font-size: 1vw;
+    font-weight: bolder;
+    color: black;
+    border: solid 2px #CFCFCF;
+}
+
+tr
+{
+    border: solid 2px #CFCFCF;
+    background-color: transparent;
+}
+
+td
+{
+    background-color: white;
 }
 .add
 {
@@ -44,6 +107,76 @@ body
     border-radius: 5px;
 }
 
+.view
+{
+    background-color: #F29C1A;
+    font-size: 15px;
+    font-family: Poppins;
+    border: none;
+    color: white;
+    float: left;
+    height: 30px;
+    width: 70px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.edit
+{
+    background-color: #DF6B00;
+    font-size: 15px;
+    font-family: Poppins;
+    border: none;
+    color: white;
+    float: left;
+    height: 30px;
+    width: 70px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.delete
+{
+    background-color: #A81E1E;
+    font-size: 15px;
+    font-family: Poppins;
+    border: none;
+    color: white;
+    float: left;
+    height: 30px;
+    width: 85px;
+    border-radius: 5px;
+}
+
+.save
+{
+    height: 40px;
+    width: 100px;
+    background-color: #A81E1E;
+    box-shadow: 0px 4px 4px 0px #D72121 inset;
+    filter: drop-shadow(0px 4px 4px rgba(119, 11, 11, 0.25));
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+}
+
+.close
+{
+    height: 40px;
+    width: 100px;
+    background-color: #A9A9A9;
+    box-shadow: 0px 4px 4px 0px #C9C9C9 inset;
+    filter: drop-shadow(0px 4px 4px #8E8E8E);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    float: right;
+}
+
 .form
 {
     border: solid 5px pink;
@@ -55,7 +188,7 @@ body
 {
     width: 90%;
     height: 100px;
-    background-color: wheat;
+    background-color: transparent;
   
 }
 
@@ -63,18 +196,29 @@ body
 {
     display: flex;
     width: 100%;
-    height: 100px;
-    background-color: wheat;
+    height: fit-content;
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+
+.row-2 p
+{
+    border: 1px solid #B9B9B9;
+    border-radius: 3px;
+    height: 30px;
+    font-size: 13px;
+    font-family: Poppins;
 }
 .col-1
 {
     width: 45%;
-    background-color: aqua;
+    background-color: transparent;
+    margin-right: 10%;
    
 }
 
 .col-2
 {
     width: 45%;
-    background-color: sandybrown;
+    background-color: transparent;
 }

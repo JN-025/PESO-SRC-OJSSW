@@ -23,15 +23,17 @@ $page_title = "Walk-in";
 
 
 
-        <!-- Add Student -->
-        <div class="modal fade" id="studentAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Add Company -->
+        <div class="modal fade" id="companyAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <center>
             <div class="modal-dialog">
+                
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Add Company</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="saveStudent">
+                <form id="saveCompany">
                     <div class="modal-body">
 
                         <div id="errorMessage" class="alert alert-warning d-none"></div>
@@ -39,78 +41,199 @@ $page_title = "Walk-in";
                         <div class="row-2">
                             <div class="col-1">
                             <label for="">Company Name</label>
-                            <input type="text" name="name" class="form-control" />
+                            <input type="text" name="companyName" class="form-control" />
                             </div>
                             <div class="col-2">
-                            <label for="">Company Name</label>
-                            <input type="text" name="name" class="form-control" />
+                            <label for="">Company Email Address</label>
+                            <input type="text" name="email" class="form-control" />
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="">Email</label>
-                            <input type="text" name="email" class="form-control" />
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Profile Name</label>
+                            <input type="text" name="profileName" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Website</label>
+                            <input type="text" name="companyWeb" class="form-control" />
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="">Phone</label>
-                            <input type="text" name="phone" class="form-control" />
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Industry</label>
+                            <input type="text" name="industry" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Type of Company</label>
+                            <input type="text" name="companyType" class="form-control" />
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="">Contact Person</label>
-                            <input type="text" name="course" class="form-control" />
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Registration Number</label>
+                            <input type="text" name="regNum" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Working Hours</label>
+                            <input type="number" name="workingHrs" class="form-control" />
+                            </div>
                         </div>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Contact Number</label>
+                            <input type="text" name="contactNum" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Dresscode</label>
+                            <input type="text" name="dressCode" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Company Contact Person</label>
+                            <input type="text" name="contactPerson" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Size</label>
+                            <input type="number" name="companySize" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Company Address</label>
+                            <input type="text" name="address" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Spoken Language</label>
+                            <input type="text" name="spokenLanguage" class="form-control" />
+                            </div>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save Company</button>
+                        <button type="submit" class="save">SAVE</button>
+                        <button type="button" class="close" data-bs-dismiss="modal">CLOSE</button>
                     </div>
                 </form>
                 </div>
+                
             </div>
+            </center>
         </div>
 
-        <!-- Edit Student Modal -->
-        <div class="modal fade" id="studentEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Edit Company Modal -->
+        <center>
+        <div class="modal fade" id="companyEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Company</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="updateStudent">
+                <form id="updateCompany">
                     <div class="modal-body">
 
                         <div id="errorMessageUpdate" class="alert alert-warning d-none"></div>
 
-                        <input type="hidden" name="student_id" id="student_id" >
+                        <input type="hidden" name="company_id" id="company_id" >
 
-                        <div class="mb-3">
+                        <div class="row-2">
+                            <div class="col-1">
                             <label for="">Company Name</label>
-                            <input type="text" name="name" id="name" class="form-control" />
+                            <input type="text" name="companyName" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Email Address</label>
+                            <input type="text" name="email" class="form-control" />
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="">Email</label>
-                            <input type="text" name="email" id="email" class="form-control" />
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Profile Name</label>
+                            <input type="text" name="profileName" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Website</label>
+                            <input type="text" name="companyWeb" class="form-control" />
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="">Phone</label>
-                            <input type="text" name="phone" id="phone" class="form-control" />
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Industry</label>
+                            <input type="text" name="industry" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Type of Company</label>
+                            <input type="text" name="companyType" class="form-control" />
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="">Contact Person</label>
-                            <input type="text" name="course" id="course" class="form-control" />
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Registration Number</label>
+                            <input type="text" name="regNum" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Working Hours</label>
+                            <input type="number" name="workingHrs" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Contact Number</label>
+                            <input type="text" name="contactNum" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Dresscode</label>
+                            <input type="text" name="dressCode" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Company Contact Person</label>
+                            <input type="text" name="contactPerson" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Size</label>
+                            <input type="number" name="companySize" class="form-control" />
+                            </div>
+                        </div>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Company Address</label>
+                            <input type="text" name="address" class="form-control" />
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Spoken Language</label>
+                            <input type="text" name="spokenLanguage" class="form-control" />
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update Details</button>
+                        <button type="submit" class="save">SAVE</button>
+                        <button type="button" class="close" data-bs-dismiss="modal">CLOSE</button>
                     </div>
                 </form>
                 </div>
             </div>
         </div>
+        </center>
+        
 
-        <!-- View Student Modal -->
-        <div class="modal fade" id="studentViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- View Company Modal -->
+        <div class="modal fade" id="companyViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <center>
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -118,29 +241,90 @@ $page_title = "Walk-in";
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                     <div class="modal-body">
-
-                        <div class="mb-3">
+                        <div class="row-2">
+                            <div class="col-1">
                             <label for="">Company Name</label>
-                            <p id="view_name" class="form-control"></p>
-                        </div>
-                        <div class="mb-3">
-                            <label for="">Email</label>
+                            <p id="view_companyName" class="form-control"></p>
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Email Address</label>
                             <p id="view_email" class="form-control"></p>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="">Phone</label>
-                            <p id="view_phone" class="form-control"></p>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Profile Name</label>
+                            <p id="view_profileName" class="form-control"></p>
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Website</label>
+                            <p id="view_companyWeb" class="form-control"></p>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="">Contact Person</label>
-                            <p id="view_course" class="form-control"></p>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Industry</label>
+                            <p id="view_industry" class="form-control"></p>
+                            </div>
+                            <div class="col-2">
+                            <label for="">Type of Company</label>
+                            <p id="view_companyType" class="form-control"></p>
+                            </div>
                         </div>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Registration Number</label>
+                            <p id="view_regNum" class="form-control"></p>
+                            </div>
+                            <div class="col-2">
+                            <label for="">Working Hours</label>
+                            <p id="view_workingHrs" class="form-control"></p>
+                            </div>
+                        </div>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Contact Number</label>
+                            <p id="view_contactNum" class="form-control"></p>
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Dresscode</label>
+                            <p id="view_dressCode" class="form-control"></p>
+                            </div>
+                        </div>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Company Contact Person</label>
+                            <p id="view_contactPerson" class="form-control"></p>
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Size</label>
+                            <p id="view_CompanySize" class="form-control"></p>
+                            </div>
+                        </div>
+
+                        <div class="row-2">
+                            <div class="col-1">
+                            <label for="">Company Address</label>
+                            <p id="view_address" class="form-control"></p>
+                            </div>
+                            <div class="col-2">
+                            <label for="">Company Spoken Language</label>
+                            <p id="view_spokenLanguage" class="form-control"></p>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="close" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
+            </center>
         </div>
 
         <div class="container mt-4">
@@ -150,46 +334,48 @@ $page_title = "Walk-in";
                         <div class="card-header">
                             <h4>Walk in Company
                                 
-                                <button type="button" class="add" data-bs-toggle="modal" data-bs-target="#studentAddModal">
+                                <button type="button" class="add" data-bs-toggle="modal" data-bs-target="#companyAddModal">
                                     Add Company
                                 </button>
                             </h4>
                         </div>
                         <div class="card-body">
 
-                            <table id="myTable" class="table table-bordered table-striped">
+                            <table id="myTable" class="table table-bordered ">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Company Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
                                         <th>Contact Person</th>
-                                        <th>Action</th>
+                                        <th>Type of Company</th>
+                                        <th>Contact Number</th>
+                                        <th>Email Address</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     require 'C_dbcon.php';
 
-                                    $query = "SELECT * FROM students";
+                                    $query = "SELECT * FROM wcompany";
                                     $query_run = mysqli_query($con, $query);
 
                                     if(mysqli_num_rows($query_run) > 0)
                                     {
-                                        foreach($query_run as $student)
+                                        foreach($query_run as $company)
                                         {
                                             ?>
                                             <tr>
-                                                <td><?= $student['id'] ?></td>
-                                                <td><?= $student['name'] ?></td>
-                                                <td><?= $student['email'] ?></td>
-                                                <td><?= $student['phone'] ?></td>
-                                                <td><?= $student['course'] ?></td>
+                                                <td><?= $company['id'] ?></td>
+                                                <td><?= $company['companyName'] ?></td>
+                                                <td><?= $company['contactPerson'] ?></td>
+                                                <td><?= $company['companyType'] ?></td>
+                                                <td><?= $company['contactNum'] ?></td>
+                                                <td><?= $company['email'] ?></td>
                                                 <td>
-                                                    <button type="button" value="<?=$student['id'];?>" class="viewStudentBtn btn btn-info btn-sm">View</button>
-                                                    <button type="button" value="<?=$student['id'];?>" class="editStudentBtn btn btn-success btn-sm">Edit</button>
-                                                    <button type="button" value="<?=$student['id'];?>" class="deleteStudentBtn btn btn-danger btn-sm">Delete</button>
+                                                    <button type="button" value="<?=$company['id'];?>" class="viewCompanyBtn view">View</button>
+                                                    <button type="button" value="<?=$company['id'];?>" class="editCompanyBtn edit">Edit</button>
+                                                    <button type="button" value="<?=$company['id'];?>" class="deleteCompanyBtn delete">Delete</button>
                                                 </td>
                                             </tr>
                                             <?php
@@ -217,11 +403,11 @@ $page_title = "Walk-in";
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
     <script>
-        $(document).on('submit', '#saveStudent', function (e) {
+        $(document).on('submit', '#saveCompany', function (e) {
             e.preventDefault();
 
             var formData = new FormData(this);
-            formData.append("save_student", true);
+            formData.append("save_company", true);
 
             $.ajax({
                 type: "POST",
@@ -239,8 +425,8 @@ $page_title = "Walk-in";
                     }else if(res.status == 200){
 
                         $('#errorMessage').addClass('d-none');
-                        $('#studentAddModal').modal('hide');
-                        $('#saveStudent')[0].reset();
+                        $('#companyAddModal').modal('hide');
+                        $('#saveCompany')[0].reset();
 
                         alertify.set('notifier','position', 'top-right');
                         alertify.success(res.message);
@@ -255,13 +441,13 @@ $page_title = "Walk-in";
 
         });
 
-        $(document).on('click', '.editStudentBtn', function () {
+        $(document).on('click', '.editCompanyBtn', function () {
 
-            var student_id = $(this).val();
+            var company_id = $(this).val();
             
             $.ajax({
                 type: "GET",
-                url: "Wcode.php?student_id=" + student_id,
+                url: "Wcode.php?company_id=" + company_id,
                 success: function (response) {
 
                     var res = jQuery.parseJSON(response);
@@ -270,13 +456,23 @@ $page_title = "Walk-in";
                         alert(res.message);
                     }else if(res.status == 200){
 
-                        $('#student_id').val(res.data.id);
-                        $('#name').val(res.data.name);
+                        $('#company_id').val(res.data.id);
+                        $('#companyName').val(res.data.companyName);
                         $('#email').val(res.data.email);
-                        $('#phone').val(res.data.phone);
-                        $('#course').val(res.data.course);
+                        $('#profileName').val(res.data.profileName);
+                        $('#companyWeb').val(res.data.companyWeb);
+                        $('#industry').val(res.data.industry);
+                        $('#companyType').val(res.data.companyType);
+                        $('#regNum').val(res.data.regNum);
+                        $('#workingHrs').val(res.data.workingHrs);
+                        $('#contactNum').val(res.data.contactNum);
+                        $('#dressCode').val(res.data.dressCode);
+                        $('#contactPerson').val(res.data.contactPerson);
+                        $('#companySize').val(res.data.companySize);
+                        $('#address').val(res.data.address);
+                        $('#spokenLanguage').val(res.data.spokenLanguage);
 
-                        $('#studentEditModal').modal('show');
+                        $('#companyEditModal').modal('show');
                     }
 
                 }
@@ -284,11 +480,11 @@ $page_title = "Walk-in";
 
         });
 
-        $(document).on('submit', '#updateStudent', function (e) {
+        $(document).on('submit', '#updateCompany', function (e) {
             e.preventDefault();
 
             var formData = new FormData(this);
-            formData.append("update_student", true);
+            formData.append("update_company", true);
 
             $.ajax({
                 type: "POST",
@@ -310,8 +506,8 @@ $page_title = "Walk-in";
                         alertify.set('notifier','position', 'top-right');
                         alertify.success(res.message);
                         
-                        $('#studentEditModal').modal('hide');
-                        $('#updateStudent')[0].reset();
+                        $('#companyEditModal').modal('hide');
+                        $('#updateCompany')[0].reset();
 
                         $('#myTable').load(location.href + " #myTable");
 
@@ -323,12 +519,12 @@ $page_title = "Walk-in";
 
         });
 
-        $(document).on('click', '.viewStudentBtn', function () {
+        $(document).on('click', '.viewCompanyBtn', function () {
 
-            var student_id = $(this).val();
+            var company_id = $(this).val();
             $.ajax({
                 type: "GET",
-                url: "Wcode.php?student_id=" + student_id,
+                url: "Wcode.php?company_id=" + company_id,
                 success: function (response) {
 
                     var res = jQuery.parseJSON(response);
@@ -337,29 +533,39 @@ $page_title = "Walk-in";
                         alert(res.message);
                     }else if(res.status == 200){
 
-                        $('#view_name').text(res.data.name);
+                        $('#view_companyName').text(res.data.companyName);
                         $('#view_email').text(res.data.email);
-                        $('#view_phone').text(res.data.phone);
-                        $('#view_course').text(res.data.course);
+                        $('#view_profileName').text(res.data.profileName);
+                        $('#view_companyWeb').text(res.data.companyWeb);
+                        $('#view_industry').text(res.data.industry);
+                        $('#view_companyType').text(res.data.companyType);
+                        $('#view_regNum').text(res.data.regNum);
+                        $('#view_workingHrs').text(res.data.workingHrs);
+                        $('#view_contactNum').text(res.data.contactNum);
+                        $('#view_dressCode').text(res.data.dressCode);
+                        $('#view_contactPerson').text(res.data.contactPerson);
+                        $('#view_companySize').text(res.data.companySize);
+                        $('#view_address').text(res.data.address);
+                        $('#view_spokenLanguage').text(res.data.spokenLanguage);
 
-                        $('#studentViewModal').modal('show');
+                        $('#companyViewModal').modal('show');
                     }
                 }
             });
         });
 
-        $(document).on('click', '.deleteStudentBtn', function (e) {
+        $(document).on('click', '.deleteCompanyBtn', function (e) {
             e.preventDefault();
 
             if(confirm('Are you sure you want to delete this data?'))
             {
-                var student_id = $(this).val();
+                var company_id = $(this).val();
                 $.ajax({
                     type: "POST",
                     url: "Wcode.php",
                     data: {
-                        'delete_student': true,
-                        'student_id': student_id
+                        'delete_company': true,
+                        'company_id': company_id
                     },
                     success: function (response) {
 

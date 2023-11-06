@@ -2,14 +2,24 @@
 
 require 'C_dbcon.php';
 
-if(isset($_POST['save_student']))
+if(isset($_POST['save_company']))
 {
-    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $companyName = mysqli_real_escape_string($con, $_POST['companyName']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
-    $phone = mysqli_real_escape_string($con, $_POST['phone']);
-    $course = mysqli_real_escape_string($con, $_POST['course']);
+    $profileName = mysqli_real_escape_string($con, $_POST['profileName']);
+    $companyWeb = mysqli_real_escape_string($con, $_POST['companyWeb']);
+    $industry = mysqli_real_escape_string($con, $_POST['industry']);
+    $companyType = mysqli_real_escape_string($con, $_POST['companyType']);
+    $regNum = mysqli_real_escape_string($con, $_POST['regNum']);
+    $workingHrs = mysqli_real_escape_string($con, $_POST['workingHrs']);
+    $contactNum = mysqli_real_escape_string($con, $_POST['contactNum']);
+    $dressCode = mysqli_real_escape_string($con, $_POST['dressCode']);
+    $contactPerson = mysqli_real_escape_string($con, $_POST['contactPerson']);
+    $companySize = mysqli_real_escape_string($con, $_POST['companySize']);
+    $address = mysqli_real_escape_string($con, $_POST['address']);
+    $spokenLanguage = mysqli_real_escape_string($con, $_POST['spokenLanguage']);
 
-    if($name == NULL || $email == NULL || $phone == NULL || $course == NULL)
+    if($companyName == NULL || $email == NULL || $profileName == NULL || $companyWeb == NULL || $industry == NULL || $companyType == NULL || $regNum == NULL || $workingHrs == NULL || $contactNum == NULL || $dressCode == NULL || $contactPerson == NULL || $companySize == NULL || $address == NULL || $spokenLanguage == NULL)
     {
         $res = [
             'status' => 422,
@@ -19,14 +29,14 @@ if(isset($_POST['save_student']))
         return;
     }
 
-    $query = "INSERT INTO students (name,email,phone,course) VALUES ('$name','$email','$phone','$course')";
+    $query = "INSERT INTO wcompany (companyName,email,profileName,companyWeb,industry,companyType,regNum,workingHrs,contactNum,dressCode,contactPerson,companySize,address,spokenLanguage) VALUES ('$companyName','$email','$profileName','$companyWeb','$industry','$companyType','$regNum','$workigHrs','$contactNum','$dressCode','$contactPerson','$companySize','$address','$spokenLanguage')";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
     {
         $res = [
             'status' => 200,
-            'message' => 'Student Created Successfully'
+            'message' => 'Company Added Successfully'
         ];
         echo json_encode($res);
         return;
@@ -35,7 +45,7 @@ if(isset($_POST['save_student']))
     {
         $res = [
             'status' => 500,
-            'message' => 'Student Not Created'
+            'message' => 'Company Not Added'
         ];
         echo json_encode($res);
         return;
@@ -43,16 +53,26 @@ if(isset($_POST['save_student']))
 }
 
 
-if(isset($_POST['update_student']))
+if(isset($_POST['update_company']))
 {
-    $student_id = mysqli_real_escape_string($con, $_POST['student_id']);
+    $company_id = mysqli_real_escape_string($con, $_POST['company_id']);
 
-    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $companyName = mysqli_real_escape_string($con, $_POST['companyName']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
-    $phone = mysqli_real_escape_string($con, $_POST['phone']);
-    $course = mysqli_real_escape_string($con, $_POST['course']);
+    $profileName = mysqli_real_escape_string($con, $_POST['profileName']);
+    $companyWeb = mysqli_real_escape_string($con, $_POST['companyWeb']);
+    $industry = mysqli_real_escape_string($con, $_POST['industry']);
+    $companyType = mysqli_real_escape_string($con, $_POST['companyType']);
+    $regNum = mysqli_real_escape_string($con, $_POST['regNum']);
+    $workingHrs = mysqli_real_escape_string($con, $_POST['workingHrs']);
+    $contactNum = mysqli_real_escape_string($con, $_POST['contactNum']);
+    $dressCode = mysqli_real_escape_string($con, $_POST['dressCode']);
+    $contactPerson = mysqli_real_escape_string($con, $_POST['contactPerson']);
+    $companySize = mysqli_real_escape_string($con, $_POST['companySize']);
+    $address = mysqli_real_escape_string($con, $_POST['address']);
+    $spokenLanguage = mysqli_real_escape_string($con, $_POST['spokenLanguage']);
 
-    if($name == NULL || $email == NULL || $phone == NULL || $course == NULL)
+    if($companyName == NULL || $email == NULL || $profileName == NULL || $companyWeb == NULL || $industry == NULL || $companyType == NULL || $regNum == NULL || $workingHrs == NULL || $contactNum == NULL || $dressCode == NULL || $contactPerson == NULL || $companySize == NULL || $address == NULL || $spokenLanguage == NULL)
     {
         $res = [
             'status' => 422,
@@ -62,15 +82,15 @@ if(isset($_POST['update_student']))
         return;
     }
 
-    $query = "UPDATE students SET name='$name', email='$email', phone='$phone', course='$course' 
-                WHERE id='$student_id'";
+    $query = "UPDATE wcompany SET companyName='$companyName', email='$email', profileName='$profileName', companyWeb='$companyWeb', industry='$industry', companyType='$companyType', regNum='$regNum', workingHrs='$workingHrs', contactNum='$contactNum', dressCode='$dressCode', contactPerson='$contactPerson', companySize='$companySize', address='$address', spokenLanguage='$spokenLanguage' 
+                WHERE id='$company_id'";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
     {
         $res = [
             'status' => 200,
-            'message' => 'Student Updated Successfully'
+            'message' => 'Company Updated Successfully'
         ];
         echo json_encode($res);
         return;
@@ -79,7 +99,7 @@ if(isset($_POST['update_student']))
     {
         $res = [
             'status' => 500,
-            'message' => 'Student Not Updated'
+            'message' => 'Company Not Updated'
         ];
         echo json_encode($res);
         return;
@@ -87,21 +107,21 @@ if(isset($_POST['update_student']))
 }
 
 
-if(isset($_GET['student_id']))
+if(isset($_GET['company_id']))
 {
-    $student_id = mysqli_real_escape_string($con, $_GET['student_id']);
+    $company_id = mysqli_real_escape_string($con, $_GET['company_id']);
 
-    $query = "SELECT * FROM students WHERE id='$student_id'";
+    $query = "SELECT * FROM wcompany WHERE id='$company_id'";
     $query_run = mysqli_query($con, $query);
 
     if(mysqli_num_rows($query_run) == 1)
     {
-        $student = mysqli_fetch_array($query_run);
+        $company = mysqli_fetch_array($query_run);
 
         $res = [
             'status' => 200,
-            'message' => 'Student Fetch Successfully by id',
-            'data' => $student
+            'message' => 'Company Fetch Successfully by id',
+            'data' => $company
         ];
         echo json_encode($res);
         return;
@@ -110,25 +130,25 @@ if(isset($_GET['student_id']))
     {
         $res = [
             'status' => 404,
-            'message' => 'Student Id Not Found'
+            'message' => 'Company Id Not Found'
         ];
         echo json_encode($res);
         return;
     }
 }
 
-if(isset($_POST['delete_student']))
+if(isset($_POST['delete_company']))
 {
-    $student_id = mysqli_real_escape_string($con, $_POST['student_id']);
+    $company_id = mysqli_real_escape_string($con, $_POST['company_id']);
 
-    $query = "DELETE FROM students WHERE id='$student_id'";
+    $query = "DELETE FROM wcompany WHERE id='$company_id'";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
     {
         $res = [
             'status' => 200,
-            'message' => 'Student Deleted Successfully'
+            'message' => 'Company Deleted Successfully'
         ];
         echo json_encode($res);
         return;
@@ -137,7 +157,7 @@ if(isset($_POST['delete_student']))
     {
         $res = [
             'status' => 500,
-            'message' => 'Student Not Deleted'
+            'message' => 'Company Not Deleted'
         ];
         echo json_encode($res);
         return;
