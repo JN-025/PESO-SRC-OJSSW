@@ -248,7 +248,6 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
 <body>
     <?php
     include "../function.php";
-    include "applicant_sidenav.php";
     include "topnav.php";
     ?>
     <div class="main-container">
