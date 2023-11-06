@@ -9,7 +9,7 @@
                 <a href="#"><i class="bi bi-house-door-fill"></i> Home</a>
                 <a href="../find_jobs.php"><i class="bi bi-search"></i> Find Jobs</a>
                 <a href="../multiform_profile.php"><i class="bi bi-bookmark"></i> NSRS FORM</a>
-                <a href="quiz/index.php"><i class="bi bi-controller"></i> Training</a>
+                <a href="index.php"><i class="bi bi-controller"></i> Training</a>
                  <a href="#"><i class="bi bi-exclamation-circle"></i> More Details</a>
                  </div>
     </div>
