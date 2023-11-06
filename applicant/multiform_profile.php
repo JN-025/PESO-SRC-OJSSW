@@ -1,4 +1,5 @@
 <?php
+$page_title = "NSRS Form";
 include '../conn.php';
 session_start();
 if(!isset($_SESSION["applicant_id"])){
@@ -271,7 +272,6 @@ if (isset($_POST["submit"])) {
 <body>
     <?php
     include "../function.php";
-    include "sidenav.php";
     include "topnav.php";
     ?>
     <div class="main-container">

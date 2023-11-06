@@ -102,15 +102,19 @@ include '../conn.php';
 <div class="loader"><div></div><div></div><div></div><div></div></div>
     <?php 
     include "../function.php";
-    include "sidenav.php";
     include "topnav.php";
     ?>
     <div class="main-container">
         <div class="main-row">
-            <div class="col-1">
-            <div class="header">
+            <div class="col-2">
+                <div class="col-2-row">
+                <div class="header">
                         <form method="POST"action="">
                             <h1></h1>
+                            <div class="sort-by-type">
+                            <button>Recommended Jobs</button>
+                            <button>Urgent Hiring</button>
+                            </div>
                             <div class="search-box upper-search">
                             <input type="text" name="search_engine_1" class="search-engine-1" placeholder="&#xf0b1; Skills, Company, or Job Title" style="font-family:Arial, FontAwesome">
                             <input type="text" name="search_engine_2" class="search-engine-2" placeholder="&#xF842; Location">
@@ -126,15 +130,8 @@ include '../conn.php';
                             <input type="text" name="filter_engine_5" class="filter-engine-5" placeholder="Construction">
                             <button name="filter"><i class="bi bi-filter " style="font-size: 18px;"></i>Filter</button>
                             </div>
-                            <div class="sort-by-type">
-                            <button>Recommended Jobs</button>
-                            <button>Urgent Hiring</button>
-                            </div>
                         </form>
                     </div>
-            </div>
-            <div class="col-2">
-                <div class="col-2-row">
                     <div class="col-2-content">
                     <?php
                  $searchQuery1 = isset($_POST['search_engine_1']) ? $_POST['search_engine_1'] : '';

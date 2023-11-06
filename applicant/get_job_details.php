@@ -71,6 +71,7 @@ if (isset($_GET['jobPostId'])) {
             transform: scale(1.2);
             }
         .modal {
+            z-index: 5;
             display: none;
             position: fixed;
             top: 0;
@@ -289,14 +290,14 @@ if (isset($_GET['jobPostId'])) {
 </body>
 </html>
 <script>
-    document.addEventListener("DOMContentLoaded", function(){
+
         var requirestage = document.getElementById("requirestage");
+        var modal = document.getElementById("modal");
         window.onclick = function(event){
             if(event.target == modal){
                 requirestage.style.display = "none";
             }
         }
-    })
     document.getElementById("questionForm").addEventListener("submit", function (e) {
         var selectElement = document.getElementById("answer");
         var selectedOption = selectElement.options[selectElement.selectedIndex].value;

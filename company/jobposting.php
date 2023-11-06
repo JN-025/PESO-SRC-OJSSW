@@ -520,7 +520,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     
                     <div style="overflow:auto;">
-                        <div style="">
+                        <div>
                         
                         <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                         <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
