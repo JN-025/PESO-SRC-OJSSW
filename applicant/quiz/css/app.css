@@ -1,5 +1,6 @@
 :root {
     background-color: #ecf5ff;
+    margin-top: 70px;
 }
 
 * {
@@ -17,27 +18,26 @@ h1 {
     color: #56a5eb;
     margin-bottom: 5rem;
     opacity: 0.7;
-             text-transform: uppercase;
-             background-image: linear-gradient(
-               -225deg,
-               #231557 0%,
-               #44107a 29%,
-               #ff1361 67%,
-               #fff800 100%
+    text-transform: uppercase;
+    background-image: linear-gradient(
+            -225deg,
+            #231557 0%,
+            #44107a 29%,
+             #ff1361 67%,
+             #fff800 100%
              );
-             background-size: auto auto;
-             background-clip: border-box;
-             background-size: 200% auto;
-             color: #fff;
-             background-clip: text;
-             text-fill-color: transparent;
-             -webkit-background-clip: text;
-             -webkit-text-fill-color: transparent;
-             animation: textclip 2s linear infinite;
-             display: inline-block;
-           }
-           
-           @keyframes textclip {
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    }
+    @keyframes textclip {
              to {
                background-position: 200% center;
              }
@@ -110,12 +110,14 @@ h4{
     text-decoration: none;
     color: #56a5eb;
     background-color: white;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
 }
 
 .btn:hover {
-    cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 05);
-    transition: transform 150ms;
+    box-shadow: inset 400px 0 0 0 #D80286;
+    color: #fff;
 }
 
 .btn[disabled]:hover {
@@ -144,3 +146,16 @@ input{
 input::placeholder{
     color:#aaa;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
