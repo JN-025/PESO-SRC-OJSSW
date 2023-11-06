@@ -1,3 +1,8 @@
+<?php
+$page_title = "Walk-in";
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +17,7 @@
 <body>
     <?php
     include "../function.php";
-    include "topnav.php";
+    include "topnav_company.php";
     ?>
     <div class="main-container">
 

@@ -1,5 +1,5 @@
 <?php
-$page_title = "Home";
+$page_title = "Walk-in";
     
 include '../conn.php';
 ?>
@@ -64,10 +64,10 @@ include '../conn.php';
 <body>
     <?php 
     include "../function.php";
-    include "applicant_sidenav.php";
-    include "topnav.php";
+   
+    include "topnav_applicant.php";
     ?>
-    <div class="card1" style="background: white; height: 200vh; width: 80%; margin-top: 15vh; margin-left: 20%;">
+    <div class="card1" style="background: white; height: 200vh; width: 80%; margin-top: 15vh; margin-left: 5%;">
     
     <div class="wrapper" style="background: white;">
     <div class="container-fluid">
