@@ -15,7 +15,7 @@
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
             $_SESSION['company_id'] = $row['company_id'];
-            header('location: homepage.php');
+            header('location: jobpost.php');
         } else {
             $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
         }
@@ -34,6 +34,84 @@
 </head>
 <body>
 <div class="loader"><div></div><div></div><div></div><div></div></div>
+<?php
+    if(isset($_SESSION["form_submitted"])){
+    echo "<div class='form-modal' id='formModal'><div class='form-modal-content'><a href='#' class='closebtn' id='closeModal'>&times;</a>{$_SESSION['form_submitted']}</div></div>";
+    unset($_SESSION["form_submitted"]);
+    }
+
+?>
+<style>
+            .form-modal{
+                font-family: 'Poppins', sans-serif;
+                text-align: center;
+                z-index: 1;
+                position: fixed;
+                background-color: rgba(0,0,0,0.5);
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items:center; 
+                opacity: 1;
+                animation: fadeIn 0.5s ease-in-out forwards;
+            }
+            .form-modal-content{
+                position: relative;
+                border-radius: 11px;
+                background-color: green;
+                padding: 100px;
+                color: #fff;
+                opacity: 0;
+                animation: dropDown 0.5s ease-in-out 0.5s forwards;
+            }
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes dropDown {
+                0% {
+                    transform: translateY(-50%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            .closebtn {
+                position:absolute;
+                color: #fff;
+                top: 0;
+                right: 0;
+                margin: 20px;
+                font-size: 28px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            .closebtn:hover,
+            .closebtn:focus {
+                color: black;
+                cursor: pointer;
+            }
+
+        </style>
+        <script>
+    var formModal = document.getElementById('formModal');
+    var closeModal = document.getElementById('closeModal');
+    
+    function closeModalHandler() {
+        formModal.style.display = 'none';
+    }
+    closeModal.addEventListener('click', closeModalHandler);
+</script>
 <div class="main-container">
         <div class="main-row">
             <div class="col-1">

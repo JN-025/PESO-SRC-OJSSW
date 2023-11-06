@@ -23,7 +23,7 @@
                 <br>
                 <button id="myBtn2" class="company-kind">Local Manpower Agency</button>
                 <br>
-                <button id="myBtn3" class="company-kind">Oversees Monpower Agency</button>
+                <button id="myBtn3" class="company-kind">Overseas Manpower Agency</button>
 
                 <!-- The Modal -->
                 <div id="myModal" class="modal">

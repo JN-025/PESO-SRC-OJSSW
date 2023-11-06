@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Luckiest+Guy&family=Mohave&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Luckiest+Guy&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -90,13 +92,16 @@
     line-height: normal;
 }
 .col-1 h3{
+    color: #FFF;
+    text-align: center;
+    font-family: Lilita One;
+    font-size: 26px;
+    font-style: normal;
     font-weight: 400;
-    font-size: 25px;
-    color: #fff;
-    font-family: 'Lilita One', cursive;
+    line-height: normal;
 }
 .col-1 .field-space{
-    margin-top: 10%;
+    margin-top: 15%;
 }
 .col-2 {
     width: 70%;
@@ -106,9 +111,10 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    background-color: #FFF;
 }
 .col-2 .field-space{
-    margin-top: 5%;
+    margin-top: 1%;
 }
 .col-2 h1{
     color: #DF6B00;
@@ -129,9 +135,11 @@
     line-height: normal;
 }
 
+
+
 .col-2 .form-col-1 {
     padding: 0 5%;
-    margin-top: 20px;
+    margin-top: 15px;
     text-align: center;
 }
 .col-2 .form-col-1 img{
@@ -144,6 +152,27 @@
     display: flex;
     justify-content: space-between; 
 }
+
+.col-2 .form-col-2 h3
+{
+    color: #656565;
+    font-family: Mohave;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.col-2 .form-col-2 h4
+{
+    color: #A20000;
+    font-family: Mohave;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
 .form-col-2 .col-left
 {
     flex: 30%
@@ -153,37 +182,22 @@
 {
     flex: 70%
 }
-.prev{
-    width: 20%;
-    background-color: #DF6B00;
-    box-shadow: 0px 4px 4px 0px #FFA653 inset;
-    filter: drop-shadow(0px 4px 4px #7A3B00);
-    color: #FFF;
-    font-family: Mohave;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    border: none;
-    border-radius: 25px;
-    padding: 3px;
-}
+
 .field-space {
     margin-left: 15%;
 }
-.d-none{
-    display: none;
-}
+
 input[type=text], input[type=password], input[type=number], input[type=email],input[type=tel], select
 {
     border: none;
     width: 98%;
-    height: 40px;
+    height: 35px;
     font-size: 18px;
     padding-left: 10px;
     background-color: #F1E4E4;
     border-radius: 10px;
 }
+
 input[type=file]
 {
     width: 95%;
@@ -220,37 +234,24 @@ select option[value=""] {
     color: #999999;
     font-size: 18px;   
 }
-.form-col-1 button{
-    margin-bottom: 20px;
-    height: 6vh;
-    width: 50%;
-    background-color: #DF6B00;
-    box-shadow: 0px 4px 4px 0px #FFA653 inset;
-    filter: drop-shadow(0px 4px 4px #7A3B00);
-    color: #FFF;
+
+.form-col-1 h5{
+    color: #000;
+    text-align: center;
     font-family: Mohave;
-    font-size: 20px;
+    font-size: 1vw;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    border: none;
-    border-radius: 25px; 
-    transition: 0.2s;
-}
-.form-col-1 button:hover{
-    opacity: 0.6;
-}
-.form-col-1 h5{
-    color: #000000;
+    line-height: 50%;
 }
 .form-col-1 a{
-    color: #A81E1E;
-    font-family: 'Mohave', sans-serif;
-    font-size: 15px;
+    color: #DF6B00;
+    font-family: Mohave;
+    font-size: 1vw;
+    font-style: normal;
     font-weight: 700;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: center;
+    line-height: normal;
+    text-decoration-line: underline;
 
 }
 input::-webkit-outer-spin-button,
@@ -316,4 +317,72 @@ input::-webkit-inner-spin-button {
     .col-2 h1{
         color: #770B0B;
     }
+
+    .input
+    {
+        height: 20px;
+    }
+  }
+
+
+  #regForm {
+    background-color: transparent;
+    margin-top: 5px;
+    padding: 5px;
+    width: 90%;
+    height: fit-content;
+    
+  }
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+    background-color: #ffdddd;
+  }
+  
+  /* Hide all steps by default: */
+  .tab {
+    display: none;
+  }
+  
+.next
+{
+    width: 40%;
+    background-color: #DF6B00;
+    box-shadow: 0px 4px 4px 0px #FFA653 inset;
+    filter: drop-shadow(0px 4px 4px #7A3B00);
+    color: #FFF;
+    font-family: Mohave;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    padding: 3px;
+}
+
+.prev
+{
+    width: 20%;
+    background-color: #DF6B00;
+    box-shadow: 0px 4px 4px 0px #FFA653 inset;
+    filter: drop-shadow(0px 4px 4px #7A3B00);
+    color: #FFF;
+    font-family: Mohave;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 3px;
+    float: right;
+}
+  
+  button:hover {
+    opacity: 0.8;
   }
