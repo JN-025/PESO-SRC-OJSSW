@@ -3,17 +3,15 @@
 
 <div class="topnav">
     <div class="peso-logo"></div>
-    <!--
     <div class="list-dropdown">
         <a href="" class="active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
         <div class="sub-list">
                 <a href="#"><i class="bi bi-house-door-fill"></i> Online</a>
-                <a href="Wapplicant.php"><i class="bi bi-search"></i> Walk-in</a>
+                <a href="Wcompany.php"><i class="bi bi-search"></i> Walk-in</a>
                 <a href="#"><i class="bi bi-bookmark"></i> Application</a>
                 
                  </div>
     </div>
-    -->
     <div class="right-corner">
         <div class="notification-icon">
             <div class="field-space"></div>

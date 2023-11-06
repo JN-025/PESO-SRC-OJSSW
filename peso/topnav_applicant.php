@@ -3,7 +3,6 @@
 
 <div class="topnav">
     <div class="peso-logo"></div>
-    <!--
     <div class="list-dropdown">
         <a href="" class="active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
         <div class="sub-list">
@@ -13,7 +12,6 @@
                 
                  </div>
     </div>
-    -->
     <div class="right-corner">
         <div class="notification-icon">
             <div class="field-space"></div>

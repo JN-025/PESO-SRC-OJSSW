@@ -1,5 +1,5 @@
 <?php
-$page_title = "Walk-in";
+$page_title = "Home";
     
 include '../conn.php';
 ?>
@@ -64,10 +64,10 @@ include '../conn.php';
 <body>
     <?php 
     include "../function.php";
-   
-    include "topnav_applicant.php";
+    include "company_sidenav.php";
+    include "topnav.php";
     ?>
-    <div class="card1" style="background: white; height: 200vh; width: 80%; margin-top: 15vh; margin-left: 5%;">
+    <div class="card1" style="background: white; height: 200vh; width: 80%; margin-top: 15vh; margin-left: 20%;">
     
     <div class="wrapper" style="background: white;">
     <div class="container-fluid">
@@ -79,7 +79,7 @@ include '../conn.php';
                                 <input type="text" placeholder="Search.." name="search">
                                 
                                 
-                                <button class="add" onclick="document.location='Wapplicant_create.php'"><i class="bi bi-plus"></i>&nbsp;&nbsp;ADD A NEW WALK-IN APPLICANT</button>
+                                <button class="add" onclick="document.location='Wcompany_create.php'"><i class="bi bi-plus"></i>&nbsp;&nbsp;ADD A NEW WALK-IN COMPANY</button>
                                 
                             </div>
                             <br>
@@ -90,16 +90,16 @@ include '../conn.php';
                         require_once "../peso/Wapplicant_config.php";
                         
                         // Attempt select query execution
-                        $sql = "SELECT * FROM wap_info";
+                        $sql = "SELECT * FROM walkin_company";
                         if($result = mysqli_query($link, $sql)){
                             if(mysqli_num_rows($result) > 0){
                                 echo '<table style="border-radius: 30px; text-align: center;" class="table table-bordered">';
                                     echo '<thead >';
                                         echo "<tr>";
                                             echo "<th>ID</th>";
-                                            echo "<th>Last Name</th>";
-                                            echo "<th>First Name</th>";
-                                            echo "<th>Middle Name</th>";
+                                            echo "<th>Company Name</th>";
+                                            echo "<th>Industry</th>";
+                                            echo "<th>Contact Person</th>";
                                             echo "<th>Email Address</th>";
                                             echo "<th>Action</th>";
                                         echo "</tr>";
@@ -107,15 +107,15 @@ include '../conn.php';
                                     echo "<tbody>";
                                     while($row = mysqli_fetch_array($result)){
                                         echo "<tr>";
-                                            echo "<td>" . $row['Wa_profile1_id'] . "</td>";
-                                            echo "<td>" . $row['lastName'] . "</td>";
-                                            echo "<td>" . $row['firstName'] . "</td>";
-                                            echo "<td>" . $row['midName'] . "</td>";
-                                            echo "<td>" . $row['email'] . "</td>";
+                                            echo "<td>" . $row['Wcompany_id'] . "</td>";
+                                            echo "<td>" . $row['WcompanyName'] . "</td>";
+                                            echo "<td>" . $row['Windustry'] . "</td>";
+                                            echo "<td>" . $row['WcontactPerson'] . "</td>";
+                                            echo "<td>" . $row['Wemail'] . "</td>";
                                             echo "<td>";
-                                                echo '<a href="Wapplicant_read.php?Wa_profile1_id='. $row['Wa_profile1_id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-eye"></span></a>';
-                                                echo '<a href="Wapplicant_update.php?Wa_profile1_id='. $row['Wa_profile1_id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-pencil"></span></a>';
-                                                echo '<a href="Wapplicant_delete.php?Wa_profile1_id='. $row['Wa_profile1_id'] .'" title="Delete Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-trash"></span></a>';
+                                                echo '<a href="Wcompany_read.php?Wcompany_id='. $row['Wcompany_id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-eye"></span></a>';
+                                                echo '<a href="Wcompany_update.php?Wcompany_id='. $row['Wcompany_id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-pencil"></span></a>';
+                                                echo '<a href="Wcompany_delete.php?Wcompany_id='. $row['Wcompany_id'] .'" title="Delete Record" data-toggle="tooltip"><span style="color:#B22623;" class="fa fa-trash"></span></a>';
                                             echo "</td>";
                                         echo "</tr>";
                                     }

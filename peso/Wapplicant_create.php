@@ -1,4 +1,5 @@
 <?php
+$page_title = "Walk-in";
 include '../conn.php';
 session_start();
 if(!isset($_SESSION["peso_id"])){
@@ -248,8 +249,7 @@ echo "Error inserting data into applicant_profile: " . $conn->error;
 <body>
     <?php
     include "../function.php";
-    include "applicant_sidenav.php";
-    include "topnav.php";
+    include "topnav_applicant.php";
     ?>
     <div class="main-container">
         <h1></h1>
