@@ -43,21 +43,23 @@ h2 {
 }
 .button-selection{
     position: absolute;
-    right: 0;
+    right: 10%;
+
 }
 .button {
     padding: 0.7rem 1.5rem;
     border: none;
-    background-color: #A81E1E;
+    
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0px 4px 4px 0px #D52121 inset;
-    box-shadow: 0px 4px 4px 0px #DEC4C4;
+    background: #A81E1E;
+    box-shadow: 0px 4px 4px 0px #D52121 inset, 0px 4px 4px 0px #DEC4C4;
 }
 .mt-3 {
     margin-top: 10px;
-    width: 80%;
+    width: 90%;
+    background-color: transparent;
 }
 .d-none {
     display: none;
@@ -65,7 +67,7 @@ h2 {
 .form-step {
     position: relative;
     margin-left: 27%;
-    margin-right: 2%;
+    margin-right: 1%;
     padding: 30px 0;
     border-radius: 10px;
 }
@@ -211,14 +213,15 @@ input[type=text], input[type=tel], input[type=number], input[type=date],input[ty
     height: 23px;
     font-size: 15px;
     padding-left: 10px;
-    background-color: #F1E4E4;
+    background-color: white;
     border-radius: 10px;
-    border: 2px solid #C59287;
+    border: 2px solid #B6B6B6;
+    margin-right: 10px;
 }
 .stick-object input[type=date] 
 {
     margin: 0;
-    border: 2px solid #C59287;
+    border: 2px solid #B6B6B6;
     
 }
 select,
@@ -227,11 +230,11 @@ select option {
 }
 select:invalid,
 select option[value=""] {
-  color: #C59287;
+  color: black;
 }
 ::placeholder 
 {
-    color: #C59287;
+    color: #B6B6B6;
     font-size: 14px;   
 }
 .invalid {

@@ -1,5 +1,7 @@
 <?php
+$page_title = "JOB POSTING";
 include "../conn.php";
+
 session_start();
 
 if(isset($_POST["submit"])) {
@@ -76,10 +78,10 @@ if(isset($_POST["submit"])) {
 <body>
     <?php
     include "../function.php";
-    include "sidenav.php";
+    
     include "topnav.php";
     ?>
-    <div class="main-container">
+    <div class="main-container" >
         <form id="form" action="" method="post" enctype="multipart/form-data">
             <div class="wrapper">
                 <section id="step-0" class="form-step" >
@@ -154,7 +156,8 @@ if(isset($_POST["submit"])) {
                     <form class="my-form">
                         <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
                         <input type="file" id="fileElem" name="img" onchange="handleFiles(this.files)" required>
-                        <label class="select" for="fileElem">Select some files</label>
+                        <label class="select" for="fileElem"><i class="bi bi-cloud-upload"></i></label>
+                        <br>
                         <progress id="progress-bar" max=100 value=0></progress>
                     </form>
                     </div>
@@ -217,7 +220,7 @@ if(isset($_POST["submit"])) {
                     <div class="form-col-1 question-container">
                         <input class="question" id="questionNo1" name="questionNo1" type="text" placeholder="Question #1" required>
                         <select name="answerNo1" id="answerNo1" required>
-                            <option value="" selected hidden>Choose</option>
+                            
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
@@ -225,7 +228,7 @@ if(isset($_POST["submit"])) {
                     <div class="form-col-1 question-container">
                         <input class="question" id="questionNo2" name="questionNo2" type="text" placeholder="Question #2" required>
                         <select name="answerNo2" id="answerNo2" required>
-                            <option value="" selected hidden>Choose</option>
+                            
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
@@ -233,7 +236,7 @@ if(isset($_POST["submit"])) {
                     <div class="form-col-1 question-container">
                         <input class="question" id="questionNo3" name="questionNo3" type="text" placeholder="Question #3" required>
                         <select name="answerNo3" id="answerNo3" required>
-                            <option value="" selected hidden>Choose</option>
+                            
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
@@ -241,7 +244,7 @@ if(isset($_POST["submit"])) {
                     <div class="form-col-1 question-container">
                         <input class="question" id="questionNo4" name="questionNo4" type="text" placeholder="Question #4" required>
                         <select name="answerNo4" id="answerNo4" required>
-                            <option value="" selected hidden>Choose</option>
+                            
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
@@ -249,7 +252,7 @@ if(isset($_POST["submit"])) {
                     <div class="form-col-1 question-container">
                         <input class="question" id="questionNo5" name="questionNo5" type="text" placeholder="Question #5" required>
                         <select name="answerNo5" id="answerNo5" required>
-                            <option value="Choose" selected hidden>Choose</option>
+                            
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>

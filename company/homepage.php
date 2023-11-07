@@ -1,5 +1,5 @@
 <?php
-$page_title = "Home";
+$page_title = "HOME";
     
 include '../conn.php';
 ?>
@@ -16,14 +16,14 @@ include '../conn.php';
 <body>
     <?php 
     include "../function.php";
-    include "sidenav.php";
+    
     include "topnav.php";
     ?>
     <div class="main-container">
         <div class="main-row">
             <div class="col-1">
                 <div class="header">
-                    <h1><?php echo $page_title?></h1>
+                    
                 </div>
             </div>
 

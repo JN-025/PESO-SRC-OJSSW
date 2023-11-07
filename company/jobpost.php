@@ -19,7 +19,7 @@ if (isset($_POST['delete'])) {
     }
 }
 
-$page_title = "Posted Jobs";
+$page_title = "POSTED JOBS";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,7 +116,7 @@ $page_title = "Posted Jobs";
 <?php 
     
     include "../function.php";
-    include "sidenav.php";
+    
     include "topnav.php";
     ?>
     <div class="main-container">
