@@ -1,6 +1,6 @@
 <?php
 include '../conn.php';
-
+$page_title = "Find Jobs";
 session_start();
 $alertmsg = "";
 if (isset($_SESSION['applicant_id'])) {

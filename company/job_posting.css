@@ -117,6 +117,7 @@ button{
     width: 70%;
 }
 
+
 .next
 {
     background-color: #A81E1E;
@@ -128,6 +129,19 @@ button{
     color: white;
     border: none;
 }
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
 @media only screen and (max-width: 880px) {
     .field-space{
         margin-left: 0;
