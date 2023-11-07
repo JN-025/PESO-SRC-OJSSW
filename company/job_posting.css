@@ -2,11 +2,21 @@
     margin: 0;
     padding: 0;
 }
-.main-container{
-    margin-top: 70px;
-    margin-left: 15%;
-    width: 100%;
+body
+{
+    margin: 0;
 }
+
+.main-container{
+    margin-left: 0;
+    width: 100%;
+    padding-top: 150px;
+    overflow-y: hidden;
+    background-color: white;
+    padding-bottom: 100px;
+    
+}
+
 .wrapper{
     height: 89vh;
     width: 100%;
@@ -35,6 +45,12 @@
     color: #B22623;
     margin-left: 10%;
     text-align: left;
+}
+
+.form-step h4
+{
+    color: #97402D;
+
 }
 .form-col-1{
     width: 100%;
@@ -69,14 +85,14 @@ select{
     width: 38.5%;
 }
 .form-step button{
-    margin-top: 20px;
-    border-radius: 20px;
-    padding: 10px 20px;
     background-color: #A81E1E;
-    color: #fff;
-    border-radius: 10px;
     box-shadow: 0px 4px 4px 0px #D72121 inset;
-    box-shadow: 0px 4px 4px 0px #770B0B40;
+    filter: drop-shadow(0px 4px 4px rgba(119, 11, 11, 0.25));
+    margin-top: 20px;
+    border-radius: 40px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
 }
 button{
     cursor: pointer;
@@ -94,9 +110,23 @@ button{
 .form-step .description-box{
     padding: 10px;
     height: 40vh;
+    border: solid 2px #C59287;
+    border-radius: 10px;
 }
 .question-container input{
     width: 70%;
+}
+
+.next
+{
+    background-color: #A81E1E;
+    box-shadow: 0px 4px 4px 0px #D72121 inset;
+    filter: drop-shadow(0px 4px 4px rgba(119, 11, 11, 0.25));
+    margin-top: 20px;
+    border-radius: 25%;
+    padding: 10px 20px;
+    color: white;
+    border: none;
 }
 @media only screen and (max-width: 880px) {
     .field-space{
