@@ -20,7 +20,7 @@ $page_title = "Training";
     ?>
     <div class="container">
         <div class="flex-center flex-column" id="end">
-            <h1>Your Score has successfully recorded in our database</h1>
+            <h1>Congratulations!, You have successfully finished the game</h1>
             <h1 id="finalScore"></h1>
          <!--   <form>
                 <input type="text" name="username" id="username" placeholder="username">

@@ -108,25 +108,25 @@ if (isset($_POST["submit"])) {
                     <div class="wrapper">
                         <section id="step-0" class="form-step">
                             <div class="form-col-1">
-                                <input type="text" id="" placeholder="Company Name" name="companyName" required>
+                                <input type="text" id="" placeholder="Company Name" name="companyName" required  maxlength="50">
                             </div>
                             <div class="form-col-1">
-                                <input type="text" id="" placeholder="Industry" name="industry" required>
+                                <input type="text" id="" placeholder="Industry" name="industry" required  maxlength="50">
                             </div>
                             <div class="form-col-1">
-                                <input type="text" id="" placeholder="Contact Person" name="contactPerson" required>
+                                <input type="text" onkeydown="restrictName(event)" name="contactPerson" placeholder="Contact Person" required maxlength="50">
                             </div>
                             <div class="form-col-1">
-                                <input type="text" id="" placeholder="Contact Number. eg 0901-***-**89" name="contactNum" required>
+                                <input type="tel" placeholder="Contact Number. eg 0901-***-**89" name="contactNum" pattern="\d{4}-\d{3}-\d{4}"title="Contact Number format eg 0912-345-6789" required maxlength="13" oninput="formatPhoneNumber(this)">
                             </div>
                             <div class="form-col-1">
-                                <input type="text" id="" placeholder="Email Address" name="email" required>
+                                <input type="email" id="" placeholder="Email Address" name="email" required>
                             </div>
                             <div class="form-col-1">
-                                <input type="text" id="" placeholder="Password" name="password" required>
+                                <input type="password" placeholder="Password" name="password" id="myInput1" oninput="validatePassword()" required maxlength="20">
                             </div>
                             <div class="form-col-1">
-                                <input type="text" id="" placeholder="Confirm Password" name="confirm_password" required>
+                                <input type="password" placeholder="Confirm Password" name="confirm_password" id="myInput2" required maxlength="20">
                             </div>
                             <div class="form-col-1">
                                 <button class="btn-nav" step_number="1">Next</button>

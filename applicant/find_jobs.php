@@ -108,6 +108,7 @@ include '../conn.php';
         <div class="main-row">
             <div class="col-2">
                 <div class="col-2-row">
+                <div class="header-container">
                 <div class="header">
                         <form method="POST"action="">
                             <h1></h1>
@@ -119,18 +120,26 @@ include '../conn.php';
                             <input type="text" name="search_engine_1" class="search-engine-1" placeholder="&#xf0b1; Skills, Company, or Job Title" style="font-family:Arial, FontAwesome">
                             <input type="text" name="search_engine_2" class="search-engine-2" placeholder="&#xF842; Location">
                             <input type="text" name="search_engine_3" class="search-engine-3" placeholder="&#xF2DC; Experience">
-                            <button name="search"><i class="bi bi-search" style="font-size: 18px;margin: 0 5px;"></i>Search</button>
+                            <button name="search"><i class="bi bi-search"></i> Search</button>
                             </div>
                           <div class="search-box lower-search">
                             <label for=""></label>
+                            <div class="flex-input">
+                            <div class="dual-input">
                             <input type="text" name="filter_engine_1" class="filter-engine-1" placeholder="Manager">
-                            <input type="text" name="filter_engine_2" class="filter-engine-2" placeholder="Santa Rosa, Laguna">
+                            <div class="field-gap"></div>
+                            </div>
+                            <div class="dual-input">
                             <input type="text" name="filter_engine_3" class="filter-engine-3" placeholder="30000 Pesos">
+                            </div>
+                            </div>
+                            <input type="text" name="filter_engine_2" class="filter-engine-2" placeholder="Santa Rosa, Laguna">
                             <input type="text" name="filter_engine_4" class="filter-engine-4" placeholder="2-3 Years Experience">
                             <input type="text" name="filter_engine_5" class="filter-engine-5" placeholder="Construction">
-                            <button name="filter"><i class="bi bi-filter " style="font-size: 18px;"></i>Filter</button>
+                            <button name="filter"><i class="bi bi-filter "></i> Filter</button>
                             </div>
                         </form>
+                    </div>
                     </div>
                     <div class="col-2-content">
                     <?php
@@ -194,12 +203,24 @@ include '../conn.php';
                                     <div class="description">
                              <div class="desc-col-1">
                              <h2><?php echo $row['jobTitle']; ?></h2>
-                            <h3>Company Name:</h3><p><?php echo $row['companyName']; ?></p>
-                            <h3>Company Industry:</h3><p> <?php echo $row['industry']; ?></p>
-                            <h3>Work Location: </h3><p> <?php echo $row['workLocation']; ?></p>
-                            <h3>Slots: </h3><p> <?php echo $row['slot']; ?></p>
-                            <h3>Salary: </h3><p>₱<?php echo $row['salary']; ?></p>
-                            <h3>Skills: </h3><p> <?php echo $row['skills']; ?></p>
+                            <div class="info-row">
+                                <h3>Company Name:</h3><p><?php echo $row['companyName']; ?></p>
+                            </div>
+                            <div class="info-row">
+                                <h3 class="inline">Company Industry:</h3><p class="inline"><?php echo $row['industry']; ?></p>
+                            </div>
+                            <div class="info-row">
+                                <h3 class="inline">Work Location:</h3><p class="inline"><?php echo $row['workLocation']; ?></p>
+                            </div>
+                            <div class="info-row">
+                                <h3 class="inline">Slots:</h3><p class="inline"><?php echo $row['slot']; ?></p>
+                            </div>
+                            <div class="info-row">
+                                <h3 class="inline">Salary:</h3><p class="inline">₱<?php echo $row['salary']; ?></p>
+                            </div>
+                            <div class="info-row">
+                                <h3 class="inline">Skills:</h3><p class="inline"><?php echo $row['skills']; ?></p>
+                            </div>
                              </div>
                              <div class="desc-col-2">
                                 <div>
