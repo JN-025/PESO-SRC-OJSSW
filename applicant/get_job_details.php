@@ -22,6 +22,7 @@ if (isset($_GET['jobPostId'])) {
             '<h3 style="font-size: 14px;">Job Information: <span style="font-weight:400">' . '<p style="text-align: justify;">'.$description.'</p>' . '</span></h3>' .
             '<h3 style="font-size: 14px;">Skills: <span style="font-weight:400">' . $row['skills'] . '</span></h3>' .
             '<h3 style="font-size: 14px;">Experience: <span style="font-weight:400">' . $row['yrsExperience'] . '</span></h3>' .
+            '<h3 style="font-size: 14px;">Educational Attainment: <span style="font-weight:400">' . $row['educBg'] . '</span></h3>' .
             '</div>' .
             '<div class="desc-col-2" style="position:relative;flex: 0 0 30%;">' .
             '<div>' .
@@ -69,7 +70,7 @@ if (isset($_GET['jobPostId'])) {
             transition: 0.2s;
             }
         .a-modal:hover{
-            transform: scale(1.2);
+            opacity: 0.6;
             }
         .modal {
             z-index: 5;
