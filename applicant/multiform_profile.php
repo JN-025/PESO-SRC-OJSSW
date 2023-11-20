@@ -27,10 +27,12 @@ if (isset($_POST["submit"])) {
     $civilStatus = $_POST['civilStatus'];
     $citizenship = $_POST['citizenship'];
     $housenumPresent = $_POST['housenumPresent'];
+    $subdPresent = $_POST["subdPresent"];
     $brgyPresent = $_POST['brgyPresent'];
     $cityPresent = $_POST['cityPresent'];
     $provincePresent = $_POST['provincePresent'];
     $housenumPermanent = $_POST['housenumPermanent'];
+    $subdPermanent = $_POST["subdPermanent"];
     $brgyPermanent = $_POST['brgyPermanent'];
     $cityPermanent = $_POST['cityPermanent'];
     $provincePermanent = $_POST['provincePermanent'];
@@ -149,10 +151,10 @@ if (isset($_POST["submit"])) {
     } else {*/
     /*step 1*/
 
-    $sql_table1 = "INSERT INTO ap_info (applicant_id, lastName, firstName, midName, suffix, jobseekerType, birthplace, birthday, age, sex, civilStatus, citizenship, housenumPresent, brgyPresent, cityPresent, provincePresent, housenumPermanent, brgyPermanent, cityPermanent, provincePermanent, height, weight, mobilePnum, email, disability, employmentStatus, activelyLooking, willinglyWork, fourpsBeneficiary, ofw) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_table1 = "INSERT INTO ap_info (applicant_id, lastName, firstName, midName, suffix, jobseekerType, birthplace, birthday, age, sex, civilStatus, citizenship, housenumPresent, subdPresent. brgyPresent, cityPresent, provincePresent, housenumPermanent,subdPermanent, brgyPermanent, cityPermanent, provincePermanent, height, weight, mobilePnum, email, disability, employmentStatus, activelyLooking, willinglyWork, fourpsBeneficiary, ofw) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql_table1);
-    $stmt->bind_param("isssssssssssssssssssssssssssss",$applicant_id, $lastName, $firstName, $midName, $suffix, $jobseekerType, $birthplace, $birthday, $age, $sex, $civilStatus, $citizenship, $housenumPresent, $brgyPresent, $cityPresent, $provincePresent, $housenumPermanent, $brgyPermanent, $cityPermanent, $provincePermanent, $height, $weight,  $mobilePnum, $email, $disability, $employmentStatus, $activelyLooking, $willinglyWork, $fourpsBeneficiary, $ofw);
+    $stmt->bind_param("isssssssssssssssssssssssssssssss",$applicant_id, $lastName, $firstName, $midName, $suffix, $jobseekerType, $birthplace, $birthday, $age, $sex, $civilStatus, $citizenship, $housenumPresent, $subdPresent, $brgyPresent, $cityPresent, $provincePresent, $housenumPermanent, $subdPermanent, $brgyPermanent, $cityPermanent, $provincePermanent, $height, $weight,  $mobilePnum, $email, $disability, $employmentStatus, $activelyLooking, $willinglyWork, $fourpsBeneficiary, $ofw);
 
     if ($stmt->execute()) {
         $ap_info_id = $conn->insert_id;
@@ -371,15 +373,15 @@ if (isset($_POST["submit"])) {
                     <!-- Step 1 input fields -->
                     <div class="mt-3">
                         <!--input field insert-->
-                        <label for=""><h2>Name</h2></label>
-                        <input type="text" placeholder="First Name" name="firstName" value="<?php echo $row["firstname"];?>" required>
-                        <input type="text" placeholder="Last Name" name="lastName" value="<?php echo $row["lastname"];?>" required>
-                        <input type="text" placeholder="Middle Name" name="midName" oninput="noNumber(event); validateForm()" value="" required>
-                        <input style="width:30px;"type="text" placeholder="Jr." name="suffix" oninput="noNumber(event); validateForm()">
+                        <label for=""><h2>Name <span class="required-asterisk">*</span></h2></label>
+                        <input type="text" onkeydown="restrictName(event)"name="firstName" placeholder="First Name" value="<?php echo $row["firstname"];?>" required maxlength="50">
+                        <input type="text" onkeydown="restrictName(event)" name="lastName" placeholder="Last Name" value="<?php echo $row["lastname"];?>" required maxlength="50">
+                        <input type="text" onkeydown="restrictName(event)" name="midName" placeholder="Middle Name" required maxlength="50">
+                        <input style="width:30px;"type="text" placeholder="Jr." name="suffix" maxlength="10">
                     </div>
                     <div class="mt-3">
   
-                        <label for=""><h2>Type of jobseeker</h2></label>
+                        <label for=""><h2>Type of jobseeker <span class="required-asterisk">*</span></h2></label>
                         <select class="" name="jobseekerType" required>
                                         <option value="" selected hidden>Select Type</option>
                                         <option value="first_time">FIRST TIME</option>
@@ -390,20 +392,39 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3 form-row">
                     <div class="stick-object">
        
-                        <label for=""><h2>Birthplace</h2></label>
-                        <input type="text" name="birthplace"placeholder="BIRTHPLACE" required>
+                        <label for=""><h2>Birthplace <span class="required-asterisk">*</span></h2></label>
+                        <input type="text" name="birthplace"placeholder="BIRTHPLACE" required maxlength="50">
                     </div>
                     <div class="stick-object">
       
-                        <label for="dateofbirth"><h2>Date of Birth</h2></label>
-                        <input style="width:100%"type="date" placeholder="birthday" name="birthday" id="birthday" required>
+                        <label for="dateofbirth"><h2>Date of Birth <span class="required-asterisk">*</span></h2></label>
+                        <input style="width:100%"type="date" placeholder="birthday" name="birthday" id="birthday" required oninput="calculateAge()">
                     </div>
                     <div class="stick-object">
-                        <label for="age"><h2>Age</h2></label>
-                        <input type="number" id="age"name="age" placeholder="AGE"min="16" max="90"required value="<?php echo $row["age"];?>" required>
+                        <label for="age"><h2>Age <span class="required-asterisk">*</span></h2></label>
+                        <input type="number" id="age"name="age" placeholder="AGE"min="18" max="90"required value="<?php echo $row["age"];?>" required disabled>
                     </div>
+                    <script>
+                        var today = new Date();
+                        var maxDate = today.toISOString().split('T')[0];
+                        document.getElementById("birthday").setAttribute("max", maxDate);
+
+                        function calculateAge() {
+                            var dob = document.getElementById("birthday").value;
+                            var dobDate = new Date(dob);
+
+                            var age = today.getFullYear() - dobDate.getFullYear();
+
+                            if (today.getMonth() < dobDate.getMonth() ||
+                                (today.getMonth() === dobDate.getMonth() && today.getDate() < dobDate.getDate())) {
+                                age--;
+                            }
+
+                            document.getElementById("age").value = age;
+                        }
+                    </script>
                     <div class="stick-object">
-                        <label for=""><h2>Sex</h2></label>
+                        <label for=""><h2>Sex <span class="required-asterisk">*</span></h2></label>
                         <select class="" name="sex" required>
                                             <option value="" selected hidden>Select Gender</option>
                                             <option value="Female">Female</option>
@@ -414,7 +435,7 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3 form-row">
                     <div class="stick-object">
        
-                        <label for=""><h2>Civil Status</h2></label>
+                        <label for=""><h2>Civil Status <span class="required-asterisk">*</span></h2></label>
                         <select class="" name="civilStatus" required>
                                             <option value="" selected hidden>Select Status</option>
                                             <option value="Single">Single</option>
@@ -425,59 +446,112 @@ if (isset($_POST["submit"])) {
                     </div>
                     <div class="stick-object">
       
-                        <label for=""><h2>Citizenship</h2></label>
+                        <label for=""><h2>Citizenship <span class="required-asterisk">*</span></h2></label>
                         <input type="text" name="citizenship" placeholder="CITIZENSHIP" required maxlength="50" required>
                     </div>
                     </div>
                     <div class="mt-3">
-                        <label for=""><h2>Present Address</h2></label>
-                        <input style="width:50px;"type="text" name="housenumPresent" placeholder="HOUSE NO." required maxlength="50">
-                        <input style="width:90px;"type="text"name="brgyPresent" placeholder="BARANGAY" required maxlength="50">
-                        <input type="text" name="cityPresent" placeholder="MUNICIPALITY/CITY" required maxlength="50" required>
-                        <input type="text" name="provincePresent" placeholder="PROVINCE" required maxlength="50" required>
+                    <label for=""><h2>Permanent Address <span class="required-asterisk">*</span></h2></label>
+                        <input style="width: 100px"type="text" name="housenumPermanent" placeholder="House #" required maxlength="10">
+                        <input style="width: 100px"type="text" name="subdPermanent" placeholder="St./Subd." required maxlength="20">
+                        <input style="width:90px;"type="text" name="brgyPermanent" placeholder="Barangay" required maxlength="50">
+                        <input type="text" name="cityPermanent" placeholder="City" required maxlength="50" required>
+                        <input type="text" name="provincePermanent" placeholder="Province" required maxlength="50" required>
                     </div>
                     <div class="mt-3">
-                        <label for=""><h2>Permanent Address</h2></label>
-                        <input style="width: 50px"type="text" name="housenumPermanent" placeholder="HOUSE NO." required maxlength="50">
-                        <input style="width:90px;"type="text" name="brgyPermanent" placeholder="BARANGAY" required maxlength="50">
-                        <input type="text" name="cityPermanent" placeholder="MUNICIPALITY/CITY" required maxlength="50" required>
-                         <input type="text" name="provincePermanent" placeholder="PROVINCE" required maxlength="50" required>
+                    <label for=""><h2>Present Address <span class="required-asterisk">*</span></h2></label>
+                        <input style="width: 100px;"type="text" name="housenumPresent" placeholder="House #" required maxlength="10">
+                        <input style="width: 100px"type="text" name="subdPresent" placeholder="St./Subd." required maxlength="20">
+                        <input style="width:90px;"type="text"name="brgyPresent" placeholder="Barangay" required maxlength="50">
+                        <input type="text" name="cityPresent" placeholder="City" required maxlength="50" required>
+                        <input type="text" name="provincePresent" placeholder="Province" required maxlength="50" required>
                     </div>
                     <div class="mt-3 form-row">
                     <div class="stick-object">
        
-                        <label for=""><h2>Height</h2></label>
-                        <input type="number" name="height" id="body-size" placeholder="HEIGHT (cm)" min="0" required>
+                        <label for=""><h2>Height <span class="required-asterisk">*</span></h2></label>
+                        <input type="number" name="height" id="bodySize" placeholder="HEIGHT (cm)" min="0" max="999" required maxlength="3">
                     </div>
                     <div class="stick-object">
       
-                        <label for=""><h2>Weight</h2></label>
-                        <input type="number" name="weight" id="body-size" placeholder="WEIGHT (kg)" required>
+                        <label for=""><h2>Weight <span class="required-asterisk">*</span></h2></label>
+                        <input type="number" name="weight" id="bodySize2" placeholder="WEIGHT (kg)" min="0" max="999" required>
                     </div>
+                    <script>
+                        document.getElementById('bodySize').addEventListener('input', restrictInput);
+                        document.getElementById('bodySize2').addEventListener('input', restrictInput);
+
+                        function restrictInput() {
+                            // Get the current value of the input
+                            let inputValue = this.value;
+
+                            // Remove any non-digit characters
+                            inputValue = inputValue.replace(/\D/g, '');
+
+                            // Limit the length to 3 digits
+                            inputValue = inputValue.slice(0, 3);
+
+                            // Update the input value
+                            this.value = inputValue;
+                        }
+                    </script>
                     </div>
                     <div class="mt-3">
-                        <label for=""><h2>Mobile Number</h2></label>
-                        <input type="tel" name="mobilePnum" placeholder="PRIMARY NUMBER" required value="<?php echo $row["Pnum"];?>" required>
+                        <label for=""><h2>Mobile Number <span class="required-asterisk">*</span></h2></label>
+                        <input type="tel" name="mobilePnum" placeholder="PRIMARY NUMBER" pattern="\d{4}-\d{3}-\d{4}"title="Phone Number format eg 0912-345-6789" required maxlength="13" oninput="formatPhoneNumber(this)" value="0<?php echo htmlspecialchars($row["Pnum"]);?>" required>
+                        <script>
+                    function formatPhoneNumber(input) {
+                        var phoneNumber = input.value.replace(/\D/g, '');
+
+                        if (phoneNumber.length === 10) {
+                            input.value = phoneNumber.replace(/(\d{4})(\d{3})(\d{4})/, '$1-$2-$3');
+                        }
+                    }
+                    window.onload = function () {
+                        var input = document.querySelector('[name="mobilePnum"]');
+                        formatPhoneNumber(input);
+                    };
+                </script>
                     </div>
                     <div class="mt-3">
-                        <label for=""><h2>Email Address</h2></label>
+                        <label for=""><h2>Email Address <span class="required-asterisk">*</span></h2></label>
                         <input type="email" name="email" placeholder="EMAIL ADDRESS" required maxlength="50" value="<?php echo $row["email"];?>" required>
                     </div>
                     <div class="mt-3 form-row">
                     <div class="stick-object">
-                    <label for=""><h2>Disability</h2></label>
-                        <select style="width: 120px;"class="" name="disability" required>
-                                            <option value="None" selected hidden>None</option>
-                                            <option value="None">None</option>
-                                            <option value="visual">Visual</option>
-                                            <option value="hearing">Hearing</option>
-                                            <option value="speech">Speech</option>
-                                            <option value="physical">Physical</option>
-                                        </select>   
+                    <label for=""><h2>Disability <span class="required-asterisk">*</span></h2></label>
+                    <select style="width: 120px;" class="disability-select" name="disability" required>
+                        <option value="None" selected hidden>None</option>
+                        <option value="None">None</option>
+                        <option value="visual">Visual</option>
+                        <option value="hearing">Hearing</option>
+                        <option value="speech">Speech</option>
+                        <option value="physical">Physical</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="text" class="disability-other-input" style="margin: 5px" name="other_disability" placeholder="Enter other disability" style="display: none;">
                     </div>
+                    <script>
+                        function toggleOtherInput() {
+                            var otherInput = document.querySelector('.disability-other-input');
+                            var selectInput = document.querySelector('.disability-select');
+                            
+                            if (selectInput.value.toLowerCase() === 'other') {
+                                otherInput.style.display = 'block';
+                                otherInput.setAttribute('required', 'required');
+                            } else {
+                                otherInput.style.display = 'none';
+                                otherInput.removeAttribute('required');
+                            }
+                        }
+
+                        document.querySelector('.disability-select').addEventListener('change', toggleOtherInput);
+
+                        toggleOtherInput();
+                    </script>
                     <div class="stick-object">
       
-                        <label for=""><h2>Employment Status</h2></label>
+                        <label for=""><h2>Employment Status <span class="required-asterisk">*</span></h2></label>
                         <select class="" name="employmentStatus" required>
                                             <option value="" selected hidden>Status</option>
                                             <option value="wage_employed">Wage Employed</option>
@@ -495,9 +569,9 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3">
                         <div class="qna">
                             <div class="qna-select">
-                        <label for="">ACTIVELY LOOKING FOR WORK?</label>
+                        <label for="">ACTIVELY LOOKING FOR WORK? <span class="required-asterisk">*</span></label>
                         </div>
-                        <div class="qna-select">
+                        <div class="qna-select edit-dropdown">
                         <select class="" name="activelyLooking" required>
                                             <option value="" selected hidden></option>
                                             <option value="yes">Yes</option>
@@ -509,9 +583,9 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3">
                     <div class="qna">
                             <div class="qna-select">
-                        <label for="">WILLING TO WORK IMMEDIATELY?</label>
+                        <label for="">WILLING TO WORK IMMEDIATELY? <span class="required-asterisk">*</span></label>
                         </div>
-                        <div class="qna-select">
+                        <div class="qna-select edit-dropdown">
                         <select class="drop-down" name="willinglyWork" required>
                                             <option value="" selected hidden></option>
                                             <option value="yes">Yes</option>
@@ -523,9 +597,9 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3">
                     <div class="qna">
                             <div class="qna-select">
-                        <label for="">ARE YOU A 4Ps BENEFICIARY?</label>
+                        <label for="">ARE YOU A 4Ps BENEFICIARY? <span class="required-asterisk">*</span></label>
                         </div>
-                        <div class="qna-select">
+                        <div class="qna-select edit-dropdown">
                         <select class="" name="fourpsBeneficiary" required>
                                             <option value="" selected hidden></option>
                                             <option value="yes">Yes</option>
@@ -537,9 +611,9 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3">
                     <div class="qna">
                             <div class="qna-select">
-                        <label for="">ARE YOU AN OFW?</label>
+                        <label for="">ARE YOU AN OFW? <span class="required-asterisk">*</span></label>
                         </div>
-                        <div class="qna-select">
+                        <div class="qna-select edit-dropdown">
                         <select class="" name="ofw" required>
                                             <option value="" selected hidden></option>
                                             <option value="yes">Yes</option>
@@ -1121,6 +1195,7 @@ if (isset($_POST["submit"])) {
             </form>
         </div>
     </div>
-        <script src="../assets/js/applicant/applicant_profile.js"></script>
+    <script src="../assets/js/applicant/script.js"></script>
+    <script src="../assets/js/applicant/applicant_profile.js"></script>
 </body>
 </html>
