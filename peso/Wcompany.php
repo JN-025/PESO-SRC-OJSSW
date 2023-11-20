@@ -1,5 +1,5 @@
 <?php
-$page_title = "Walk-in";
+$page_title = "Walk-in Company";
     
 ?>
 
