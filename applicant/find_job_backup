@@ -224,6 +224,9 @@ include '../conn.php';
                              </div>
                              <div class="desc-col-2">
                                 <div>
+                                <div class="clicked-box">
+                                <i class="bi bi-caret-right-fill"></i>
+                                </div>
                                 <button onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">Apply</button>
 <!--backup hehehe-->
                                 </div>
@@ -266,10 +269,16 @@ function openTab(jobPostId, button) {
 
             col2ContentFull.style.display = "block";
 
+            // Remove "pressed" class from all buttons
             var buttons = document.querySelectorAll('.description button');
             buttons.forEach(btn => btn.classList.remove('pressed'));
 
+            // Add "pressed" class to the pressed button
             button.classList.add('pressed');
+
+            // Toggle the visibility of the clicked-box
+            var clickedBox = button.parentElement.querySelector('.clicked-box');
+            clickedBox.style.display = 'block';
         }
     };
     xhttp.open("GET", "get_job_details.php?jobPostId=" + jobPostId, true);
@@ -277,9 +286,11 @@ function openTab(jobPostId, button) {
 }
 </script>
 <style>
-.description button.pressed {
-    background-color: #BEBEBE;
-    color: #fff;
-    font-weight: bold;
+.clicked-box {
+    display: none; /* Initially hide the clicked-box */
+}
+
+.description button.pressed + .clicked-box {
+    display: block; /* Display the clicked-box when the button is pressed */
 }
 </style>

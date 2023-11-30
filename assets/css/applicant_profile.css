@@ -205,8 +205,12 @@ ul.form-stepper li a .form-stepper-circle {
 .qna{
     display: flex;
     justify-content: space-between;
+    margin-right: 50%;
+    margin-top: 20px;
 }
-
+.edit-dropdown select{
+    width: 100px;
+}
 input[type=text], input[type=tel], input[type=number], input[type=date],input[type=email], select
 {
     flex: 1;
@@ -217,6 +221,10 @@ input[type=text], input[type=tel], input[type=number], input[type=date],input[ty
     border-radius: 10px;
     border: 2px solid #B6B6B6;
     margin-right: 10px;
+}
+input:disabled {
+    background-color: #f0f0f0;
+    color: #666666;
 }
 .stick-object input[type=date] 
 {
@@ -284,6 +292,30 @@ select option[value=""] {
   .cert-cons .ca-inputbox input[type="date"]{
     width: 100%;
   }
+  .required-asterisk{
+    color: red;
+  }
+  /*.required-asterisk {
+    position: relative;
+    color: red;
+    cursor: pointer;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.required-asterisk:hover .tooltip {
+    display: block;
+}*/
   ::-webkit-scrollbar {
     width: 10px;
   }

@@ -19,7 +19,15 @@
   cursor: pointer;
 }
 .list-dropdown{
-  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.list-dropdown a{
+  margin-right: 30px;
+  text-decoration: none;
+  color: #FFF;
+  font-family: Mohave;
+  font-weight: 600;
 }
 .sub-list {
   display: none;
@@ -48,8 +56,8 @@
 .active{
   font-family: 'Mohave', serif;
   font-weight: 600;
-  color: #fff;
-  text-decoration: none;
+  padding: 23px;
+  background-color: #981919;
 }
 .topnav .right-corner{
   font-size: 25px;
