@@ -10,16 +10,16 @@ if(isset($_POST['save_company']))
     $companyWeb = mysqli_real_escape_string($con, $_POST['companyWeb']);
     $industry = mysqli_real_escape_string($con, $_POST['industry']);
     $companyType = mysqli_real_escape_string($con, $_POST['companyType']);
-    $address = mysqli_real_escape_string($con, $_POST['address']);
-    $companySize = mysqli_real_escape_string($con, $_POST['companySize']);
     $regNum = mysqli_real_escape_string($con, $_POST['regNum']);
     $workingHrs = mysqli_real_escape_string($con, $_POST['workingHrs']);
     $contactNum = mysqli_real_escape_string($con, $_POST['contactNum']);
     $dressCode = mysqli_real_escape_string($con, $_POST['dressCode']);
     $contactPerson = mysqli_real_escape_string($con, $_POST['contactPerson']);
+    $companySize = mysqli_real_escape_string($con, $_POST['companySize']);
+    $address = mysqli_real_escape_string($con, $_POST['address']);
     $spokenLanguage = mysqli_real_escape_string($con, $_POST['spokenLanguage']);
 
-    if($companyName == NULL || $email == NULL || $profileName == NULL || $companyWeb == NULL || $industry == NULL || $companyType == NULL || $address == NULL || $companySize == NULL || $regNum == NULL || $workingHrs == NULL || $contactNum == NULL || $dressCode == NULL || $contactPerson == NULL || $spokenLanguage == NULL)
+    if($companyName == NULL || $email == NULL || $profileName == NULL || $companyWeb == NULL || $industry == NULL || $companyType == NULL || $regNum == NULL || $workingHrs == NULL || $contactNum == NULL || $dressCode == NULL || $contactPerson == NULL || $companySize == NULL || $address == NULL || $spokenLanguage == NULL)
     {
         $res = [
             'status' => 422,
@@ -29,14 +29,14 @@ if(isset($_POST['save_company']))
         return;
     }
 
-    $query = "INSERT INTO wcompany (companyName,email,profileName,companyWeb,industry,companyType,address,companySize,regNum,workingHrs,contactNum,dressCode,contactPerson,spokenLanguage) VALUES ('$companyName','$email','$profileName','$companyWeb','$industry','$companyType','$address','$companySize','$regNum','$workingHrs','$contactNum','$dressCode','$contactPerson','$spokenLanguage')";
+    $query = "INSERT INTO wcompany (companyName,email,profileName,companyWeb,industry,companyType,regNum,workingHrs,contactNum,dressCode,contactPerson,companySize,address,spokenLanguage) VALUES ('$companyName','$email','$profileName','$companyWeb','$industry','$companyType','$regNum','$workigHrs','$contactNum','$dressCode','$contactPerson','$companySize','$address','$spokenLanguage')";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
     {
         $res = [
             'status' => 200,
-            'message' => 'Company Created Successfully'
+            'message' => 'Company Added Successfully'
         ];
         echo json_encode($res);
         return;
@@ -45,7 +45,7 @@ if(isset($_POST['save_company']))
     {
         $res = [
             'status' => 500,
-            'message' => 'Company Not Created'
+            'message' => 'Company Not Added'
         ];
         echo json_encode($res);
         return;
@@ -63,18 +63,16 @@ if(isset($_POST['update_company']))
     $companyWeb = mysqli_real_escape_string($con, $_POST['companyWeb']);
     $industry = mysqli_real_escape_string($con, $_POST['industry']);
     $companyType = mysqli_real_escape_string($con, $_POST['companyType']);
-    $address = mysqli_real_escape_string($con, $_POST['address']);
-    $companySize = mysqli_real_escape_string($con, $_POST['companySize']);
     $regNum = mysqli_real_escape_string($con, $_POST['regNum']);
     $workingHrs = mysqli_real_escape_string($con, $_POST['workingHrs']);
     $contactNum = mysqli_real_escape_string($con, $_POST['contactNum']);
     $dressCode = mysqli_real_escape_string($con, $_POST['dressCode']);
     $contactPerson = mysqli_real_escape_string($con, $_POST['contactPerson']);
+    $companySize = mysqli_real_escape_string($con, $_POST['companySize']);
+    $address = mysqli_real_escape_string($con, $_POST['address']);
     $spokenLanguage = mysqli_real_escape_string($con, $_POST['spokenLanguage']);
 
-    
-
-    if($companyName == NULL || $email == NULL || $profileName == NULL || $companyWeb == NULL || $industry == NULL || $companyType == NULL || $address == NULL || $companySize == NULL || $regNum == NULL || $workingHrs == NULL || $contactNum == NULL || $dressCode == NULL || $contactPerson == NULL || $spokenLanguage == NULL)
+    if($companyName == NULL || $email == NULL || $profileName == NULL || $companyWeb == NULL || $industry == NULL || $companyType == NULL || $regNum == NULL || $workingHrs == NULL || $contactNum == NULL || $dressCode == NULL || $contactPerson == NULL || $companySize == NULL || $address == NULL || $spokenLanguage == NULL)
     {
         $res = [
             'status' => 422,
@@ -84,7 +82,7 @@ if(isset($_POST['update_company']))
         return;
     }
 
-    $query = "UPDATE wcompany SET companyName='$companyName', email='$email', profileName='$profileName', companyWeb='$companyWeb', industry='$industry', companyType='$companyType', address='$address', companySize='$companySize', regNum='$regNum', workingHrs='$workingHrs', contactNum='$contactNum', dressCode='$dressCode', contactPerson='$contactPerson', spokenLanguage='$spokenLanguage' 
+    $query = "UPDATE wcompany SET companyName='$companyName', email='$email', profileName='$profileName', companyWeb='$companyWeb', industry='$industry', companyType='$companyType', regNum='$regNum', workingHrs='$workingHrs', contactNum='$contactNum', dressCode='$dressCode', contactPerson='$contactPerson', companySize='$companySize', address='$address', spokenLanguage='$spokenLanguage' 
                 WHERE id='$company_id'";
     $query_run = mysqli_query($con, $query);
 
