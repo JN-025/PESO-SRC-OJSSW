@@ -6,11 +6,13 @@ if(!isset($_SESSION["applicant_id"])){
     header("location: index.php");
 }
 $applicant_id = $_SESSION['applicant_id'];
-$sql_check = "SELECT applicant_id FROM applicant_profile WHERE applicant_id = ?";
-$stmt_check = $conn->prepare($sql_check);
-$stmt_check->bind_param("i", $applicant_id);
-$stmt_check->execute();
-$stmt_check->store_result();
+$check = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
+$result = mysqli_query($conn, $check);
+
+if (mysqli_num_rows($result) == 0) {
+    header("Location: find_jobs.php");
+    exit();
+}
 
 if (isset($_POST["submit"])) {
     // Step 1 form data
@@ -104,15 +106,13 @@ if (isset($_POST["submit"])) {
     $otherDialect = isset($_POST["otherDialect"]) ? $_POST["otherDialect"] : "";*/
 
     // Step 6 form data
-    $workExperienceCount = $_POST["work_experience_count"];
-
-    for ($i = 1; $i <= $workExperienceCount; $i++) {
-        $company = $_POST["company" . $i];
-        $cpAddress = $_POST["cpAddress" . $i];
-        $position = $_POST["position" . $i];
-        $startincluDate = $_POST["startincluDate" . $i];
-        $endincluDate = $_POST["endincluDate" . $i];
-        $appointStat = $_POST["appointStat" . $i];
+    for ($i = 1; $i <= 3; $i++) {
+        $company = $_POST["company"];
+        $cpAddress = $_POST["cpAddress"];
+        $position = $_POST["position"];
+        $startincluDate = $_POST["startincluDate"];
+        $endincluDate = $_POST["endincluDate"];
+        $appointStat = $_POST["appointStat"];
 
         // Insert the data into the database
         $sql_table6 = "INSERT INTO ap_exp (applicant_id, company, cpAddress, position, startincluDate, endincluDate, appointStat) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -120,14 +120,13 @@ if (isset($_POST["submit"])) {
         $stmt = $conn->prepare($sql_table6);
         $stmt->bind_param("issssss", $applicant_id, $company, $cpAddress, $position, $startincluDate, $endincluDate, $appointStat);
 
-        // Execute the statement
-        $stmt->execute();
-
-        // Reset the statement for the next iteration
-        $stmt->reset();
+        if ($stmt->execute()) {
+            $stmt->reset();
+            $ap_exp_id = $conn->insert_id;
+        } else {
+            echo "Error inserting data into work_experience: " . $conn->error;
+        }
     }
-
-
     // Step 7 form data
     $skill = isset($_POST["skill"]) ? implode(', ', $_POST["skill"]) : "";
     $techSkill = isset($_POST["techSkill"]) ? implode(', ', $_POST["techSkill"]) : "";
@@ -156,7 +155,7 @@ if (isset($_POST["submit"])) {
     } else {*/
     /*step 1*/
 
-    $sql_table1 = "INSERT INTO ap_info (applicant_id, lastName, firstName, midName, suffix, jobseekerType, birthplace, birthday, age, sex, civilStatus, citizenship, housenumPresent, subdPresent. brgyPresent, cityPresent, provincePresent, housenumPermanent,subdPermanent, brgyPermanent, cityPermanent, provincePermanent, height, weight, mobilePnum, email, disability, employmentStatus, activelyLooking, willinglyWork, fourpsBeneficiary, ofw) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_table1 = "INSERT INTO ap_info (applicant_id, lastName, firstName, midName, suffix, jobseekerType, birthplace, birthday, age, sex, civilStatus, citizenship, housenumPresent, subdPresent, brgyPresent, cityPresent, provincePresent, housenumPermanent,subdPermanent, brgyPermanent, cityPermanent, provincePermanent, height, weight, mobilePnum, email, disability, employmentStatus, activelyLooking, willinglyWork, fourpsBeneficiary, ofw) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql_table1);
     $stmt->bind_param("isssssssssssssssssssssssssssssss",$applicant_id, $lastName, $firstName, $midName, $suffix, $jobseekerType, $birthplace, $birthday, $age, $sex, $civilStatus, $citizenship, $housenumPresent, $subdPresent, $brgyPresent, $cityPresent, $provincePresent, $housenumPermanent, $subdPermanent, $brgyPermanent, $cityPermanent, $provincePermanent, $height, $weight,  $mobilePnum, $email, $disability, $employmentStatus, $activelyLooking, $willinglyWork, $fourpsBeneficiary, $ofw);
@@ -205,23 +204,12 @@ if (isset($_POST["submit"])) {
     $sql_table5 = "INSERT INTO ap_elig (applicant_id, careerServ1, licenceNum1, expiryDate1, validDate, languageCertifications, dialectsSpoken) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql_table5);
-    $stmt->bind_param("issssssssssssss", $applicant_id, $careerServ1, $licenceNum1, $expiryDate1, $validDate, $languageCertifications, $dialectsSpoken);
+    $stmt->bind_param("issssss", $applicant_id, $careerServ1, $licenceNum1, $expiryDate1, $validDate, $languageCertifications, $dialectsSpoken);
 
     if ($stmt->execute()) {
         $ap_elig_id = $conn->insert_id;
     } else {
         echo "Error inserting data into career_info: " . $conn->error;
-    }
-    /*step 6*/
-    $sql_table6 = "INSERT INTO ap_exp (applicant_id, company1, cpAddress1, position1, startincluDate1, endincluDate1, appointStat1) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-    $stmt = $conn->prepare($sql_table6);
-    $stmt->bind_param("issssss", $applicant_id, $company1, $cpAddress1, $position1, $startincluDate1, $endincluDate1, $appointStat1);
-
-    if ($stmt->execute()) {
-        $ap_exp_id = $conn->insert_id;
-    } else {
-        echo "Error inserting data into work_experience: " . $conn->error;
     }
     /*step 7*/
     $sql_table7 = "INSERT INTO ap_skills (applicant_id, skill, techSkill, otherTechskill) VALUES (?, ?, ?, ?)";
@@ -389,7 +377,6 @@ if (isset($_POST["submit"])) {
                         <select class="" name="jobseekerType" required>
                                         <option value="" selected hidden>Select Type</option>
                                         <option value="first time">First Time</option>
-                                        <option value="jobseeker">Jobseeker</option>
                                         <option value="ofw">OFW</option>
                                     </select>
                     </div>
@@ -625,7 +612,7 @@ if (isset($_POST["submit"])) {
                             <div class="display-spacebetween">
                             <th><h2>Are you currently in School?<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <tr>
-                                <td><select name="schoolStatus" id="">
+                                <td><select name="schoolStatus" id="" required>
                                     <option value="" selected hidden></option>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
@@ -634,7 +621,7 @@ if (isset($_POST["submit"])) {
                             </div>
                             <th><h2>Highest Educational Level<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <tr>
-                                <td><select name="educLevel" id="">
+                                <td><select name="educLevel" id="" required>
                                         <option value="" selected hidden>Highest Educational Level</option>
                                         <option value="NO FORMAL EDUCATION">NO FORMAL EDUCATION</option>
                                         <option value="ELEMENTARY LEVEL">ELEMENTARY LEVEL</option>
@@ -680,18 +667,18 @@ if (isset($_POST["submit"])) {
                     <table>
                         <th><h2>Preferred Occupation #1<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
-                            <td><input type="text" onkeydown="restrictName(event)" name="occupation1" placeholder="Occupation"></td>
-                            <td><input type="text" onkeydown="restrictName(event)" name="industry1" placeholder="Industry"></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="occupation1" placeholder="Occupation" required></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="industry1" placeholder="Industry" required></td>
                         </tr>
                         <th><h2>Preferred Occupation #2<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
-                            <td><input type="text" onkeydown="restrictName(event)" name="occupation2" placeholder="Occupation"></td>
-                            <td><input type="text" onkeydown="restrictName(event)" name="industry2" placeholder="Industry"></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="occupation2" placeholder="Occupation" required></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="industry2" placeholder="Industry" required></td>
                         </tr>
                         <th><h2>Preferred Occupation #3<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
-                            <td><input type="text" onkeydown="restrictName(event)" name="occupation3" placeholder="Occupation"></td>
-                            <td><input type="text" onkeydown="restrictName(event)" name="industry3" placeholder="Industry"></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="occupation3" placeholder="Occupation" required></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="industry3" placeholder="Industry" required></td>
                         </tr>
                         <th><h2>Preferred Location<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <td><div class="mt-3">
@@ -703,10 +690,10 @@ if (isset($_POST["submit"])) {
                                             </select>   
                         </div></td>
                         <tr>
-                            <td><input type="text" onkeydown="restrictName(event)" placeholder="Location #1"></td>
+                            <td><input type="text" onkeydown="restrictName(event)" placeholder="Location #1" required></td>
                         </tr>
                         <tr>
-                            <td><input type="text" onkeydown="restrictName(event)" placeholder="Location #2"></td>
+                            <td><input type="text" onkeydown="restrictName(event)" placeholder="Location #2" required></td>
                         </tr>
                     </table>
                     </div>
@@ -725,16 +712,16 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3 flex-column">
                         <th><h2>Training #1</h2></th>
                         <tr>
-                            <td><input type="text" name="training1" placeholder="Training Program"></td>
-                            <td><input type="text" name="institution1" placeholder="Training Instution"></td>
+                            <td><input type="text" name="training1" placeholder="Training Program" required></td>
+                            <td><input type="text" name="institution1" placeholder="Training Instution" required></td>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
-                                    <td><input type="date" name="startDuration1" placeholder="Started">TO</td>
-                                    <td><input type="date" name="endDuration1" placeholder="Ended"></td>
+                                    <td><input type="date" name="startDuration1" placeholder="Started" required>TO</td>
+                                    <td><input type="date" name="endDuration1" placeholder="Ended" required></td>
                                 </tr>
                             </div>
-                            <td><input type="text" name="certificate1" placeholder="Certificate Recieved"></td>
-                            <td><select name="completion1" id="">
+                            <td><input type="text" name="certificate1" placeholder="Certificate Recieved" required></td>
+                            <td><select name="completion1" id="" required>
                                 <option value="" selected hidden>Completion</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
@@ -744,16 +731,16 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3 flex-column">
                         <th><h2>Training #2</h2></th>
                         <tr>
-                            <td><input type="text" name="training2" placeholder="Training Program"></td>
-                            <td><input type="text" name="institution2" placeholder="Training Instution"></td>
+                            <td><input type="text" name="training2" placeholder="Training Program" required></td>
+                            <td><input type="text" name="institution2" placeholder="Training Instution" required></td>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
-                                    <td><input type="date" name="startDuration2" placeholder="Started">TO</td>
-                                    <td><input type="date" name="endDuration2" placeholder="Ended"></td>
+                                    <td><input type="date" name="startDuration2" placeholder="Started" required>TO</td>
+                                    <td><input type="date" name="endDuration2" placeholder="Ended" required></td>
                                 </tr>
                             </div>
-                            <td><input type="text" name="certificate2" placeholder="Certificate Recieved"></td>
-                            <td><select name="completion2" id="">
+                            <td><input type="text" name="certificate2" placeholder="Certificate Recieved" required></td>
+                            <td><select name="completion2" id="" required>
                                 <option value="" selected hidden>Completion</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
@@ -763,16 +750,16 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3 flex-column">
                         <th><h2>Training #3</h2></th>
                         <tr>
-                            <td><input type="text" name="training3" placeholder="Training Program"></td>
-                            <td><input type="text" name="institution3" placeholder="Training Instution"></td>
+                            <td><input type="text" name="training3" placeholder="Training Program" required></td>
+                            <td><input type="text" name="institution3" placeholder="Training Instution" required></td>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
-                                    <td><input type="date" name="startDuration3" placeholder="Started">TO</td>
-                                    <td><input type="date" name="endDuration3" placeholder="Ended"></td>
+                                    <td><input type="date" name="startDuration3" placeholder="Started" required>TO</td>
+                                    <td><input type="date" name="endDuration3" placeholder="Ended" required></td>
                                 </tr>
                             </div>
-                            <td><input type="text" name="certificate3" placeholder="Certificate Recieved"></td>
-                            <td><select name="completion3" id="">
+                            <td><input type="text" name="certificate3" placeholder="Certificate Recieved" required></td>
+                            <td><select name="completion3" id="" required>
                                 <option value="" selected hidden>Completion</option>
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
@@ -800,16 +787,16 @@ if (isset($_POST["submit"])) {
                         <div class="flex-column">
                             <th><h2>Carreer Service/Board/Bar</h2></th>
                             <tr>
-                                <td><input type="text" name="careerServ1" placeholder="Career Service/Board/Bar"></td>
-                                <td><input type="text" name="licenceNum1" placeholder="License Number"></td>
-                                <td><input type="text" name="expiryDate1" placeholder="Expiry Date"></td>
+                                <td><input type="text" name="careerServ1" placeholder="Career Service/Board/Bar" required></td>
+                                <td><input type="text" name="licenceNum1" placeholder="License Number" required></td>
+                                <td><input type="text" name="expiryDate1" placeholder="Expiry Date" required></td>
                                 <button class="button" onclick="addSection('eligibility-container')">Add</button>
                             </tr>
                             </div>
                             <th><h2>Language Proficiency Certification</h2></th>
                             <tr>
                                 <td>
-                                    <select class="other-select" name="languageCertifications" id="">
+                                    <select class="other-select" name="languageCertifications" id="" required>
                                         <option value="" selected hidden>Language Proficiency Certification</option>
                                         <option value="IELTS">International English Language Testing System (IELTS)</option>
                                         <option value="TOEFL">Test of English as a Foreign Language (TOEFL)</option>
@@ -820,11 +807,11 @@ if (isset($_POST["submit"])) {
                                     </select>
                                     <input type="text" class="other-input" placeholder="Other Language">
                                 </td>
-                                <td><input type="text" name="validDate" placeholder="Validity Date"></td>
+                                <td><input type="text" name="validDate" placeholder="Validity Date" required></td>
                             </tr>
                             <div class="flex-column">
                             <th><h2>Dialects Spoken</h2></th>
-                            <td><select style="width: 50%;" name="dialectsSpoken" id="">
+                            <td><select style="width: 50%;" name="dialectsSpoken" id="" required>
                                 <option value="tagalog">Tagalog</option>
                                 <option value="ilocano">Ilocano</option>
                                 <option value="ilonggo">Ilonggo</option>
@@ -853,18 +840,18 @@ if (isset($_POST["submit"])) {
                                 <label>Note: Limit the occupation for the last 10 years.<br>Start with the most recent employment</label>
                             </div>
                             <tr>
-                                <td><input type="text" name="company" placeholder="Name of Office/Company"></td>
-                                <td><input type="text" name="cpAddress" placeholder="Address"></td>
+                                <td><input type="text" name="company" placeholder="Name of Office/Company" required></td>
+                                <td><input type="text" name="cpAddress" placeholder="Address" required></td>
                             </tr>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
-                                    <td><input type="date" name="startincluDate">TO</td>
-                                    <td><input type="date" name="endincluDate"></td>
+                                    <td><input type="date" name="startincluDate" required>TO</td>
+                                    <td><input type="date" name="endincluDate" required></td>
                                 </tr>
                             </div>
                             <tr>
-                                <td><input type="text" name="position" placeholder="Position Held Received "></td>
-                                <td><select name="appointStat" id="">
+                                <td><input type="text" name="position" placeholder="Position Held Received" required></td>
+                                <td><select name="appointStat" id="" required>
                                     <option value="" selected hidden>Status of Appointment</option>
                                     <option value="permanent">Permanent</option>
                                     <option value="contractual">Contractual</option>
