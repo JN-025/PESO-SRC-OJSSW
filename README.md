@@ -10,15 +10,15 @@ Figma link: https://www.figma.com/file/UwMYowSQ4pFlpwitiVGvPn/PESO-SRC-OJSSW-(NE
 
 ![yippee-cat](https://github.com/rebo21/PESO-SRC-OJSSW/assets/129645136/d137de57-9711-4890-af07-4ed7da71e714)
   
-created by: 
+#created by: 
 
--Justine Nicole Camposano 
+#Justine Nicole Camposano 
 
--Isaiah Donelle Generoso 
+#Isaiah Donelle Generoso 
 
--Christian Froilan Isagon 
+#Christian Froilan Isagon 
 
--Jose Rebo Manguerra 
+#Jose Rebo Manguerra 
 
--Alyanna Marie Perez
+#Alyanna Marie Perez
 
