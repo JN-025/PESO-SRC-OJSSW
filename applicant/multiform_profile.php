@@ -430,7 +430,7 @@ if (isset($_POST["submit"])) {
                     <div class="stick-object">
                         <label for=""><h2>Sex<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <select class="" name="sex" required>
-                                            <option value="" selected hidden>Select Gender</option>
+                                            <option value="" selected hidden>Select Sex</option>
                                             <option value="Female">Female</option>
                                             <option value="Male">Male</option>
                                         </select>
