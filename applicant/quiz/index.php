@@ -10,6 +10,8 @@ $page_title = "Training";
     <link rel="shortcut icon" href="../../assets/img/peso.png" type="image/x-icon">
     <title>Quiz</title>
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="../../assets/css/applicant_topnav.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -17,7 +19,7 @@ $page_title = "Training";
     include "../../function.php";
     include "topnav.php";
     ?>
-    <div class="container ">
+    <div class="container">
         <div id="home" class="flex-center flex-column">
             <h1>Start Training</h1>
             <h4>* This game will test your skill and determine the most suitable job for you</h4>

@@ -9,13 +9,12 @@
   top: 0;
   left: 0;
   z-index: 5;
+  align-items: center;
 }
-.topnav .peso-logo{
-  margin: 10px;
-  background-image: url(../img/ojssw.png);
+.topnav .peso-logo img{
   background-size: 70%;
   background-repeat: no-repeat;
-  width: 20%;
+  width: 300px;
   cursor: pointer;
 }
 .list-dropdown{
@@ -23,7 +22,15 @@
   align-items: center;
 }
 .list-dropdown a{
-  margin-right: 30px;
+  margin: 0;
+  text-decoration: none;
+  color: #FFF;
+  font-family: Mohave;
+  font-weight: 600;
+  padding: 23px;
+}
+.list-dropdown-sublist a{
+  margin: 0;
   text-decoration: none;
   color: #FFF;
   font-family: Mohave;
@@ -59,12 +66,13 @@
   padding: 23px;
   background-color: #981919;
 }
+
 .topnav .right-corner{
   font-size: 25px;
   color: #fff;
   position: absolute;
   right: 0;
-  padding: 15px 15px;
+  margin: 0;
 }
 .notification-icon {
   position: relative;
@@ -167,8 +175,10 @@
 #person-dropdown a:hover {
   background-color: #999999;
 }
-
-@media only screen and (max-width: 880px) {
+.d-none{
+  display: none;
+}
+@media only screen and (max-width: 920px) {
   .topnav .peso-logo{
     margin: 10px;
     background-image: url(../img/peso.png);
@@ -176,5 +186,17 @@
     background-repeat: no-repeat;
     width: 20%;
     height: 60px;
+  }
+  .topnav .peso-logo img{
+    display: none;
+  }
+  .list-dropdown a{
+    display: none;
+  }
+  .list-dropdown-sublist{
+    display: block;
+  }
+  .list-dropdown-sublist:hover .sub-list{
+    display: block;
   }
 }

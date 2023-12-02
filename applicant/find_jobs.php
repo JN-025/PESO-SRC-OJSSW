@@ -117,7 +117,7 @@ include '../conn.php';
                             <button>Urgent Hiring</button>
                             </div>
                             <div class="search-box upper-search">
-                            <input type="text" name="search_engine_1" class="search-engine-1" placeholder="&#xf0b1; Skills, Company, or Job Title" style="font-family:Arial, FontAwesome">
+                            <input type="text" name="search_engine_1" class="search-engine-1" placeholder="&#xf0b1;&nbsp;Job Title" style="font-family:Arial, FontAwesome">
                             <input type="text" name="search_engine_2" class="search-engine-2" placeholder="&#xF842; Location">
                             <input type="text" name="search_engine_3" class="search-engine-3" placeholder="&#xF2DC; Experience">
                             <button name="search"><i class="bi bi-search"></i> Search</button>
@@ -167,21 +167,32 @@ include '../conn.php';
                             while ($row = mysqli_fetch_array($result)) {
                                 ?>
                                 <div class="description">
-                                    <div class="desc-col-1">
-                                        <h2><?php echo $row['jobTitle']; ?></h2>
+                                <div class="desc-col-1">
+                                    <h2><?php echo $row['jobTitle']; ?></h2>
+                                    <div class="info-row">
                                         <h3>Company Name:</h3><p><?php echo $row['companyName']; ?></p>
-                                        <h3>Company Industry:</h3><p><?php echo $row['industry']; ?></p>
-                                        <h3>Work Location:</h3><p><?php echo $row['workLocation']; ?></p>
-                                        <h3>Slots:</h3><p><?php echo $row['slot']; ?></p>
-                                        <h3>Salary:</h3><p>₱<?php echo $row['salary']; ?></p>
-                                        <h3>Skills:</h3><p><?php echo $row['skills']; ?></p>
+                                    </div>
+                                    <div class="info-row">
+                                        <h3 class="inline">Company Industry:</h3><p class="inline"><?php echo $row['industry']; ?></p>
+                                    </div>
+                                    <div class="info-row">
+                                        <h3 class="inline">Work Location:</h3><p class="inline"><?php echo $row['workLocation']; ?></p>
+                                    </div>
+                                    <div class="info-row">
+                                        <h3 class="inline">Slots:</h3><p class="inline"><?php echo $row['slot']; ?></p>
+                                    </div>
+                                    <div class="info-row">
+                                        <h3 class="inline">Salary:</h3><p class="inline">₱<?php echo $row['salary']; ?></p>
+                                    </div>
+                                    <div class="info-row">
+                                        <h3 class="inline">Skills:</h3><p class="inline"><?php echo $row['skills']; ?></p>
+                                    </div>
                                     </div>
                                     <div class="desc-col-2">
                                         <div>
-                                        <button onclick="openTab(<?php echo $row['c_jobpost_id']; ?>)">Apply</button>
+                                        <button onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">Apply</button>
                                         </div>
                                         <img src="<?php echo $row['img']; ?>" alt="No image">
-
                                     </div>
                                 </div>
                                 <?php
@@ -193,7 +204,7 @@ include '../conn.php';
                     } else {
                         echo "Oops! Something went wrong. Please try again later.";
                     }
-                }}
+                }} else {
                 ?><label for="" style="padding-left:10px; font-size:20px; font-weight:bold;">Recommended Jobs</label><?php
                         $sql = "SELECT * FROM c_jobpost UNION ALL SELECT * FROM p_jobpost ORDER BY date_added DESC";
                         if($result = mysqli_query($conn, $sql)){
@@ -201,35 +212,33 @@ include '../conn.php';
                                 while($row = mysqli_fetch_array($result)){
                                     ?>
                                     <div class="description">
-                             <div class="desc-col-1">
-                             <h2><?php echo $row['jobTitle']; ?></h2>
-                            <div class="info-row">
-                                <h3>Company Name:</h3><p><?php echo $row['companyName']; ?></p>
-                            </div>
-                            <div class="info-row">
-                                <h3 class="inline">Company Industry:</h3><p class="inline"><?php echo $row['industry']; ?></p>
-                            </div>
-                            <div class="info-row">
-                                <h3 class="inline">Work Location:</h3><p class="inline"><?php echo $row['workLocation']; ?></p>
-                            </div>
-                            <div class="info-row">
-                                <h3 class="inline">Slots:</h3><p class="inline"><?php echo $row['slot']; ?></p>
-                            </div>
-                            <div class="info-row">
-                                <h3 class="inline">Salary:</h3><p class="inline">₱<?php echo $row['salary']; ?></p>
-                            </div>
-                            <div class="info-row">
-                                <h3 class="inline">Skills:</h3><p class="inline"><?php echo $row['skills']; ?></p>
-                            </div>
-                             </div>
-                             <div class="desc-col-2">
-                                <div>
-                                <button onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">Apply</button>
-<!--backup hehehe-->
-                                </div>
-                                <img src="<?php echo $row['img']; ?>" alt="No image">
-
-                             </div>
+                                    <div class="desc-col-1">
+                                    <h2><?php echo $row['jobTitle']; ?></h2>
+                                    <div class="info-row">
+                                        <h3>Company Name:</h3><p><?php echo $row['companyName']; ?></p>
+                                    </div>
+                                    <div class="info-row">
+                                        <h3 class="inline">Company Industry:</h3><p class="inline"><?php echo $row['industry']; ?></p>
+                                    </div>
+                                    <div class="info-row">
+                                        <h3 class="inline">Work Location:</h3><p class="inline"><?php echo $row['workLocation']; ?></p>
+                                    </div>
+                                    <div class="info-row">
+                                        <h3 class="inline">Slots:</h3><p class="inline"><?php echo $row['slot']; ?></p>
+                                    </div>
+                                    <div class="info-row">
+                                        <h3 class="inline">Salary:</h3><p class="inline">₱<?php echo $row['salary']; ?></p>
+                                    </div>
+                                    <div class="info-row">
+                                        <h3 class="inline">Skills:</h3><p class="inline"><?php echo $row['skills']; ?></p>
+                                    </div>
+                                    </div>
+                                    <div class="desc-col-2">
+                                        <div>
+                                        <button onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">Apply</button>
+                                        </div>
+                                        <img src="<?php echo $row['img']; ?>" alt="No image">
+                                    </div>
                         </div>
                         <?php
                             }
@@ -242,6 +251,7 @@ include '../conn.php';
                 }
     
                 mysqli_close($conn);
+            }
             ?>
                     </div>
                     <div class="col-2-content-full" id="col-2-content-full">
