@@ -22,22 +22,22 @@ include '../conn.php';
 </head>
 <body>
 <?php
-    if(isset($_SESSION["form_submitted"])){
+$_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>you are now eligible to apply for jobs.</h4>";
     echo "<div class='form-modal' id='formModal'>
-            <div class='form-modal-content'>
-                <div class='modal-row'>
-                    <div class='modal-img'></div>
-                    <div class='modal-col'>
-                        <h2>{$_SESSION['form_submitted']}</h2>
-                    </div>
-                </div>
-                <div class='modal-end'><h2>Happy applying!</h2>
-                <a href='find_jobs.php'>Find Jobs</a>
-                </div>
+    <div class='form-modal-content'>
+        <div class='modal-row'>
+            <div class='modal-img'></div>
+            <div class='modal-col'>
+                <h2>You have successfully submitted your form!</h2>
             </div>
-        </div>";
+        </div>
+        <div class='modal-end'><h2>Happy applying!</h2>
+        <a href='find_jobs.php'>Find Jobs</a>
+        </div>
+    </div>
+</div>";
     unset($_SESSION["form_submitted"]);
-    }
+    
 
 ?>
 <style>

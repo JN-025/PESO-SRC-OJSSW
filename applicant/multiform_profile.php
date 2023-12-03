@@ -9,7 +9,7 @@ $applicant_id = $_SESSION['applicant_id'];
 $check = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
 $result = mysqli_query($conn, $check);
 
-if (mysqli_num_rows($result) == 0) {
+if (mysqli_num_rows($result) > 0) {
     header("Location: find_jobs.php");
     exit();
 }
@@ -244,7 +244,7 @@ if (isset($_POST["submit"])) {
         $stmt->bind_param("iiiiiiiiiis", $applicant_id,$peso_id, $ap_info_id, $ap_educ_id, $ap_prefer_id, $ap_tvo_id, $ap_elig_id, $ap_exp_id, $ap_skills_id,$ap_auth_id, $date_create_at);
 
         if ($stmt->execute()) {
-        $_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>you are now eligible to apply for jobs.</h4>";
+        $_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2>";
         header("location:find_jobs.php");
         } else {
         echo "Error inserting data into applicant_profile: " . $conn->error;

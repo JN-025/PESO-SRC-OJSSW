@@ -28,6 +28,11 @@
   font-family: Mohave;
   font-weight: 600;
   padding: 23px;
+  transition: 0.2s;
+}
+.list-dropdown a:hover{
+  color: #B22623;
+  background-color: #fff;
 }
 .list-dropdown-sublist a{
   margin: 0;

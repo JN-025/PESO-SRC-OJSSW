@@ -1,3 +1,12 @@
+<?php
+include '../../conn.php';
+session_start();
+$applicant_id = $_SESSION["applicant_id"];
+$check = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
+$result = mysqli_query($conn, $check);
+
+$formSubmitted = mysqli_num_rows($result) > 0;
+?>
 <link rel="stylesheet" href="../../assets/css/applicant_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
@@ -8,7 +17,9 @@
         <div class="list-dropdown">
                     <a href="#">Home</a>
                     <a href="../find_jobs.php" <?php echo isActivePage("../find_jobs.php"); ?>>Find Jobs</a>
+                    <?php if (!$formSubmitted) : ?>
                     <a href="../multiform_profile.php" <?php echo isActivePage("../multiform_profile.php"); ?>>NSRS FORM</a>
+                    <?php endif; ?>
                     <a href="index.php" <?php echo isActivePage("index.php"); ?>>Training</a>
                     <a href="#" <?php echo isActivePage("#"); ?>>More Details</a>
         </div>

@@ -73,7 +73,7 @@ if (isset($_GET['jobPostId'])) {
             opacity: 0.6;
             }
         .modal {
-            z-index: 5;
+            z-index: 9999;
             display: none;
             position: fixed;
             top: 0;
