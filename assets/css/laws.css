@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Londrina+Solid&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding-top: 100px;
+    overflow-y: scroll;
+}
+
+.main-container{
+    margin:0;
+    width: 100%;
+    height: 100vh;
+    padding-top: 150px;
+    background-color: white;
+    
+}
+
+.container
+{
+    width: 100%;
+    height: fit-content;
+    background-color: transparent;
+    margin-bottom: 3vh;
+}
+
+
+.container2
+{
+    height: fit-content;
+    width: 100%;
+    background-color:transparent;
+    margin-bottom: 20px;
+}
+.card
+{
+    width: 95%;
+    background-color: transparent;
+    display: flex;
+}
+
+.box {
+    position:relative;
+    width: 25%;
+    height: max-content;
+    background-color: transparent;
+    margin: 10px;
+}
+
+
+
+.laws1, 
+.laws3, 
+.laws5,
+.laws7 {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: #A81E1E;
+    color: #fff;
+    font-size: 2vw;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.laws1.active, 
+.laws3.active, 
+.laws5.active,
+.laws7.active {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: #FF7878;
+    color: #fff;
+    font-size: 1.8vw;
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.laws2, 
+.laws4, 
+.laws6,
+.laws8 {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: #F29C1A;
+    color: #fff;
+    font-size: 2vw;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.laws2.active, 
+.laws4.active, 
+.laws6.active,
+.laws8.active {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: #FBB651;
+    color: #fff;
+    font-size: 1.8vw;
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+
+.laws1 .left-icon,
+.laws1 .right-icon,
+.laws2 .left-icon,
+.laws2 .right-icon,
+.laws3 .left-icon,
+.laws3 .right-icon,
+.laws4 .left-icon,
+.laws4 .right-icon,
+.laws5 .left-icon,
+.laws5 .right-icon,
+.laws6 .left-icon,
+.laws6 .right-icon,
+.laws7 .left-icon,
+.laws7 .right-icon,
+.laws8 .left-icon,
+.laws8 .right-icon {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    width: 15px;
+    height: 5px;
+    background: #fff;
+    border-radius: 40px;
+    transition: .5s;
+}
+
+
+
+.laws1 .left-icon,
+.laws2 .left-icon,
+.laws3 .left-icon,
+.laws4 .left-icon,
+.laws5 .left-icon,
+.laws6 .left-icon,
+.laws7 .left-icon,
+.laws8 .left-icon
+ {
+    left: 7px;
+    transform: rotate(45deg);
+}
+
+.laws1.active .left-icon,
+.laws2.active .left-icon,
+.laws3.active .left-icon,
+.laws4.active .left-icon,
+.laws5.active .left-icon,
+.laws6.active .left-icon,
+.laws7.active .left-icon,
+.laws8.active .left-icon {
+    transform: rotate(135deg);
+}
+
+.laws1 .right-icon,
+.laws2 .right-icon,
+.laws3 .right-icon,
+.laws4 .right-icon,
+.laws5 .right-icon,
+.laws6 .right-icon,
+.laws7 .right-icon,
+.laws8 .right-icon {
+    transform: rotate(-45deg);
+}
+
+.laws1.active .right-icon,
+.laws2.active .right-icon,
+.laws3.active .right-icon,
+.laws4.active .right-icon,
+.laws5.active .right-icon,
+.laws6.active .right-icon,
+.laws7.active .right-icon,
+.laws8.active .right-icon {
+    transform: rotate(-135deg);
+}
+
+.laws1 .items,
+.laws2 .items,
+.laws3 .items,
+.laws4 .items,
+.laws5 .items,
+.laws6 .items,
+.laws7 .items,
+.laws8 .items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    margin-top: 63px;
+    overflow: hidden;
+    visibility: hidden;
+    transition: .5s;
+}
+
+.laws1.active .items,
+.laws2.active .items,
+.laws3.active .items,
+.laws4.active .items,
+.laws5.active .items,
+.laws6.active .items,
+.laws7.active .items,
+.laws8.active .items {
+    visibility: visible;
+}
+
+.laws1 .items a,
+.laws3 .items a,
+.laws5 .items a,
+.laws7 .items a {
+    position: relative;
+    height: 350px;;
+    bottom: 100%;
+    display: flex;
+    font-size: 20px;
+    background-image: url(../img/laws1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #890101;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-top: 2.5px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+    transition-delay: calc(60ms * var(--i));
+}
+
+.laws2 .items a,
+.laws4 .items a,
+.laws6 .items a,
+.laws8 .items a {
+    position: relative;
+    height: 350px;;
+    bottom: 100%;
+    display: flex;
+    font-size: 20px;
+    background-image: url(../img/laws2.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #F29C1A;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-top: 2.5px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+    transition-delay: calc(60ms * var(--i));
+}
+
+h1
+{
+    font-size: 1.2vw;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+h2
+{
+    font-size: 0.9vw;
+    color: black;
+    text-align: center;
+    font-weight: normal;
+}
+
+.laws1.active .items a,
+.laws2.active .items a,
+.laws3.active .items a,
+.laws4.active .items a,
+.laws5.active .items a,
+.laws6.active .items a,
+.laws7.active .items a,
+.laws8.active .items a {
+    bottom: 0;
+}
+
+.laws1 .items a:hover,
+.laws2 .items a:hover,
+.laws3 .items a:hover,
+.laws4 .items a:hover,
+.laws5 .items a:hover,
+.laws6 .items a:hover,
+.laws7 .items a:hover,
+.laws8 .items a:hover {
+    color: #fff;
+}
+
+.laws1 .items a span,
+.laws3 .items a span,
+.laws5 .items a span,
+.laws7 .items a span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #FF7878;
+    z-index: -1;
+    border-radius:inherit;
+    transform: rotate(180deg);
+    transform-origin: bottom;
+    transition: .5s;
+}
+
+.laws2 .items a span,
+.laws4 .items a span,
+.laws5 .items a span,
+.laws8 .items a span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #FBB651;
+    z-index: -1;
+    border-radius:inherit;
+    transform: rotate(180deg);
+    transform-origin: bottom;
+    transition: .5s;
+}
+
+.laws1 .items a:hover span,
+.laws2 .items a:hover span,
+.laws3 .items a:hover span,
+.laws4 .items a:hover span,
+.laws5 .items a:hover span,
+.laws6 .items a:hover span,
+.laws7 .items a:hover span,
+.laws8 .items a:hover span {
+    transform: rotate(0deg);
+}
+
+.info
+{
+    width: 95%;
+    height: 200px;
+    background-color: transparent;
+}
