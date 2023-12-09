@@ -17,7 +17,9 @@ $formSubmitted = mysqli_num_rows($result) > 0;
                 <a href="#">Home</a>
                 <a href="find_jobs.php" <?php echo isActivePage("find_jobs.php"); ?>>Find Jobs</a>
                 <?php if (!$formSubmitted) : ?>
+                    <div class="rainbow">
                 <a href="multiform_profile.php" <?php echo isActivePage("multiform_profile.php"); ?>>NSRS FORM</a>
+                </div>
                 <?php endif; ?>
                 <a href="quiz/index.php" <?php echo isActivePage("quiz/index.php"); ?>>Training</a>
                  <a href="#" <?php echo isActivePage("#"); ?>>More Details</a>
@@ -51,7 +53,7 @@ $formSubmitted = mysqli_num_rows($result) > 0;
             <i class="bi bi-person-fill icon" id="person-icon"></i>
             <div class="dropdown-content" id="person-dropdown">
                 <a href="multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
-                <a href="#"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
+                <a href="user_settings.php"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
                 <a href="signout.php"><i class="bi bi-box-arrow-in-right" style="margin-left: 18px;left: 0; position:absolute;"></i>Logout</a>
             </div>
         </div>

@@ -1,0 +1,299 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Mohave;
+}
+:root{
+    --primary-color: #fff;
+    --secondary-color: #000;
+    --tertiary-color: #B22623;
+    --quaternary-color: #474747;
+    transition: 0.4s;
+}
+.dark-theme{
+    --primary-color: rgb(21, 32, 43);
+    --secondary-color: #fff;
+    --tertiary-color: #eb3835;
+    --quaternary-color: #fff;
+}
+.settings-main-container{
+    margin-top: 70px;
+    width: 100%;
+    overflow-y: hidden;
+}
+.settings-main-container .settings-main-row{
+    display: flex;
+}
+.settings-main-container .setting_nav{
+    position: fixed;
+    width: 20%;
+    height: 100vh;
+    background: var(--primary-color);
+    box-shadow: 8px 0px 8px -3px rgba(0, 0, 0, 0.21);
+    text-align: center;
+}
+.card{
+    border: solid 2px #888888;
+    padding: 30px;
+}
+.card h2{
+    color: var(--secondary-color);
+    margin-top: 5px;
+    font-family: Mohave;
+}
+.card img{
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+}
+.sublist-nav{
+    padding: 10px 0;
+    background-color: var(--tertiary-color);
+}
+.sublist-nav a{
+    font-size: 19px;
+    text-decoration: none;
+    color: #fff;
+}
+.isactive{
+    background-color: var(--tertiary-color);
+}
+.settings-main-container .card label{
+    cursor: pointer;
+    color: #fff;
+    display: block;
+    background-color: #B22623;
+    padding: 5px;
+    margin: 10px 10px;
+    transition: 0.2s;
+}
+.settings-main-container .card label:hover{
+    opacity: 0.6;
+}
+.settings-main-container .col-1{
+    background-color: var(--primary-color);
+    width: 100%;
+    margin-left: 20%;
+    padding: 50px;
+}
+.settings-main-container .flex-col{
+    display: flex;
+}
+.input-tag{
+    margin-right: 5px;
+}
+input{
+    font-size: 16px;
+    height: 30px;
+    padding-left: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 2px solid #939393;
+}
+/*button section*/
+.settings-main-container .update-btn{
+    margin-top: 5px;
+    color: #fff;
+    padding: 8px 5px;
+    border: none;
+    border-radius: 4px;
+    background: #DF6B00;
+}
+.settings-main-container .edit-btn {
+    transform: scale(0.5);
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: 2px solid #B22623;
+    background: #B22623;
+}
+.settings-main-container .primary-btn{
+    font-size: 16px;
+    margin-top: 40px;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    background: #B22623;
+}
+button{
+    transition: 0.4s;
+}
+button:hover {
+    opacity: 0.7;
+}
+
+.settings-main-container h1{
+    color: var(--secondary-color);
+    font-family: Poppins;
+}
+.settings-main-container label{
+    color: var(--tertiary-color);
+    text-align: center;
+    font-family: Mohave;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.input-flex-col{
+    width: 100%;
+    display: flex;
+}
+.input-flex-col input{
+    width: 216px;
+}
+.input-col{
+    display: block;
+    margin-top: 15px;
+}
+.input-tag{
+    display: flex;
+    flex-direction: column;
+}
+.input-tag label{
+    color: var(--quaternary-color);
+    text-align: center;
+    font-family: Mohave;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.d-flex-center{
+    display: flex;
+    align-items: center;
+}
+/**ICONS*/
+.help-icon{
+    color: var(--secondary-color);
+    display: flex;
+    position: relative;
+}
+.more-info{
+    color: var(--secondary-color);
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 30px;
+    position: absolute;
+    background-color: rgba(139, 152, 165, 0.4);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    padding: 5px;
+    width: 100px;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+.help-icon:hover .more-info{
+    opacity: 1;
+    visibility: visible;
+}
+.gg-pen {
+    bottom: 2px;
+    color: #fff;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: rotate(-45deg) scale(var(--ggs,1));
+    width: 14px;
+    height: 4px;
+    border-right: 2px solid transparent;
+    box-shadow:
+        0 0 0 2px,
+        inset -2px 0 0;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    margin-right: -2px
+}
+.gg-pen::after,
+.gg-pen::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute
+}
+.gg-pen::before {
+    background: currentColor;
+    border-left: 0;
+    right: -6px;
+    width: 3px;
+    height: 4px;
+    border-radius: 1px;
+    top: 0
+}
+.gg-pen::after {
+    width: 8px;
+    height: 7px;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 7px solid;
+    left: -11px;
+    top: -2px
+}
+/* The switch - the box around the slider */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+    transform: scale(0.8);
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2196F3;
+    transition: .4s;
+    border-radius: 30px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 20px;
+    left: 0.3em;
+    bottom: 0.3em;
+    background-color: yellow;
+    transition: .4s;
+  }
+  
+  .switch input:checked + .slider:before {
+    background-color: black;
+    border-radius: 50px;
+    box-shadow: inset 9px 0px 1px 0px white;
+  }
+  
+  .switch input:checked + .slider {
+    background-color: black;
+  }
+  
+  .switch input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  .switch input:checked + .slider:before {
+    transform: translateX(1.5em);
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .flex-col-1{
+        display: inline-block;
+    }
+    .flex-col-1 label{
+        display: none;
+    }
+  }

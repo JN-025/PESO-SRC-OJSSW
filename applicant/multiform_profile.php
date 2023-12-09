@@ -369,7 +369,7 @@ if (isset($_POST["submit"])) {
                         <input type="text" onkeydown="restrictName(event)"name="firstName" placeholder="First Name" value="<?php echo $row["firstname"];?>" required maxlength="50">
                         <input type="text" onkeydown="restrictName(event)" name="lastName" placeholder="Last Name" value="<?php echo $row["lastname"];?>" required maxlength="50">
                         <input type="text" onkeydown="restrictName(event)" name="midName" placeholder="Middle Name" required maxlength="50">
-                        <input style="width:30px;" onkeydown="restrictName(event)" type="text" placeholder="Jr." name="suffix" maxlength="10">
+                        <input style="width:50px;" onkeydown="restrictName(event)" type="text" placeholder="Suffix" name="suffix" maxlength="10">
                     </div>
                     <div class="mt-3">
   
@@ -781,10 +781,10 @@ if (isset($_POST["submit"])) {
                     </div>
                     <h1 class="mt-3 font-normal">V. Eligibility</h1>
                     <!-- Step 5 input fields -->
-                    <div class="table-container" id="eligibility-container">
+                    <div class="table-container">
                     <div class="step-container">
                     <div class="mt-3">
-                        <div class="flex-column">
+                        <div class="flex-column" id="eligibility-container">
                             <th><h2>Carreer Service/Board/Bar</h2></th>
                             <tr>
                                 <td><input type="text" name="careerServ1" placeholder="Career Service/Board/Bar" required></td>

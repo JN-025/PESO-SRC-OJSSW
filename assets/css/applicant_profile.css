@@ -347,6 +347,7 @@ select option{
     border: 2px solid #B6B6B6;
   }
   section select{
+    height: 28px;
     padding: 0;
     text-align: center;
   }
@@ -367,6 +368,11 @@ select option{
     border-radius: 10px;
     font-size: 15px;
     color:rgb(37, 32, 32);
+}
+.addremovebtn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
   /*DEFINED CLASS SIZE*/
   .width-max input{

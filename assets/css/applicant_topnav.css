@@ -17,11 +17,11 @@
   width: 300px;
   cursor: pointer;
 }
-.list-dropdown{
+.topnav .list-dropdown{
   display: flex;
   align-items: center;
 }
-.list-dropdown a{
+.topnav .list-dropdown a{
   margin: 0;
   text-decoration: none;
   color: #FFF;
@@ -30,18 +30,18 @@
   padding: 23px;
   transition: 0.2s;
 }
-.list-dropdown a:hover{
+.topnav .list-dropdown a:hover{
   color: #B22623;
   background-color: #fff;
 }
-.list-dropdown-sublist a{
+.topnav .list-dropdown-sublist a{
   margin: 0;
   text-decoration: none;
   color: #FFF;
   font-family: Mohave;
   font-weight: 600;
 }
-.sub-list {
+.topnav .sub-list {
   display: none;
   position: absolute;
   background-color: #fff;
@@ -50,10 +50,10 @@
   z-index: 1;
   border-radius: 6px;
 }
-.list-dropdown:hover .sub-list {
+.topnav .list-dropdown:hover .sub-list {
   display: block;
 }
-.sub-list a {
+.topnav .sub-list a {
   font-family: 'Mohave', serif;
   font-size: 18px;
   color: #A81E1E;
@@ -61,7 +61,7 @@
   text-decoration: none;
   display: block;
 }
-.sub-list a:hover {
+.topnav .sub-list a:hover {
   border-radius: 6px;
   background-color: #f2f2f2;
 }
@@ -79,12 +79,12 @@
   right: 0;
   margin: 0;
 }
-.notification-icon {
+.topnav .notification-icon {
   position: relative;
   display: inline-block;
 }
 
-#bell-icon {
+.topnav #bell-icon {
     position: relative;
     padding: 13px;
     font-size: 24px;
@@ -92,17 +92,17 @@
     cursor: pointer;   
     transition: 0.2s;
 }
-.icon:hover{
+.topnav .icon:hover{
     color: #B22623;
     background-color: #fff;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-.icon.clicked {
+.topnav .icon.clicked {
     color: #B22623;
     background-color: #fff;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   }
-#notification-dropdown {
+.topnav #notification-dropdown {
   font-size: 15px;
   color: #000;
   display: none;
@@ -115,39 +115,39 @@
   min-width: 200px;
   z-index: 1;
 }
-.notification-dropdown .col-1{
+.topnav .notification-dropdown .col-1{
   justify-content: space-between;
   display: flex;
   height: 20px;
   border-bottom: 1px solid #999999;
 }
-.notification-dropdown .col-1 a{
+.topnav .notification-dropdown .col-1 a{
   padding: 0 2px;
   text-decoration: none;
 }
-.notification-dropdown .col-2{
+.topnav .notification-dropdown .col-2{
   color: #999999;
   padding: 20px 0;
   text-align: center;
 }
-.notification-dropdown .col-2 i{
+.topnav .notification-dropdown .col-2 i{
   font-size: 30px;
 }
-.notification {
+.topnav .notification {
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
 
-.notification:last-child {
+.topnav .notification:last-child {
   border-bottom: none;
 }
-.dropdown {
+.topnav .dropdown {
   position: relative;
   display: inline-block;
   margin-right: 20px;
 }
 
-#person-icon {
+.topnav #person-icon {
     position: relative;
     padding: 13px;
     font-size: 24px;
@@ -156,7 +156,7 @@
     transition: 0.2s;
 }
 
-#person-dropdown {
+.topnav #person-dropdown {
   font-size: 15px;
   color: #000;
   display: none;
@@ -170,18 +170,65 @@
   z-index: 1;
 }
 
-#person-dropdown a {
+.topnav #person-dropdown a {
   text-align: center;
   padding: 10px;
   text-decoration: none;
   display: block;
   color: #000;
 }
-#person-dropdown a:hover {
+.topnav #person-dropdown a:hover {
   background-color: #999999;
 }
-.d-none{
+.topnav .d-none{
   display: none;
+}
+input:disabled {
+  background-color: rgba(14, 30, 37, 0.12);
+}
+@keyframes rotate {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+.rainbow {
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: sans-serif;
+	font-weight: bold;
+	
+	&::before {
+		content: '';
+		position: absolute;
+		z-index: -2;
+		left: -50%;
+		top: -50%;
+		width: 200%;
+		height: 200%;
+		background-color: #399953;
+		background-repeat: no-repeat;
+		background-size: 50% 50%, 50% 50%;
+		background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+		background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+		animation: rotate 4s linear infinite;
+	}
+	
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 6px;
+		top: 6px;
+		width: calc(100% - 12px);
+		height: calc(100% - 12px);
+    background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+		border-radius: 5px;
+	}
 }
 @media only screen and (max-width: 920px) {
   .topnav .peso-logo{
@@ -195,13 +242,13 @@
   .topnav .peso-logo img{
     display: none;
   }
-  .list-dropdown a{
+  .topnav .list-dropdown a{
     display: none;
   }
-  .list-dropdown-sublist{
+  .topnav .list-dropdown-sublist{
     display: block;
   }
-  .list-dropdown-sublist:hover .sub-list{
+  .topnav .list-dropdown-sublist:hover .sub-list{
     display: block;
   }
 }

@@ -18,7 +18,9 @@ $formSubmitted = mysqli_num_rows($result) > 0;
                     <a href="#">Home</a>
                     <a href="../find_jobs.php" <?php echo isActivePage("../find_jobs.php"); ?>>Find Jobs</a>
                     <?php if (!$formSubmitted) : ?>
+                        <div class="rainbow">
                     <a href="../multiform_profile.php" <?php echo isActivePage("../multiform_profile.php"); ?>>NSRS FORM</a>
+                    </div>
                     <?php endif; ?>
                     <a href="index.php" <?php echo isActivePage("index.php"); ?>>Training</a>
                     <a href="#" <?php echo isActivePage("#"); ?>>More Details</a>
