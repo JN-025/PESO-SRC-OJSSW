@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Londrina+Solid&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding-top: 100px;
+    overflow-y: scroll;
+}
+
+.main-container{
+    margin:0;
+    width: 100%;
+    height: fit-content;
+    padding-top: 150px;
+    background-color: white;
+    padding-bottom: 100px;
+    
+}
+
+.container
+{
+    background-color: transparent;
+    width: 95%;
+    height: fit-content;
+    margin:0;
+    padding: 20px;
+}
+
+.container h1
+{
+    font-family: Rowdies;
+    font-size: 3.5vw;
+    color: #C87800;
+    text-align: center;
+}
+
+.container h2
+{
+    font-family: Rowdies;
+    font-size: 2vw;
+    color: #F4A630;
+    text-align: center;
+}
+
+.card
+{
+    background-color: transparent;
+    width: 90%;
+    height: fit-content;
+    padding-top: 20px;
+    display: flex;
+}
+
+.box
+{
+    border-radius: 18px;
+    background: #A81E1E;
+    box-shadow: 4px 7px 9.4px 0px #F94A4A inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 30%;
+    height: fit-content;
+    margin: 3%;
+    padding: 1.5%;
+}
+
+.box h3
+{
+    font-family: Poppins;
+    font-size: 1.8vw;
+    color: white;
+    font-weight: bold;
+}
+
+.box h4
+{
+    font-family: Poppins;
+    font-size: 1.3vw;
+    color: white;
+    font-weight: bold;
+}
+
+.box h5
+{
+    font-family: Poppins;
+    font-size: 1.5vw;
+    color: white;
+    font-weight: bold;
+}
+
+.images
+{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.images2
+{
+    width: 86%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.images3
+{
+    width: 97%;
+    height: auto;
+    margin-top: 20px;
+}
