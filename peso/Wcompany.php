@@ -226,7 +226,7 @@ $page_title = "Walk-in";
 
 <!-- View Company Modal -->
 <div class="modal fade" id="companyViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" >
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">View Company</h5>
