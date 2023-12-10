@@ -39,20 +39,27 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
+        if (isset($_POST["remember"])){
+            $remember = $_POST["remember"];
+        }
+
         $sql = "SELECT * FROM a_accounttb WHERE email='$email' AND password='$password'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
             $_SESSION['applicant_id'] = $row['applicant_id'];
-
-
-      /*  if (isset($_POST['remember'])) {
-            $cookie_name = "remember_me_email";
-            $cookie_value = $email;
-            $cookie_expire = time() + (30 * 24 * 3600); // 30 days
-            setcookie($cookie_name, $cookie_value, $cookie_expire, "/");
-        }*/
+            $_SESSION["email"] = $email;
+            $_SESSION["password"] = $password;
+            if (isset($_POST["remember"])){
+                $remember = $_POST["remember"];
+                setcookie("remember_email", $email,time() + 3600*24*365);
+                setcookie("remember", $remember,time() + 3600*24*365);
+            }
+            else {
+                setcookie("remember_email", $email,time() - 3600*24*365);
+                setcookie("remember", $remember,time() - 3600*24*365);
+            }
             if (empty($row['code'])) {
                 $_SESSION['SESSION_EMAIL'] = $email;
                 header("Location: find_jobs.php");
@@ -132,8 +139,8 @@
                     <input type="password" placeholder="Password" name="password" id="myInput1" oninput="validatePassword()" required maxlength="20">
                     </div>
                     <div class="form-col-1 no-text-align">
-                    <input type="checkbox" name="remember">
-                    <label for="">&nbsp;Remember Me</label>
+                    <input id="check-box" type="checkbox" name="remember">
+                    <label for="check-box">&nbsp;Remember Me</label>
                     </div>
                     <div class="form-col-1 display-flex">
                     <a href="forgot_password.php">Forgot Password</a>

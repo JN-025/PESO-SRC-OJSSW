@@ -153,7 +153,7 @@ input[type=text], input[type=password], input[type=number], input[type=email], s
     border-radius: 20px;
     box-shadow: 0px 4px 4px 0px #D72121 inset;
     box-shadow: 0px 4px 4px 0px #770B0B;    
-    transition: 0.2s;
+    transition: 0.4s;
     font-family: 'Mohave', sans-serif;
 }
 .form-col-1 button:hover{
@@ -168,6 +168,12 @@ input[type=text], input[type=password], input[type=number], input[type=email], s
     letter-spacing: 0em;
     text-align: center;
 
+}
+a{
+    transition: 0.4s;
+}
+a:hover{
+    opacity: 0.6;
 }
 button:active{
     transform: translateY(4px);

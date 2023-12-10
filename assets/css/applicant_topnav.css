@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Luckiest+Guy&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
+:root{
+  --primary-color: #fff;
+  --secondary-color: #000;
+  --tertiary-color: #B22623;
+  --quaternary-color: #474747;
+  transition: 0.4s;
+}
+.dark-theme{
+  --primary-color: rgb(21, 32, 43);
+  --secondary-color: #fff;
+  --tertiary-color: #eb3835;
+  --quaternary-color: #fff;
+}
 .topnav{
   display: flex;
   height: 70px;
