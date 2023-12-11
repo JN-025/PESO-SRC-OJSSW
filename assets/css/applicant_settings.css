@@ -132,6 +132,7 @@ button:hover {
 .input-flex-col{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
 }
 .input-flex-col input{
     width: 216px;
@@ -281,11 +282,11 @@ button:hover {
     transform: translateX(1.5em);
   }
 
-  @media only screen and (max-width: 1200px) {
+  /**@media only screen and (max-width: 1200px) {
     .flex-col-1{
         display: inline-block;
     }
     .flex-col-1 label{
         display: none;
     }
-  }
+  }*/

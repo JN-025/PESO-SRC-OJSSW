@@ -11,7 +11,7 @@ if (isset($_GET['jobPostId'])) {
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $description = nl2br(htmlspecialchars($row['description']));
-        $jobDetails = '<div class="col-2-content">'.'<div class="description"style="position:relative;  ">' .
+        $jobDetails = '<div class="col-2-content" style="position: sticky; top: 0;">'.'<div class="description"style="flex-wrap: wrap; height:80vh;position:relative; overflow-y: auto;">' .
             '<div class="desc-col-1" style="padding: 30px 10px; margin: 0; border: 2px solid none; border-radius: 10px; flex: 1;">' .
             '<h2 style="margin-bottom: 10px;font-size: 30px; font-weight: bold;">' . $row['jobTitle'] . '</h2>' .
             '<h3 style="font-size: 14px;">Company Name: <span style="font-weight:400">' . $row['companyName'] . '</span></h3>' .
@@ -19,19 +19,21 @@ if (isset($_GET['jobPostId'])) {
             '<h3 style="font-size: 14px;">Salary: <span style="font-weight:400">' .'₱'. $row['salary'] . '</span></h3>' .
             '<h3 style="font-size: 14px;">Work Location: <span style="font-weight:400">' . $row['workLocation'] . '</span></h3>' .
             '<h3 style="font-size: 14px;">Slots: <span style="font-weight:400">' . $row['slot'] . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Job Information: <span style="font-weight:400">' . '<p style="text-align: justify;">'.$description.'</p>' . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Skills: <span style="font-weight:400">' . $row['skills'] . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Experience: <span style="font-weight:400">' . $row['yrsExperience'] . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Educational Attainment: <span style="font-weight:400">' . $row['educBg'] . '</span></h3>' .
             '</div>' .
             '<div class="desc-col-2" style="position:relative;flex: 0 0 30%;">' .
             '<div>' .
             '<div class="full-img">'.
             '<img style="width:150px;height: 150px;border-radius:10px;"src="' . $row['img'] . '" alt="">' .
             '</div>'.
-            '</div>' .
 
             '<a href="#question_form" id="modal-link" class="a-modal">Apply</a>' .
+            '</div>' .
+            '</div>'.
+            '<div style="display: block;">'.
+            '<h3 style="font-size: 14px;">Job Information: <span style="font-weight:400">' . '<p style="text-align: justify;">'.$description.'</p>' . '</span></h3>' .
+            '<h3 style="font-size: 14px;">Skills: <span style="font-weight:400">' . $row['skills'] . '</span></h3>' .
+            '<h3 style="font-size: 14px;">Experience: <span style="font-weight:400">' . $row['yrsExperience'] . '</span></h3>' .
+            '<h3 style="font-size: 14px;">Educational Attainment: <span style="font-weight:400">' . $row['educBg'] . '</span></h3>' .
             '</div>' .
             '</div>';
 
@@ -67,7 +69,7 @@ if (isset($_GET['jobPostId'])) {
             box-shadow: 0px 4px 4px 0px #770B0B40; 
             border-radius: 10px;
             cursor: pointer;
-            transition: 0.2s;
+            transition: 0.4s;
             }
         .a-modal:hover{
             opacity: 0.6;
@@ -131,6 +133,12 @@ if (isset($_GET['jobPostId'])) {
         .close:focus {
             color: black;
             cursor: pointer;
+        }
+        .modal-content{
+            width: 500px;
+            margin-top: 70px;
+            height: 80%;
+            overflow-y: auto;
         }
         .company-question{
             position: relative;

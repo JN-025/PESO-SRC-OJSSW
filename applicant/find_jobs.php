@@ -258,7 +258,7 @@ include '../conn.php';
                             if (mysqli_num_rows($result) > 0) {
                                 while($row = mysqli_fetch_array($result)){
                                     ?>
-                                    <div class="description">
+                                    <div class="description set-width">
                                     <div class="desc-col-1">
                                     <h2><?php echo $row['jobTitle']; ?></h2>
                                     <div class="info-row">
