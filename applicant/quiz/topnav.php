@@ -14,7 +14,6 @@ $formSubmitted = mysqli_num_rows($result) > 0;
         <img src="../../assets/img/ojssw.png" alt="PESO-Logo" srcset="">
     </div>
     <div class="list-dropdown">
-                <a href="#">Home</a>
                 <a href="../find_jobs.php" <?php echo isActivePage("../find_jobs.php"); ?>>Find Jobs</a>
                 <?php if (!$formSubmitted) : ?>
                     <div class="rainbow">
@@ -27,7 +26,6 @@ $formSubmitted = mysqli_num_rows($result) > 0;
     <div class="list-dropdown-sublist d-none">
         <a href="" class="sub-active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
         <div class="sub-list" id="nav_title">
-                <a href="../homepage.php"><i class="bi bi-house-door-fill"></i>&nbsp;Home</a>
                 <a href="../find_jobs.php"><i class="bi bi-search"></i>&nbsp;Find Jobs</a>
                 <a href="../multiform_profile.php"><i class="bi bi-bookmark"></i>&nbsp;NSRS FORM</a>
                 <a href="index.php"><i class="bi bi-controller"></i>&nbsp;Training</a>
@@ -52,9 +50,9 @@ $formSubmitted = mysqli_num_rows($result) > 0;
         <div class="dropdown">
             <i class="bi bi-person-fill icon" id="person-icon"></i>
             <div class="dropdown-content" id="person-dropdown">
-                <a href="multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
-                <a href="user_settings.php"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
-                <a href="signout.php"><i class="bi bi-box-arrow-in-right" style="margin-left: 18px;left: 0; position:absolute;"></i>Logout</a>
+                <a href="../multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
+                <a href="../user_settings.php"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
+                <a href="../signout.php"><i class="bi bi-box-arrow-in-right" style="margin-left: 18px;left: 0; position:absolute;"></i>Logout</a>
             </div>
         </div>
     </div>
