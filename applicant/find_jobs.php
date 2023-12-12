@@ -247,7 +247,7 @@ include '../conn.php';
                         echo "Oops! Something went wrong. Please try again later.";
                     }
                 }} else {
-                ?><label for="" style="padding-left:10px; font-size:20px; font-weight:bold;">Recommended Jobs</label><?php
+                ?><?php
                         $sql = "SELECT * FROM c_jobpost UNION ALL SELECT * FROM p_jobpost ORDER BY date_added DESC";
                         if($result = mysqli_query($conn, $sql)){
                             if (mysqli_num_rows($result) > 0) {

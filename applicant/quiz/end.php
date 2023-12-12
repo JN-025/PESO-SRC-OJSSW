@@ -1,5 +1,8 @@
 <?php
 $page_title = "Training";
+include "../../conn.php";
+session_start();
+$applicant_id = $_SESSION["applicant_id"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
