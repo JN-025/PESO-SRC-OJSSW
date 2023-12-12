@@ -365,11 +365,22 @@ if (isset($_POST["submit"])) {
                     <!-- Step 1 input fields -->
                     <div class="mt-3">
                         <!--input field insert-->
-                        <label for=""><h2>Name<span class="required-asterisk">&nbsp;*</span></h2></label>
+                        <div class="label-inline-block">
+                        <label for=""><h2>First Name<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input type="text" onkeydown="restrictName(event)"name="firstName" placeholder="First Name" value="<?php echo $row["firstname"];?>" required maxlength="50">
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>Last Name<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input type="text" onkeydown="restrictName(event)" name="lastName" placeholder="Last Name" value="<?php echo $row["lastname"];?>" required maxlength="50">
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>Middle Name<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input type="text" onkeydown="restrictName(event)" name="midName" placeholder="Middle Name" required maxlength="50">
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>Suffix</h2></label>
                         <input style="width:50px;" onkeydown="restrictName(event)" type="text" placeholder="Suffix" name="suffix" maxlength="10">
+                        </div>
                     </div>
                     <div class="mt-3">
   
@@ -442,20 +453,48 @@ if (isset($_POST["submit"])) {
                     </div>
                     </div>
                     <div class="mt-3">
+                    <div class="label-inline-block">
                     <label for=""><h2>Permanent Address<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input style="width: 100px"type="text" name="housenumPermanent" placeholder="House #" required maxlength="10">
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>St./Subd.<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input style="width: 100px"type="text" name="subdPermanent" placeholder="St./Subd." required maxlength="20">
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>Barangay<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input style="width:90px;"type="text" name="brgyPermanent" placeholder="Barangay" required maxlength="50">
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>City<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input type="text" name="cityPermanent" placeholder="City" required maxlength="50" required>
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>Province<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input type="text" name="provincePermanent" placeholder="Province" required maxlength="50" required>
+                        </div>
                     </div>
                     <div class="mt-3">
+                    <div class="label-inline-block">
                     <label for=""><h2>Present Address<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input style="width: 100px;"type="text" name="housenumPresent" placeholder="House #" required maxlength="10">
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>St./Subd.<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input style="width: 100px"type="text" name="subdPresent" placeholder="St./Subd." required maxlength="20">
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>Barangay<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input style="width:90px;"type="text"name="brgyPresent" placeholder="Barangay" required maxlength="50">
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>City<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input type="text" name="cityPresent" placeholder="City" required maxlength="50" required>
+                        </div>
+                        <div class="label-inline-block">
+                        <label for=""><h2>Province<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input type="text" name="provincePresent" placeholder="Province" required maxlength="50" required>
+                        </div>
                     </div>
                     <div class="mt-3 form-row">
                     <div class="stick-object">

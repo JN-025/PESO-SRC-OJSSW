@@ -115,7 +115,7 @@ if($result = mysqli_query($conn, $result)){
             </div>
                 </div>
                 <div class="input-col">
-                <button class="primary-btn">LOG OUT</button>
+                <button class="primary-btn" onclick="location.href='signout.php'">LOG OUT</button>
                 </div>
                 <div class="input-col">
                 <button class="primary-btn">DELETE ACCOUNT</button>

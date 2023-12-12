@@ -39,11 +39,11 @@ $formSubmitted = mysqli_num_rows($result) > 0;
             <div class="field-space"></div>
             <i class="bi bi-bell icon" id="bell-icon"></i>
             <div class="notification-dropdown" id="notification-dropdown">
-                <div class="col-1">
-                    <a href="">Notification</a>
+                <div class="topnav-col-1">
+                    <span>Notification</span>
                     <a href="">See All</a>
                 </div>
-                <div class="col-2">
+                <div class="topnav-col-2">
                 <i class="bi bi-x-circle"></i>
                 <p id="notification-message">No notifications available</p>
                 </div>

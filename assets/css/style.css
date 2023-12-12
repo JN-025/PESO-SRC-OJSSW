@@ -1,0 +1,40 @@
+.datepicker-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .datepicker-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  .datepicker-calendar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+
+  .datepicker-calendar table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+  }
+
+  .datepicker-calendar th, .datepicker-calendar td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+
+  .datepicker-calendar th {
+    background: #f2f2f2;
+  }

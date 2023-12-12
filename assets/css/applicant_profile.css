@@ -60,7 +60,7 @@ h2 {
     box-shadow: 0px 4px 4px 0px #D52121 inset, 0px 4px 4px 0px #DEC4C4;
 }
 .mt-3 {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 90%;
     background-color: transparent;
 }
@@ -201,6 +201,7 @@ ul.form-stepper li a .form-stepper-circle {
 }
 .form-row {
     display: flex;
+    flex-wrap: wrap;
 }
 .stick-object:last-child {
     margin-right: 0; 
@@ -373,6 +374,9 @@ select option{
     width: 100%;
     display: flex;
     justify-content: center;
+}
+.label-inline-block{
+    display: inline-block;
 }
   /*DEFINED CLASS SIZE*/
   .width-max input{
