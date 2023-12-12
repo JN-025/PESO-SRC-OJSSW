@@ -11,7 +11,7 @@ if (isset($_GET['jobPostId'])) {
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $description = nl2br(htmlspecialchars($row['description']));
-        $jobDetails = '<div class="col-2-content" style="position: sticky; top: 0;">'.'<div class="description"style="flex-wrap: wrap; height:80vh;position:relative; overflow-y: auto;">' .
+        $jobDetails = '<div class="col-2-content" style="position: sticky; top: 75px;">'.'<div class="description"style="flex-wrap: wrap; height:80vh;position:relative; overflow-y: auto;">' .
             '<div class="desc-col-1" style="padding: 30px 10px; margin: 0; border: 2px solid none; border-radius: 10px; flex: 1;">' .
             '<h2 style="margin-bottom: 10px;font-size: 30px; font-weight: bold;">' . $row['jobTitle'] . '</h2>' .
             '<h3 style="font-size: 14px;">Company Name: <span style="font-weight:400">' . $row['companyName'] . '</span></h3>' .

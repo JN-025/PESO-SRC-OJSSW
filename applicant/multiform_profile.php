@@ -454,7 +454,7 @@ if (isset($_POST["submit"])) {
                     </div>
                     <div class="mt-3">
                     <div class="label-inline-block">
-                    <label for=""><h2>Permanent Address<span class="required-asterisk">&nbsp;*</span></h2></label>
+                    <label for=""><h2>House #<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input style="width: 100px"type="text" name="housenumPermanent" placeholder="House #" required maxlength="10">
                         </div>
                         <div class="label-inline-block">
@@ -476,7 +476,7 @@ if (isset($_POST["submit"])) {
                     </div>
                     <div class="mt-3">
                     <div class="label-inline-block">
-                    <label for=""><h2>Present Address<span class="required-asterisk">&nbsp;*</span></h2></label>
+                    <label for=""><h2>House #<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input style="width: 100px;"type="text" name="housenumPresent" placeholder="House #" required maxlength="10">
                         </div>
                         <div class="label-inline-block">
