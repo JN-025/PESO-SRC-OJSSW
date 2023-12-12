@@ -305,7 +305,7 @@ include '../conn.php';
             </div>
         </div>
     </div>
-    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/darkmode.js"></script>
 </body>
 </html>
 <script>

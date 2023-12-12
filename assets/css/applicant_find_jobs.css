@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
 /*loader*/
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: var(--primary-color);
+}
 .loader {
     background-color: rgba(255,255,255,0.1);
     z-index: 5;
@@ -59,6 +66,7 @@
     scroll-behavior: smooth;
 }
 .header-container {
+    margin: 50px 5px;
     background-color: var(--primary-color);
     position: fixed;
     width: 15%;

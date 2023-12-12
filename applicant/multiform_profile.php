@@ -1053,6 +1053,7 @@ if (isset($_POST["submit"])) {
             </form>
         </div>
     </div>
+    <script src="../assets/js/darkmode.js"></script>
     <script src="../assets/js/applicant/script.js"></script>
     <script src="../assets/js/applicant/applicant_profile.js"></script>
     <!--<script src="test_applicant_profile.js"></script>-->

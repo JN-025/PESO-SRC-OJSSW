@@ -128,6 +128,6 @@ if($result = mysqli_query($conn, $result)){
 }
 }
     ?>
-    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/darkmode.js"></script>
 </body>
 </html>

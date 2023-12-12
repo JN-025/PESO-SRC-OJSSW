@@ -3,6 +3,9 @@
     padding: 0;
     font-family: Mohave;
 }
+body{
+    background-color: var(--primary-color);
+}
 .settings-main-container{
     margin-top: 70px;
     width: 100%;
