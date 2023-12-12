@@ -1,0 +1,462 @@
+{
+    "results": [
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "What does GHz stand for?",
+            "correct_answer": "Gigahertz",
+            "incorrect_answers": [
+                "Gigahotz",
+                "Gigahetz",
+                "Gigahatz"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "What is the code name for the mobile operating system Android 7.0?",
+            "correct_answer": "Nougat",
+            "incorrect_answers": [
+                "Ice Cream Sandwich",
+                "Jelly Bean",
+                "Marshmallow"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "What does the Prt Sc button do?",
+            "correct_answer": "Captures what's on the screen and copies it to your clipboard",
+            "incorrect_answers": [
+                "Nothing",
+                "Saves a .png file of what's on the screen in your screenshots folder in photos",
+                "Closes all windows"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "In any programming language, what is the most common way to iterate through an array?",
+            "correct_answer": "'For' loops",
+            "incorrect_answers": [
+                "'If' Statements",
+                "'Do-while' loops",
+                "'While' loops"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "In computing, what does MIDI stand for?",
+            "correct_answer": "Musical Instrument Digital Interface",
+            "incorrect_answers": [
+                "Musical Interface of Digital Instruments",
+                "Modular Interface of Digital Instruments",
+                "Musical Instrument Data Interface"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "What language does Node.js use?",
+            "correct_answer": "JavaScript",
+            "incorrect_answers": [
+                "Java",
+                "Java Source",
+                "Joomla Source Code"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "The numbering system with a radix of 16 is more commonly referred to as",
+            "correct_answer": "Hexidecimal",
+            "incorrect_answers": [
+                "Binary",
+                "Duodecimal",
+                "Octal"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "How many values can a single byte represent?",
+            "correct_answer": "256",
+            "incorrect_answers": [
+                "8",
+                "1",
+                "1024"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "What amount of bits commonly equals one byte?",
+            "correct_answer": "8",
+            "incorrect_answers": [
+                "1",
+                "2",
+                "64"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": null,
+            "difficulty": null,
+            "category": null,
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": null,
+            "difficulty": null,
+            "category": null,
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": null,
+            "difficulty": null,
+            "category": null,
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "",
+            "difficulty": "",
+            "category": "",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "",
+            "difficulty": "",
+            "category": "",
+            "question": "sample",
+            "correct_answer": "sakj",
+            "incorrect_answers": [
+                "slakjs"
+            ]
+        },
+        {
+            "type": "sample",
+            "difficulty": "sample",
+            "category": "sampel",
+            "question": "sample",
+            "correct_answer": "sampel",
+            "incorrect_answers": [
+                "sampel"
+            ]
+        },
+        {
+            "type": "ok",
+            "difficulty": "ok",
+            "category": "ok",
+            "question": "ok",
+            "correct_answer": "ok",
+            "incorrect_answers": [
+                "ok"
+            ]
+        },
+        {
+            "type": "ok",
+            "difficulty": "ok",
+            "category": "ok",
+            "question": "ok",
+            "correct_answer": "ok",
+            "incorrect_answers": [
+                "ok"
+            ]
+        },
+        {
+            "type": "ok",
+            "difficulty": "ok",
+            "category": "ok",
+            "question": "ok",
+            "correct_answer": "ok",
+            "incorrect_answers": [
+                "ok"
+            ]
+        },
+        {
+            "type": "ok",
+            "difficulty": "ok",
+            "category": "ok",
+            "question": "ok",
+            "correct_answer": "ok",
+            "incorrect_answers": [
+                "ok"
+            ]
+        },
+        {
+            "type": "ok",
+            "difficulty": "ok",
+            "category": "ok",
+            "question": "ok",
+            "correct_answer": "ok",
+            "incorrect_answers": [
+                "ok"
+            ]
+        },
+        {
+            "type": "ok",
+            "difficulty": "ok",
+            "category": "ok",
+            "question": "ok",
+            "correct_answer": "ok",
+            "incorrect_answers": [
+                "ok"
+            ]
+        },
+        {
+            "type": "ok",
+            "difficulty": "ok",
+            "category": "ok",
+            "question": "ok",
+            "correct_answer": "ok",
+            "incorrect_answers": [
+                "ok"
+            ]
+        },
+        {
+            "type": "ok",
+            "difficulty": "ok",
+            "category": "ok",
+            "question": "ok",
+            "correct_answer": "ok",
+            "incorrect_answers": [
+                "ok"
+            ]
+        },
+        {
+            "type": "ajskfslajhfljh",
+            "difficulty": "kjhlkdfhadlkf",
+            "category": "klasflkah",
+            "question": "lkhjsdalkhj",
+            "correct_answer": "lksdlkash",
+            "incorrect_answers": [
+                "daskladhsl"
+            ]
+        },
+        {
+            "type": "ajskfslajhfljh",
+            "difficulty": "kjhlkdfhadlkf",
+            "category": "klasflkah",
+            "question": "lkhjsdalkhj",
+            "correct_answer": "lksdlkash",
+            "incorrect_answers": [
+                "daskladhsl"
+            ]
+        },
+        {
+            "type": "ajskfslajhfljh",
+            "difficulty": "kjhlkdfhadlkf",
+            "category": "klasflkah",
+            "question": "lkhjsdalkhj",
+            "correct_answer": "lksdlkash",
+            "incorrect_answers": [
+                "daskladhsl"
+            ]
+        },
+        {
+            "type": "sample ulet last na",
+            "difficulty": "sample ulet last na",
+            "category": "sample ulet last na",
+            "question": "sample ulet last na",
+            "correct_answer": "sample ulet last nasample ulet last na",
+            "incorrect_answers": [
+                "sample ulet last na"
+            ]
+        },
+        {
+            "type": "sample ulet last na",
+            "difficulty": "sample ulet last na",
+            "category": "sample ulet last na",
+            "question": "sample ulet last na",
+            "correct_answer": "sample ulet last nasample ulet last na",
+            "incorrect_answers": [
+                "sample ulet last na"
+            ]
+        },
+        {
+            "type": "sample ulet last na",
+            "difficulty": "sample ulet last na",
+            "category": "sample ulet last na",
+            "question": "sample ulet last na",
+            "correct_answer": "sample ulet last nasample ulet last na",
+            "incorrect_answers": [
+                "sample ulet last na"
+            ]
+        },
+        {
+            "type": "sample ulet last na",
+            "difficulty": "sample ulet last na",
+            "category": "sample ulet last na",
+            "question": "sample ulet last na",
+            "correct_answer": "sample ulet last nasample ulet last na",
+            "incorrect_answers": [
+                "sample ulet last na"
+            ]
+        },
+        {
+            "type": "sample ulet last na",
+            "difficulty": "sample ulet last na",
+            "category": "sample ulet last na",
+            "question": "sample ulet last na",
+            "correct_answer": "sample ulet last nasample ulet last na",
+            "incorrect_answers": [
+                "sample ulet last na"
+            ]
+        },
+        {
+            "type": "sample ulet last na",
+            "difficulty": "sample ulet last na",
+            "category": "sample ulet last na",
+            "question": "sample ulet last na",
+            "correct_answer": "sample ulet last nasample ulet last na",
+            "incorrect_answers": [
+                "sample ulet last na"
+            ]
+        },
+        {
+            "type": "sample ulet last na",
+            "difficulty": "sample ulet last na",
+            "category": "sample ulet last na",
+            "question": "sample ulet last na",
+            "correct_answer": "sample ulet last nasample ulet last na",
+            "incorrect_answers": [
+                "sample ulet last na"
+            ]
+        },
+        {
+            "type": "sample ulet last na",
+            "difficulty": "sample ulet last na",
+            "category": "sample ulet last na",
+            "question": "sample ulet last na",
+            "correct_answer": "sample ulet last nasample ulet last na",
+            "incorrect_answers": [
+                "sample ulet last na"
+            ]
+        },
+        {
+            "type": "hello",
+            "difficulty": " hello",
+            "category": "hello",
+            "question": "hello",
+            "correct_answer": "hello",
+            "incorrect_answers": [
+                "hello"
+            ]
+        }
+    ]
+}

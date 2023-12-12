@@ -14,7 +14,7 @@ let availableQuestions = [];
 
 let questions = [];
 
-fetch("sample_question.json").then(res => {
+fetch("../../training_question.json").then(res => {
     return res.json();
 
 }).then(loadedQuestions => {

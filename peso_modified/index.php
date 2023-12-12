@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../conn.php");
+    include "../conn.php";
 $msg = "";
     if (isset($_POST['submit'])) {
         $password = $_POST['password'];
@@ -29,38 +29,7 @@ $msg = "";
     <link rel="stylesheet" href="../assets/css/applicant_register.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
-
-
-
 <body>
-
-<?php
-      
-        if(isset($_POST['signin'])){
-            $password = $_POST['password'];
-            $email = $_POST['email'];
-            $position = $_POST['position'];
-
-            $query = "SELECT * from `p_accounttb`;";
-            if(count(fetchAll($query)) > 0){ //this is to catch unknown error.
-                  foreach(fetchAll($query) as $row){
-                    if($row['email']==$email&&$row['password']==$password&&$row['position']==$position){
-                        $_SESSION['login'] = true;
-                        $_SESSION['type'] = $row['type'];
-                        header('location:homepage.php');
-                    }else{
-                        echo "<script>alert('Wrong login details.')</script>";
-                    }
-                }
-            }else{
-                echo "<script>alert('Error.')</script>";
-            }
-
-        }
-      
-      ?>
-
-
 <div class="loader"><div></div><div></div><div></div><div></div></div>
 <div class="main-container">
         <div class="main-row">

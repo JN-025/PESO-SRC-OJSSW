@@ -1,0 +1,14 @@
+{
+    "results": [
+        {
+            "type": "multiple",
+            "difficulty": "easy",
+            "category": "Science: Computers",
+            "question": "sample ",
+            "correct_answer": "sample",
+            "incorrect_answers": [
+                "sample"
+            ]
+        }
+    ]
+}

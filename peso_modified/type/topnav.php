@@ -1,17 +1,22 @@
 <?php
-include '../conn.php';
+include '../../../conn.php';
 $peso_id = $_SESSION["peso_id"];
 $check = "SELECT * FROM access_account WHERE peso_id = '$peso_id'";
 $result = mysqli_query($conn, $check);
 
 $formSubmitted = mysqli_num_rows($result) > 0;
 ?>
-<link rel="stylesheet" href="../assets/css/applicant_topnav.css">
+<link rel="stylesheet" href="../../../assets/css/applicant_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <div class="topnav">
     <div class="peso-logo">
-        <img src="../assets/img/ojssw.png" alt="PESO-Logo" srcset="">
+        <img src="../../../assets/img/ojssw.png" alt="PESO-Logo" srcset="">
+    </div>
+    <div class="page-name">
+        <?php
+        echo "$page_title"; 
+        ?>
     </div>
     <div class="right-corner">
         <div class="notification-icon">

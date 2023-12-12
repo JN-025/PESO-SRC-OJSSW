@@ -2,7 +2,7 @@
 $page_title = "Homepage";
 session_start();
 // Include config file
-include "../conn.php";
+include "../../../conn.php";
 $alert = ""; 
 if (!isset($_SESSION['peso_id'])) {
     $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
@@ -18,15 +18,14 @@ if (!isset($_SESSION['peso_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PESO COMPANY Homepage</title>
-    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/css/applicant_homepage.css">
+    <link rel="stylesheet" href="../../../assets/css/applicant_homepage.css">
 </head>
 <body>
     <?php 
-    include "../function.php";
-    
-    include "topnav.php";
+    include "../../../function.php";
+    include "../topnav.php";
     ?>
     <div class="main-container">
         <div class="main-row">
