@@ -69,6 +69,9 @@ h2 {
     width: 90%;
     background-color: transparent;
 }
+.mt-3 label{
+    color: var(--secondary-color);
+}
 .d-none {
     display: none;
 }

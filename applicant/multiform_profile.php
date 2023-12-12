@@ -264,7 +264,7 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="../assets/css/applicant_profile.css">
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
 </head>
-<body>
+<body class="<?php echo isset($_COOKIE['dark_mode']) && $_COOKIE['dark_mode'] === 'enabled' ? 'dark-theme' : ''; ?>">
     <?php
     include "../function.php";
     include "topnav.php";
