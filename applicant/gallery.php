@@ -120,7 +120,34 @@ $page_title = "Gallery";
         </div>
         <!-- Jssor Slider End -->
     </div>
+    <br> 
+    <div class="card">
+    <div class="container" style="background: transpasrent; width: 85%; box-shadow: none;">
+        <?php
+					include_once '../peso/gallery/dbconn_gallery.php';
+
+									
+					//Create connection and select DB
+					$db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+					
+					//Check connection
+					if($db->connect_error){
+					   die("Connection failed: " . $db->connect_error);
+					}
+				
+					//Get image data from database
+					$result = $db->query("SELECT id, created FROM gallery order by created DESC  limit 8");
+				
+					While($imgData = $result->fetch_assoc()){        
+						echo "<div> <img class='gallery_img' data-u='image' src='../peso/gallery/display.php?id=". $imgData['id'] . "' ></div>"; 
+					}
+			?>
+           
+        
     </div>
+    <center><button class="gallery-img" onclick="document.location='#'">See All Pictures</button><center>
+    </div>
+
 
     
 
@@ -131,10 +158,10 @@ $page_title = "Gallery";
     <div class="card">
     <h1>Videos</h1>
     <center>
-    <div class="container" style="width: 80%; background: transparent;">
+    <div class="container2" style="width: 83%; background: transparent;">
     <?php
     include("../peso/gallery/dbconn_video.php");
-       $fetchVideos = mysqli_query($con, "SELECT * FROM gallery_videos ORDER BY id DESC");
+       $fetchVideos = mysqli_query($con, "SELECT * FROM gallery_videos ORDER BY id DESC limit 6");
        while($row = mysqli_fetch_assoc($fetchVideos)){
             $location = $row['location'];
             $name = $row['name'];
@@ -148,6 +175,7 @@ $page_title = "Gallery";
  
 
     </div>
+    <center><button class="gallery-img" onclick="document.location='#'">See All Videos</button><center>
     </center>
     </div>
     
