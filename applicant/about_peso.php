@@ -1,6 +1,7 @@
 <?php
 $page_title = "Events";
-    
+session_start();
+include "../conn.php"
 ?>
 
 <!doctype html>
@@ -12,7 +13,10 @@ $page_title = "Events";
         <title>Laws</title>
     </head>
     <body>
-        
+        <?php
+        include "../function.php";
+        include "topnav.php";
+        ?>
         <div class="main-container">
             <center>
             <div class="container">

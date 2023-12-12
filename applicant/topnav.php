@@ -22,7 +22,7 @@ $formSubmitted = mysqli_num_rows($result) > 0;
                 </div>
                 <?php endif; ?>
                 <a href="quiz/index.php" <?php echo isActivePage("quiz/index.php"); ?>>Training</a>
-                 <a href="#" <?php echo isActivePage("#"); ?>>More Details</a>
+                 <a href="about_peso.php" <?php echo isActivePage("about_peso.php"); ?>>More Details</a>
     </div>
     <div class="list-dropdown-sublist d-none">
         <a href="" class="sub-active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
