@@ -20,13 +20,15 @@ $page_title = "Training";
     ?>
     <div class="container">
         <div class="flex-center flex-column" id="end">
-            <h1>Congratulations!, You have successfully finished the game</h1>
+            <div class="success">
+            <h1>Congratulations! You have successfully finished the game</h1>
+            </div>
             <h1 id="finalScore"></h1>
          <!--   <form>
                 <input type="text" name="username" id="username" placeholder="username">
                 <button id="saveScoreBtn" type="submit" class="btn" onclick="saveHighScore(event)" disabled>Save</button>
             </form>-->
-            <a class="btn">Submit</a>
+            <a href="../find_jobs.php" class="btn">Submit</a>
             <a href="game.php" class="btn">Play Again</a>
             <a href="Index.php" class="btn">Go Home</a>
         </div>

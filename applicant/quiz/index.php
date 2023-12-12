@@ -24,7 +24,6 @@ $page_title = "Training";
             <h1>Start Training</h1>
             <h4>* This game will test your skill and determine the most suitable job for you</h4>
             <a href="game.php" class="btn">Play</a>
-            <a href="" class="btn">Select Option</a>
             <!--<a href="highscores.php" class="btn">High Scores</a>-->
         </div>
     </div>
