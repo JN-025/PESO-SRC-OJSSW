@@ -109,7 +109,7 @@
     color: #fff;
     border-radius: 5px;
     box-shadow: 0px 4px 4px 0px #D52121 inset, 0px 4px 4px 0px #DEC4C4;
-    width: 150px;
+    width: 80%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -123,7 +123,7 @@
     color: #fff;
     border-radius: 5px;
     box-shadow: 0px 4px 4px 0px #D52121 inset, 0px 4px 4px 0px #DEC4C4;
-    width: 150px;
+    width: 80%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -137,9 +137,10 @@
     display: flex;
     justify-content: space-between;
 }
-.lower-search .flex-input .dual-input input{
-    width: 80px;
+.lower-search .flex-input input{
+    width: 40%;
 }
+
 .sort-by-type button{
     cursor: pointer; 
     width: 100%;
@@ -152,13 +153,12 @@
     
 }
 .col-2{
-    width: 100%;
+    margin-left: 15%;
 }
 .col-2-row{
     display: flex;
 }
 .col-2-content{
-    margin-left: 15%;
     margin-top: 10px;
 }
 .col-2-content .description{
@@ -168,6 +168,13 @@
     margin: 5%;
     border-radius: 11px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.preview{
+    cursor: pointer;
+    transition: 0.2s;
+}
+.preview:hover{
+    opacity: 0.6;
 }
 .col-2-content .desc-col-1{
     flex: 1;
@@ -242,6 +249,7 @@ button{
     transform: translateY(4px);
   }
 .col-2-content-full{
+    width: 100%;
 }
 .col-2-content-full button{
     margin-top: 20px;
@@ -267,6 +275,10 @@ button{
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
+  }
+  /**defined css*/
+  .d-none{
+    display: none;
   }
 @media only screen and (max-width: 880px) {
     .col-2-content-full{

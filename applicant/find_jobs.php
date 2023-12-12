@@ -152,10 +152,7 @@ include '../conn.php';
     include "topnav.php";
     ?>
     <div class="main-container">
-        <div class="main-row">
-            <div class="col-2">
-                <div class="col-2-row">
-                <div class="header-container">
+    <div class="header-container">
                 <div class="header">
                         <form method="POST"action="">
                             <h1></h1>
@@ -172,13 +169,8 @@ include '../conn.php';
                           <div class="search-box lower-search">
                             <label for=""></label>
                             <div class="flex-input">
-                            <div class="dual-input">
                             <input type="text" name="filter_engine_1" class="filter-engine-1" placeholder="Manager">
-                            <div class="field-gap"></div>
-                            </div>
-                            <div class="dual-input">
                             <input type="text" name="filter_engine_3" class="filter-engine-3" placeholder="30000 Pesos">
-                            </div>
                             </div>
                             <input type="text" name="filter_engine_2" class="filter-engine-2" placeholder="Santa Rosa, Laguna">
                             <input type="text" name="filter_engine_4" class="filter-engine-4" placeholder="2-3 Years Experience">
@@ -188,6 +180,9 @@ include '../conn.php';
                         </form>
                     </div>
                     </div>
+        <div class="main-row">
+            <div class="col-2">
+                <div class="col-2-row">
                     <div class="col-2-content">
                     <?php
                  $searchQuery1 = isset($_POST['search_engine_1']) ? $_POST['search_engine_1'] : '';
@@ -258,7 +253,7 @@ include '../conn.php';
                             if (mysqli_num_rows($result) > 0) {
                                 while($row = mysqli_fetch_array($result)){
                                     ?>
-                                    <div class="description set-width">
+                                    <div class="description preview"  onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">
                                     <div class="desc-col-1">
                                     <h2><?php echo $row['jobTitle']; ?></h2>
                                     <div class="info-row">
@@ -280,11 +275,10 @@ include '../conn.php';
                                         <h3 class="inline">Skills:</h3><p class="inline"><?php echo $row['skills']; ?></p>
                                     </div>
                                     </div>
-                                    <div class="desc-col-2">
+                                    <div class="desc-col-2 d-none">
                                         <div>
-                                        <button onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">Apply</button>
+
                                         </div>
-                                        <img src="<?php echo $row['img']; ?>" alt="No image">
                                     </div>
                         </div>
                         <?php
