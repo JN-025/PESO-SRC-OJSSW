@@ -208,7 +208,7 @@ include '../conn.php';
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                <div class="description">
+                                <div class="description preview" onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">
                                 <div class="desc-col-1">
                                     <h2><?php echo $row['jobTitle']; ?></h2>
                                     <div class="info-row">
@@ -230,7 +230,7 @@ include '../conn.php';
                                         <h3 class="inline">Skills:</h3><p class="inline"><?php echo $row['skills']; ?></p>
                                     </div>
                                     </div>
-                                    <div class="desc-col-2">
+                                    <div class="desc-col-2 d-none">
                                         <div>
                                         <button onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">Apply</button>
                                         </div>
