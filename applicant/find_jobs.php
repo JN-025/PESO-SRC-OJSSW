@@ -20,7 +20,7 @@ include '../conn.php';
     <link rel="stylesheet" href="../assets/css/font.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
-<body>
+<body class="<?php echo isset($_COOKIE['dark_mode']) && $_COOKIE['dark_mode'] == 'enabled' ? 'dark-theme' : ''; ?>">
 <?php
     if(isset($_SESSION["form_submitted"])){
     echo "<div class='form-modal' id='formModal'>
@@ -305,6 +305,7 @@ include '../conn.php';
             </div>
         </div>
     </div>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
 <script>

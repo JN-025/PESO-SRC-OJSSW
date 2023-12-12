@@ -58,6 +58,9 @@ if (isset($_GET['jobPostId'])) {
             border-radius: 11px;
 
         }
+        .full-img img{
+            z-index: -5;
+        }
         .a-modal{
             right: 0;
             position: absolute;

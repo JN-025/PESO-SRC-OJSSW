@@ -104,7 +104,7 @@ if($result = mysqli_query($conn, $result)){
                 </div>
                 <div class="input-col d-flex-center">
                 <label for="switchInput" class="switch">
-                <input id="switchInput" type="checkbox">
+                <input id="switchInput" type="checkbox" <?php echo isset($_COOKIE['dark_mode']) && $_COOKIE['dark_mode'] == 'enabled' ? 'checked' : ''; ?>>
                 <span class="slider"></span>
                 </label>
                 <label for="">Dark Mode</label>
@@ -128,12 +128,6 @@ if($result = mysqli_query($conn, $result)){
 }
 }
     ?>
-    <script>
-        var switchInput = document.getElementById("switchInput");
-
-        switchInput.onclick = function() {
-            document.body.classList.toggle("dark-theme");
-        }
-    </script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

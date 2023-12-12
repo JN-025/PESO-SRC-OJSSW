@@ -1,3 +1,4 @@
+// darkmode.js
 document.addEventListener("DOMContentLoaded", function() {
     var switchInput = document.getElementById("switchInput");
 
@@ -13,3 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.classList.toggle("dark-theme", darkModeCookie === "enabled");
     }
 });
+
+// Add the following code to set the initial class based on the cookie
+if (document.cookie.split(';').some((item) => item.trim().startsWith('dark_mode='))) {
+    var darkModeCookie = document.cookie.split(';').find((item) => item.trim().startsWith('dark_mode=')).split('=')[1];
+    document.body.classList.add("dark-theme", darkModeCookie === "enabled");
+}
