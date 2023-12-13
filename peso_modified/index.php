@@ -10,7 +10,7 @@
         $sql = "SELECT * FROM p_accounttb WHERE email='$email' AND position = '$position' AND password='$password' AND status = 'Approved'";
         $result = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($result) === 1) {
+        if (mysqli_num_rows($result) >= 1) {
             $row = mysqli_fetch_assoc($result);
             $_SESSION['peso_id'] = $row['peso_id'];
             header('location: homepage.php');
