@@ -30,59 +30,62 @@ $conn->close();
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="../assets/css/admin.css">
     <script>
-        $(document).ready(function () {
-            var sortOrder = 1;
+$(document).ready(function () {
+    var sortOrder = 1;
 
-            $("table").on("click", "th", function () {
-                var index = $(this).index();
-                sortTable(index);
-            });
+    $("table").on("click", "th", function () {
+        var index = $(this).index();
+        sortTable(index);
 
-            function sortTable(index) {
-                var table, rows, switching, i, x, y, shouldSwitch;
-                table = document.querySelector("table");
-                switching = true;
-                while (switching) {
-                    switching = false;
-                    rows = table.rows;
-                    for (i = 1; i < rows.length - 1; i++) {
-                        shouldSwitch = false;
-                        x = rows[i].getElementsByTagName("td")[index];
-                        y = rows[i + 1].getElementsByTagName("td")[index];
+        for (var i = 0; i < 7; i++) {
+            $("#arrow" + i).html("");
+        }
 
-                        if (index === 1 || index === 3) {
-                            if (sortOrder * (parseFloat(x.innerHTML) - parseFloat(y.innerHTML)) > 0) {
-                                shouldSwitch = true;
-                                break;
-                            }
-                        } else if (index === 6) {
-                            var dateX = new Date(x.innerHTML);
-                            var dateY = new Date(y.innerHTML);
-                            if (sortOrder * (dateX - dateY) > 0) {
-                                shouldSwitch = true;
-                                break;
-                            }
-                        } else if (index === 2 || index === 4) {
-                            if (sortOrder * (x.innerHTML.toLowerCase().localeCompare(y.innerHTML.toLowerCase())) > 0) {
-                                shouldSwitch = true;
-                                break;
-                            }
-                        } else {
-                            if (sortOrder * (x.innerHTML.localeCompare(y.innerHTML)) > 0) {
-                                shouldSwitch = true;
-                                break;
-                            }
-                        }
+        var arrowIcon = sortOrder === 1 ? "&#9650;" : "&#9660;";
+        $("#arrow" + index).html(arrowIcon);
+    });
+
+    function sortTable(index) {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.querySelector("table");
+        switching = true;
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < rows.length - 1; i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("td")[index];
+                y = rows[i + 1].getElementsByTagName("td")[index];
+
+                if (index === 1 || index === 2 || index === 3 || index === 4 || index === 6) {
+                    if (sortOrder * (x.innerHTML.toLowerCase().localeCompare(y.innerHTML.toLowerCase())) > 0) {
+                        shouldSwitch = true;
+                        break;
                     }
-                    if (shouldSwitch) {
-                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                        switching = true;
+                } else if (index === 5) {
+                    var dateX = new Date(x.innerHTML);
+                    var dateY = new Date(y.innerHTML);
+                    if (sortOrder * (dateX - dateY) > 0) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else {
+                    if (sortOrder * (parseFloat(x.innerHTML) - parseFloat(y.innerHTML)) > 0) {
+                        shouldSwitch = true;
+                        break;
                     }
                 }
-
-                sortOrder *= -1;
             }
-        });
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+
+        sortOrder *= -1;
+    }
+});
+
     </script>
 </head>
 <body>
@@ -91,6 +94,100 @@ include "../function.php";
 include "sidenav.php";
 include "topnav.php";
 ?>
+<?php
+    if(isset($_SESSION["success_popup"])){
+    echo "<div class='form-modal' id='formModal'>
+            <div class='form-modal-content'>
+                    <div class='modal-col'>
+                        <p>{$_SESSION['success_popup']}</p>
+                    </div>
+            </div>
+        </div>";
+    unset($_SESSION["success_popup"]);
+
+    echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var formModal = document.getElementById('formModal');
+
+            function hideModal() {
+                formModal.style.display = 'none';
+            }
+            setTimeout(hideModal, 5000);
+
+            formModal.addEventListener('click', hideModal);
+        });
+    </script>";
+    }
+?>
+        <style>
+            .form-modal{
+                margin: 5px;
+                cursor: pointer;
+                right: 0;
+                font-family: 'Poppins', sans-serif;
+                position: fixed;
+                width: 20%;
+                opacity: 1;
+                animation: fadeIn 0.5s ease-in-out forwards;
+            }
+            .form-modal-content{
+                text-align: center;
+                border-radius: 6px;
+                right: 0;
+                position: relative;
+                background-color: #D9570E;
+                padding: 20px;
+                color: #fff;
+                opacity: 0;
+                animation: dropDown 0.5s ease-in-out 0.5s forwards;
+            }
+            .modal-end p{
+                margin: 0;
+                margin-bottom: 44px;
+                text-align: center;
+                color: #FAC819;
+                font-family: Poppins;
+                font-size: 36px;
+                font-style: normal;
+                font-weight: 900;
+                line-height: normal;
+            }
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes dropDown {
+                0% {
+                    transform: translateY(-50%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            .close {
+                position:absolute;
+                color: #fff;
+                top: 0;
+                right: 0;
+                margin: 20px;
+                font-size: 28px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                cursor: pointer;
+            }
+            </style>
 <div class="main-container">
 <div class="table-content">
 <h1>Approval Section</h1>
@@ -100,13 +197,13 @@ include "topnav.php";
 <table border="1" class="styled-table">
     <thead>
         <tr>
-            <th>Peso ID</th>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Contact Number</th>
-            <th>Email</th>
-            <th>Date Added</th>
-            <th>Status</th>
+        <th onclick="sortTable(0)">Peso ID <span id="arrow0"></span></th>
+        <th onclick="sortTable(1)">Name <span id="arrow1"></span></th>
+        <th onclick="sortTable(2)">Position <span id="arrow2"></span></th>
+        <th onclick="sortTable(3)">Contact Number <span id="arrow3"></span></th>
+        <th onclick="sortTable(4)">Email <span id="arrow4"></span></th>
+        <th onclick="sortTable(5)">Date Added <span id="arrow5"></span></th>
+        <th onclick="sortTable(6)">Status <span id="arrow6"></span></th>
             <th>Action</th>
         </tr>
     </thead>
