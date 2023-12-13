@@ -179,7 +179,7 @@ $msg = "";
 <div class="main-container">
         <div class="main-row">
             <div class="col-1">
-                <a href=""><img src="../assets/img/ojssw.png" alt="" srcset=""></a>
+                <a href=""><img src="../../../assets/img/ojssw.png" alt="" srcset=""></a>
                 <br> <br>
                 <center>
                 <div class="col-2">

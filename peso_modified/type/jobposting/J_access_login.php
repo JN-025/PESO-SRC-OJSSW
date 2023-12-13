@@ -37,10 +37,10 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/peso_access_login.css">
+    <link rel="shortcut icon" href="../../../assets/img/peso.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../../assets/css/peso_access_login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <script src="../assets/js/applicant/loader.js"></script>
+    <script src="../../../assets/js/applicant/loader.js"></script>
 </head>
 <body>
 <div class="loader"><div></div><div></div><div></div><div></div></div>
@@ -182,7 +182,7 @@ if (isset($_POST['submit'])) {
 <div class="main-container">
         <div class="main-row">
             <div class="col-1">
-                <a href=""><img src="../assets/img/ojssw.png" alt="" srcset=""></a>
+                <a href=""><img src="../../../assets/img/ojssw.png" alt="" srcset=""></a>
                 <br> <br>
                 <center>
                 <div class="col-2">
