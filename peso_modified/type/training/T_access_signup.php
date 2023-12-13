@@ -80,6 +80,7 @@ if (isset($_POST["submit"])) {
                 }
             </style>
             <div class="field-space"></div>
+            <?php echo $msg; ?>
                 <h1>CREATE ACCOUNT</h1>
                 <form action="" method="post">
                     <div class="form-col-1">

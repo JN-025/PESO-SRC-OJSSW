@@ -2,13 +2,34 @@
 $page_title = "Applicant Access Register";
 session_start();
 // Include config file
-include "../peso_function.php";
-$alert = ""; 
+include "../../../conn.php";
+$msg = ""; 
 
 if (!isset($_SESSION['peso_id'])) {
     $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
     header("location: login.php");
     exit();
+}
+if (isset($_POST["submit"])) {
+    $peso_id = $_SESSION['peso_id'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $type = $_POST['type'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+
+    if ($password == $confirm_password) {
+        $sql = "INSERT INTO access_account (peso_id, name, email, type, password, status) VALUES (?, ?, ?, 'Updates' , ?, 'Pending')";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("isss", $peso_id, $name, $email, $password);
+
+        if ($stmt->execute()) {
+            $_SESSION["form_submitted"] = "<h2>You have successfully request an access!</h2>";
+            header("location:r_access_login.php");
+        }
+    } else {
+        $msg = "<div class='alert alert-danger'>Password do not match</div>";
+    }
 }
 ?>
 
@@ -23,34 +44,7 @@ if (!isset($_SESSION['peso_id'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
-<?php
-        if(isset($_POST['signup'])){
-            $peso_id = $_SESSION['peso_id'];
-            $name = $_POST['name'];
-            $password = $_POST['password'];
-            $email = $_POST['email'];
-            $confirm_password = $_POST['confirm_password'];
-           
-            $message = "Our $name would like to request an access for Updates.";
-        
-            $query = "INSERT INTO `access_requests` (`access_id`, `peso_id`, `name`, `email`, `password`, `message`, `accessType`, `date`) VALUES (NULL, '$peso_id', '$name', '$email', '$password', '$message', 'Update', CURRENT_TIMESTAMP)";
-
-            if($password != $confirm_password){
-                echo "<script> alert('Please enter the same password')</script>";
-            }
-            else{
-                performQuery($query);
-                echo "<script> alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
-            }
-        }
-        else{
-            echo "<script> alert('Unknown error occurred.')</script>";
-        }
-    ?>
-
-
 <body>
-
 <div class="loader"><div></div><div></div><div></div><div></div></div>
 <div class="main-container">
         <div class="main-row">
@@ -86,6 +80,7 @@ if (!isset($_SESSION['peso_id'])) {
                 }
             </style>
             <div class="field-space"></div>
+            <?php echo $msg; ?>
                 <h1>CREATE ACCOUNT</h1>
                 <form action="" method="post">
                     <div class="form-col-1">
@@ -105,16 +100,13 @@ if (!isset($_SESSION['peso_id'])) {
                     <input type="password" placeholder="Confirm Password" name="confirm_password" id="myInput2" required maxlength="20">
                     </div>
                     <div class="form-col-1">
-                    <button class="access" name="signup" type="submit">REGISTER</button>
+                    <button class="access" name="submit" type="submit">REGISTER</button>
                     <br><br>
                     <h5>Already have an Account?&nbsp;&nbsp;<a href="U_access_login.php">LOG IN</a></h5>
                     </div>
-                    
-                
                 </form>
             </div>
                 </center>
-
             </div>
            
         </div>
