@@ -3,6 +3,10 @@ $page_title = "Approval";
 include "../conn.php";
 session_start();
 
+$limit = 8;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$offset = ($page - 1) * $limit;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $peso_id = $_POST['peso_id'];
     $new_status = $_POST['new_status'];
@@ -11,11 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->query($update_sql);
 
     $_SESSION["success_popup"] = "Status Update Successfully";
-    header("Location: homepage.php");
+    header("Location: #");
     exit();
 }
 
-$sql = "SELECT * FROM p_accounttb";
+$sql = "SELECT * FROM p_accounttb LIMIT $offset, $limit";
 $result = $conn->query($sql);
 
 $conn->close();
@@ -187,6 +191,27 @@ include "topnav.php";
                 color: black;
                 cursor: pointer;
             }
+            .pagination{
+                transition: 0.4s;
+            }
+            .pagination a{
+                padding: 10px;
+                box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+                color: #000;
+                text-decoration: none;
+                font-size: 24px;
+                margin: 0 5px;
+                border-radius: 6px;
+            }
+            .pagination a:hover{
+                color: #fff;
+                padding: 10px;
+                background-color: #B22623;
+            }
+            .pagination a.active{
+                color: #fff;
+                background-color: #B22623;
+            }
             </style>
 <div class="main-container">
 <div class="table-content">
@@ -197,7 +222,7 @@ include "topnav.php";
 <table border="1" class="styled-table">
     <thead>
         <tr>
-        <th onclick="sortTable(0)">Peso ID <span id="arrow0"></span></th>
+        <th onclick="sortTable(0)">ID No#<span id="arrow0"></span></th>
         <th onclick="sortTable(1)">Name <span id="arrow1"></span></th>
         <th onclick="sortTable(2)">Position <span id="arrow2"></span></th>
         <th onclick="sortTable(3)">Contact Number <span id="arrow3"></span></th>
@@ -237,6 +262,26 @@ include "topnav.php";
         ?>
     </tbody>
 </table>
+<?php
+$sql = "SELECT COUNT(*) AS total FROM p_accounttb";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$total_pages = ceil($row['total'] / $limit);
+
+echo "<div class='pagination'>";
+if ($page > 1) {
+    echo "<a href='homepage.php?page=" . ($page - 1) . "'>&laquo; Prev</a>";
+}
+for ($i = 1; $i <= $total_pages; $i++) {
+    $activeClass = ($i == $page) ? 'active' : '';
+    echo "<a class='$activeClass' href='homepage.php?page=$i'>$i</a>";
+}
+if ($page < $total_pages) {
+    echo "<a href='homepage.php?page=" . ($page + 1) . "'>Next &raquo;</a>";
+}
+    echo "</div>";
+?>
+</div>
 </div>
 </div>
 </body>
