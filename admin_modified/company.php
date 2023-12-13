@@ -62,12 +62,12 @@ $(document).ready(function () {
                 x = rows[i].getElementsByTagName("td")[index];
                 y = rows[i + 1].getElementsByTagName("td")[index];
 
-                if (index === 1 || index === 2 || index === 3 || index === 4 || index === 5 || index === 7) {
+                if (index === 1 || index === 2 || index === 3 || index === 4 || index === 5 || index === 6 || index === 8) {
                     if (sortOrder * (x.innerHTML.toLowerCase().localeCompare(y.innerHTML.toLowerCase())) > 0) {
                         shouldSwitch = true;
                         break;
                     }
-                } else if (index === 6) {
+                } else if (index === 7) {
                     var dateX = new Date(x.innerHTML);
                     var dateY = new Date(y.innerHTML);
                     if (sortOrder * (dateX - dateY) > 0) {
@@ -226,11 +226,12 @@ include "topnav.php";
         <th onclick="sortTable(0)">ID No#<span id="arrow0"></span></th>
         <th onclick="sortTable(1)">Company Name <span id="arrow1"></span></th>
         <th onclick="sortTable(2)">Industry <span id="arrow2"></span></th>
-        <th onclick="sortTable(3)">Contact Number <span id="arrow3"></span></th>
-        <th onclick="sortTable(4)">Email <span id="arrow4"></span></th>
-        <th onclick="sortTable(5)">Type <span id="arrow5"></span></th>
-        <th onclick="sortTable(6)">Date Added <span id="arrow6"></span></th>
-        <th onclick="sortTable(7)">Status <span id="arrow7"></span></th>
+        <th onclick="sortTable(3)">Contact Person <span id="arrow3"></span></th>
+        <th onclick="sortTable(4)">Contact Number <span id="arrow4"></span></th>
+        <th onclick="sortTable(5)">Email <span id="arrow5"></span></th>
+        <th onclick="sortTable(6)">Type <span id="arrow6"></span></th>
+        <th onclick="sortTable(7)">Date Added <span id="arrow7"></span></th>
+        <th onclick="sortTable(8)">Status <span id="arrow8"></span></th>
         <th>Files</th>
             <th>Action</th>
         </tr>
@@ -243,6 +244,7 @@ include "topnav.php";
                 echo "<td>{$row['company_id']}</td>";
                 echo "<td>{$row['companyName']}</td>";
                 echo "<td>{$row['industry']}</td>";
+                echo "<td>{$row['contactPerson']}</td>";
                 echo "<td>{$row['contactNum']}</td>";
                 echo "<td>{$row['email']}</td>";
                 echo "<td>{$row['type']}</td>";

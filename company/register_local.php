@@ -40,7 +40,7 @@ if (isset($_POST["submit"])) {
             $jobOpeningPath = $uploadFolder . $jobOpeningImg['name'];
             $dolePermitCasePath = $uploadFolder . $dolePermitCaseImg['name'];
 
-            $sql = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password, profile_img, dolepermit_img, listclients_img, jobopening_img, dolepermitcase_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password, profile_img, dolepermit_img, listclients_img, jobopening_img, dolepermitcase_img, type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Local', 'status')";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("sssssssssss", $companyName, $industry, $contactPerson, $contactNum, $email, $password, $profilePath, $dolePermitPath, $listClientsPath, $jobOpeningPath, $dolePermitCasePath);
 

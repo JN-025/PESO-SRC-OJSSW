@@ -36,7 +36,7 @@ if (isset($_POST["submit"])) {
             $jobOrderPath = $uploadFolder . $joborder_img['name'];
             $jobOpeningPath = $uploadFolder . $jobOpeningImg['name'];
 
-            $sql = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password, profile_img, poeapermit_img, joborder_img, jobopening_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password, profile_img, poeapermit_img, joborder_img, jobopening_img, type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Overseas', 'Pending')";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("ssssssssss", $companyName, $industry, $contactPerson, $contactNum, $email, $password, $profilePath, $poeaPermitPath, $jobOrderPath, $jobOpeningPath);
 

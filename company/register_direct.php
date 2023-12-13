@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
             $bsPermitPath = $uploadFolder . $bsPermitImg['name'];
             $jobOpeningPath = $uploadFolder . $jobOpeningImg['name'];
 
-            $sql = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password, profile_img, dolepermit_img, jobopening_img, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')";
+            $sql = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password, profile_img, dolepermit_img, jobopening_img,type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'Direct' ,'Pending')";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("sssssssss", $companyName, $industry, $contactPerson, $contactNum, $email, $password, $profilePath, $bsPermitPath, $jobOpeningPath);
 

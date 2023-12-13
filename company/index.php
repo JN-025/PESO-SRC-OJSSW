@@ -9,7 +9,7 @@
         $contactPerson = $_POST['contactPerson'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM c_accounttb WHERE email='$email' AND companyName = '$companyName' AND contactPerson = '$contactPerson' AND password='$password'";
+        $sql = "SELECT * FROM c_accounttb WHERE email='$email' AND companyName = '$companyName' AND contactPerson = '$contactPerson' AND password='$password' AND status = 'Approved'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) === 1) {
