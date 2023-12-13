@@ -28,7 +28,7 @@ if (isset($_POST["submit"])) {
             header("location:t_access_login.php");
         }
     } else {
-        echo "error: Passwords do not match";
+        $msg = "<div class='alert alert-danger'>Password do not match</div>";
     }
 }
 ?>

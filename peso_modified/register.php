@@ -1,6 +1,28 @@
 <?php
-    session_start(); //we need session for the log in thingy XD 
-    include("../peso_function.php");
+    session_start();
+    include "../conn.php";
+    $msg = "";
+    if (isset($_POST["submit"])) {
+        $name = $_POST['name'];
+        $position = $_POST['position'];
+        $contactNum = $_POST['contactNum'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $confirm_password = $_POST['confirm_password'];
+    
+        if ($password == $confirm_password) {
+            $sql = "INSERT INTO p_accounttb (name, position, email, contactNum, password, status) VALUES (?, ?, ?, ? , ?, 'Pending')";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("sssss", $name, $email, $position, $contactNum, $password);
+    
+            if ($stmt->execute()) {
+                $_SESSION["form_submitted"] = "<h2>You have successfully request an access!</h2>";
+                header("location:index.php");
+            }
+        } else {
+            $msg = "<div class='alert alert-danger'>Password do not match</div>";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -13,30 +35,6 @@
     <link rel="stylesheet" href="../assets/css/applicant_register.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
-
-    <?php
-        if(isset($_POST['signup'])){
-            $name = $_POST['name'];
-            $position = $_POST['position'];
-            $contactNum = $_POST['contactNum'];
-            $password = $_POST['password'];
-            $email = $_POST['email'];
-            $confirm_password = $_POST['confirm_password'];
-           
-            $message = "Our $position , $name would like to request an account.";
-        
-            $query = "INSERT INTO `p_requests` (`peso_id`, `name`, `position`, `contactNum`, `email`, `password`, `message`, `date`) VALUES (NULL, '$name', '$position', '$contactNum', '$email', '$password', '$message', CURRENT_TIMESTAMP)";
-
-            if($password != $confirm_password){
-                echo "<script> alert('Please enter the same password')</script>";
-            }
-            else{
-                performQuery($query);
-                echo "<script> alert('Your account request is now pending for approval. Please wait for confirmation. Thank you.')</script>";
-            }
-        }
-    ?>
-
 <body>
 <div class="loader"><div></div><div></div><div></div><div></div></div>
 <div class="main-container">
@@ -52,9 +50,9 @@
                 </div>
             </div>
             <div class="col-2">
-            
             <style>
                 .alert {  
+                    top: 0;
                     position: fixed;  
                     padding: 1rem;
                     border-radius: 5px;
@@ -79,6 +77,7 @@
                 }
             </style>
             <div class="field-space"></div>
+            <?php echo $msg; ?>
                 <h1>CREATE ACCOUNT</h1>
                 <form action="" method="post">
                     <div class="form-col-1">
@@ -109,7 +108,7 @@
                     </div>
                     <div class="form-col-1">
                     <h5>By clicking register you agree in our&nbsp;&nbsp;<a href="#" id="myBtn">Terms & Agreement</a></h5>
-                    <button name="signup" type="submit">REGISTER</button>
+                    <button name="submit" type="submit">REGISTER</button>
                     <br><br>
                     <h5>Already have an Account?&nbsp;&nbsp;<a href="index.php">LOG IN</a></h5>
                     </div>
