@@ -13,7 +13,7 @@
         if ($password == $confirm_password) {
             $sql = "INSERT INTO p_accounttb (name, position, email, contactNum, password, status) VALUES (?, ?, ?, ? , ?, 'Pending')";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssss", $name, $email, $position, $contactNum, $password);
+            $stmt->bind_param("sssss", $name, $position, $email, $contactNum, $password);
     
             if ($stmt->execute()) {
                 $_SESSION["form_submitted"] = "<h2>You have successfully request an access!</h2>";
