@@ -84,10 +84,7 @@
                     </div>
                     
                     <div class="form-col-1">
-                    
                     <button name="submit" type="submit">Log In</button>
-                    <br><br>
-                    <h5>Create an Account?&nbsp;&nbsp;<a href="register.php">LOG IN</a></h5>
                     </div>
                     
                 </form>
