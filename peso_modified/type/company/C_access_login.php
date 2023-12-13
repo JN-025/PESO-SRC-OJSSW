@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class='modal-end'><h2>Pending!</h2>
-                <a href='T_access_login.php'>Log In</a>
+                <a href='c_access_login.php'>Log In</a>
                 </div>
             </div>
         </div>";

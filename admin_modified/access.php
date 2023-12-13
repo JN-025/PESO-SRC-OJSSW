@@ -1,5 +1,5 @@
 <?php
-$page_title = "Peso";
+$page_title = "Access";
 include "../conn.php";
 session_start();
 
@@ -8,10 +8,10 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $peso_id = $_POST['peso_id'];
+    $access_id = $_POST['access_id'];
     $new_status = $_POST['new_status'];
 
-    $update_sql = "UPDATE p_accounttb SET status = '$new_status' WHERE peso_id = $peso_id";
+    $update_sql = "UPDATE access_account SET status = '$new_status' WHERE access_id = $access_id";
     $conn->query($update_sql);
 
     $_SESSION["success_popup"] = "Status Update Successfully";
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 
-$sql = "SELECT * FROM p_accounttb ORDER BY date_added_at DESC LIMIT $offset, $limit";
+$sql = "SELECT * FROM access_account ORDER BY date_added_at DESC LIMIT $offset, $limit";
 $result = $conn->query($sql);
 
 $conn->close();
@@ -62,12 +62,12 @@ $(document).ready(function () {
                 x = rows[i].getElementsByTagName("td")[index];
                 y = rows[i + 1].getElementsByTagName("td")[index];
 
-                if (index === 1 || index === 2 || index === 3 || index === 4 || index === 6) {
+                if (index === 1 || index === 2 || index === 3 || index === 5) {
                     if (sortOrder * (x.innerHTML.toLowerCase().localeCompare(y.innerHTML.toLowerCase())) > 0) {
                         shouldSwitch = true;
                         break;
                     }
-                } else if (index === 5) {
+                } else if (index === 4) {
                     var dateX = new Date(x.innerHTML);
                     var dateY = new Date(y.innerHTML);
                     if (sortOrder * (dateX - dateY) > 0) {
@@ -225,11 +225,10 @@ include "topnav.php";
         <tr>
         <th onclick="sortTable(0)">ID No#<span id="arrow0"></span></th>
         <th onclick="sortTable(1)">Name <span id="arrow1"></span></th>
-        <th onclick="sortTable(2)">Position <span id="arrow2"></span></th>
-        <th onclick="sortTable(3)">Contact Number <span id="arrow3"></span></th>
-        <th onclick="sortTable(4)">Email <span id="arrow4"></span></th>
-        <th onclick="sortTable(5)">Date Added <span id="arrow5"></span></th>
-        <th onclick="sortTable(6)">Status <span id="arrow6"></span></th>
+        <th onclick="sortTable(2)">Email <span id="arrow2"></span></th>
+        <th onclick="sortTable(3)">Access Type <span id="arrow3"></span></th>
+        <th onclick="sortTable(4)">Date Added <span id="arrow4"></span></th>
+        <th onclick="sortTable(5)">Status <span id="arrow5"></span></th>
             <th>Action</th>
         </tr>
     </thead>
@@ -238,16 +237,15 @@ include "topnav.php";
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>{$row['peso_id']}</td>";
+                echo "<td>{$row['access_id']}</td>";
                 echo "<td>{$row['name']}</td>";
-                echo "<td>{$row['position']}</td>";
-                echo "<td>{$row['contactNum']}</td>";
                 echo "<td>{$row['email']}</td>";
+                echo "<td>{$row['type']}</td>";
                 echo "<td>{$row['date_added_at']}</td>";
                 echo "<td>{$row['status']}</td>";
                 echo "<td>";
                 echo "<form method='post'>";
-                echo "<input type='hidden' name='peso_id' value='{$row['peso_id']}'>";
+                echo "<input type='hidden' name='access_id' value='{$row['access_id']}'>";
                 echo "<select name='new_status'>";
                 echo "<option value='{$row['status']}' selected hidden>{$row['status']}</option>";
                 echo "<option value='Approved'>Approved</option>";
@@ -265,21 +263,21 @@ include "topnav.php";
     </tbody>
 </table>
 <?php
-$sql = "SELECT COUNT(*) AS total FROM p_accounttb";
+$sql = "SELECT COUNT(*) AS total FROM access_account";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $total_pages = ceil($row['total'] / $limit);
 
 echo "<div class='pagination'>";
 if ($page > 1) {
-    echo "<a href='homepage.php?page=" . ($page - 1) . "'>&laquo; Prev</a>";
+    echo "<a href='access.php?page=" . ($page - 1) . "'>&laquo; Prev</a>";
 }
 for ($i = 1; $i <= $total_pages; $i++) {
     $activeClass = ($i == $page) ? 'active' : '';
-    echo "<a class='$activeClass' href='homepage.php?page=$i'>$i</a>";
+    echo "<a class='$activeClass' href='access.php?page=$i'>$i</a>";
 }
 if ($page < $total_pages) {
-    echo "<a href='homepage.php?page=" . ($page + 1) . "'>Next &raquo;</a>";
+    echo "<a href='access.php?page=" . ($page + 1) . "'>Next &raquo;</a>";
 }
     echo "</div>";
 ?>

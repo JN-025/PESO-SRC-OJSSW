@@ -181,7 +181,7 @@
             <div class="col-2">
             <div class="field-space"></div>
             <?php echo $msg; ?>
-                <h1>CREATE ACCOUNT</h1>
+                <h1>LOG IN</h1>
                 <form action="" method="post">
 
                     <div class="form-col-1">
