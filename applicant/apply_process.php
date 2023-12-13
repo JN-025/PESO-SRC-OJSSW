@@ -18,7 +18,7 @@ if (isset($_POST['applyButton'])) {
     $answerNo4 = $_POST["answerNo4"];
     $answerNo5 = $_POST["answerNo5"];
 
-    $insertSql = "INSERT INTO application_log (c_jobpost_id, applicant_id, date_requested, status, answerNo1, answerNo2, answerNo3, answerNo4, answerNo5)
+    $insertSql = "INSERT INTO application_log (c_jobpost_id, applicant_id, date_added_at, status, answerNo1, answerNo2, answerNo3, answerNo4, answerNo5)
                  VALUES (?, ?, NOW(), 'Pending', ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $insertSql);
     if ($stmt) {
@@ -54,14 +54,16 @@ if (isset($_POST['applyButton'])) {
         padding: 0;
     }
     .popup-container {
+        margin-top: 70px;
         font-family: 'Mohave', sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
         width: 100%;
+        height: 80vh;
     }
     .popup {
+        margin-top: 20px;
         text-align: center;
     }
     .popup a{
@@ -71,6 +73,10 @@ if (isset($_POST['applyButton'])) {
         text-decoration: none; 
         background-color: #A81E1E; 
         color:#fff;
+        transition: 0.4s;
+    }
+    .popup a:hover{
+        opacity: 0.6;
     }
     .popup h1{
         color: #A81E1E;
@@ -83,6 +89,7 @@ if (isset($_POST['applyButton'])) {
 </head>
 <body>
     <?php
+    include '../function.php';
     include "topnav.php";
     ?>
     <div class="popup-container">

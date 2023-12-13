@@ -140,7 +140,6 @@ if (isset($_GET['jobPostId'])) {
         .modal-content{
             width: 500px;
             margin-top: 70px;
-            height: 80%;
             overflow-y: auto;
         }
         .company-question{
