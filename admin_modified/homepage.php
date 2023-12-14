@@ -34,7 +34,6 @@ $conn->close();
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Londrina+Solid&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap">
     <script>
 $(document).ready(function () {
     var sortOrder = 1;
@@ -63,12 +62,12 @@ $(document).ready(function () {
                 x = rows[i].getElementsByTagName("td")[index];
                 y = rows[i + 1].getElementsByTagName("td")[index];
 
-                if (index === 1 || index === 2 || index === 3 || index === 4 || index === 6) {
+                if (index === 1 || index === 2 || index === 3 || index === 4 || index === 5 || index === 6) {
                     if (sortOrder * (x.innerHTML.toLowerCase().localeCompare(y.innerHTML.toLowerCase())) > 0) {
                         shouldSwitch = true;
                         break;
                     }
-                } else if (index === 5) {
+                } else if (index === 7) {
                     var dateX = new Date(x.innerHTML);
                     var dateY = new Date(y.innerHTML);
                     if (sortOrder * (dateX - dateY) > 0) {
@@ -237,13 +236,14 @@ include "topnav.php";
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                $formattedDate = date("F j, Y | g:i A", strtotime($row['date_added_at']));
                 echo "<tr>";
                 echo "<td>{$row['peso_id']}</td>";
                 echo "<td>{$row['name']}</td>";
                 echo "<td>{$row['position']}</td>";
                 echo "<td>{$row['contactNum']}</td>";
                 echo "<td>{$row['email']}</td>";
-                echo "<td>{$row['date_added_at']}</td>";
+                echo "<td>{$formattedDate}</td>";
                 echo "<td>{$row['status']}</td>";
                 echo "<td>";
                 echo "<form method='post'>";
