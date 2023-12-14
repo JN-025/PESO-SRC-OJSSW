@@ -1,4 +1,3 @@
-could you add a number in the top of bell-icon indicating the new notifications that the user receive:
 <?php
 include '../conn.php';
 $applicant_id = $_SESSION["applicant_id"];
