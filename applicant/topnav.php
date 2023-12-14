@@ -6,7 +6,7 @@ $result = mysqli_query($conn, $check);
 
 $formSubmitted = mysqli_num_rows($result) > 0;
 
-$notification_query = "SELECT * FROM notifications WHERE applicant_id = $applicant_id ORDER BY date_added_at DESC LIMIT 5";
+$notification_query = "SELECT * FROM notifications WHERE applicant_id = $applicant_id ORDER BY date_added_at DESC LIMIT 4";
 $notification_result = mysqli_query($conn, $notification_query);
 $notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
 ?>
