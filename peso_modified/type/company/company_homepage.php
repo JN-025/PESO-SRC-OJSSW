@@ -84,12 +84,12 @@ $(document).ready(function () {
                 x = rows[i].getElementsByTagName("td")[index];
                 y = rows[i + 1].getElementsByTagName("td")[index];
 
-                if (index === 1 || index === 2 || index === 4 || index === 5 || index === 6) {
+                if (index === 1 || index === 2 || index === 3 || index === 4) {
                     if (sortOrder * (x.innerHTML.toLowerCase().localeCompare(y.innerHTML.toLowerCase())) > 0) {
                         shouldSwitch = true;
                         break;
                     }
-                } else if (index === 3) {
+                } else if (index === 5) {
                     var dateX = new Date(x.innerHTML);
                     var dateY = new Date(y.innerHTML);
                     if (sortOrder * (dateX - dateY) > 0) {
@@ -257,11 +257,12 @@ include "../topnav.php";
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                $formattedDate = date("F j, Y | g:i A", strtotime($row['date_added_at']));
                 echo "<tr>";
                 echo "<td>{$row['application_log_id']}</td>";
                 echo "<td>{$row['companyName']}</td>";
                 echo "<td>{$row['fullname']}</td>";
-                echo "<td>{$row['date_added_at']}</td>";
+                echo "<td>{$formattedDate}</td>";
                 echo "<td>{$row['status']}</td>";
                 echo "<td>";
                 echo "<form method='post'>";
