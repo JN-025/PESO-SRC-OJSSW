@@ -219,7 +219,7 @@ ul.form-stepper li a .form-stepper-circle {
 }
 input[type=text], input[type=tel], input[type=number], input[type=date],input[type=email], select
 {
-    height: 23px;
+    height: 30px;
     font-size: 15px;
     padding-left: 10px;
     background-color: white;
@@ -229,6 +229,15 @@ input[type=text], input[type=tel], input[type=number], input[type=date],input[ty
 input:disabled {
     background-color: #f0f0f0;
     color: #666666;
+}
+input[type=text]:focus,
+input[type=tel]:focus,
+input[type=number]:focus,
+input[type=date]:focus,
+input[type=email]:focus,
+select:focus {
+    outline: none;
+    border: 2px solid brown;
 }
 .stick-object input[type=date] 
 {
@@ -356,7 +365,7 @@ select option{
     border: 2px solid #B6B6B6;
   }
   section select{
-    height: 28px;
+    height: 35px;
     padding: 0;
     text-align: center;
   }
@@ -368,6 +377,7 @@ select option{
     flex-direction: column;
   }
   input[type=date]{
+    height: 35px;
     width: 50%;
     padding: 12px 20px;
     margin: 5px 0;
