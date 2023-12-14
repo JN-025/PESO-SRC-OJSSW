@@ -4,7 +4,7 @@ include "../conn.php";
 session_start();
 
 $applicant_id = $_SESSION["applicant_id"];
-$result = "SELECT * FROM a_accounttb INNER JOIN ap_info ON a_accounttb.applicant_id = ap_info.applicant_id WHERE a_accounttb.applicant_id = '$applicant_id'";
+$result = "SELECT * FROM a_accounttb  WHERE applicant_id = '$applicant_id'";
 if($result = mysqli_query($conn, $result)){
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_array($result)){
@@ -66,10 +66,6 @@ if($result = mysqli_query($conn, $result)){
                     <div class="input-tag">
                     <input name="lastname" type="text" placeholder="Dela Cruz" value="<?php echo $row["lastname"]?>" disabled>
                     <label for="">Last Name</label>
-                    </div>
-                    <div class="input-tag">
-                    <input style="width: 30px;" type="text" placeholder="sfx" value="<?php echo $row["suffix"]?>" disabled>
-                    <label for="">Suffix</label>
                     </div>
                     </div>
                 </div>

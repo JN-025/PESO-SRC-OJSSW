@@ -158,6 +158,9 @@
   background-color: #f0f2f5;
   list-style-type: none;
 }
+.topnav .notification-dropdown .topnav-col-2 li:hover {
+  opacity: 0.6;
+}
 .topnav .notification {
   padding: 10px;
   border-bottom: 1px solid #ccc;
