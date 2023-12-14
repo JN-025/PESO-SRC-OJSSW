@@ -19,19 +19,48 @@ $page_title = "Events";
                 <h1>LEARN MORE ABOUT OUR EVENTS!</h1>
                 <h2>JUST CLICK TO LEARN MORE</h2>
                 <div class="card">
-                    <div class="box">
+                    <!-- Trigger/Open The Modal -->
+                    <button class="modal-btn" id="myBtn">
                         <h3>Job Fairs</h3>
                         <img src="../assets/img/event_jobfair.png" alt="Job Fair" class="images">
-                    </div>
-
-                    <div class="box">
+                    </button>
+                    <button class="modal-btn" id="myBtn2">
                         <h4>Special Program for Employment of Students</h4>
                         <img src="../assets/img/event_spes.png" alt="SPES" class="images2">
-                    </div>
-
-                    <div class="box">
+                    </button>
+                    <button class="modal-btn" id="myBtn3">
                         <h5>Career Guidance Seminar</h5>
                         <img src="../assets/img/event_careerguidance.png" alt="Career Guidance" class="images3">
+                    </button>
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <div class="content">
+                            <img src="../assets/img/info_jobfair.png" alt="Job Fair" class="images4">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="myModal2" class="modal2">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close2">&times;</span>
+                            <div class="content">
+                            <img src="../assets/img/info_spes.png" alt="SPES" class="images4">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="myModal3" class="modal3">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close3">&times;</span>
+                            <div class="content">
+                            <img src="../assets/img/info_careerguidance.png" alt="Career Guidance" class="images4">
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -43,5 +72,6 @@ $page_title = "Events";
 
         </div>
 
+        <script src="../assets/js/events.js"></script>
     </body>
 </html>

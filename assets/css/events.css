@@ -71,7 +71,7 @@ body {
     padding: 1.5%;
 }
 
-.box h3
+.modal-btn h3
 {
     font-family: Poppins;
     font-size: 1.8vw;
@@ -79,7 +79,7 @@ body {
     font-weight: bold;
 }
 
-.box h4
+.modal-btn h4
 {
     font-family: Poppins;
     font-size: 1.3vw;
@@ -87,7 +87,7 @@ body {
     font-weight: bold;
 }
 
-.box h5
+.modal-btn h5
 {
     font-family: Poppins;
     font-size: 1.5vw;
@@ -115,3 +115,102 @@ body {
     height: auto;
     margin-top: 20px;
 }
+
+.images4
+{
+    width: 100%;
+    height: auto;
+    
+}
+
+
+.card .modal-btn
+{
+    border-radius: 18px;
+    background: #A81E1E;
+    box-shadow: 4px 7px 9.4px 0px #F94A4A inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    width: 30%;
+    height: fit-content;
+    margin: 3%;
+    padding: 1.5%;
+    cursor: pointer;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .modal2, .modal3 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: transparent;
+    margin: auto;
+    padding: 1%;
+    width: 60%;
+  }
+
+  .content
+  {
+    background-color: transparent;
+    width: 90%;
+    height: fit-content;
+    padding: 0;
+    margin-top: 10vh;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .close2,
+  .close3 {
+    color: #aaaaaa;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  
+  .close2:hover,
+  .close2:focus,
+  .close3:hover,
+  .close3:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
