@@ -6,11 +6,9 @@
     text-align: center;
     padding: 20px;
     margin-top: 70px;
-    margin-left: 15%;
-    
 }
 .table-content h1, h4{
-    font-family: 'Mohave', serif;
+  font-family: Poppins;
 }
 .styled-table {
     border-collapse: collapse;
@@ -33,8 +31,8 @@ table {
     width: 100%;
 }
 th{
-    background-color: rgba(38,137,13,1);
-    border: 1px solid rgba(134,188,37,1);
+    background-color: #A81E1E;
+    border: 1px solid #CFCFCF;
     font-weight: normal;
     text-align: center;
     color: white;    
