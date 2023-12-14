@@ -33,7 +33,7 @@ $conn->close();
     <title>Approval Page</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Londrina+Solid&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap">
     <script>
 $(document).ready(function () {
     var sortOrder = 1;
@@ -94,9 +94,10 @@ $(document).ready(function () {
     </script>
 </head>
 <body>
+
 <?php
 include "../function.php";
-include "sidenav.php";
+// include "sidenav.php";
 include "topnav.php";
 ?>
 <?php
@@ -214,77 +215,200 @@ include "topnav.php";
                 background-color: #B22623;
             }
             </style>
-<div class="main-container">
-<div class="table-content">
-<h1>Approval Section</h1>
-<h4>This list contains all of the user requesting for an access</h4>
-<h4>Toggle the <span class="highlight-text">action buttons</span> to instantly update the <span class="highlight-text">Status</span></h4>
 
-<table border="1" class="styled-table">
-    <thead>
-        <tr>
-        <th onclick="sortTable(0)">ID No#<span id="arrow0"></span></th>
-        <th onclick="sortTable(1)">Name <span id="arrow1"></span></th>
-        <th onclick="sortTable(2)">Position <span id="arrow2"></span></th>
-        <th onclick="sortTable(3)">Contact Number <span id="arrow3"></span></th>
-        <th onclick="sortTable(4)">Email <span id="arrow4"></span></th>
-        <th onclick="sortTable(5)">Date Added <span id="arrow5"></span></th>
-        <th onclick="sortTable(6)">Status <span id="arrow6"></span></th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>{$row['peso_id']}</td>";
-                echo "<td>{$row['name']}</td>";
-                echo "<td>{$row['position']}</td>";
-                echo "<td>{$row['contactNum']}</td>";
-                echo "<td>{$row['email']}</td>";
-                echo "<td>{$row['date_added_at']}</td>";
-                echo "<td>{$row['status']}</td>";
-                echo "<td>";
-                echo "<form method='post'>";
-                echo "<input type='hidden' name='peso_id' value='{$row['peso_id']}'>";
-                echo "<select name='new_status'>";
-                echo "<option value='{$row['status']}' selected hidden>{$row['status']}</option>";
-                echo "<option value='Approved'>Approved</option>";
-                echo "<option value='Rejected'>Rejected</option>";
-                echo "</select>";
-                echo "<input type='submit' value='Update'>";
-                echo "</form>";
-                echo "</td>";
-                echo "</tr>";
+
+<style>
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding-top: 100px;
+    overflow-y: scroll;
+}
+
+.main-container{
+    margin:0;
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    padding-bottom: 100px;
+    
+}
+
+.table-content{
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    width: 95%;
+}
+.table-content h1
+{
+    font-family: Poppins;
+    font-size: 2.5vw;
+    color: black;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.table-content h2
+{
+    font-family: Poppins;
+    font-size: 1vw;
+    color: black;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    clip: rect(1px 1px 1px 1px);
+    padding: 0;
+    border: 0;
+    height: 1px; 
+    width: 1px; 
+    overflow: hidden;
+    
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #CFCFCF;
+}
+th{
+    background-color: #A81E1E;
+    border: 1px solid #CFCFCF;
+    font-weight: normal;
+    text-align: center;
+    color: white;    
+    cursor: pointer;
+    font-size: 1.5vw;
+    font-family: Poppins;
+}
+
+.styled-table td {
+    padding: 5px 7px;
+}
+
+.styled-table th 
+{
+    padding: 12px 15px;
+}
+tbody tr:nth-child(odd) {
+    background: white;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #fff;
+  }
+
+  .styled-table select{
+    cursor: pointer;
+    border-radius: 6px;
+    height: 2rem;
+  }
+  .styled-table select option{
+    font-size: 15px;
+  }
+  .styled-table input{
+    cursor: pointer;
+    border-radius: 6px;
+    color: #fff;
+    margin-left: 30px;
+    padding: 10px;
+    background-color: #B22623;
+    border: none;
+    transition: 0.4s;
+  }
+  .styled-table input:hover{
+    opacity: 0.6;
+  }
+  .highlight-text{
+    color: #DF6B00;
+  }
+</style>
+    <div class="main-container">
+        <center>
+        <div class="table-content">
+        <h1>APPROVAL SECTION</h1>
+        <h2>This list contains all of the users requesting for an account.</h2>
+        <h2>Toggle the  <span class="highlight-text">action button</span> to update the status of the account.</h2>
+
+            <table border="1" class="styled-table">
+                <thead>
+                    <tr>
+                    <th onclick="sortTable(0)">ID No#<span id="arrow0"></span></th>
+                    <th onclick="sortTable(1)">Name <span id="arrow1"></span></th>
+                    <th onclick="sortTable(2)">Position <span id="arrow2"></span></th>
+                    <th onclick="sortTable(3)">Contact Number <span id="arrow3"></span></th>
+                    <th onclick="sortTable(4)">Email <span id="arrow4"></span></th>
+                    <th onclick="sortTable(5)">Date Added <span id="arrow5"></span></th>
+                    <th onclick="sortTable(6)">Status <span id="arrow6"></span></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>{$row['peso_id']}</td>";
+                            echo "<td>{$row['name']}</td>";
+                            echo "<td>{$row['position']}</td>";
+                            echo "<td>{$row['contactNum']}</td>";
+                            echo "<td>{$row['email']}</td>";
+                            echo "<td>{$row['date_added_at']}</td>";
+                            echo "<td>{$row['status']}</td>";
+                            echo "<td>";
+                            echo "<form method='post'>";
+                            echo "<input type='hidden' name='peso_id' value='{$row['peso_id']}'>";
+                            echo "<select name='new_status'>";
+                            echo "<option value='{$row['status']}' selected hidden>{$row['status']}</option>";
+                            echo "<option value='Approved'>Approved</option>";
+                            echo "<option value='Rejected'>Rejected</option>";
+                            echo "</select>";
+                            echo "<input type='submit' value='Update'>";
+                            echo "</form>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='9'>No records found</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <?php
+            $sql = "SELECT COUNT(*) AS total FROM p_accounttb";
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            $total_pages = ceil($row['total'] / $limit);
+
+            echo "<div class='pagination'>";
+            if ($page > 1) {
+                echo "<a href='homepage.php?page=" . ($page - 1) . "'>&laquo; Prev</a>";
             }
-        } else {
-            echo "<tr><td colspan='9'>No records found</td></tr>";
-        }
-        ?>
-    </tbody>
-</table>
-<?php
-$sql = "SELECT COUNT(*) AS total FROM p_accounttb";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-$total_pages = ceil($row['total'] / $limit);
+            for ($i = 1; $i <= $total_pages; $i++) {
+                $activeClass = ($i == $page) ? 'active' : '';
+                echo "<a class='$activeClass' href='homepage.php?page=$i'>$i</a>";
+            }
+            if ($page < $total_pages) {
+                echo "<a href='homepage.php?page=" . ($page + 1) . "'>Next &raquo;</a>";
+            }
+                echo "</div>";
+            ?>
+        </div>
+        </center>
+    </div>
 
-echo "<div class='pagination'>";
-if ($page > 1) {
-    echo "<a href='homepage.php?page=" . ($page - 1) . "'>&laquo; Prev</a>";
-}
-for ($i = 1; $i <= $total_pages; $i++) {
-    $activeClass = ($i == $page) ? 'active' : '';
-    echo "<a class='$activeClass' href='homepage.php?page=$i'>$i</a>";
-}
-if ($page < $total_pages) {
-    echo "<a href='homepage.php?page=" . ($page + 1) . "'>Next &raquo;</a>";
-}
-    echo "</div>";
-?>
-</div>
-</div>
-</div>
 </body>
 </html>

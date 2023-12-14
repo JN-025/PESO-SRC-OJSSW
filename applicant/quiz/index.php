@@ -24,7 +24,7 @@ $applicant_id = $_SESSION["applicant_id"];
     ?>
     <div class="container">
         <div id="home" class="flex-center flex-column">
-            <h1>Start Training</h1>
+            <h1>START TRAINING</h1>
             <h4>* This game will test your skill and determine the most suitable job for you</h4>
             <a href="game.php" class="btn">Play</a>
             <!--<a href="highscores.php" class="btn">High Scores</a>-->

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Londrina+Solid&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding-top: 100px;
+    overflow-y: scroll;
+}
+
+.main-container{
+    margin:0;
+    width: 100%;
+    height: fit-content;
+    padding-top: 100px;
+    background-color: white;
+    padding-bottom: 100px;
+    
+}
+
+.container
+{
+    width: 95%;
+    height: 500px;
+    background-color: transparent;
+    top: 0;
+    
+
+}
+
+.container h1
+{
+    font-size: 5vw;
+    color: #367CBD;
+    text-align: center;
+    font-family: Rowdies;
+    font-weight: bolder;
+}
+
+.container h2
+{
+    font-size: 1.5vw;
+    color: #367CBD;
+    text-align: center;
+    font-family: Rowdies;
+    font-weight: bolder;
+    width: 50%;
+}
+
+.container h3
+{
+    font-size: 2.5vw;
+    color: #367CBD;
+    text-align: center;
+    font-family: Rowdies;
+    font-weight: bolder;
+    
+    
+}
+
+.container .card
+{
+    width: 50%;
+    height: fit-content;
+    padding-bottom: 10px;
+    background-color: transparent;
+    display: flex;
+
+}
+
+.container .card .card-col-1
+{
+    height: fit-content;
+    width: 60%;
+    background-color: transparent;
+
+}
+
+.card-col-1 .training-img
+{
+    width: 70%;
+    height: auto;
+}
+
+.container .card .card-col-2
+{
+    height: fit-content;
+    padding-top: 30px;
+    width: 40%;
+    background-color: transparent;
+
+}
+
+button {
+  height: 100px;
+  width: 100px;
+  background-color: #367CBD;
+  border-radius: 50%;
+  border:none;
+  color: white;
+  font-size: 1.7vw;
+  cursor: pointer;
+}
