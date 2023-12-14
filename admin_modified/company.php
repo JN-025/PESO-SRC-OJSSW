@@ -91,6 +91,23 @@ $(document).ready(function () {
     }
 });
 
+    function openImageModal(imageSrc) {
+        var modal = document.getElementById('imageModal');
+        var modalImg = document.getElementById('imgModalContent');
+        modal.style.display = 'inline-block';
+        modalImg.src = '../company/' + imageSrc;
+        }
+
+        function closeImageModal() {
+        var modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+        }
+        window.onclick = function (event) {
+        var modal = document.getElementById('imageModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
     </script>
 </head>
 <body>
@@ -213,6 +230,30 @@ include "topnav.php";
                 color: #fff;
                 background-color: #B22623;
             }
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding-top: 50px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0, 0, 0);
+                background-color: rgba(0, 0, 0, 0.9);
+                opacity: 1;
+                animation: fadeIn 0.4s ease-in-out forwards;
+                }
+
+                .modal-content {
+                margin: auto;
+                display: block;
+                max-width: 80%;
+                max-height: 80%;
+                opacity: 0;
+                animation: dropDown 0.4s ease-in-out 0.4s forwards;
+                }
             </style>
 <div class="main-container">
 <div class="table-content">
@@ -252,7 +293,7 @@ include "topnav.php";
                 echo "<td>{$row['status']}</td>";
 
                 echo "<td>";
-                echo "<img src='../company/{$row['jobopening_img']}' alt='User Image' style='max-width: 100px; max-height: 100px;'>";
+                echo "<button onclick='openImageModal(\"{$row['jobopening_img']}\")'>See Full Detail</button>";
                 echo "</td>";
 
                 echo "<td>";
@@ -296,5 +337,10 @@ if ($page < $total_pages) {
 </div>
 </div>
 </div>
+    <div id="imageModal" class="modal">
+        <div class=""></div>
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="imgModalContent">
+    </div>
 </body>
 </html>
