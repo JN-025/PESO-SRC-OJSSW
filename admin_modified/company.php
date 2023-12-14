@@ -62,12 +62,12 @@ $(document).ready(function () {
                 x = rows[i].getElementsByTagName("td")[index];
                 y = rows[i + 1].getElementsByTagName("td")[index];
 
-                if (index === 1 || index === 2 || index === 3 || index === 4 || index === 5 || index === 6 || index === 8) {
+                if (index === 1 || index === 2 || index === 3 || index === 4 || index === 5 || index === 6 || index === 7 || index === 8) {
                     if (sortOrder * (x.innerHTML.toLowerCase().localeCompare(y.innerHTML.toLowerCase())) > 0) {
                         shouldSwitch = true;
                         break;
                     }
-                } else if (index === 7) {
+                } else if (index === 9) {
                     var dateX = new Date(x.innerHTML);
                     var dateY = new Date(y.innerHTML);
                     if (sortOrder * (dateX - dateY) > 0) {
@@ -280,6 +280,7 @@ include "topnav.php";
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
+                $formattedDate = date("F j, Y | g:i A", strtotime($row['date_added_at']));
                 echo "<tr>";
                 echo "<td>{$row['company_id']}</td>";
                 echo "<td>{$row['companyName']}</td>";
@@ -288,7 +289,7 @@ include "topnav.php";
                 echo "<td>{$row['contactNum']}</td>";
                 echo "<td>{$row['email']}</td>";
                 echo "<td>{$row['type']}</td>";
-                echo "<td>{$row['date_added_at']}</td>";
+                echo "<td>{$formattedDate}</td>";
                 echo "<td>{$row['status']}</td>";
 
                 echo "<td>";
