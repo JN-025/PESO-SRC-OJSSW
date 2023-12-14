@@ -5,6 +5,10 @@ $check = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
 $result = mysqli_query($conn, $check);
 
 $formSubmitted = mysqli_num_rows($result) > 0;
+
+$notification_query = "SELECT * FROM notifications WHERE applicant_id = $applicant_id ORDER BY date_added_at DESC LIMIT 5";
+$notification_result = mysqli_query($conn, $notification_query);
+$notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
 ?>
 <link rel="stylesheet" href="../../assets/css/applicant_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -14,22 +18,22 @@ $formSubmitted = mysqli_num_rows($result) > 0;
         <img src="../../assets/img/ojssw.png" alt="PESO-Logo" srcset="">
     </div>
     <div class="list-dropdown">
-                <a href="../find_jobs.php" <?php echo isActivePage("../find_jobs.php"); ?>>Find Jobs</a>
+                <a href="../find_jobs.php" <?php echo isActivePage("find_jobs.php"); ?>>Find Jobs</a>
                 <?php if (!$formSubmitted) : ?>
                     <div class="rainbow">
-                <a href="../multiform_profile.php" <?php echo isActivePage("../multiform_profile.php"); ?>>NSRS FORM</a>
+                <a href="../multiform_profile.php" <?php echo isActivePage("multiform_profile.php"); ?>>NSRS FORM</a>
                 </div>
                 <?php endif; ?>
                 <a href="index.php" <?php echo isActivePage("index.php"); ?>>Training</a>
-                 <a href="../about_peso.php" <?php echo isActivePage("../about_peso.php"); ?>>More Details</a>
+                 <a href="../about_peso.php" <?php echo isActivePage("about_peso.php"); ?>>More Details</a>
     </div>
     <div class="list-dropdown-sublist d-none">
         <a href="" class="sub-active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
         <div class="sub-list" id="nav_title">
-                <a href="../find_jobs.php"><i class="bi bi-search"></i>&nbsp;Find Jobs</a>
-                <a href="../multiform_profile.php"><i class="bi bi-bookmark"></i>&nbsp;NSRS FORM</a>
-                <a href="index.php"><i class="bi bi-controller"></i>&nbsp;Training</a>
-                 <a href="../#"><i class="bi bi-exclamation-circle"></i>&nbsp;More Details</a>
+                <a href="find_jobs.php"><i class="bi bi-search"></i>&nbsp;Find Jobs</a>
+                <a href="multiform_profile.php"><i class="bi bi-bookmark"></i>&nbsp;NSRS FORM</a>
+                <a href="quiz/index.php"><i class="bi bi-controller"></i>&nbsp;Training</a>
+                 <a href="#"><i class="bi bi-exclamation-circle"></i>&nbsp;More Details</a>
                  </div>
     </div>
     <div class="right-corner">
@@ -38,21 +42,30 @@ $formSubmitted = mysqli_num_rows($result) > 0;
             <i class="bi bi-bell icon" id="bell-icon"></i>
             <div class="notification-dropdown" id="notification-dropdown">
                 <div class="topnav-col-1">
-                    <span>Notification</span>
-                    <a href="">See All</a>
+                    <span style="color: green;">Notification</span>
+                    <a href="#">See All</a>
                 </div>
                 <div class="topnav-col-2">
-                <i class="bi bi-x-circle"></i>
-                <p id="notification-message">No notifications available</p>
+                <?php if (count($notifications) > 0) : ?>
+                    <ul>
+                        <?php foreach ($notifications as $notification) : ?>
+                        <li><?php $formattedDate = date("F j, Y | g:i A", strtotime($notification['date_added_at']));
+                            echo '<span class="highlight-title">'.$notification['title'] . '</span>' .':<br> ' . $notification['description']. '<div>' .$formattedDate . '</div>'; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else : ?>
+                    <i class="bi bi-x-circle"></i>
+                    <p id="notification-message">No notifications available</p>
+                <?php endif; ?>
                 </div>
             </div>
         </div>
         <div class="dropdown">
             <i class="bi bi-person-fill icon" id="person-icon"></i>
             <div class="dropdown-content" id="person-dropdown">
-                <a href="../multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
-                <a href="../user_settings.php"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
-                <a href="../signout.php"><i class="bi bi-box-arrow-in-right" style="margin-left: 18px;left: 0; position:absolute;"></i>Logout</a>
+                <a href="multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
+                <a href="user_settings.php"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
+                <a href="signout.php"><i class="bi bi-box-arrow-in-right" style="margin-left: 18px;left: 0; position:absolute;"></i>Logout</a>
             </div>
         </div>
     </div>
@@ -64,8 +77,6 @@ $formSubmitted = mysqli_num_rows($result) > 0;
     const notificationMessage = document.getElementById("notification-message");
     const personIcon = document.getElementById("person-icon");
     const personDropdown = document.getElementById("person-dropdown");
-    /*const navTitle = document.querySelector(".list-dropdown-sublist .sub-active");
-    const subList = document.querySelector(".list-dropdown-sublist .sub-list");*/
     let notifications = [];
 
     function updateNotificationDropdown() {
@@ -74,13 +85,6 @@ $formSubmitted = mysqli_num_rows($result) > 0;
         } else {
         }
     }
-    /*navTitle.addEventListener("click", () => {
-    if (subList.style.display === "block") {
-        subList.style.display = "none";
-    } else {
-        subList.style.display = "block";
-    }
-    });*/
     bellIcon.addEventListener("click", () => {
         if (notificationDropdown.style.display === "block") {
             notificationDropdown.style.display = "none";
@@ -107,8 +111,6 @@ $formSubmitted = mysqli_num_rows($result) > 0;
     });
 
     updateNotificationDropdown();
-
-
 
     bellIcon.addEventListener("click", function(event) {
     if (bellIcon.classList.contains("clicked")) {
