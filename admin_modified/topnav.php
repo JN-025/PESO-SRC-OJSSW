@@ -8,6 +8,20 @@ include '../conn.php';
     <div class="peso-logo">
         <img src="../assets/img/ojssw.png" alt="PESO-Logo" srcset="">
     </div>
+    <div class="list-dropdown">
+                <a href="homepage.php" <?php echo isActivePage("homepage.php"); ?>>PESO</a>
+                <a href="access.php" <?php echo isActivePage("access.php"); ?>>Access</a>
+                 <a href="company.php" <?php echo isActivePage("company.php"); ?>>Company</a>
+    </div>
+    <div class="list-dropdown-sublist d-none">
+        <a href="" class="sub-active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
+        <div class="sub-list" id="nav_title">
+                <a href="find_jobs.php"><i class="bi bi-search"></i>&nbsp;Find Jobs</a>
+                <a href="multiform_profile.php"><i class="bi bi-bookmark"></i>&nbsp;NSRS FORM</a>
+                <a href="quiz/index.php"><i class="bi bi-controller"></i>&nbsp;Training</a>
+                 <a href="#"><i class="bi bi-exclamation-circle"></i>&nbsp;More Details</a>
+                 </div>
+    </div>
     <div class="right-corner">
         <div class="notification-icon">
             <div class="field-space"></div>
