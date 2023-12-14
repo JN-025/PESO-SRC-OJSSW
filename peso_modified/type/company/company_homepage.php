@@ -14,6 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $update_sql = "UPDATE application_log SET status = '$new_status' WHERE application_log_id = $application_log_id";
     $conn->query($update_sql);
 
+    $notification_sql = "INSERT INTO notifications (applicant_id, title, description, date_added_at)
+                         SELECT applicant_id, 'Application Status Update', 'Your job application request has been updated to $new_status', NOW()
+                         FROM application_log
+                         WHERE application_log_id = $application_log_id";
+    $conn->query($notification_sql);
+
+
     $_SESSION["success_popup"] = "Status Update Successfully";
     header("Location: #");
     exit();

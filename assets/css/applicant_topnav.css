@@ -148,6 +148,16 @@
 .topnav .notification-dropdown .topnav-col-2 i{
   font-size: 30px;
 }
+.topnav .notification-dropdown .topnav-col-2 li{
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: Mohave;
+  color: #000;
+  margin-top: 5px;
+  background-color: #f0f2f5;
+  list-style-type: none;
+}
 .topnav .notification {
   padding: 10px;
   border-bottom: 1px solid #ccc;
@@ -247,6 +257,11 @@ input:disabled {
     background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
 		border-radius: 5px;
 	}
+}
+.highlight-title{
+  font-size: 16px;
+  font-weight: bold;
+  color: #A81E1E;
 }
 @media only screen and (max-width: 920px) {
   .topnav .peso-logo{

@@ -1,3 +1,4 @@
+could you add a number in the top of bell-icon indicating the new notifications that the user receive:
 <?php
 include '../conn.php';
 $applicant_id = $_SESSION["applicant_id"];
@@ -5,6 +6,10 @@ $check = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
 $result = mysqli_query($conn, $check);
 
 $formSubmitted = mysqli_num_rows($result) > 0;
+
+$notification_query = "SELECT * FROM notifications WHERE applicant_id = $applicant_id ORDER BY date_added_at DESC LIMIT 5";
+$notification_result = mysqli_query($conn, $notification_query);
+$notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
 ?>
 <link rel="stylesheet" href="../assets/css/applicant_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -38,12 +43,21 @@ $formSubmitted = mysqli_num_rows($result) > 0;
             <i class="bi bi-bell icon" id="bell-icon"></i>
             <div class="notification-dropdown" id="notification-dropdown">
                 <div class="topnav-col-1">
-                    <span>Notification</span>
-                    <a href="">See All</a>
+                    <span style="color: green;">Notification</span>
+                    <a href="#">See All</a>
                 </div>
                 <div class="topnav-col-2">
-                <i class="bi bi-x-circle"></i>
-                <p id="notification-message">No notifications available</p>
+                <?php if (count($notifications) > 0) : ?>
+                    <ul>
+                        <?php foreach ($notifications as $notification) : ?>
+                        <li><?php $formattedDate = date("F j, Y | g:i A", strtotime($notification['date_added_at']));
+                            echo '<span class="highlight-title">'.$notification['title'] . '</span>' .':<br> ' . $notification['description']. '<div>' .$formattedDate . '</div>'; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else : ?>
+                    <i class="bi bi-x-circle"></i>
+                    <p id="notification-message">No notifications available</p>
+                <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -64,8 +78,6 @@ $formSubmitted = mysqli_num_rows($result) > 0;
     const notificationMessage = document.getElementById("notification-message");
     const personIcon = document.getElementById("person-icon");
     const personDropdown = document.getElementById("person-dropdown");
-    /*const navTitle = document.querySelector(".list-dropdown-sublist .sub-active");
-    const subList = document.querySelector(".list-dropdown-sublist .sub-list");*/
     let notifications = [];
 
     function updateNotificationDropdown() {
@@ -74,13 +86,6 @@ $formSubmitted = mysqli_num_rows($result) > 0;
         } else {
         }
     }
-    /*navTitle.addEventListener("click", () => {
-    if (subList.style.display === "block") {
-        subList.style.display = "none";
-    } else {
-        subList.style.display = "block";
-    }
-    });*/
     bellIcon.addEventListener("click", () => {
         if (notificationDropdown.style.display === "block") {
             notificationDropdown.style.display = "none";
@@ -107,8 +112,6 @@ $formSubmitted = mysqli_num_rows($result) > 0;
     });
 
     updateNotificationDropdown();
-
-
 
     bellIcon.addEventListener("click", function(event) {
     if (bellIcon.classList.contains("clicked")) {
