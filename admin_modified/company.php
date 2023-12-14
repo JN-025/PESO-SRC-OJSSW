@@ -113,7 +113,6 @@ $(document).ready(function () {
 <body>
 <?php
 include "../function.php";
-include "sidenav.php";
 include "topnav.php";
 ?>
 <?php

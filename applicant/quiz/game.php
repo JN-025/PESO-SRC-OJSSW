@@ -29,19 +29,17 @@ $applicant_id = $_SESSION["applicant_id"];
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     background: white;
-    padding-top: 0;
     overflow-y: scroll;
+    height: 100vh;
+    width: 100%
 }
 
 .main-container{
-    margin:0;
     width: 100%;
     height: fit-content;
-    padding-top: 50px;
-    background-color: white;
-    padding-bottom: 100px;
+    background-color: transparent;
     
 }
 
@@ -91,14 +89,12 @@ h4{
 
 .container {
     width: 90%;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 80rem;
-    margin: 0;
-    padding-top: 20px;
     background-color: transparent;
+    margin-top: 30px;
 }
 
 .container > * {
@@ -191,18 +187,9 @@ input::placeholder{
 
 
 
-.choice-container-1 
-{
-    display: flex;
-    margin-bottom: 0.5rem;
-    width: 100%;
-    margin: 20px;
-    border: 0.1rem solid rgb(86, 165, 235, 0.25);
-    background-color: #B2FFB0;
-    border-radius: 3px;  
-}
 
-.choice-container-2
+
+.choice-container
 {
     display: flex;
     margin-bottom: 0.5rem;
@@ -213,16 +200,7 @@ input::placeholder{
     border-radius: 3px;  
 }
 
-.choice-container-3
-{
-    display: flex;
-    margin-bottom: 0.5rem;
-    width: 100%;
-    margin: 20px;
-    border: 0.1rem solid rgb(86, 165, 235, 0.25);
-    background-color: #FFB0B0;
-    border-radius: 3px;  
-}
+
 
 .choice-card
 {
@@ -250,16 +228,9 @@ input::placeholder{
     transform: translateY(-0.1rem);
 }
 
-.choice-prefix-1 {
-    padding: 10px 20px;
-    background-color: #71CE6F;
-    color: white;
-    border-radius: 3px;
-    font-size: 2.3vw;
-    font-family: Rowdies;
-}
 
-.choice-prefix-2 {
+
+.choice-prefix {
     padding: 10px 20px;
     background-color: #6FA0CE;
     color: white;
@@ -268,14 +239,7 @@ input::placeholder{
     font-family: Rowdies;
 }
 
-.choice-prefix-3 {
-    padding: 10px 20px;
-    background-color: #CE6F6F;
-    color: white;
-    border-radius: 3px;
-    font-size: 2.3vw;
-    font-family: Rowdies;
-}
+
 
 .choice-text{
     padding: 10px;
@@ -316,7 +280,7 @@ input::placeholder{
     display: flex;
     justify-content: justify;
     background-color: transparent;
-    margin-top: 20px;
+    
 }
 
 .hud-container-1
@@ -365,7 +329,7 @@ input::placeholder{
 }
 
 #progressBar{
-    width: 35rem;
+    width: 70%;
     height: 2.5rem;
     border: 0.3rem solid #54B452;
     margin-top: 1.5rem;
@@ -439,23 +403,23 @@ input::placeholder{
                     <h2 id="question"></h2>
                     <center>
                     <div class="choice-card">
-                        <div class="choice-container-1">
-                            <p class="choice-prefix-1">A</p>
+                        <div class="choice-container">
+                            <p class="choice-prefix">A</p>
                             <p class="choice-text " data-number="1"></p>
                         </div>
-                        <div class="choice-container-2">
-                            <p class="choice-prefix-2">B</p>
+                        <div class="choice-container">
+                            <p class="choice-prefix">B</p>
                             <p class="choice-text"  data-number="2"></p>
                         </div>
                     </div>
                     
                     <div class="choice-card">
-                        <div class="choice-container-2">
-                            <p class="choice-prefix-2">C</p>
+                        <div class="choice-container">
+                            <p class="choice-prefix">C</p>
                             <p class="choice-text"  data-number="3"></p>
                         </div>
-                        <div class="choice-container-3">
-                            <p class="choice-prefix-3">D</p>
+                        <div class="choice-container">
+                            <p class="choice-prefix">D</p>
                             <p class="choice-text"  data-number="4"></p>
                         </div>
                     </div>
