@@ -117,6 +117,7 @@ $company_id = $_SESSION['company_id'];
                 type: "GET",
                 url: "load_table.php?jobpost_id=" + jobpostId + "&company_id=<?php echo $company_id; ?>",
                 success: function (data) {
+                    $("#defaultTable").hide();
                     $("#applicantTableContainer").html(data);
                 }
             });
@@ -296,14 +297,14 @@ $company_id = $_SESSION['company_id'];
                 background-color: #B22623;
             }
             </style>
-        <table border="1" id="defaultTable" class="styled-table">
+        <div id="defaultTable">
+        <table border="1" class="styled-table">
     <thead>
         <tr>
         <th onclick="sortTable(0)">ID No#<span id="arrow0"></span></th>
         <th onclick="sortTable(2)">Name <span id="arrow2"></span></th>
         <th onclick="sortTable(3)">Date Added <span id="arrow3"></span></th>
         <th onclick="sortTable(4)">Status <span id="arrow4"></span></th>
-            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -316,25 +317,15 @@ $company_id = $_SESSION['company_id'];
                 echo "<td>{$row['fullname']}</td>";
                 echo "<td>{$formattedDate}</td>";
                 echo "<td>{$row['status']}</td>";
-                echo "<td>";
-                echo "<form method='post'>";
-                echo "<input type='hidden' name='application_log_id' value='{$row['application_log_id']}'>";
-                echo "<select name='new_status'>";
-                echo "<option value='{$row['status']}' selected hidden>{$row['status']}</option>";
-                echo "<option value='Approved'>Approved</option>";
-                echo "<option value='Rejected'>Rejected</option>";
-                echo "</select>";
-                echo "<input type='submit' value='Update'>";
-                echo "</form>";
-                echo "</td>";
                 echo "</tr>";
             }
         } else {
             echo "<tr><td colspan='9'>No records found</td></tr>";
         }
         ?>
-    </tbody>
-</table>
+        </tbody>
+        </table>
+        </div>
     </div>
 </body>
 </html>
