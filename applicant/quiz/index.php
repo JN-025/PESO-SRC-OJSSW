@@ -33,7 +33,6 @@ $applicant_id = $_SESSION["applicant_id"];
             </div>
             </div>
             <h4>This game will test your skills and knowledge<br>about a certain topic. Pick what you think is best for you and play!</h4>
-            <!--<a href="highscores.php" class="btn">High Scores</a>-->
         </div>
     </div>
 </body>
