@@ -1,36 +1,38 @@
+<?php
+include '../conn.php';
+?>
 <link rel="stylesheet" href="../assets/css/applicant_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <div class="topnav">
-    <div class="peso-logo"></div>
+    <div class="peso-logo">
+        <img src="../assets/img/ojssw.png" alt="PESO-Logo" srcset="">
+    </div>
     <div class="list-dropdown">
-        <a href="" class="active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
-        <div class="sub-list">
-                <a href="homepage.php"><i class="bi bi-house-door-fill"></i> HOME</a>
-                <a href="profiling_task.php"><i class="bi bi-search"></i> Task</a>
-                
+                <a href="homepage.php" <?php echo isActivePage("homepage.php"); ?>>Profiling List</a>
+                <a href="profiling_task.php" <?php echo isActivePage("profiling_task.php"); ?>>Profiling Task</a>
+    </div>
+    <div class="list-dropdown-sublist d-none">
+        <a href="" class="sub-active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
+        <div class="sub-list" id="nav_title">
+                <a href="homepage.php"><i class="bi bi-search"></i>&nbsp;Profiling List</a>
+                <a href="profiling_task.php"><i class="bi bi-bookmark"></i>&nbsp;Profiling Task</a>
                  </div>
     </div>
     <div class="right-corner">
         <div class="notification-icon">
             <div class="field-space"></div>
-            <i class="bi bi-bell icon" id="bell-icon"></i>
+            <i class="bi bi-bell icon" id="bell-icon" hidden></i>
             <div class="notification-dropdown" id="notification-dropdown">
-                <div class="col-1">
-                    <a href="">Notification</a>
-                    <a href="">See All</a>
-                </div>
-                <div class="col-2">
-                <i class="bi bi-x-circle"></i>
-                <p id="notification-message">No notifications available</p>
+                <div class="topnav-col-1">
+                    <span style="color: green;">Notification</span>
+                    <a href="#">See All</a>
                 </div>
             </div>
         </div>
         <div class="dropdown">
             <i class="bi bi-person-fill icon" id="person-icon"></i>
             <div class="dropdown-content" id="person-dropdown">
-                <a href="multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
-                <a href="#"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
                 <a href="signout.php"><i class="bi bi-box-arrow-in-right" style="margin-left: 18px;left: 0; position:absolute;"></i>Logout</a>
             </div>
         </div>
@@ -51,7 +53,6 @@
         } else {
         }
     }
-
     bellIcon.addEventListener("click", () => {
         if (notificationDropdown.style.display === "block") {
             notificationDropdown.style.display = "none";
@@ -78,8 +79,6 @@
     });
 
     updateNotificationDropdown();
-
-
 
     bellIcon.addEventListener("click", function(event) {
     if (bellIcon.classList.contains("clicked")) {

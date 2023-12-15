@@ -23,7 +23,7 @@
                 <br>
                 <button class="company" onclick="document.location='company_register.php'">Company</button>
                 <br>
-                <button class="other-services" onclick="document.location='#'">Other Services</button>
+                <button class="other-services" onclick="document.location='spes/register_student.php'">Other Services</button>
 
             </div>
         

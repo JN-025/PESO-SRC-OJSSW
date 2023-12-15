@@ -23,7 +23,7 @@
                 <br>
                 <button class="company" onclick="document.location='company/index.php'">Company</button>
                 <br>
-                <button class="other-services" onclick="document.location='#'">Other Services</button>
+                <button class="other-services" onclick="document.location='spes/index.php'">Other Services</button>
 
             </div>
         
