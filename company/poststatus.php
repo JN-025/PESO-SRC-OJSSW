@@ -108,7 +108,7 @@ $company_id = $_SESSION['company_id'];
 
     $conn->close();
     ?>
-<div id="applicantTableContainer"></div>
+<div class="status-table" id="applicantTableContainer"></div>
         <script>
         $(document).ready(function () {
             $(".load-table").on("click", function () {
@@ -297,11 +297,14 @@ $company_id = $_SESSION['company_id'];
                 background-color: #B22623;
             }
             </style>
-        <div id="defaultTable">
+        <div class="status-table" id="defaultTable">
+            <h1>Status History</h1>
+            <h4>All of the update <span class="highlight-text">Status</span> will be Recorded below</h4>
         <table border="1" class="styled-table">
     <thead>
         <tr>
         <th onclick="sortTable(0)">ID No#<span id="arrow0"></span></th>
+        <th onclick="sortTable(1)">Company Name<span id="arrow1"></span></th>
         <th onclick="sortTable(2)">Name <span id="arrow2"></span></th>
         <th onclick="sortTable(3)">Date Added <span id="arrow3"></span></th>
         <th onclick="sortTable(4)">Status <span id="arrow4"></span></th>
@@ -314,6 +317,7 @@ $company_id = $_SESSION['company_id'];
                 $formattedDate = date("F j, Y | g:i A", strtotime($row['date_added_at']));
                 echo "<tr>";
                 echo "<td>{$row['application_log_id']}</td>";
+                echo "<td>{$row['companyName']}</td>";
                 echo "<td>{$row['fullname']}</td>";
                 echo "<td>{$formattedDate}</td>";
                 echo "<td>{$row['status']}</td>";
