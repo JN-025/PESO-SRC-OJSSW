@@ -1,36 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Londrina+Solid&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mohave&family=Rowdies&display=swap');
+:root {
+    background-color: #fff;
+    margin-top: 70px;
+}
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    background: white;
-    overflow-y: scroll;
-    height: 100vh;
-    width: 100%
-}
-
-.main-container{
-    width: 100%;
-    height: fit-content;
-    background-color: transparent;
-    
-}
-
-
-:root {
-    background-color: #ecf5ff;
-    margin-top: 70px;
-}
-
-
 h1, h2, h3, h4 {
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 1rem;
@@ -38,8 +15,8 @@ h1, h2, h3, h4 {
 
 h1 {
     font-size: 5rem;
-    color: #56a5eb;
-    margin-bottom: 5rem;
+    color: #367CBD;
+    margin-bottom: 2rem;
     opacity: 0.7;
     text-transform: uppercase;
     }
@@ -62,24 +39,22 @@ h3 {
     font-weight: 500;
 }
 h4{
-    color: #A81E1E;
+    text-align: center;
+    margin-top: 2rem;
+    color: #367CBD;
     font-style: italic;
-    margin-bottom: 2rem;
 }
 /* Utilities */
 
 .container {
-    width: 90%;
-    height: fit-content;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
-    margin-top: 30px;
 }
 
 .container > * {
-    width: 90%;
+    width: 100%;
 }
 
 .flex-column {
@@ -103,18 +78,36 @@ h4{
 .hidden {
     display: none;
 }
-
+.image-btn{
+    display: flex;
+}
+.image-btn img{
+    width: 100%;
+}
+.play-column{
+    color: #367CBD;
+    text-align: center;
+}
+.play-column label{
+    font-size: 20px;
+    font-family: Rowdies;
+}
 /* BUTTONS */
 
 .btn {
-    padding: 1rem 0;
-    width: 20rem;
-    text-align: center;
+    font-size: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding-top: 10px;
+    padding-left: 15px;
+    width: 8rem;
+    height: 8rem;
     border: 0.1rem solid #56a5eb;
-    margin-bottom: 1rem;
     text-decoration: none;
-    color: #56a5eb;
-    background-color: white;
+    color: #fff;
+    background-color: #367CBD;
     -webkit-transition: ease-out 0.4s;
     -moz-transition: ease-out 0.4s;
     transition: ease-out 0.4s;
@@ -163,4 +156,37 @@ input::placeholder{
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
+  }
+
+  /*Industry*/
+  .industry-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 50px 0;
+  }
+  .industry-container h1{
+    margin-bottom: 5rem;
+    font-size: 48px;
+    text-align: center;
+  }
+  .industry{
+    display: flex;
+    justify-content: center;
+  }
+  .industry-box a{
+    padding: 40px 6%;
+    margin: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: Rowdies;
+    color: #fff;
+    border-radius: 12px;
+    display: inline-block;
+    background-color: #74ABE3;
+    box-shadow: 4px 6px 4px 0px #1F65AC;
+    transition: 0.4s;
+  }
+  .industry-box a:hover{
+    transform: scale(0.95);
   }

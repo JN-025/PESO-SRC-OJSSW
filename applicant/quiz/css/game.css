@@ -1,34 +1,17 @@
-
-.choice-container
-{
-    display: flex;
-    margin-bottom: 0.5rem;
-    width: 100%;
-    margin: 20px;
-    border: 0.1rem solid rgb(86, 165, 235, 0.25);
-    background-color: #B0D9FF;
-    border-radius: 3px;  
-}
-
-
-
-.choice-card
-{
-    display: flex;
-    width: 70%;
-    height: 100px;
-    background-color: transparent;
-}
-
-.question-card
-{
-    background-color: transparent;
-    width: 90%;
-    height: 300px;
-    margin-top: 20px;
-    padding: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Mohave&family=Rowdies&display=swap');
+.game-container{
     text-align: center;
-
+    align-items: center;
+    margin: 20px;
+    font-family: Rowdies;
+}
+.choice-container {
+    display: flex;
+    margin: 2rem;
+    width: 23%;
+    justify-content: center;
+    border: 0.1rem solid rgb(86, 165, 235, 0.25);
+    background-color: white;
 }
 
 .choice-container:hover {
@@ -37,26 +20,21 @@
     transition: transform 150ms;
     transform: translateY(-0.1rem);
 }
-
-
-
+.choice-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
 .choice-prefix {
-    padding: 10px 20px;
-    background-color: #6FA0CE;
+    padding: 1.5rem 2.5rem;
+    background-color: #56a5eb;
     color: white;
-    border-radius: 3px;
-    font-size: 2.3vw;
-    font-family: Rowdies;
 }
 
-
-
-.choice-text{
-    padding: 10px;
+.choice-text {
+    padding: 1.5rem;
     width: 100%;
-    font-size: 1.5vw;
-    text-align: center;
-    font-family: Rowdies;
 }
 
 .correct {
@@ -69,91 +47,46 @@
 
 /* HUD */
 #question{
-    font-size: 1.8vw;
     color: #367CBD;
-    font-family: Rowdies;
-
-
+    font-size: 17px;
 }
 #question.animating {
-  
     white-space: nowrap;
     overflow: hidden;
     width: 100%;
-    animation: type 4s steps(60, end);
+
 }
   
   @keyframes type{ 
     from { width: 0; } 
   } 
 #hud{
+    color: #367CBD;
     display: flex;
-    justify-content: justify;
-    background-color: transparent;
+    justify-content: space-around;
+}
+
+.hud-prefix{
+    text-align: center;
     
 }
 
-.hud-container-1
-{
-    width: 75%;
-    height: fit-content;
-    background-color: transparent;
-    float: left;
-    margin-right: 5%;
-}
-
-.hud-container-2
-{
-    width: 20%;
-    height: fit-content;
-    background-color: transparent;
-    float: left;
-
-}
-
-.hud-prefix {
-    text-align: left;
-    color: #367CBD;
-    font-size: 2.5vw;
-    font-family: Rowdies;
-    font-weight: bold;
-}
-
-.hud-prefix-score {
-    text-align: center;
-    color: #367CBD;
-    font-size: 2.5vw;
-    font-family: Rowdies;
-    font-weight: bold;
-}
-
-
-
 .hud-main-text{
     text-align: center;
-    color: #367CBD;
-    font-size: 5vw;
-    font-family: Rowdies;
-    font-weight: bold;
-   margin:0;
 }
 
 #progressBar{
-    width: 70%;
-    height: 2.5rem;
+    width: 50rem;
+    height: 2rem;
     border: 0.3rem solid #54B452;
     margin-top: 1.5rem;
 }
 
 #progressBarFull{
-    height: 2rem;
+    height: 100%;
     background-color: #54B452;
     width: 0%;
-    float:left;
-    
 }
-
-
 
 /* Loader */
 

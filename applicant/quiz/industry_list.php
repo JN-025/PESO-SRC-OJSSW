@@ -11,7 +11,7 @@ $applicant_id = $_SESSION["applicant_id"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/peso.png" type="image/x-icon">
-    <title>Quiz</title>
+    <title>Industry</title>
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="../../assets/css/applicant_topnav.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -22,18 +22,19 @@ $applicant_id = $_SESSION["applicant_id"];
     include "../../function.php";
     include "topnav.php";
     ?>
-    <div class="container">
-        <div id="home" class="flex-center flex-column">
-            <h1>Start Training</h1>
-            <div class="image-btn">
-            <img src="../../assets/img/training.png" alt="" srcset="">
-            <div class="play-column">
-            <label>Play</label>
-            <a href="industry_list.php" class="btn"><i class="bi bi-play-fill"></i></a>
+    <div class="industry-container">
+        <h1>Pick an industry</h1>
+        <div class="industry">
+            <div class="industry-box">
+                <a href="game.php">Technology #1</a>
+                <a href="">Industry #1</a>
+                <a href="">Industry #1</a>
+                <a href="">Industry #1</a>
+                <a href="">Industry #1</a>
+                <a href="">Industry #1</a>
+                <a href="">Industry #1</a>
+                <a href="">Industry #1</a>
             </div>
-            </div>
-            <h4>This game will test your skills and knowledge<br>about a certain topic. Pick what you think is best for you and play!</h4>
-            <!--<a href="highscores.php" class="btn">High Scores</a>-->
         </div>
     </div>
 </body>
