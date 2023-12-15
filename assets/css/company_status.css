@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Mohave&family=Rowdies&display=swap');
+:root{
+    padding: 20px;
+    margin-top: 70px;
+}
+.company-container{
+    font-family: 'Mohave';
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}

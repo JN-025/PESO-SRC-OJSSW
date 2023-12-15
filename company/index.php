@@ -15,7 +15,7 @@
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
             $_SESSION['company_id'] = $row['company_id'];
-            header('location: jobpost.php');
+            header('location: poststatus.php');
         } else {
             $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
         }
