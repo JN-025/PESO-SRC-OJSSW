@@ -18,7 +18,7 @@ if (mostRecentScore >= 0 && mostRecentScore <= 20) {
     resultImage.src = "../../assets/img/scoremedium.png";
 } else if (mostRecentScore == 50) {
     finalScore.style.color ="#7EE100";
-    resultTitle.innerText = "Congratulations";
+    resultTitle.innerText = "CONGRATULATIONS!";
     resultHeader.innerText = "Learn from this mistakes and try again";
     resultHeaderContent.innerText = "Congratulations on giving it your best, even in the face of challenges. Learn from this, and I'm confident you'll do even better next time. Keep going";
     resultImage.src = "../../assets/img/scorehigh.png";
