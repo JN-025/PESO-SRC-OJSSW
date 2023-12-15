@@ -831,7 +831,7 @@ if (isset($_POST["submit"])) {
                             <th><h2>Carreer Service/Board/Bar<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <tr>
                                 <td><input type="text" name="careerServ1" placeholder="Career Service/Board/Bar" required maxlength="50"></td>
-                                <td><input type="number" name="licenceNum1" placeholder="License Number" required min="999999999" max="999999999"></td>
+                                <td><input type="number" name="licenceNum1" placeholder="License Number" required></td>
                                 <th><h2>Expiry Date</h2></th>
                                 <td><input type="date" name="expiryDate1" placeholder="DD/MM/YYYY" required></td>
                                 <button class="button clone-btn" onclick="addSection('eligibility-container')">Add</button>
