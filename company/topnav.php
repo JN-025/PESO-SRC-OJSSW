@@ -1,16 +1,29 @@
+<?php
+include '../conn.php';
+$company_id = $_SESSION["company_id"];
+
+$notification_query = "SELECT * FROM company_notifications WHERE company_id = $company_id ORDER BY date_added_at DESC LIMIT 4";
+$notification_result = mysqli_query($conn, $notification_query);
+$notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
+?>
 <link rel="stylesheet" href="../assets/css/applicant_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 <div class="topnav">
-    <div class="peso-logo"></div>
+    <div class="peso-logo">
+        <img src="../assets/img/ojssw.png" alt="PESO-Logo" srcset="">
+    </div>
     <div class="list-dropdown">
-        <a href="" class="active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
-        <div class="sub-list">
-                <a href="homepage.php"><i class="bi bi-house-door-fill"></i> HOME</a>
-                <a href="job_posting.php"><i class="bi bi-search"></i> JOB POSTING</a>
-                <a href="jobpost.php"><i class="bi bi-bookmark"></i> POSTED JOBS</a>
-                <a href="#"><i class="bi bi-controller"></i> APPLICATIONS</a>
-                 <a href="#"><i class="bi bi-exclamation-circle"></i> MORE DETAILS</a>
+                <a href="poststatus.php" <?php echo isActivePage("poststatus.php"); ?>>Job Post</a>
+                <a href="job_posting.php" <?php echo isActivePage("job_posting.php"); ?>>Job Posting</a>
+    </div>
+    <div class="list-dropdown-sublist d-none">
+        <a href="" class="sub-active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
+        <div class="sub-list" id="nav_title">
+                <a href="find_jobs.php"><i class="bi bi-search"></i>&nbsp;Find Jobs</a>
+                <a href="multiform_profile.php"><i class="bi bi-bookmark"></i>&nbsp;NSRS FORM</a>
+                <a href="quiz/index.php"><i class="bi bi-controller"></i>&nbsp;Training</a>
+                 <a href="#"><i class="bi bi-exclamation-circle"></i>&nbsp;More Details</a>
                  </div>
     </div>
     <div class="right-corner">
@@ -18,21 +31,28 @@
             <div class="field-space"></div>
             <i class="bi bi-bell icon" id="bell-icon"></i>
             <div class="notification-dropdown" id="notification-dropdown">
-                <div class="col-1">
-                    <a href="">Notification</a>
-                    <a href="">See All</a>
+                <div class="topnav-col-1">
+                    <span style="color: green;">Notification</span>
+                    <a href="#">See All</a>
                 </div>
-                <div class="col-2">
-                <i class="bi bi-x-circle"></i>
-                <p id="notification-message">No notifications available</p>
+                <div class="topnav-col-2">
+                <?php if (count($notifications) > 0) : ?>
+                    <ul>
+                        <?php foreach ($notifications as $notification) : ?>
+                        <li><?php $formattedDate = date("F j, Y | g:i A", strtotime($notification['date_added_at']));
+                            echo '<span class="highlight-title">'.$notification['title'] . '</span>' .':<br> ' . $notification['description']. '<div>' .$formattedDate . '</div>'; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php else : ?>
+                    <i class="bi bi-x-circle"></i>
+                    <p id="notification-message">No notifications available</p>
+                <?php endif; ?>
                 </div>
             </div>
         </div>
         <div class="dropdown">
             <i class="bi bi-person-fill icon" id="person-icon"></i>
             <div class="dropdown-content" id="person-dropdown">
-                <a href="multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
-                <a href="#"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
                 <a href="signout.php"><i class="bi bi-box-arrow-in-right" style="margin-left: 18px;left: 0; position:absolute;"></i>Logout</a>
             </div>
         </div>
@@ -53,7 +73,6 @@
         } else {
         }
     }
-
     bellIcon.addEventListener("click", () => {
         if (notificationDropdown.style.display === "block") {
             notificationDropdown.style.display = "none";
@@ -80,8 +99,6 @@
     });
 
     updateNotificationDropdown();
-
-
 
     bellIcon.addEventListener("click", function(event) {
     if (bellIcon.classList.contains("clicked")) {

@@ -361,7 +361,7 @@ if (isset($_POST["submit"])) {
                 <div class="button-selection">
                 <button id="nextButton" class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
                     </div>
-                    <h1 class="mt-3 font-normal">I. PERSONAL INFORMATION</h1>
+                    <div class="first-container">
                     <!-- Step 1 input fields -->
                     <div class="mt-3">
                         <!--input field insert-->
@@ -399,7 +399,7 @@ if (isset($_POST["submit"])) {
                     </div>
                     <div class="stick-object">
       
-                        <label for="dateofbirth"><h2>Date of Birth<span class="required-asterisk">&nbsp;*</span></h2></label>
+                        <label for="birthday"><h2>Date of Birth<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <input style="width:100%"type="date" placeholder="birthday" name="birthday" id="birthday" required oninput="calculateAge()">
                     </div>
                     <div class="stick-object">
@@ -550,7 +550,7 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3 form-row">
                     <div class="stick-object">
                     <label for=""><h2>Disability<span class="required-asterisk">&nbsp;*</span></h2></label>
-                    <select style="width: 120px;" class="other-select" name="disability" required>
+                    <select style="width: 120px;" class="other-select" id="disabilitySelect" name="disability" required>
                         <option value="None" selected hidden>None</option>
                         <option value="None">None</option>
                         <option value="visual">Visual</option>
@@ -559,7 +559,7 @@ if (isset($_POST["submit"])) {
                         <option value="physical">Physical</option>
                         <option value="other">Other</option>
                     </select>
-                    <input type="text" class="other-input" style="margin: 5px" name="other_disability" placeholder="Enter other disability" style="display: none;">
+                    <input type="text" class="other-input" style="margin: 5px" id="otherDisabilityInput" name="other_disability" placeholder="Enter other disability" style="display: none;">
                     </div>
                     <div class="stick-object">
       
@@ -636,15 +636,15 @@ if (isset($_POST["submit"])) {
                     </div>
                     <!--next button-->
                     </div>
+                    </div>
                 </section>
                 <!-- Step 2 Content, default hidden on page load. -->
-                <section id="step-2" class="form-step d-none">
+                <section id="step-2" class="form-step ">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="1">Prev</button>
                 <button class="button btn-navigate-form-step" type="button" step_number="3">Next</button>
                     </div>
-                    <h1 class="mt-3 font-normal">II. EDUCATIONAL BACKGROUND</h1>
                     <!-- Step 2 input fields -->
                     <div class="step-container">
                         <div class="mt-3 flex-column">
@@ -693,13 +693,12 @@ if (isset($_POST["submit"])) {
                     </div>
                 </section>
                 <!-- Step 3 Content, default hidden on page load. -->
-                <section id="step-3" class="form-step d-none">
+                <section id="step-3" class="form-step ">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="2">Prev</button>
                 <button class="button btn-navigate-form-step" type="button" step_number="4">Next</button>
                     </div>
-                    <h1 class="mt-3 font-normal">III. JOB PREFERENCE</h1>
                     <!-- Step 3 input fields -->
                     <div class="step-container">
                     <div class="mt-3">
@@ -739,17 +738,16 @@ if (isset($_POST["submit"])) {
                     </div>
                 </section>
                 <!-- Step 4 Content, default hidden on page load. -->
-                <section id="step-4" class="form-step d-none">
+                <section id="step-4" class="form-step ">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="3">Prev</button>
                 <button class="button btn-navigate-form-step" type="button" step_number="5">Next</button>
                     </div>
-                    <h1 class="mt-3 font-normal">IV. TECHNICAL/VOCATIONAL/OTHER TRAINING</h1>
                     <!-- Step 4 input fields -->
                     <div class="step-container">
                     <div class="mt-3 flex-column">
-                        <th><h2>Training #1</h2></th>
+                        <th><h2>Training #1<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
                             <td><input type="text" name="training1" placeholder="Training Program" required></td>
                             <td><input type="text" name="institution1" placeholder="Training Instution" required></td>
@@ -768,7 +766,7 @@ if (isset($_POST["submit"])) {
                         </tr>
                     </div>
                     <div class="mt-3 flex-column">
-                        <th><h2>Training #2</h2></th>
+                        <th><h2>Training #2<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
                             <td><input type="text" name="training2" placeholder="Training Program" required></td>
                             <td><input type="text" name="institution2" placeholder="Training Instution" required></td>
@@ -787,7 +785,7 @@ if (isset($_POST["submit"])) {
                         </tr>
                     </div>
                     <div class="mt-3 flex-column">
-                        <th><h2>Training #3</h2></th>
+                        <th><h2>Training #3<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
                             <td><input type="text" name="training3" placeholder="Training Program" required></td>
                             <td><input type="text" name="institution3" placeholder="Training Instution" required></td>
@@ -811,31 +809,28 @@ if (isset($_POST["submit"])) {
                     ?>
                     </div>
                 </section>
-                 <!-- Step 5 Content, default hidden on page load. -->
-                 <section id="step-5" class="form-step d-none">
+                 <section id="step-5" class="form-step ">
                  <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                  <div class="button-selection">
                  <button class="button btn-navigate-form-step" type="button" step_number="4">Prev</button>
                  <button class="button btn-navigate-form-step" type="button" step_number="6">Next</button>
                     </div>
-                    <h1 class="mt-3 font-normal">V. Eligibility</h1>
-                    <!-- Step 5 input fields -->
                     <div class="table-container">
                     <div class="step-container">
                     <div class="mt-3">
                         <div class="flex-column" id="eligibility-container">
-                            <th><h2>Carreer Service/Board/Bar</h2></th>
+                            <th><h2>Carreer Service/Board/Bar<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <tr>
                                 <td><input type="text" name="careerServ1" placeholder="Career Service/Board/Bar" required></td>
                                 <td><input type="text" name="licenceNum1" placeholder="License Number" required></td>
                                 <td><input type="text" name="expiryDate1" placeholder="Expiry Date" required></td>
-                                <button class="button" onclick="addSection('eligibility-container')">Add</button>
+                                <button class="button clone-btn" onclick="addSection('eligibility-container')">Add</button>
                             </tr>
                             </div>
-                            <th><h2>Language Proficiency Certification</h2></th>
+                            <th><h2>Language Proficiency Certification<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <tr>
                                 <td>
-                                    <select class="other-select" name="languageCertifications" id="" required>
+                                    <select class="other-select" name="languageCertifications" id="languageCertifications" required>
                                         <option value="" selected hidden>Language Proficiency Certification</option>
                                         <option value="IELTS">International English Language Testing System (IELTS)</option>
                                         <option value="TOEFL">Test of English as a Foreign Language (TOEFL)</option>
@@ -844,37 +839,36 @@ if (isset($_POST["submit"])) {
                                         <option value="TOPIC">Test of Proficiency in Korea (TOPIC)</option>
                                         <option value="other">Other</option>
                                     </select>
-                                    <input type="text" class="other-input" placeholder="Other Language">
+                                    <input type="text" class="other-input" id="otherLanguageInput" placeholder="Other Language" style="display: none;">
                                 </td>
                                 <td><input type="text" name="validDate" placeholder="Validity Date" required></td>
                             </tr>
                             <div class="flex-column">
-                            <th><h2>Dialects Spoken</h2></th>
-                            <td><select style="width: 50%;" name="dialectsSpoken" id="" required>
+                            <th><h2>Dialects Spoken<span class="required-asterisk">&nbsp;*</span></h2></th>
+                            <td><select style="width: 50%;" name="dialectsSpoken" id="dialectsSpoken" required>
                                 <option value="tagalog">Tagalog</option>
                                 <option value="ilocano">Ilocano</option>
                                 <option value="ilonggo">Ilonggo</option>
                                 <option value="bikol">Bikol</option>
-                                <option value="">Other</option>
-                            </select></td>
+                                <option value="other">Other</option>
+                            </select>
+                            <input type="text" class="other-input" id="otherDialectInput" placeholder="Other Dialect" style="display: none;">
+                            </td>
                             </div>
                     </div>
                     </div>
                     </div>
                 </section>
-                <!-- Step 6 Content, default hidden on page load. -->
-                <section id="step-6" class="form-step d-none">
+                <section id="step-6" class="form-step ">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                  <div class="button-selection">
                  <button class="button btn-navigate-form-step" type="button" step_number="5">Prev</button>
                  <button class="button btn-navigate-form-step" type="button" step_number="7">Next</button>
                     </div>
-                    <h1 class="mt-3 font-normal">VI. WORK EXPERIENCES</h1>
-                    <!-- Step 6 input fields -->
-                    <div class="table-container" id="work-experience-container">
+                    <div class="table-container">
                     <div class="step-container">
-                        <div class="mt-3 flex-column">
-                            <th><h2>Work Experience</h2></th>
+                        <div class="mt-3 flex-column" id="work-experience-container">
+                            <th><h2>Work Experience<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <div class="note-reminder">
                                 <label>Note: Limit the occupation for the last 10 years.<br>Start with the most recent employment</label>
                             </div>
@@ -898,61 +892,58 @@ if (isset($_POST["submit"])) {
                                     <option value="probitionary">Probitionary</option>
                                 </select></td>
                             </tr>
-                            <button class="button" onclick="addSection('work-experience-container')">Add</button>
+                            <button class="button clone-btn" onclick="addSection('work-experience-container')">Add</button>
                         </div>
                     </div>
                     </div>
                 </section>
-                <!-- Step 7 Content, default hidden on page load. -->
-                <section id="step-7" class="form-step d-none">
+                <section id="step-7" class="form-step ">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="6">Prev</button>
                 <button class="button btn-navigate-form-step" type="button" step_number="8">Next</button>
                     </div>
-                    <h1 class="mt-3 font-normal">VII. SKILLS</h1>
-                    <!-- Step 7 input fields -->
                     <div class="step-container">
                         <div class="mt-3">
-                            <th><h2>21st Century Skills</h2></th>
+                            <th><h2>21st Century Skills<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <div class="note-reminder">
                                 <label for="">Note: Check five (5) skills you possess (Self-Assesment)</label>
                             </div>
                         <div class="skills-container">
                             <div class="skills-checkbox">
-                                <div><input type="checkbox" id="innovation" name="skill[]" value="Innovation">
+                                <div><input type="checkbox" id="innovation" name="skill[]" value="Innovation" onclick="handleCheckboxClick(this)">
                                 <label for="innovation">Innovation</label></div>
-                                <div><input type="checkbox" id="team_work" name="skill[]" value="Team Work">
+                                <div><input type="checkbox" id="team_work" name="skill[]" value="Team Work" onclick="handleCheckboxClick(this)">
                                 <label for="team_work">Team Work</label></div>
-                                <div><input type="checkbox" id="multitasking" name="skill[]" value="Multitasking">
+                                <div><input type="checkbox" id="multitasking" name="skill[]" value="Multitasking" onclick="handleCheckboxClick(this)">
                                 <label for="multitasking">Multitasking</label></div>
-                                <div><input type="checkbox" id="workethics" name="skill[]" value="Work Ethics">
+                                <div><input type="checkbox" id="workethics" name="skill[]" value="Work Ethics" onclick="handleCheckboxClick(this)">
                                 <label for="workethics">Work Ethics</label></div>
-                                <div><input type="checkbox" id="selfmotivation" name="skill[]" value="Self Motivation">
+                                <div><input type="checkbox" id="selfmotivation" name="skill[]" value="Self Motivation" onclick="handleCheckboxClick(this)">
                                 <label for="selfmotivation">Self Motivation</label></div>
                             </div>
                             <div class="skills-checkbox">
-                                <div><input type="checkbox" id="cproblemsolving" name="skill[]" value="Creative Problem Solving">
+                                <div><input type="checkbox" id="cproblemsolving" name="skill[]" value="Creative Problem Solving" onclick="handleCheckboxClick(this)">
                                 <label for="cproblemsolving">Creative Problem Solving</label></div>
-                                <div><input type="checkbox" id="problemsolving" name="skill[]" value="Problem Solving">
+                                <div><input type="checkbox" id="problemsolving" name="skill[]" value="Problem Solving" onclick="handleCheckboxClick(this)">
                                 <label for="problemsolving">Problem Solving</label></div>
-                                <div><input type="checkbox" id="criticalthinking" name="skill[]" value="Critical Thinking">
+                                <div><input type="checkbox" id="criticalthinking" name="skill[]" value="Critical Thinking" onclick="handleCheckboxClick(this)">
                                 <label for="criticalthinking">Critical Thinking</label></div>
-                                <div><input type="checkbox" id="decisionmaking" name="skill[]" value="Decision Making">
+                                <div><input type="checkbox" id="decisionmaking" name="skill[]" value="Decision Making" onclick="handleCheckboxClick(this)">
                                 <label for="decisionmaking">Decision Making</label></div>
-                                <div><input type="checkbox" id="stresstolerance" name="skill[]" value="Stress Tolerance">
+                                <div><input type="checkbox" id="stresstolerance" name="skill[]" value="Stress Tolerance" onclick="handleCheckboxClick(this)">
                                 <label for="stresstolerance">Stress Tolerance</label></div>
                             </div>
                             <div class="skills-checkbox">
-                                <div><input type="checkbox" id="planningorg" name="skill[]" value="Planning and Organizing">
+                                <div><input type="checkbox" id="planningorg" name="skill[]" value="Planning and Organizing" onclick="handleCheckboxClick(this)">
                                 <label for="planningorg">Planning and Organizing</label></div>
-                                <div><input type="checkbox" id="socialperceptiveness" name="skill[]" value="Social Perceptiveness">
+                                <div><input type="checkbox" id="socialperceptiveness" name="skill[]" value="Social Perceptiveness" onclick="handleCheckboxClick(this)">
                                 <label for="socialperceptiveness">Social Perceptiveness</label></div>
-                                <div><input type="checkbox" id="engfuncskills" name="skill[]" value="English Functional Skills">
+                                <div><input type="checkbox" id="engfuncskills" name="skill[]" value="English Functional Skills" onclick="handleCheckboxClick(this)">
                                 <label for="engfuncskills">English Functional Skills</label></div>
-                                <div><input type="checkbox" id="engcomprehension" name="skill[]" value="English Comprehension">
+                                <div><input type="checkbox" id="engcomprehension" name="skill[]" value="English Comprehension" onclick="handleCheckboxClick(this)">
                                 <label for="engcomprehension">English Comprehension</label></div>
-                                <div><input type="checkbox" id="mathskill" name="skill[]" value="Math Functional Skill">
+                                <div><input type="checkbox" id="mathskill" name="skill[]" value="Math Functional Skill" onclick="handleCheckboxClick(this)">
                                 <label for="mathskill">Math Functional Skill</label></div>
                             </div>
                         </div>
@@ -960,68 +951,62 @@ if (isset($_POST["submit"])) {
                         <th><h2>Technical Skills Acquired without Formal Training</h2></th>
                         <div class="skills-container">
                             <div class="skills-checkbox">
-                                <div><input type="checkbox" id="carpentry" name="techSkill[]" value="Carpentry">
+                                <div><input type="checkbox" id="carpentry" name="techSkill[]" value="Carpentry" onclick="handleCheckboxClick(this)">
                                 <label for="carpentry">Carpentry</label></div>
-                                <div><input type="checkbox" id="masonry" name="techSkill[]" value="Masonry">
+                                <div><input type="checkbox" id="masonry" name="techSkill[]" value="Masonry" onclick="handleCheckboxClick(this)">
                                 <label for="masonry">Masonry</label></div>
                                 <div><input type="checkbox" id="welding" name="techSkill[]" value="Welding">
-                                <label for="welding">Welding</label></div>
+                                <label for="welding" onclick="handleCheckboxClick(this)">Welding</label></div>
                                 <div><input type="checkbox" id="automechanic" name="techSkill[]" value="Auto Mechanic">
-                                <label for="automechanic">Auto Mechanic</label></div>
+                                <label for="automechanic" onclick="handleCheckboxClick(this)">Auto Mechanic</label></div>
                             </div>
                             <div class="skills-checkbox">
-                                <div><input type="checkbox" id="plumbing" name="techSkill[]" value="Plumbing">
+                                <div><input type="checkbox" id="plumbing" name="techSkill[]" value="Plumbing" onclick="handleCheckboxClick(this)">
                                 <label for="plumbing">Plumbing</label></div>
-                                <div><input type="checkbox" id="driving" name="techSkill[]" value="Driving">
+                                <div><input type="checkbox" id="driving" name="techSkill[]" value="Driving" onclick="handleCheckboxClick(this)">
                                 <label for="driving">Driving</label></div>
-                                <div><input type="checkbox" id="gardening" name="techSkill[]" value="Gardening">
+                                <div><input type="checkbox" id="gardening" name="techSkill[]" value="Gardening" onclick="handleCheckboxClick(this)">
                                 <label for="gardening">Gardening</label></div>
-                                <div><input type="checkbox" id="tailoring" name="techSkill[]" value="Tailoring">
+                                <div><input type="checkbox" id="tailoring" name="techSkill[]" value="Tailoring" onclick="handleCheckboxClick(this)">
                                 <label for="tailoring">Tailoring</label></div>
                             </div>
                             <div class="skills-checkbox">
-                                <div><input type="checkbox" id="photograph" name="techSkill[]" value="Photograph">
+                                <div><input type="checkbox" id="photograph" name="techSkill[]" value="Photograph" onclick="handleCheckboxClick(this)">
                                 <label for="photograph">Photograph</label></div>
-                                <div><input type="checkbox" id="hairdressing" name="techSkill[]" value="Hairdressing">
+                                <div><input type="checkbox" id="hairdressing" name="techSkill[]" value="Hairdressing" onclick="handleCheckboxClick(this)">
                                 <label for="hairdressing">Hairdressing</label></div>
-                                <div><input type="checkbox" id="cooking" name="techSkill[]" value="Cooking">
+                                <div><input type="checkbox" id="cooking" name="techSkill[]" value="Cooking" onclick="handleCheckboxClick(this)">
                                 <label for="cooking">Cooking</label></div>
-                                <div><input type="checkbox" id="baking" name="techSkill[]" value="Baking">
+                                <div><input type="checkbox" id="baking" name="techSkill[]" value="Baking" onclick="handleCheckboxClick(this)">
                                 <label for="baking">Baking</label></div>
                             </div>
                         </div>
                         <script>
-                            // Function to handle checkbox click event
                             function handleCheckboxClick() {
                                 var otherChoicesCheckbox = document.getElementById('otherchoices');
                                 var skillInput = document.getElementById('skillInput');
 
-                                // Check if the "Other Choices" checkbox is checked
                                 if (otherChoicesCheckbox.checked) {
-                                    // Prompt the user for input
                                     var newSkill = prompt('Enter other skill:');
                                     
-                                    // Update the input field value
                                     skillInput.value = newSkill;
                                 } else {
-                                    // If the checkbox is unchecked, clear the input field
                                     skillInput.value = '';
                                 }
                             }
                         </script>
-                        <div><input type="checkbox" id="otherchoices" onclick="handleCheckboxClick()">
-                        <label for="otherchoices">Other:</label></div>
+                        <!--<div><input type="checkbox" id="otherchoices" onclick="handleCheckboxClick()">
+                        <label for="otherchoices">Other:</label></div>-->
                     </div>
                     </div>
                 </section>
                 <!--Step 8-->
-                <section id="step-8" class="form-step d-none">
+                <section id="step-8" class="form-step ">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="7">Prev</button>
                 <button class="button submit-btn" type="submit" name="submit">Submit</button>
                     </div>
-                    <h1 class="mt-3 font-normal">VIII. Authorization</h1>
                     <div class="mt-3">
                         <div class ="cert-cons">
                             <h1>Certification/Authorization</h1>
@@ -1029,13 +1014,13 @@ if (isset($_POST["submit"])) {
                             <div class="ca-inputbox">
                                 <div class ="inputbox">
                                     <label for="">
-                                        <input type="file" name="sign_img">
-                                        <p style="text-align:center;">Signature of Applicant</p>
+                                        <input type="file" name="sign_img" required>
+                                        <p style="text-align:center;">Signature of Applicant<span class="required-asterisk">&nbsp;*</span></p>
                                     </label>
                                 </div>
                                 <div class ="inputbox">
-                                    <input type="date" name="date_submitted_at">
-                                    <p style="text-align:center;">Date</p>
+                                    <input type="date" name="date_submitted_at" required>
+                                    <p style="text-align:center;">Date<span class="required-asterisk">&nbsp;*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -1060,24 +1045,35 @@ if (isset($_POST["submit"])) {
 </body>
 </html>
 <script>
-    function toggleOtherInput() {
-            var otherInput = document.querySelector('.other-input');
-            var selectInput = document.querySelector('.other-select');
-                            
-            if (selectInput.value.toLowerCase() === 'other') {
-                otherInput.style.display = 'block';
-                otherInput.setAttribute('required', 'required');
-                } else {
-                otherInput.style.display = 'none';
-                otherInput.removeAttribute('required');
-                }
-                }
-                document.querySelector('.other-select').addEventListener('change', toggleOtherInput);
-                toggleOtherInput();
-</script>
-<script>
+function toggleOtherInput(selectId, otherInputId) {
+    var otherInput = document.getElementById(otherInputId);
+    var selectInput = document.getElementById(selectId);
+    
+    if (selectInput.value === 'other') {
+        otherInput.style.display = 'block';
+        otherInput.setAttribute('required', 'required');
+    } else {
+        otherInput.style.display = 'none';
+        otherInput.removeAttribute('required');
+    }
+}
+document.getElementById('disabilitySelect').addEventListener('change', function() {
+    toggleOtherInput('disabilitySelect', 'otherDisabilityInput');
+});
+toggleOtherInput('disabilitySelect', 'otherDisabilityInput');
+
+document.getElementById('languageCertifications').addEventListener('change', function() {
+    toggleOtherInput('languageCertifications', 'otherLanguageInput');
+});
+toggleOtherInput('languageCertifications', 'otherLanguageInput');
+
+document.getElementById('dialectsSpoken').addEventListener('change', function() {
+    toggleOtherInput('dialectsSpoken', 'otherDialectInput');
+});
+toggleOtherInput('dialectsSpoken', 'otherDialectInput');
+
+
     function addSection(containerId) {
-        // Clone the existing table-container
         var originalContainer = document.getElementById(containerId);
         var cloneContainer = originalContainer.cloneNode(true);
 
@@ -1086,20 +1082,16 @@ if (isset($_POST["submit"])) {
             noteReminderClone.style.display = 'none';
         }
 
-        // Clear input values in the cloned container (optional)
         clearInputValues(cloneContainer);
 
-        // Append the cloned container to the parent
         originalContainer.parentNode.appendChild(cloneContainer);
 
-        // Add a "Remove" button to the cloned container
         addRemoveButton(cloneContainer, containerId);
 
         event.preventDefault();
     }
 
     function clearInputValues(container) {
-        // Clear input values within the cloned container
         var inputFields = container.querySelectorAll('input, select');
         inputFields.forEach(function (input) {
             input.value = '';
@@ -1107,17 +1099,28 @@ if (isset($_POST["submit"])) {
     }
 
     function addRemoveButton(container, containerId) {
-        // Create a "Remove" button
         var removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
-        removeButton.className = 'button';
+        removeButton.className = 'button clone-btn';
         removeButton.onclick = function () {
-            // Remove the container when the "Remove" button is clicked
+
             container.parentNode.removeChild(container);
         };
 
-        // Append the "Remove" button to the container
         container.appendChild(removeButton);
     }
+
+function handleCheckboxClick(checkbox) {
+    var maxCheckboxes = 5;
+    var allCheckboxes = document.querySelectorAll('input[name="skill[]"], input[name="techSkill[]"]');
+    var checkedCheckboxes = document.querySelectorAll('input[name="skill[]"]:checked, input[name="techSkill[]"]:checked');
+
+    if (checkedCheckboxes.length > maxCheckboxes) {
+        alert('You can only select up to ' + maxCheckboxes + ' skills.');
+        checkbox.checked = false;
+    }
+}
+
+
 </script>
 

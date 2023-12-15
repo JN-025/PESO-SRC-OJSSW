@@ -58,7 +58,7 @@ if(isset($_POST["submit"])) {
     $stmt = $conn->prepare($sql_jobpost);
     $stmt -> bind_param("isssssssssssssssssssssss",$company_id, $jobTitle, $companyName, $industry, $position, $educBg, $yrsExperience, $workLocation, $salary, $slot, $skills, $typeofHiring, $description, $target_file, $questionNo1, $questionNo2, $questionNo3, $questionNo4, $questionNo5, $answerNo1, $answerNo2, $answerNo3, $answerNo4, $answerNo5);
     if ($stmt->execute()){
-        header("location: jobpost.php");
+        header("location: poststatus.php");
         $_SESSION["success_jobposting"] = "Successfully Posted Job!";
         exit();
     } else {
