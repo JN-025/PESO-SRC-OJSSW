@@ -11,12 +11,9 @@ $company_id = $_SESSION['company_id'];
     <title>Post Status</title>
     <link rel="stylesheet" href="../assets/css/admin.css">
     <link rel="stylesheet" href="../assets/css/company_status.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
-    <?php
-    include "../function.php";
-    include "topnav.php";
-    ?>
     <div class="company-container">
         <div class="status">
         <?php
@@ -48,7 +45,7 @@ $company_id = $_SESSION['company_id'];
                 echo "<tr>";
                 echo "<td>{$row['companyName']}</td>";
                 echo "<td>{$row['total_applicants']}</td>";
-                echo "<th><a>Load</a></th>";
+                echo "<th><a class='load-table' data-jobpost-id='{$row['c_jobpost_id']}'>Load</a></th>";
                 echo "</tr>";
             }
 
@@ -110,8 +107,19 @@ $result = $conn->query($sql);
 
 $conn->close();
 ?>
+<div id="applicantTableContainer"></div>
         <script>
 $(document).ready(function () {
+    $(".load-table").on("click", function () {
+    var jobpostId = $(this).data("jobpost-id");
+    $.ajax({
+        type: "GET",
+        url: "load_table.php?jobpost_id=" + jobpostId + "&company_id=<?php echo $company_id; ?>",
+        success: function (data) {
+            $("#applicantTableContainer").html(data);
+        }
+    });
+});
     var sortOrder = 1;
 
     $("table").on("click", "th", function () {
@@ -168,7 +176,126 @@ $(document).ready(function () {
 });
 
     </script>
-        <table border="1" class="styled-table">
+    <?php
+    include "../function.php";
+    include "topnav.php";
+    ?>
+    <?php
+    if(isset($_SESSION["success_popup"])){
+    echo "<div class='form-modal' id='formModal'>
+            <div class='form-modal-content'>
+                    <div class='modal-col'>
+                        <p>{$_SESSION['success_popup']}</p>
+                    </div>
+            </div>
+        </div>";
+    unset($_SESSION["success_popup"]);
+
+    echo "<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var formModal = document.getElementById('formModal');
+
+            function hideModal() {
+                formModal.style.display = 'none';
+            }
+            setTimeout(hideModal, 5000);
+
+            formModal.addEventListener('click', hideModal);
+        });
+    </script>";
+    }
+?>
+        <style>
+            .form-modal{
+                margin: 5px;
+                cursor: pointer;
+                right: 0;
+                font-family: 'Poppins', sans-serif;
+                position: fixed;
+                width: 20%;
+                opacity: 1;
+                animation: fadeIn 0.5s ease-in-out forwards;
+            }
+            .form-modal-content{
+                text-align: center;
+                border-radius: 6px;
+                right: 0;
+                position: relative;
+                background-color: #D9570E;
+                padding: 20px;
+                color: #fff;
+                opacity: 0;
+                animation: dropDown 0.5s ease-in-out 0.5s forwards;
+            }
+            .modal-end p{
+                margin: 0;
+                margin-bottom: 44px;
+                text-align: center;
+                color: #FAC819;
+                font-family: Poppins;
+                font-size: 36px;
+                font-style: normal;
+                font-weight: 900;
+                line-height: normal;
+            }
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes dropDown {
+                0% {
+                    transform: translateY(-50%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            .close {
+                position:absolute;
+                color: #fff;
+                top: 0;
+                right: 0;
+                margin: 20px;
+                font-size: 28px;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                cursor: pointer;
+            }
+            .pagination{
+                transition: 0.4s;
+            }
+            .pagination a{
+                padding: 10px;
+                box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+                color: #000;
+                text-decoration: none;
+                font-size: 24px;
+                margin: 0 5px;
+                border-radius: 6px;
+            }
+            .pagination a:hover{
+                color: #fff;
+                padding: 10px;
+                background-color: #B22623;
+            }
+            .pagination a.active{
+                color: #fff;
+                background-color: #B22623;
+            }
+            </style>
+        <table border="1" class="styled-table" hidden>
     <thead>
         <tr>
         <th onclick="sortTable(0)">ID No#<span id="arrow0"></span></th>
