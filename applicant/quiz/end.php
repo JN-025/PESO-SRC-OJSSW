@@ -23,17 +23,17 @@ $applicant_id = $_SESSION["applicant_id"];
     ?>
     <div class="container">
         <div class="flex-center flex-column" id="end">
+        <h1 id="resultTitle"></h1>
             <div class="success">
-            <h1>Congratulations! You have successfully finished the game</h1>
-            </div>
+            <img id="resultImage" alt="No Image">
             <h1 id="finalScore"></h1>
-         <!--   <form>
-                <input type="text" name="username" id="username" placeholder="username">
-                <button id="saveScoreBtn" type="submit" class="btn" onclick="saveHighScore(event)" disabled>Save</button>
-            </form>-->
-            <a href="../find_jobs.php" class="btn">Submit</a>
-            <a href="game.php" class="btn">Play Again</a>
-            <a href="Index.php" class="btn">Go Home</a>
+            </div>
+            <span id="sub-header" class="sub-text bold"></span>
+            <span id="sub-header-content" class="sub-text"></span>
+            <div class="end-display">
+            <a href="game.php" class="end-btn">Play Again</a>
+            <a href="Index.php" class="end-btn">Go Home</a>
+            </div>
         </div>
     </div>
     <script src="js/end.js"></script>
