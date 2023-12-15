@@ -404,26 +404,32 @@ if (isset($_POST["submit"])) {
                     </div>
                     <div class="stick-object">
                         <label for="age"><h2>Age<span class="required-asterisk">&nbsp;*</span></h2></label>
-                        <input type="number" id="age"name="age" placeholder="age" min="18" max="99" required value="">
+                        <input type="number" id="age"name="age" placeholder="age" id="age" min="18" max="99" required  oninput="calculateAge()">
                     </div>
                     <script>
-                        var today = new Date();
-                        var maxDate = today.toISOString().split('T')[0];
-                        document.getElementById("birthday").setAttribute("max", maxDate);
+                    var today = new Date();
+                    var maxDate = today.toISOString().split('T')[0];
+                    document.getElementById("birthday").setAttribute("max", maxDate);
 
-                        function calculateAge() {
-                            var dob = document.getElementById("birthday").value;
-                            var dobDate = new Date(dob);
+                    function calculateAge() {
+                        var dob = document.getElementById("birthday").value;
+                        var dobDate = new Date(dob);
 
-                            var age = today.getFullYear() - dobDate.getFullYear();
-
-                            if (today.getMonth() < dobDate.getMonth() ||
-                                (today.getMonth() === dobDate.getMonth() && today.getDate() < dobDate.getDate())) {
-                                age--;
-                            }
-
-                            document.getElementById("age").value = age;
+                        if (dobDate > today) {
+                            alert("Please select a date on or before today.");
+                            document.getElementById("birthday").value = maxDate;
+                            dobDate = today;
                         }
+
+                        var age = today.getFullYear() - dobDate.getFullYear();
+
+                        if (today.getMonth() < dobDate.getMonth() ||
+                            (today.getMonth() === dobDate.getMonth() && today.getDate() < dobDate.getDate())) {
+                            age--;
+                        }
+
+                        document.getElementById("age").value = age;
+                    }
                     </script>
                     <div class="stick-object">
                         <label for=""><h2>Sex<span class="required-asterisk">&nbsp;*</span></h2></label>
@@ -639,7 +645,7 @@ if (isset($_POST["submit"])) {
                     </div>
                 </section>
                 <!-- Step 2 Content, default hidden on page load. -->
-                <section id="step-2" class="form-step ">
+                <section id="step-2" class="form-step d-none">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="1">Prev</button>
@@ -693,7 +699,7 @@ if (isset($_POST["submit"])) {
                     </div>
                 </section>
                 <!-- Step 3 Content, default hidden on page load. -->
-                <section id="step-3" class="form-step ">
+                <section id="step-3" class="form-step d-none">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="2">Prev</button>
@@ -705,18 +711,18 @@ if (isset($_POST["submit"])) {
                     <table>
                         <th><h2>Preferred Occupation #1<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
-                            <td><input type="text" onkeydown="restrictName(event)" name="occupation1" placeholder="Occupation" required></td>
-                            <td><input type="text" onkeydown="restrictName(event)" name="industry1" placeholder="Industry" required></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="occupation1" placeholder="Occupation" required maxlength="20"></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="industry1" placeholder="Industry" required maxlength="20"></td>
                         </tr>
                         <th><h2>Preferred Occupation #2<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
-                            <td><input type="text" onkeydown="restrictName(event)" name="occupation2" placeholder="Occupation" required></td>
-                            <td><input type="text" onkeydown="restrictName(event)" name="industry2" placeholder="Industry" required></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="occupation2" placeholder="Occupation" required maxlength="20"></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="industry2" placeholder="Industry" required maxlength="20"></td>
                         </tr>
                         <th><h2>Preferred Occupation #3<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
-                            <td><input type="text" onkeydown="restrictName(event)" name="occupation3" placeholder="Occupation" required></td>
-                            <td><input type="text" onkeydown="restrictName(event)" name="industry3" placeholder="Industry" required></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="occupation3" placeholder="Occupation" required maxlength="20"></td>
+                            <td><input type="text" onkeydown="restrictName(event)" name="industry3" placeholder="Industry" required maxlength="20"></td>
                         </tr>
                         <th><h2>Preferred Location<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <td><div class="mt-3">
@@ -728,17 +734,17 @@ if (isset($_POST["submit"])) {
                                             </select>   
                         </div></td>
                         <tr>
-                            <td><input type="text" placeholder="Location #1" required></td>
+                            <td><input type="text" placeholder="Location #1" required maxlength="50"></td>
                         </tr>
                         <tr>
-                            <td><input type="text" placeholder="Location #2"></td>
+                            <td><input type="text" placeholder="Location #2" maxlength="50"></td>
                         </tr>
                     </table>
                     </div>
                     </div>
                 </section>
                 <!-- Step 4 Content, default hidden on page load. -->
-                <section id="step-4" class="form-step ">
+                <section id="step-4" class="form-step d-none">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="3">Prev</button>
@@ -749,8 +755,8 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3 flex-column">
                         <th><h2>Training #1<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
-                            <td><input type="text" name="training1" placeholder="Training Program" required></td>
-                            <td><input type="text" name="institution1" placeholder="Training Instution" required></td>
+                            <td><input type="text" name="training1" placeholder="Training Program" required maxlength="50"></td>
+                            <td><input type="text" name="institution1" placeholder="Training Instution" required maxlength="50"></td>
                             <th><h2>Started to Ended</h2></th>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
@@ -758,7 +764,7 @@ if (isset($_POST["submit"])) {
                                     <td><input type="date" name="endDuration1" placeholder="Ended" required></td>
                                 </tr>
                             </div>
-                            <td><input type="text" name="certificate1" placeholder="Certificate Recieved" required></td>
+                            <td><input type="text" name="certificate1" placeholder="Certificate Recieved" required maxlength="50"></td>
                             <td><select name="completion1" id="" required>
                                 <option value="" selected hidden>Completion</option>
                                 <option value="yes">Yes</option>
@@ -769,8 +775,8 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3 flex-column">
                         <th><h2>Training #2<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
-                            <td><input type="text" name="training2" placeholder="Training Program" required></td>
-                            <td><input type="text" name="institution2" placeholder="Training Instution" required></td>
+                            <td><input type="text" name="training2" placeholder="Training Program" required maxlength="50"></td>
+                            <td><input type="text" name="institution2" placeholder="Training Instution" required maxlength="50"></td>
                             <th><h2>Started to Ended</h2></th>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
@@ -778,7 +784,7 @@ if (isset($_POST["submit"])) {
                                     <td><input type="date" name="endDuration2" placeholder="Ended" required></td>
                                 </tr>
                             </div>
-                            <td><input type="text" name="certificate2" placeholder="Certificate Recieved" required></td>
+                            <td><input type="text" name="certificate2" placeholder="Certificate Recieved" required maxlength="50"></td>
                             <td><select name="completion2" id="" required>
                                 <option value="" selected hidden>Completion</option>
                                 <option value="yes">Yes</option>
@@ -789,8 +795,8 @@ if (isset($_POST["submit"])) {
                     <div class="mt-3 flex-column">
                         <th><h2>Training #3<span class="required-asterisk">&nbsp;*</span></h2></th>
                         <tr>
-                            <td><input type="text" name="training3" placeholder="Training Program" required></td>
-                            <td><input type="text" name="institution3" placeholder="Training Instution" required></td>
+                            <td><input type="text" name="training3" placeholder="Training Program" required maxlength="50"></td>
+                            <td><input type="text" name="institution3" placeholder="Training Instution" required maxlength="50"></td>
                             <th><h2>Started to Ended</h2></th>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
@@ -798,7 +804,7 @@ if (isset($_POST["submit"])) {
                                     <td><input type="date" name="endDuration3" placeholder="Ended" required></td>
                                 </tr>
                             </div>
-                            <td><input type="text" name="certificate3" placeholder="Certificate Recieved" required></td>
+                            <td><input type="text" name="certificate3" placeholder="Certificate Recieved" required maxlength="50"></td>
                             <td><select name="completion3" id="" required>
                                 <option value="" selected hidden>Completion</option>
                                 <option value="yes">Yes</option>
@@ -812,7 +818,7 @@ if (isset($_POST["submit"])) {
                     ?>
                     </div>
                 </section>
-                 <section id="step-5" class="form-step ">
+                 <section id="step-5" class="form-step d-none">
                  <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                  <div class="button-selection">
                  <button class="button btn-navigate-form-step" type="button" step_number="4">Prev</button>
@@ -824,8 +830,8 @@ if (isset($_POST["submit"])) {
                         <div class="flex-column" id="eligibility-container">
                             <th><h2>Carreer Service/Board/Bar<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <tr>
-                                <td><input type="text" name="careerServ1" placeholder="Career Service/Board/Bar" required></td>
-                                <td><input type="text" name="licenceNum1" placeholder="License Number" required></td>
+                                <td><input type="text" name="careerServ1" placeholder="Career Service/Board/Bar" required maxlength="50"></td>
+                                <td><input type="number" name="licenceNum1" placeholder="License Number" required min="999999999" max="999999999"></td>
                                 <th><h2>Expiry Date</h2></th>
                                 <td><input type="date" name="expiryDate1" placeholder="DD/MM/YYYY" required></td>
                                 <button class="button clone-btn" onclick="addSection('eligibility-container')">Add</button>
@@ -845,7 +851,8 @@ if (isset($_POST["submit"])) {
                                     </select>
                                     <input type="text" class="other-input" id="otherLanguageInput" placeholder="Other Language" style="display: none;">
                                 </td>
-                                <td><input type="text" name="validDate" placeholder="Validity Date" required></td>
+                                <th><h2>Validity Date</h2></th>
+                                <td><input style="width: 50%;" type="date" name="validDate" placeholder="Validity Date" required></td>
                             </tr>
                             <div class="flex-column">
                             <th><h2>Dialects Spoken<span class="required-asterisk">&nbsp;*</span></h2></th>
@@ -863,7 +870,7 @@ if (isset($_POST["submit"])) {
                     </div>
                     </div>
                 </section>
-                <section id="step-6" class="form-step ">
+                <section id="step-6" class="form-step d-none">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                  <div class="button-selection">
                  <button class="button btn-navigate-form-step" type="button" step_number="5">Prev</button>
@@ -902,7 +909,7 @@ if (isset($_POST["submit"])) {
                     </div>
                     </div>
                 </section>
-                <section id="step-7" class="form-step ">
+                <section id="step-7" class="form-step d-none">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="6">Prev</button>
@@ -1006,7 +1013,7 @@ if (isset($_POST["submit"])) {
                     </div>
                 </section>
                 <!--Step 8-->
-                <section id="step-8" class="form-step ">
+                <section id="step-8" class="form-step d-none">
                 <!--<button class="button btn-navigate-form-step save-btn" type="button">Save</button>-->
                 <div class="button-selection">
                 <button class="button btn-navigate-form-step" type="button" step_number="7">Prev</button>
