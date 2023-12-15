@@ -662,15 +662,15 @@ if (isset($_POST["submit"])) {
                             <tr>
                                 <td><select name="educLevel" id="" required>
                                         <option value="" selected hidden>Highest Educational Level</option>
-                                        <option value="NO FORMAL EDUCATION">NO FORMAL EDUCATION</option>
-                                        <option value="ELEMENTARY LEVEL">ELEMENTARY LEVEL</option>
-                                        <option value="ELEMENTARY GRADUATE">ELEMENTARY GRADUATE</option>
-                                        <option value="HIGH SCHOOL LEVEL">HIGH SCHOOL LEVEL</option>
-                                        <option value="HIGH SCHOOL GRADUATE">HIGH SCHOOL GRADUATE</option>
-                                        <option value="COLLEGE LEVEL">COLLEGE LEVEL</option>
-                                        <option value="COLLEGE GRADUATE">COLLEGE GRADUATE</option>
-                                        <option value="TECH-VOC GRADUATE">TECH-VOC GRADUATE</option>
-                                        <option value="POST GRADUATE">POST GRADUATE</option>
+                                        <option value="No Formal Education">No Formal Education</option>
+                                        <option value="Elementary Level">Elementary Level</option>
+                                        <option value="ELEMENTARY GRADUATE">Elementary Graduate</option>
+                                        <option value="Elementary Graduate">High School Level</option>
+                                        <option value="High School Graduate">High School Graduate</option>
+                                        <option value="College Level">College Level</option>
+                                        <option value="College Graduate">College Graduate</option>
+                                        <option value="Tech-Voc Graduate">Tech-Voc Graduate</option>
+                                        <option value="Post Graduate">Post Graduate</option>
                                 </select></td>
                             </tr>
                             <th><h2>Year Graduated/Last Attended<span class="required-asterisk">&nbsp;*</span></h2></th>
@@ -687,7 +687,7 @@ if (isset($_POST["submit"])) {
                             </td>
                             <th><h2>Awards/Honors Received<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <td>
-                                <tr><input type="text" name="award" placeholder="Awards/Honors Received" required></tr>
+                                <tr><input type="text" name="award" placeholder="Awards/Honors Received" required maxlength="50"></tr>
                             </td>
                         </div>
                     </div>
@@ -728,10 +728,10 @@ if (isset($_POST["submit"])) {
                                             </select>   
                         </div></td>
                         <tr>
-                            <td><input type="text" onkeydown="restrictName(event)" placeholder="Location #1" required></td>
+                            <td><input type="text" placeholder="Location #1" required></td>
                         </tr>
                         <tr>
-                            <td><input type="text" onkeydown="restrictName(event)" placeholder="Location #2" required></td>
+                            <td><input type="text" placeholder="Location #2"></td>
                         </tr>
                     </table>
                     </div>
@@ -751,9 +751,10 @@ if (isset($_POST["submit"])) {
                         <tr>
                             <td><input type="text" name="training1" placeholder="Training Program" required></td>
                             <td><input type="text" name="institution1" placeholder="Training Instution" required></td>
+                            <th><h2>Started to Ended</h2></th>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
-                                    <td><input type="date" name="startDuration1" placeholder="Started" required>TO</td>
+                                    <td><input type="date" name="startDuration1" placeholder="Started" required>&nbsp;TO&nbsp;</td>
                                     <td><input type="date" name="endDuration1" placeholder="Ended" required></td>
                                 </tr>
                             </div>
@@ -770,9 +771,10 @@ if (isset($_POST["submit"])) {
                         <tr>
                             <td><input type="text" name="training2" placeholder="Training Program" required></td>
                             <td><input type="text" name="institution2" placeholder="Training Instution" required></td>
+                            <th><h2>Started to Ended</h2></th>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
-                                    <td><input type="date" name="startDuration2" placeholder="Started" required>TO</td>
+                                    <td><input type="date" name="startDuration2" placeholder="Started" required>&nbsp;TO&nbsp;</td>
                                     <td><input type="date" name="endDuration2" placeholder="Ended" required></td>
                                 </tr>
                             </div>
@@ -789,9 +791,10 @@ if (isset($_POST["submit"])) {
                         <tr>
                             <td><input type="text" name="training3" placeholder="Training Program" required></td>
                             <td><input type="text" name="institution3" placeholder="Training Instution" required></td>
+                            <th><h2>Started to Ended</h2></th>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
-                                    <td><input type="date" name="startDuration3" placeholder="Started" required>TO</td>
+                                    <td><input type="date" name="startDuration3" placeholder="Started" required>&nbsp;TO&nbsp;</td>
                                     <td><input type="date" name="endDuration3" placeholder="Ended" required></td>
                                 </tr>
                             </div>
@@ -823,7 +826,8 @@ if (isset($_POST["submit"])) {
                             <tr>
                                 <td><input type="text" name="careerServ1" placeholder="Career Service/Board/Bar" required></td>
                                 <td><input type="text" name="licenceNum1" placeholder="License Number" required></td>
-                                <td><input type="text" name="expiryDate1" placeholder="Expiry Date" required></td>
+                                <th><h2>Expiry Date</h2></th>
+                                <td><input type="date" name="expiryDate1" placeholder="DD/MM/YYYY" required></td>
                                 <button class="button clone-btn" onclick="addSection('eligibility-container')">Add</button>
                             </tr>
                             </div>
@@ -876,9 +880,10 @@ if (isset($_POST["submit"])) {
                                 <td><input type="text" name="company" placeholder="Name of Office/Company" required></td>
                                 <td><input type="text" name="cpAddress" placeholder="Address" required></td>
                             </tr>
+                            <th><h2>Started to Ended</h2></th>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
-                                    <td><input type="date" name="startincluDate" required>TO</td>
+                                    <td><input type="date" name="startincluDate" required>&nbsp;TO&nbsp;</td>
                                     <td><input type="date" name="endincluDate" required></td>
                                 </tr>
                             </div>
