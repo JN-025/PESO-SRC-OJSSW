@@ -162,11 +162,11 @@
                     </div>
 
                     <div class="form-col-1">
-                    <input type="text" placeholder="Company Name" name="companyName" required maxlength="50">
+                    <input type="text" placeholder="Company Name" name="companyName" onkeydown="restrictName(event)" required maxlength="50">
                     </div>
 
                     <div class="form-col-1">
-                    <input type="text" placeholder="Contact Person" name="contactPerson" required maxlength="50">
+                    <input type="text" placeholder="Contact Person" name="contactPerson" onkeydown="restrictName(event)" required maxlength="50">
                     </div>
                     
                     
@@ -174,7 +174,7 @@
                     
                     <div class="form-col-1">
                     <!--<img src="../assets/img/eye-close.png" alt="" id="eyeicon1" class="eyeicon" data-target="myInput1">-->
-                    <input type="password" placeholder="Password" name="password" id="" oninput="" required maxlength="20">
+                    <input type="password" placeholder="Password" name="password" required maxlength="20">
                     </div>
                     
                     <div class="form-col-1">

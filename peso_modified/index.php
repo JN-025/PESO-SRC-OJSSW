@@ -36,13 +36,18 @@
     echo "<div class='form-modal' id='formModal'>
             <div class='form-modal-content'>
                 <div class='modal-row'>
+                <div>
                     <div class='modal-img'></div>
+                    </div>
+                    <div>
                     <div class='modal-col'>
                         <h2>{$_SESSION['form_submitted']}</h2>
                     </div>
-                </div>
+                
                 <div class='modal-end'><h2>Pending!</h2>
-                <a href='index.php'>Log In</a>
+                <a href='index.php'>Close</a>
+                </div>
+                </div>
                 </div>
             </div>
         </div>";
