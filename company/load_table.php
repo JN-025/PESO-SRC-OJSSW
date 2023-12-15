@@ -1,11 +1,10 @@
 <?php
-include "../conn.php"; // Include your database connection file
+include "../conn.php";
 
 if (isset($_GET['jobpost_id']) && isset($_GET['company_id'])) {
     $jobpost_id = $_GET['jobpost_id'];
     $company_id = $_GET['company_id'];
 
-    // Fetch data for the applicant table based on the selected jobpost_id and company_id
     $sql = "SELECT 
                 application_log.application_log_id,
                 c_jobpost.companyName,
