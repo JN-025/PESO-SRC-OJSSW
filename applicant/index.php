@@ -78,6 +78,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Account</title>
     <link rel="stylesheet" href="../assets/css/applicant_login.css">
+    <link rel="stylesheet" href="../assets/css/font.css">
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
