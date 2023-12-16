@@ -1,6 +1,14 @@
 <?php
 $page_title = "Walk-in";
-    
+session_start();
+// Include config file
+include "../conn.php";
+$alert = ""; 
+if (!isset($_SESSION['peso_id'])) {
+    $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
+    header("location: homepage.php");
+    exit();
+}
 ?>
 
 <!doctype html>
@@ -347,10 +355,10 @@ $page_title = "Walk-in";
                         </thead>
                         <tbody>
                             <?php
-                            require 'C_dbcon.php';
+                            require '../conn.php';
 
                             $query = "SELECT * FROM wcompany";
-                            $query_run = mysqli_query($con, $query);
+                            $query_run = mysqli_query($conn, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
                             {

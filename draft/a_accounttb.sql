@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2023 at 08:46 PM
+-- Generation Time: Sep 14, 2023 at 03:44 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -34,25 +34,14 @@ CREATE TABLE `a_accounttb` (
   `middlename` varchar(50) NOT NULL,
   `age` int(90) NOT NULL,
   `sex` varchar(50) NOT NULL,
-  `Pnum` int(12) NOT NULL,
+  `Pnum` varchar(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(50) NOT NULL,
   `profile_img` text NOT NULL,
-  `verification_code` varchar(255) DEFAULT NULL,
   `email_verified` tinyint(1) DEFAULT 0,
-  `code` text NOT NULL
+  `code` text NOT NULL,
+  `code_created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `a_accounttb`
---
-
-INSERT INTO `a_accounttb` (`applicant_id`, `lastname`, `firstname`, `middlename`, `age`, `sex`, `Pnum`, `email`, `password`, `profile_img`, `verification_code`, `email_verified`, `code`) VALUES
-(48, 'sample', 'sample', '', 31, 'Male', 2147483647, 'sample@gmail.com', 'password123', '', NULL, 0, ''),
-(50, 'asdas', 'asdas', '', 45, 'Female', 2147483647, 'sample123@gmail.com', '456', '', NULL, 0, ''),
-(51, 'sdf', 'sdf', '', 22, 'Female', 2147483647, 'sdfsdgd@gmail.com', 'qweqwe', '', NULL, 0, ''),
-(52, 'adfa', 'fadf', '', 34, 'Male', 945634624, 'skgjhsljasdask@yahoo.com', 'qwerty', '', NULL, 0, ''),
-(69, 'Manguerra', 'Rebo', '', 21, 'Male', 2147483647, 'rebrebmanguerra@gmail.com', 'password123', '', NULL, 0, '');
 
 --
 -- Indexes for dumped tables
@@ -72,7 +61,7 @@ ALTER TABLE `a_accounttb`
 -- AUTO_INCREMENT for table `a_accounttb`
 --
 ALTER TABLE `a_accounttb`
-  MODIFY `applicant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `applicant_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
