@@ -44,113 +44,74 @@ if (!isset($_SESSION['spes_id'])) {
             <div class="modal-body">
 
                 <div id="errorMessage" class="alert alert-warning d-none"></div>
-
+                
                 <div class="row-2">
                     <div class="col-1">
                     <label for="">Household Number</label>
-                    <input type="text" name="householdNum" class="form-control" />
+                    <input type="text" name="householdNum" class="" />
                     </div>
                     <div class="col-2">
-                    <label for="">Age</label>
-                    <input type="text" name="age" class="form-control" />
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" class="" />
                     </div>
                     <div class="col-3">
-                    <label for="">Status</label>
-                    
-                    <select type="text" name="status" class="form-control">
-                        <option value="" selected hidden>Status</option>
-                        <option value="PWD">PWD</option>
-                        <option value="Senior Citizen">Senior Citizen</option>
-                        <option value="Student">Student</option>
-                        <option value="Solo Parent">Solo Parent</option>
-                        <option value="N/A">N/A</option>
-                    </select>
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname" class="" />
+                    </div>
+                </div>
+
+                <div class="row-2">
+                    <div class="col-1">
+                    <label for="">Middle Name</label>
+                    <input type="text" name="middlename" class="" />
+                    </div>
+                    <div class="col-2">
+                    <label for="">Suffix</label>
+                    <input type="text" name="suffix" class="" />
+                    </div>
+                    <div class="col-3">
+                    <label for="">Birthday</label>
+                    <input type="date" name="birthday" class="" />
 
                     </div>
                 </div>
 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Last Name</label>
-                    <input type="text" name="lastname" class="form-control" />
+                    <label for="">Age</label>
+                    <input type="text" name="age" class="" />
                     </div>
                     <div class="col-2">
                     <label for="">Sex</label>
-                   
-                    <select type="text" name="sex" class="form-control">
+                    <select type="text" name="sex" class="">
                         <option value="" selected hidden>Sex</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select> 
                     </div>
-                    <div class="col-2">
-                    <label for="">Employment Status</label>
-                    
-                    <select type="text" name="employmentStatus" class="form-control">
-                        <option value="" selected hidden>Employment Status</option>
-                        <option value="Employed">Employed</option>
-                        <option value="Unemployed">Unemployed</option>
-                        <option value="Kasambahay">Kasambahay</option>
-                        <option value="OFW">OFW</option>
-                        <option value="Livelihood">Livelihood</option>
-                    </select> 
-                    </div>
-                </div>
-
-                <div class="row-2">
-                    <div class="col-1">
-                    <label for="">First Name</label>
-                    <input type="text" name="firstname" class="form-control" />
-                    </div>
-                    <div class="col-2">
-
+                    <div class="col-3">
                     <label for="">Civil Status</label>
                    
-                    <select type="text" name="civilStatus" class="form-control">
+                    <select type="text" name="civilStatus" class="">
                         <option value="" selected hidden>Civil Status</option>
                         <option value="Single">Single</option>
                         <option value="Married">Married</option>
                         <option value="Widow">Widow</option>
                         <option value="Separated">Separated</option>
                     </select> 
-                    </div>
-                    <div class="col-3">
-                    <label for="">If Employed:</label>
-                    
-                    <select type="text" name="employmentType" class="form-control">
-                        <option value="" selected hidden>Type of Employment</option>
-                        <option value="Regular">Regular</option>
-                        <option value="Contractual">Contractual</option>
-                        <option value="Below 18">Below 18 yrs old</option>
-                        <option value="N/A">N/A</option>
-                    </select> 
-                    </div>
-                </div>
-                <div class="row-2">
-                    <div class="col-1">
-                    <label for="">Middle Name</label>
-                    <input type="text" name="middlename" class="form-control" />
-                    </div>
-                    <div class="col-2">
-                    <label for="">Address</label>
-                    <input type="text" name="address" class="form-control" />
-                    </div>
-                    <div class="col-3">
-                    <label for="">Date of Arrival: (For OFW)</label>
-                    <input type="date" name="arrivalDate" class="form-control" />
+
                     </div>
                 </div>
 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Suffix</label>
-                    <input type="text" name="suffix" class="form-control" />
+                    <label for="">Address</label>
+                    <input type="text" name="address" class="" />
                     </div>
-                    
                     <div class="col-2">
                     <label for="">Barangay</label>
                     
-                    <select type="text" name="brgy" class="form-control">
+                    <select type="text" name="brgy" class="">
                         <option value="" selected hidden>Barangay</option>
                         <option value="Aplaya">Aplaya</option>
                         <option value="Balibago">Balibago</option>
@@ -170,28 +131,84 @@ if (!isset($_SESSION['spes_id'])) {
                         <option value="Santo Domingo">Santo Domingo</option>
                         <option value="Sinalhan">Sinalhan</option>
                         <option value="Tagapo">Tagapo</option>
-                    </select> 
+                    </select>
                     </div>
                     <div class="col-3">
-                    <label for="">Type of Disability: (For PWD)</label>
-                    <input type="text" name="disabilityType" class="form-control" />
+                    <label for="">Highest Educational Attainment</label>
+                    <select type="text" name="educAttainment" class="">
+                        <option value="" selected hidden>Status</option>
+                        <option value="Elementary Graduate">Elementary Graduate</option>
+                        <option value="High School Graduate">High School Graduate</option>
+                        <option value="K-12">K-12</option>
+                        <option value="Technical Vocational">Technical Vocational</option>
+                        <option value="Under Graduate">Under Graduate</option>
+                        <option value="College Graduate">College Graduate</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+
                     </div>
                 </div>
 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Birthday</label>
-                    <input type="date" name="birthday" class="form-control" />
+                    <label for="">Status</label>
+                    
+                    <select type="text" name="status" class="">
+                        <option value="" selected hidden>Status</option>
+                        <option value="PWD">PWD</option>
+                        <option value="Senior Citizen">Senior Citizen</option>
+                        <option value="Student">Student</option>
+                        <option value="Solo Parent">Solo Parent</option>
+                        <option value="N/A">N/A</option>
+                    </select>
                     </div>
                     <div class="col-2">
-                    <label for="">Highest Educational Attainment</label>
-                    <input type="text" name="educAttainment" class="form-control" />
+                    <label for="">Employment Status</label>
+                    
+                    <select type="text" name="employmentStatus" class="">
+                        <option value="" selected hidden>Employment Status</option>
+                        <option value="Employed">Employed</option>
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="Kasambahay">Kasambahay</option>
+                        <option value="OFW">OFW</option>
+                        <option value="Livelihood">Livelihood</option>
+                    </select> 
+                    </div>
+                    <div class="col-3">
+                    <label for="">If Employed:</label>
+                    
+                    <select type="text" name="employmentType" class="">
+                        <option value="" selected hidden>Type of Employment</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Contractual">Contractual</option>
+                        <option value="Below 18">Below 18 yrs old</option>
+                        <option value="N/A">N/A</option>
+                    </select> 
+
+                    </div>
+                </div>
+
+                <div class="row-2">
+                    <div class="col-1">
+                    <label for="">Date of Arrival: (For OFW)</label>
+                    <input type="date" name="arrivalDate" class="" />
+                    </div>
+                    <div class="col-2">
+                    <label for="">Type of Disability: (For PWD)</label>
+                    <input type="text" name="disabilityType" class="" />
                     </div>
                     <div class="col-3">
                     <label for="">Encoded By:</label>
-                    <input type="text" name="encodedBy" class="form-control" />
+                    <input type="text" name="encodedBy" class="" />
+
                     </div>
                 </div>
+
+                
+
+                
+
+                
 
                 
             </div>
@@ -222,101 +239,69 @@ if (!isset($_SESSION['spes_id'])) {
                 <div class="row-2">
                     <div class="col-1">
                     <label for="">Household Number</label>
-                    <input type="text" name="householdNum" id="householdNum" class="form-control" />
+                    <input type="text" name="householdNum" id="householdNum" class="" />
                     </div>
                     <div class="col-2">
-                    <label for="">Age</label>
-                    <input type="text" name="age" id="age" class="form-control" />
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" id="lastname" class="" />
                     </div>
                     <div class="col-3">
-                    <label for="">Status</label>
-                    <select type="text" name="status" id="status" class="form-control">
-                        <option value="" selected hidden>Status</option>
-                        <option value="PWD">PWD</option>
-                        <option value="Senior Citizen">Senior Citizen</option>
-                        <option value="Student">Student</option>
-                        <option value="Solo Parent">Solo Parent</option>
-                        <option value="N/A">N/A</option>
-                    </select>
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname" id="firstname" class="" />
                     </div>
                 </div>
 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Last Name</label>
-                    <input type="text" name="lastname" id="lastname" class="form-control" />
+                    <label for="">Middle Name</label>
+                    <input type="text" name="middlename" id="middlename" class="" />
+                    </div>
+                    <div class="col-2">
+                    <label for="">Suffix</label>
+                    <input type="text" name="suffix" id="suffix" class="" />
+                    </div>
+                    <div class="col-3">
+                    <label for="">Birthday</label>
+                    <input type="date" name="birthday" id="birthday" class="" />
+
+                    </div>
+                </div>
+
+                <div class="row-2">
+                    <div class="col-1">
+                    <label for="">Age</label>
+                    <input type="text" name="age" id="age" class="" />
                     </div>
                     <div class="col-2">
                     <label for="">Sex</label>
-                    <select type="text" name="sex" id="sex" class="form-control">
+                    <select type="text" name="sex" id="sex" class="">
                         <option value="" selected hidden>Sex</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                    </select>
+                    </select> 
                     </div>
-                    <div class="col-2">
-                    <label for="">Employment Status</label>
-                    <select type="text" name="employmentStatus" id="employmentStatus" class="form-control">
-                        <option value="" selected hidden>Employment Status</option>
-                        <option value="Employed">Employed</option>
-                        <option value="Unemployed">Unemployed</option>
-                        <option value="Kasambahay">Kasambahay</option>
-                        <option value="OFW">OFW</option>
-                        <option value="Livelihood">Livelihood</option>
-                    </select>
-                    </div>
-                </div>
-
-                <div class="row-2">
-                    <div class="col-1">
-                    <label for="">First Name</label>
-                    <input type="text" name="firstname" id="firstname" class="form-control" />
-                    </div>
-                    <div class="col-2">
+                    <div class="col-3">
                     <label for="">Civil Status</label>
-                    <select type="text" name="civilStatus" id="civilStatus" class="form-control">
+                   
+                    <select type="text" name="civilStatus" id="civilStatus" class="">
                         <option value="" selected hidden>Civil Status</option>
                         <option value="Single">Single</option>
                         <option value="Married">Married</option>
                         <option value="Widow">Widow</option>
                         <option value="Separated">Separated</option>
-                    </select>
-                    </div>
-                    <div class="col-3">
-                    <label for="">If Employed:</label>
-                    <select type="text" name="employmentType" id="employmentType" class="form-control">
-                        <option value="" selected hidden>Type of Employment</option>
-                        <option value="Regular">Regular</option>
-                        <option value="Contractual">Contractual</option>
-                        <option value="Below 18">Below 18 yrs old</option>
-                        <option value="N/A">N/A</option>
-                    </select>
-                    </div>
-                </div>
-                <div class="row-2">
-                    <div class="col-1">
-                    <label for="">Middle Name</label>
-                    <input type="text" name="middlename" id="middlename" class="form-control" />
-                    </div>
-                    <div class="col-2">
-                    <label for="">Address</label>
-                    <input type="text" name="address" id="address" class="form-control" />
-                    </div>
-                    <div class="col-3">
-                    <label for="">Date of Arrival: (For OFW)</label>
-                    <input type="text" name="arrivalDate" id="arrivalDate" class="form-control" />
-                    </div>
-                </div>
+                    </select> 
 
+                    </div>
+                </div>
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Suffix</label>
-                    <input type="text" name="suffix" id="suffix" class="form-control" />
+                    <label for="">Address</label>
+                    <input type="text" name="address" id="address" class="" />
                     </div>
-                    
                     <div class="col-2">
                     <label for="">Barangay</label>
-                    <select type="text" name="brgy" id="brgy" class="form-control">
+                    
+                    <select type="text" name="brgy" id="brgy" class="">
                         <option value="" selected hidden>Barangay</option>
                         <option value="Aplaya">Aplaya</option>
                         <option value="Balibago">Balibago</option>
@@ -339,23 +324,73 @@ if (!isset($_SESSION['spes_id'])) {
                     </select>
                     </div>
                     <div class="col-3">
-                    <label for="">Type of Disability: (For PWD)</label>
-                    <input type="text" name="disabilityType" id="disabilityType" class="form-control" />
+                    <label for="">Highest Educational Attainment</label>
+                    <select type="text" name="educAttainment" id="educAttainment" class="">
+                        <option value="" selected hidden>Status</option>
+                        <option value="Elementary Graduate">Elementary Graduate</option>
+                        <option value="High School Graduate">High School Graduate</option>
+                        <option value="K-12">K-12</option>
+                        <option value="Technical Vocational">Technical Vocational</option>
+                        <option value="Under Graduate">Under Graduate</option>
+                        <option value="College Graduate">College Graduate</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+
                     </div>
                 </div>
 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Birthday</label>
-                    <input type="text" name="birthday" id="birthday" class="form-control" />
+                    <label for="">Status</label>
+                    
+                    <select type="text" name="status" id="status" class="">
+                        <option value="" selected hidden>Status</option>
+                        <option value="PWD">PWD</option>
+                        <option value="Senior Citizen">Senior Citizen</option>
+                        <option value="Student">Student</option>
+                        <option value="Solo Parent">Solo Parent</option>
+                        <option value="N/A">N/A</option>
+                    </select>
                     </div>
                     <div class="col-2">
-                    <label for="">Highest Educational Attainment</label>
-                    <input type="text" name="educAttainment" id="educAttainment" class="form-control" />
+                    <label for="">Employment Status</label>
+                    
+                    <select type="text" name="employmentStatus" id="employmentStatus" class="">
+                        <option value="" selected hidden>Employment Status</option>
+                        <option value="Employed">Employed</option>
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="Kasambahay">Kasambahay</option>
+                        <option value="OFW">OFW</option>
+                        <option value="Livelihood">Livelihood</option>
+                    </select> 
+                    </div>
+                    <div class="col-3">
+                    <label for="">If Employed:</label>
+                    
+                    <select type="text" name="employmentType" id="employmentType" class="">
+                        <option value="" selected hidden>Type of Employment</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Contractual">Contractual</option>
+                        <option value="Below 18">Below 18 yrs old</option>
+                        <option value="N/A">N/A</option>
+                    </select> 
+
+                    </div>
+                </div>
+
+                <div class="row-2">
+                    <div class="col-1">
+                    <label for="">Date of Arrival: (For OFW)</label>
+                    <input type="date" name="arrivalDate" id="arrivalDate" class="" />
+                    </div>
+                    <div class="col-2">
+                    <label for="">Type of Disability: (For PWD)</label>
+                    <input type="text" name="disabilityType" id="disabilityType" class="" />
                     </div>
                     <div class="col-3">
                     <label for="">Encoded By:</label>
-                    <input type="text" name="encodedBy" id="encodedBy" class="form-control" />
+                    <input type="text" name="encodedBy" id="encodedBy" class="" />
+
                     </div>
                 </div>
 
@@ -383,90 +418,90 @@ if (!isset($_SESSION['spes_id'])) {
                 <div class="row-2">
                     <div class="col-1">
                     <label for="">Household Number</label>
-                    <p id="view_householdNum" class="form-control"></p>
+                    <p id="view_householdNum" class=""></p>
                     </div>
                     <div class="col-2">
-                    <label for="">Age</label>
-                    <p id="view_age" class="form-control"></p>
-                    </div>
-                    <div class="col-3">
-                    <label for="">Status</label>
-                    <p id="view_status" class="form-control"></p>
-                    </div>
-                </div>
-
-                <div class="row-2">
-                    <div class="col-1">
                     <label for="">Last Name</label>
-                    <p id="view_lastname" class="form-control"></p>
-                    </div>
-                    <div class="col-2">
-                    <label for="">Sex</label>
-                    <p id="view_sex" class="form-control"></p>
+                    <p id="view_lastname" class=""></p>
                     </div>
                     <div class="col-3">
-                    <label for="">Employment Status</label>
-                    <p id="view_employmentStatus" class="form-control"></p>
+                    <label for="">First Name</label>
+                    <p id="view_firstname" class=""></p>
                     </div>
                 </div>
 
-                <div class="row-2">
-                    <div class="col-1">
-                    <label for="">First Name</label>
-                    <p id="view_firstname" class="form-control"></p>
-                    </div>
-                    <div class="col-2">
-                    <label for="">Civil Status</label>
-                    <p id="view_civilStatus" class="form-control"></p>
-                    </div>
-                    <div class="col-3">
-                    <label for="">If Employed:</label>
-                    <p id="view_employmmentType" class="form-control"></p>
-                    </div>
-                </div>
                 <div class="row-2">
                     <div class="col-1">
                     <label for="">Middle Name</label>
-                    <p id="view_middlename" class="form-control"></p>
+                    <p id="view_middlename" class=""></p>
                     </div>
                     <div class="col-2">
-                    <label for="">Address</label>
-                    <p id="view_address" class="form-control"></p>
+                    <label for="">Suffix</label>
+                    <p id="view_suffix" class=""></p>
                     </div>
                     <div class="col-3">
-                    <label for="">Date of Arrival: (for OFW)</label>
-                    <p id="view_arrivalDate" class="form-control"></p>
+                    <label for="">Birthday</label>
+                    <p id="view_birthday" class=""></p>
+                    </div>
+                </div>
+
+                <div class="row-2">
+                    <div class="col-1">
+                    <label for="">Age</label>
+                    <p id="view_age" class=""></p>
+                    </div>
+                    <div class="col-2">
+                    <label for="">Sex</label>
+                    <p id="view_sex" class=""></p>
+                    </div>
+                    <div class="col-3">
+                    <label for="">Civil Status</label>
+                    <p id="view_civilStatus" class=""></p>
+                    </div>
+                </div>
+                <div class="row-2">
+                    <div class="col-1">
+                    <label for="">Address</label>
+                    <p id="view_address" class=""></p>
+                    </div>
+                    <div class="col-2">
+                    <label for="">Barangay</label>
+                    <p id="view_brgy" class=""></p>
+                    </div>
+                    <div class="col-3">
+                    <label for="">Highest Educational Attainment</label>
+                    <p id="view_educAttainment" class=""></p>
                     </div>
                     
                 </div>
 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Suffix</label>
-                    <p id="view_suffix" class="form-control"></p>
+                    <label for="">Status</label>
+                    <p id="view_status" class=""></p>
                     </div>
                     <div class="col-2">
-                    <label for="">Barangay</label>
-                    <p id="view_brgy" class="form-control"></p>
+                    <label for="">Employment Status</label>
+                    <p id="view_employmentStatus" class=""></p>
                     </div>
                     <div class="col-3">
-                    <label for="">Type of Disability</label>
-                    <p id="view_disabilityType" class="form-control"></p>
+                    <label for="">If Employed:</label>
+                    <p id="view_employmentType" class=""></p>
                     </div>
                 </div>
 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Birthday</label>
-                    <p id="view_birthday" class="form-control"></p>
+                    <label for="">Arrival Date: (If OFW)</label>
+                    <p id="view_arrivalDate" class=""></p>
                     </div>
                     <div class="col-2">
-                    <label for="">Highest Educational Attainment</label>
-                    <p id="view_educAttainment" class="form-control"></p>
+                    <label for="">Type Disability: (If PWD)</label>
+                    <p id="view_disabilityType" class=""></p>
                     </div>
                     <div class="col-3">
                     <label for="">Encoded By:</label>
-                    <p id="view_encodedBy" class="form-control"></p>
+                    <p id="view_encodedBy" class=""></p>
                     </div>
                 </div>
 
@@ -474,7 +509,7 @@ if (!isset($_SESSION['spes_id'])) {
                 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn close" data-bs-dismiss="modal">Close</button>
+                <button type="button" style="margin-right: 5%;" class="btn close" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -494,7 +529,7 @@ if (!isset($_SESSION['spes_id'])) {
                 </div>
                 <div class="card-body">
 
-                    <table id="myTable" class="table table-bordered table-striped">
+                    <table id="myTable" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th style="width: 15%;">Household Number</th>
@@ -526,7 +561,8 @@ if (!isset($_SESSION['spes_id'])) {
                                         <td><?= $profile['birthday'] ?></td>
                                         <td><?= $profile['age'] ?></td>
                                         <td><?= $profile['sex'] ?></td>
-                                        <td>
+                                        <td><?= $profile['brgy'] ?></td>
+                                        <td style="width: 23%;">
                                             <button type="button" value="<?=$profile['profiling_id'];?>" class="viewProfileBtn btn view btn-sm">View</button>
                                             <button type="button" value="<?=$profile['profiling_id'];?>" class="editProfileBtn btn edit btn-sm">Edit</button>
                                             <button type="button" value="<?=$profile['profiling_id'];?>" class="deleteProfileBtn btn delete btn-sm">Delete</button>

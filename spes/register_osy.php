@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
         $birthCertImg = $_FILES['birthCert_img'];
         $voterIDImg = $_FILES['voterID_img'];
         $indigencyCertImg = $_FILES['indigencyCert_img'];
-        $regCardImg = $_FILES['regCard_img'];
+        $goodMoralImg = $_FILES['goodMoral_img'];
         $classCardImg = $_FILES['classCard_img'];
 
         $uploadFolder = "requirement_storage/";
@@ -30,7 +30,7 @@ if (isset($_POST["submit"])) {
             $birthCertImg['error'] === 0 &&
             $voterIDImg['error'] === 0 &&
             $indigencyCertImg['error'] === 0 &&
-            $regCardImg['error'] === 0 &&
+            $goodMoralImg['error'] === 0 &&
             $classCardImg['error'] === 0) {
 
             move_uploaded_file($appForm_frontImg['tmp_name'], $uploadFolder . $appForm_frontImg['name']);
@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
             move_uploaded_file($birthCertImg['tmp_name'], $uploadFolder . $birthCertImg['name']);
             move_uploaded_file($voterIDImg['tmp_name'], $uploadFolder . $voterIDImg['name']);
             move_uploaded_file($indigencyCertImg['tmp_name'], $uploadFolder . $indigencyCertImg['name']);
-            move_uploaded_file($regCardImg['tmp_name'], $uploadFolder . $regCardImg['name']);
+            move_uploaded_file($goodMoralImg['tmp_name'], $uploadFolder . $goodMoralImg['name']);
             move_uploaded_file($classCardImg['tmp_name'], $uploadFolder . $classCardImg['name']);
 
             $appForm_frontPath = $uploadFolder . $appForm_frontImg['name'];
@@ -46,13 +46,13 @@ if (isset($_POST["submit"])) {
             $birthCertPath = $uploadFolder . $birthCertImg['name'];
             $voterIDPath = $uploadFolder . $voterIDImg['name'];
             $indigencyCertPath = $uploadFolder . $indigencyCertImg['name'];
-            $regCardPath = $uploadFolder . $regCardImg['name'];
+            $goodMoralPath = $uploadFolder . $goodMoralImg['name'];
             $classCardPath = $uploadFolder . $classCardImg['name'];
 
 
-            $sql = "INSERT INTO s_accounttb (firstname, lastname, age, sex, contactNum, email, password, appForm_front_img, appForm_back_img, birthCert_img, voterID_img, indigencyCert_img, regCard_img, classCard_img, type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Student' ,'Pending')";
+            $sql = "INSERT INTO s_accounttb (firstname, lastname, age, sex, contactNum, email, password, appForm_front_img, appForm_back_img, birthCert_img, voterID_img, indigencyCert_img, goodMoral_img, classCard_img, type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Out of School Youth' ,'Pending')";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ssssssssssssss", $firstname, $lastname, $age, $sex, $contactNum, $email, $password, $appForm_frontPath, $appForm_backPath, $birthCertPath, $voterIDPath, $indigencyCertPath, $regCardPath, $classCardPath);
+            $stmt->bind_param("ssssssssssssss", $firstname, $lastname, $age, $sex, $contactNum, $email, $password, $appForm_frontPath, $appForm_backPath, $birthCertPath, $voterIDPath, $indigencyCertPath, $goodMoralPath, $classCardPath);
 
             if ($stmt->execute()) {
                 $_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>Admin will check the account if eligable to access. We will email you when the account is ready</h4>";
@@ -215,10 +215,10 @@ if (isset($_POST["submit"])) {
                             </div>
                             <div class="form-col-3">
                                 <div class="col-left">
-                                    <h3>Latest Registration Card:</h3>
+                                    <h3>Good Moral Certificate:</h3>
                                 </div>
                                 <div class="col-right">
-                                    <input type="file" name="regCard_img" placeholder="">
+                                    <input type="file" name="goodMoral_img" placeholder="">
                                 </div>
                             </div>
                             <div class="form-col-3">
