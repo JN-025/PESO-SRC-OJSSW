@@ -221,6 +221,7 @@ select option[value=""] {
     font-size: 18px;   
 }
 .form-col-1 button{
+    cursor: pointer;
     margin-bottom: 20px;
     height: 6vh;
     width: 50%;
@@ -235,10 +236,13 @@ select option[value=""] {
     line-height: normal;
     border: none;
     border-radius: 25px; 
-    transition: 0.2s;
+    transition: 0.4s;
 }
 .form-col-1 button:hover{
     opacity: 0.6;
+}
+.form-col-1 button:active{
+    transform: translateY(4px);
 }
 .form-col-1 h5{
     color: #000000;
@@ -257,6 +261,12 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+a{
+    transition: 0.4s;
+}
+a:hover{
+    opacity: 0.6;
 }
 /* Modal */
 .modal {

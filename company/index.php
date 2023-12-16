@@ -61,7 +61,7 @@
             .form-modal-content{
                 position: relative;
                 border-radius: 11px;
-                background-color: green;
+                background-color: #D9570E;
                 padding: 100px;
                 color: #fff;
                 opacity: 0;
@@ -180,7 +180,7 @@
                     
                     <div class="form-col-1">
                         <br>
-                    <a href="#">Forgot Password</a>
+                    <a href="forgot_password.php">Forgot Password</a>
                     <br>
                     <button name="submit" type="submit">Log In</button>
                     <br><br>

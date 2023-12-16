@@ -149,7 +149,7 @@ if (isset($_POST["submit"])) {
                                 <h3>Company Profile:</h3>
                             </div>
                             <div class="col-right">
-                                <input type="file" name="profile_img" placeholder="">
+                                <input type="file" name="profile_img" placeholder="" required>
                             </div>
                         </div>
                         <div class="form-col-2">
@@ -157,7 +157,7 @@ if (isset($_POST["submit"])) {
                                 <h3>Business Permit:</h3>
                             </div>
                             <div class="col-right">
-                                <input type="file" name="bspermit_img" placeholder="">
+                                <input type="file" name="bspermit_img" placeholder="" required>
                             </div>
                         </div>
                         <div class="form-col-2">
@@ -165,7 +165,7 @@ if (isset($_POST["submit"])) {
                                 <h3>Job Openings:</h3>
                             </div>
                             <div class="col-right">
-                                <input type="file" name="jobopening_img" placeholder="">
+                                <input type="file" name="jobopening_img" placeholder="" required>
                             </div>
                         </div>
                         
@@ -201,7 +201,7 @@ if (isset($_POST["submit"])) {
             </div>
         </div>
     </div>
-    <script src="job_posting.js"></script>
+    <script src="../assets/js/company/job_posting.js"></script>
     <script src="../assets/js/applicant/script.js"></script>
 </body>
 </html>

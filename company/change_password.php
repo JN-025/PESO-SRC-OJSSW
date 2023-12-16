@@ -3,14 +3,14 @@ session_start();
 $msg = "";
 include "../conn.php";
 if (isset($_GET['reset'])) {
-    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM a_accounttb WHERE code='{$_GET['reset']}'")) > 0) {
+    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM c_accounttb WHERE code='{$_GET['reset']}'")) > 0) {
         $msg = "<div class='alert alert-success' id='popup'>You can now change password</div>";
         if (isset($_POST['submit'])) {
             $password = $_POST['password'];
             $confirm_password = $_POST['confirm_password'];
 
             if ($password === $confirm_password) {
-                $query = mysqli_query($conn, "UPDATE a_accounttb SET password='{$password}', code='' WHERE code='{$_GET['reset']}'");
+                $query = mysqli_query($conn, "UPDATE c_accounttb SET password='{$password}', code='' WHERE code='{$_GET['reset']}'");
 
                 if ($query) {
                     $_SESSION['success_message'] = "Password successfully changed.";
@@ -94,7 +94,7 @@ if (isset($_GET['reset'])) {
                     <div class="form-col-1 display-flex">
                     <a href="index.php">Return to Login</a>
                     <button name="submit">Change</button>
-                    <h5>Don’t have an Account?&nbsp;<a href="register.php">SIGN UP</a></h5>
+                    <h5>Don’t have an Account?&nbsp;<a href="../company_register.php">SIGN UP</a></h5>
                     </div>
                 </form>
             </div>

@@ -19,8 +19,8 @@ if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $code = mysqli_real_escape_string($conn, md5(rand()));
 
-    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM a_accounttb WHERE email='{$email}'")) > 0) {
-        $query = mysqli_query($conn, "UPDATE a_accounttb SET code='{$code}' WHERE email='{$email}'");
+    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM c_accounttb WHERE email='{$email}'")) > 0) {
+        $query = mysqli_query($conn, "UPDATE c_accounttb SET code='{$code}' WHERE email='{$email}'");
 
         if ($query) {        
             echo "<div style='display: none;'>";
@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
 
                 $mail->isHTML(true);                                 
                 $mail->Subject = 'no-reply';
-                $mail->Body    = '<h4 style="color: #000">Click the link to Reset your Password</h4><div style="width:100%; display: flex; justify-content: center;"><a style="border-radius: 10px; font-size: 30px; padding: 20px 50px; text-align: center; text-decoration: none; background-color: #2E9AFE; color:#fff;" href="http://localhost/peso-src-ojssw/applicant/change_password.php?reset='.$code.'">Reset Password</a></div>';
+                $mail->Body    = '<h4 style="color: #000">Click the link to Reset your Password</h4><div style="width:100%; display: flex; justify-content: center;"><a style="border-radius: 10px; font-size: 30px; padding: 20px 50px; text-align: center; text-decoration: none; background-color: #2E9AFE; color:#fff;" href="http://localhost/peso-src-ojssw/company/change_password.php?reset='.$code.'">Reset Password</a></div>';
 
                 $mail->send();
                 echo 'Message has been sent';

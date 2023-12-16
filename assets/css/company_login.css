@@ -179,6 +179,7 @@ select option[value=""] {
     font-size: 18px;   
 }
 .form-col-1 button{
+    cursor: pointer;
     border: none;
     margin: 2% 0;
     height: 6vh;
@@ -189,10 +190,19 @@ select option[value=""] {
     color: #FFF;
     font-size: 20px;
     border-radius: 20px; 
-    transition: 0.2s;
+    transition: 0.4s;
     font-family: 'Mohave', sans-serif;
 }
 .form-col-1 button:hover{
+    opacity: 0.6;
+}
+.form-col-1 button:active{
+    transform: translateY(4px);
+}
+a{
+    transition: 0.4s;
+}
+a:hover{
     opacity: 0.6;
 }
 .form-col-1 h5{
