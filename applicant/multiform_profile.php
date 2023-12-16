@@ -572,15 +572,15 @@ if (isset($_POST["submit"])) {
                         <label for=""><h2>Employment Status<span class="required-asterisk">&nbsp;*</span></h2></label>
                         <select class="" name="employmentStatus" required>
                                             <option value="" selected hidden>Status</option>
-                                            <option value="wage_employed">Wage Employed</option>
-                                            <option value="self_employed">Self Employed</option>
-                                            <option value="fresh_grad">Fresh Graduate</option>
-                                            <option value="finished_contract">Finished Contract</option>
-                                            <option value="resigned">Resigned</option>
-                                            <option value="retired">Retired</option>
-                                            <option value="terminated">Terminated</option>
-                                            <option value="laidoff_local">Laidoff(local)</option>
-                                            <option value="laidoff_abroad">Laidoff(abroad)</option>
+                                            <option value="Wage Employed">Wage Employed</option>
+                                            <option value="Self Employed">Self Employed</option>
+                                            <option value="Fresh Graduate">Fresh Graduate</option>
+                                            <option value="Finished Contract">Finished Contract</option>
+                                            <option value="Resigned">Resigned</option>
+                                            <option value="Retired">Retired</option>
+                                            <option value="Terminated">Terminated</option>
+                                            <option value="Laidoff(local)">Laidoff(local)</option>
+                                            <option value="Laidoff(abroad)">Laidoff(abroad)</option>
                                         </select>     
                     </div>
                     </div>

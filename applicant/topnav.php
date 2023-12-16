@@ -2,9 +2,18 @@
 include '../conn.php';
 $applicant_id = $_SESSION["applicant_id"];
 
+$unreadNotificationQuery = "SELECT COUNT(*) as unread_count FROM notifications WHERE applicant_id = $applicant_id AND is_read = 0";
+$unreadNotificationResult = mysqli_query($conn, $unreadNotificationQuery);
+$unreadNotificationData = mysqli_fetch_assoc($unreadNotificationResult);
+$unreadCount = $unreadNotificationData['unread_count'];
+
 $applicantProfileQuery = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
 $applicantProfileResult = mysqli_query($conn, $applicantProfileQuery);
 $applicantProfileDataExists = mysqli_num_rows($applicantProfileResult) > 0;
+
+$notification_query = "SELECT * FROM notifications WHERE applicant_id = $applicant_id ORDER BY date_added_at DESC LIMIT 4";
+$notification_result = mysqli_query($conn, $notification_query);
+$notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
 
 $notification_query = "SELECT * FROM notifications WHERE applicant_id = $applicant_id ORDER BY date_added_at DESC LIMIT 4";
 $notification_result = mysqli_query($conn, $notification_query);
@@ -41,7 +50,11 @@ $notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
     <div class="right-corner">
         <div class="notification-icon">
             <div class="field-space"></div>
-            <i class="bi bi-bell icon" id="bell-icon"></i>
+            <?php if ($unreadCount > 0) : ?>
+            <span class="badge"><?php echo $unreadCount; ?></span>
+            <?php endif; ?>
+            <i class="bi bi-bell icon" id="bell-icon">
+            </i>
             <div class="notification-dropdown" id="notification-dropdown">
                 <div class="topnav-col-1">
                     <span style="color: green;">Notification</span>
