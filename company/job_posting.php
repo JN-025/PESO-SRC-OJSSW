@@ -73,7 +73,7 @@ if(isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Posting</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="job_posting.css">
+    <link rel="stylesheet" href="../assets/css/job_posting.css">
 </head>
 <body>
     <?php
@@ -270,6 +270,6 @@ if(isset($_POST["submit"])) {
             </div>
         </form>
     </div>
-    <script src="job_posting.js"></script>
+    <script src="../assets/js/company/job_posting.js"></script>
 </body>
 </html>

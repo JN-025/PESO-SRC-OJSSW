@@ -19,6 +19,7 @@ $notification_query = "SELECT * FROM notifications WHERE applicant_id = $applica
 $notification_result = mysqli_query($conn, $notification_query);
 $notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
 ?>
+<link rel="stylesheet" href="../assets/css/font.css">
 <link rel="stylesheet" href="../assets/css/applicant_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <style>

@@ -12,6 +12,7 @@ $applicant_id = $_SESSION["applicant_id"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/peso.png" type="image/x-icon">
     <title>Quiz</title>
+    <link rel="stylesheet" href="../../assets/css/font.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="../../assets/css/applicant_topnav.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">

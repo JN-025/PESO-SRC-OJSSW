@@ -12,6 +12,7 @@ $applicant_id = $_SESSION["applicant_id"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/peso.png" type="image/x-icon">
     <title>Quick Quiz - Play</title>
+    <link rel="stylesheet" href="../../assets/css/font.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/game.css">
 </head>

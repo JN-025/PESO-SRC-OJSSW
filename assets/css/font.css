@@ -59,7 +59,13 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'SairaCondensed';
+    font-family: 'Rowdieslight';
+    src: url(../font/Rowdies/Rowdies-Light.ttf)format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Saira Condensed';
     src: url(../font/Saira_Condensed/SairaCondensed-Regular.ttf)format('truetype');
     font-weight: normal;
     font-style: normal;

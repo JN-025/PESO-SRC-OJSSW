@@ -1,9 +1,9 @@
 h1{
-    font-family: Rowdies;
     font-size: 2rem;
     text-shadow: none;
 }
 #finalScore h1{
+    font-family: 'Saira Condensed';
     font-size: 50rem;
 }
 .end-btn{
@@ -27,6 +27,7 @@ h1{
     display: flex;
 }
 #resultTitle{
+    font-family: 'Rowdies';
     font-size: 3.5rem;
 }
 .success{
@@ -38,13 +39,14 @@ h1{
     text-align: center;
     margin-left: 30%;
 }
-.sub-text{
-    text-align: center;
-    font-family: Rowdies;
-    margin: 10px 10%;
-    font-size: 22px;
-    color: #367CBD;
+#sub-header{
+    font-size: 24px;
 }
-.bold{
-    font-weight: bold;
+.sub-text{
+    font-family: 'Poppins';
+    font-weight: 700;
+    text-align: center;
+    margin: 10px 10%;
+    font-size: 18px;
+    color: #367CBD;
 }
