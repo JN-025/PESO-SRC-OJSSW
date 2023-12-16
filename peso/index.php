@@ -4,8 +4,8 @@
     $msg = "";
     if (isset($_POST['submit'])) {
         $password = $_POST['password'];
-        $email = sanitizeInput($_POST['email']);
-        $position = sanitizeInput($_POST['position']);
+        $email = $_POST['email'];
+        $position = $_POST['position'];
 
         $sql = "SELECT * FROM p_accounttb WHERE email='$email' AND position = '$position' AND password='$password' AND status = 'Approved'";
         $result = mysqli_query($conn, $sql);
