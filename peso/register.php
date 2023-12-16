@@ -3,9 +3,9 @@
     include "../conn.php";
     $msg = "";
     if (isset($_POST["submit"])) {
-        $name = $_POST['name'];
-        $position = $_POST['position'];
-        $contactNum = $_POST['contactNum'];
+        $name = sanitizeInput($_POST['name']);
+        $position = sanitizeInput($_POST['position']);
+        $contactNum = sanitizeInput($_POST['contactNum']);
         $password = $_POST['password'];
         $email = $_POST['email'];
         $confirm_password = $_POST['confirm_password'];
@@ -23,6 +23,13 @@
         } else {
             $msg = "<div class='alert alert-danger'>Password do not match</div>";
         }
+    }
+    function sanitizeInput($input) {
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+        
+        return $input;
     }
 ?>
 
