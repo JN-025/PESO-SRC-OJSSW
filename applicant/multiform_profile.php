@@ -757,7 +757,7 @@ if (isset($_POST["submit"])) {
                         <tr>
                             <td><input type="text" name="training1" placeholder="Training Program" required maxlength="50"></td>
                             <td><input type="text" name="institution1" placeholder="Training Instution" required maxlength="50"></td>
-                            <th><h2>Started to Ended</h2></th>
+                            <th><h2>Started to Ended<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
                                     <td><input type="date" name="startDuration1" placeholder="Started" required>&nbsp;TO&nbsp;</td>
@@ -777,7 +777,7 @@ if (isset($_POST["submit"])) {
                         <tr>
                             <td><input type="text" name="training2" placeholder="Training Program" required maxlength="50"></td>
                             <td><input type="text" name="institution2" placeholder="Training Instution" required maxlength="50"></td>
-                            <th><h2>Started to Ended</h2></th>
+                            <th><h2>Started to Ended<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
                                     <td><input type="date" name="startDuration2" placeholder="Started" required>&nbsp;TO&nbsp;</td>
@@ -797,7 +797,7 @@ if (isset($_POST["submit"])) {
                         <tr>
                             <td><input type="text" name="training3" placeholder="Training Program" required maxlength="50"></td>
                             <td><input type="text" name="institution3" placeholder="Training Instution" required maxlength="50"></td>
-                            <th><h2>Started to Ended</h2></th>
+                            <th><h2>Started to Ended<span class="required-asterisk">&nbsp;*</span></h2></th>
                             <div class="display-spacebetween" style="align-items: center;">
                                 <tr>
                                     <td><input type="date" name="startDuration3" placeholder="Started" required>&nbsp;TO&nbsp;</td>
