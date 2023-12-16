@@ -1,7 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
-@import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Racing Sans One');
-
 body
 {
     margin: 0;
@@ -91,7 +87,7 @@ button{
 {
     color: #FFF;
     text-align: center;
-    font-family: Racing Sans One;
+    font-family: 'Poppins';
     font-size: 4.5vw;
     font-style: normal;
     font-weight: 800;
