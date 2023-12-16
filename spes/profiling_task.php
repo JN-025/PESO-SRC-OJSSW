@@ -20,7 +20,7 @@ if (!isset($_SESSION['spes_id'])) {
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/Wcompany.css">
+    <link rel="stylesheet" href="../assets/css/profiling_task.css">
     <title>Profiling Task</title>
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
@@ -497,11 +497,12 @@ if (!isset($_SESSION['spes_id'])) {
                     <table id="myTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Household Number</th>
+                                <th style="width: 15%;">Household Number</th>
                                 <th>Name</th>
                                 <th>Birthday</th>
                                 <th>Age</th>
                                 <th>Sex</th>
+                                <th>Barangay</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -521,11 +522,10 @@ if (!isset($_SESSION['spes_id'])) {
                                     ?>
                                     <tr>
                                         <td><?= $profile['householdNum'] ?></td>
-                                        <td><?= $profile['firstname'] ?></td>
+                                        <td><?= $profile['firstname'] ?>&nbsp;&nbsp;<?= $profile['middlename'] ?>&nbsp;&nbsp;<?= $profile['lastname'] ?>&nbsp;&nbsp;<?= $profile['suffix'] ?></td>
                                         <td><?= $profile['birthday'] ?></td>
                                         <td><?= $profile['age'] ?></td>
                                         <td><?= $profile['sex'] ?></td>
-                                    
                                         <td>
                                             <button type="button" value="<?=$profile['profiling_id'];?>" class="viewProfileBtn btn view btn-sm">View</button>
                                             <button type="button" value="<?=$profile['profiling_id'];?>" class="editProfileBtn btn edit btn-sm">Edit</button>
@@ -616,7 +616,7 @@ if (!isset($_SESSION['spes_id'])) {
                         $('#firstname').val(res.data.firstname);
                         $('#civilStatus').val(res.data.civilStatus);
                         $('#employmentType').val(res.data.employmentType);
-                        $('#middlename').val(res.data.middleName);
+                        $('#middlename').val(res.data.middlename);
                         $('#address').val(res.data.address);
                         $('#arrivalDate').val(res.data.arrivalDate);
                         $('#suffix').val(res.data.suffix);

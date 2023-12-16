@@ -25,9 +25,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>LOG IN</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/company_login.css">
+    <link rel="stylesheet" href="../assets/css/spes_login.css">
     <script src="../assets/js/applicant/loader.js"></script>
 </head>
 <body>
@@ -169,7 +169,7 @@
                         <br>
                     <a href="#">Forgot Password</a>
                     <br>
-                    <button name="submit" type="submit">Log In</button>
+                    <button name="submit" type="submit">LOG IN</button>
                     <br><br>
                     <h5>Create an Account?&nbsp;&nbsp;<a href="register_student.php">SIGN UP</a></h5>
                     </div>

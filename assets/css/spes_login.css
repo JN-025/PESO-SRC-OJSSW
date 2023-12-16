@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Luckiest+Guy&family=Mohave&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mohave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Luckiest+Guy&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -90,13 +93,16 @@
     line-height: normal;
 }
 .col-1 h3{
+    color: #FFF;
+    text-align: center;
+    font-family: Lilita One;
+    font-size: 26px;
+    font-style: normal;
     font-weight: 400;
-    font-size: 25px;
-    color: #fff;
-    font-family: 'Lilita One', cursive;
+    line-height: normal;
 }
 .col-1 .field-space{
-    margin-top: 10%;
+    margin-top: 15%;
 }
 .col-2 {
     width: 70%;
@@ -111,27 +117,28 @@
     margin-top: 5%;
 }
 .col-2 h1{
-    color: #DF6B00;
-    font-family: Mohave;
+    color: #C29807;
+    text-align: center;
+    font-family: Moul;
     font-size: 35px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: normal;
 }
 
 .col-2 h2
 {
-    color: #DF6B00;
-    font-family: Mohave;
-    font-size: 30px;
+    color: #C29807;
+    text-align: center;
+    font-family: MOhave;
+    font-size: 20px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 300;
     line-height: normal;
 }
-
 .col-2 .form-col-1 {
     padding: 0 5%;
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: center;
 }
 .col-2 .form-col-1 img{
@@ -140,40 +147,14 @@
 }
 .col-2 .form-col-2{
     padding: 0 5%;
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between; 
-}
-.form-col-2 .col-left
-{
-    flex: 30%
-}
-
-.form-col-2 .col-right
-{
-    flex: 70%
-}
-.prev{
-    width: 20%;
-    background-color: #DF6B00;
-    box-shadow: 0px 4px 4px 0px #FFA653 inset;
-    filter: drop-shadow(0px 4px 4px #7A3B00);
-    color: #FFF;
-    font-family: Mohave;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    border: none;
-    border-radius: 25px;
-    padding: 3px;
 }
 .field-space {
     margin-left: 15%;
 }
-.d-none{
-    display: none;
-}
+
 input[type=text], input[type=password], input[type=number], input[type=email],input[type=tel], select
 {
     border: none;
@@ -183,29 +164,6 @@ input[type=text], input[type=password], input[type=number], input[type=email],in
     padding-left: 10px;
     background-color: #F1E4E4;
     border-radius: 10px;
-}
-input[type=file]
-{
-    width: 95%;
-    height: 25px;
-    border-radius: 4px;
-    border: 1px solid #656565;
-    background: #FFF;
-    color: #656565;
-    font-family: Poppins;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    
-}
-input[type=file]::file-selector-button
-{
-    border-radius: 4px;
-    border: 1px solid #656565;
-    background: #FFF;
-    box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    height: 25px;
 }
 select,
 select option {
@@ -221,21 +179,19 @@ select option[value=""] {
     font-size: 18px;   
 }
 .form-col-1 button{
-    margin-bottom: 20px;
+    border: none;
+    margin: 2% 0;
     height: 6vh;
     width: 50%;
-    background-color: #DF6B00;
-    box-shadow: 0px 4px 4px 0px #FFA653 inset;
-    filter: drop-shadow(0px 4px 4px #7A3B00);
+    background-color: #C29807;
+    box-shadow: 0px 4px 4px 0px #EFBF12 inset;
+    filter: drop-shadow(0px 4px 4px #886B05);
     color: #FFF;
-    font-family: Mohave;
     font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    border: none;
-    border-radius: 25px; 
+    border-radius: 10px; 
     transition: 0.2s;
+    font-family: 'Mohave', sans-serif;
+    padding: 5px;
 }
 .form-col-1 button:hover{
     opacity: 0.6;
@@ -244,7 +200,7 @@ select option[value=""] {
     color: #000000;
 }
 .form-col-1 a{
-    color: #A81E1E;
+    color: #C29807;
     font-family: 'Mohave', sans-serif;
     font-size: 15px;
     font-weight: 700;

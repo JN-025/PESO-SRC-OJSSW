@@ -78,16 +78,18 @@
     font-family: Gelasio;
     font-size: 20px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: bold;
     line-height: normal;
+    letter-spacing: 3px;
 }
 .col-1 h2{
     color: #FFF;
     font-family: Gelasio;
     font-size: 40px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: bolder;
     line-height: normal;
+    letter-spacing: 5px;
 }
 .col-1 h3{
     font-weight: 400;
@@ -111,19 +113,19 @@
     margin-top: 5%;
 }
 .col-2 h1{
-    color: #DF6B00;
+    color: #C29807;
     font-family: Mohave;
     font-size: 35px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: bolder;
     line-height: normal;
 }
 
 .col-2 h2
 {
-    color: #DF6B00;
+    color: #C29807;
     font-family: Mohave;
-    font-size: 30px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -131,7 +133,7 @@
 
 .col-2 .form-col-1 {
     padding: 0 5%;
-    margin-top: 10px;
+    margin-top: 15px;
     text-align: center;
 }
 .col-2 .form-col-1 img{
@@ -140,24 +142,59 @@
 }
 .col-2 .form-col-2{
     padding: 0 5%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between; 
+}
+
+.col-2 .form-col-3{
+    padding: 0 5%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between; 
+
+}
+
+.form-col-3 .col-left
+{
+    flex: 40%
+}
+
+.form-col-3 .col-right
+{
+    flex: 60%
+}
+
+.col-2 .form-col-3{
+    padding: 0 5%;
     margin-top: 10px;
     display: flex;
     justify-content: space-between; 
 }
-.form-col-2 .col-left
-{
-    flex: 30%
+
+.col-2 .form-col-3 h3{
+   font-size: 18px;
+   font-family: Mohave;
+   color:#656565;
 }
 
-.form-col-2 .col-right
+
+.form-col-3 .col-left
 {
-    flex: 70%
+    flex: 40%
 }
+
+.form-col-3 .col-right
+{
+    flex: 60%
+}
+
+
 .prev{
     width: 20%;
-    background-color: #DF6B00;
-    box-shadow: 0px 4px 4px 0px #FFA653 inset;
-    filter: drop-shadow(0px 4px 4px #7A3B00);
+    background-color: #C29807;
+    box-shadow: 0px 4px 4px 0px #EFBF12 inset;
+    filter: drop-shadow(0px 4px 4px #886B05);
     color: #FFF;
     font-family: Mohave;
     font-size: 15px;
@@ -171,6 +208,8 @@
 .field-space {
     margin-left: 15%;
 }
+
+
 .d-none{
     display: none;
 }
@@ -178,7 +217,7 @@ input[type=text], input[type=password], input[type=number], input[type=email],in
 {
     border: none;
     width: 98%;
-    height: 40px;
+    height: 35px;
     font-size: 18px;
     padding-left: 10px;
     background-color: #F1E4E4;
@@ -187,7 +226,7 @@ input[type=text], input[type=password], input[type=number], input[type=email],in
 input[type=file]
 {
     width: 95%;
-    height: 25px;
+    height: 23px;
     border-radius: 4px;
     border: 1px solid #656565;
     background: #FFF;
@@ -205,7 +244,7 @@ input[type=file]::file-selector-button
     border: 1px solid #656565;
     background: #FFF;
     box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    height: 25px;
+    height: 23px;
 }
 select,
 select option {
@@ -213,29 +252,31 @@ select option {
 }
 select:invalid,
 select option[value=""] {
-  color: #999999;
+  color: rgba(0, 0, 0, 0.50);
 }
 ::placeholder 
 {
-    color: #999999;
+    color: rgba(0, 0, 0, 0.50);
     font-size: 18px;   
 }
 .form-col-1 button{
     margin-bottom: 20px;
     height: 6vh;
     width: 50%;
-    background-color: #DF6B00;
-    box-shadow: 0px 4px 4px 0px #FFA653 inset;
-    filter: drop-shadow(0px 4px 4px #7A3B00);
+    background-color: #C29807;
+    box-shadow: 0px 4px 4px 0px #EFBF12 inset;
+    filter: drop-shadow(0px 4px 4px #886B05);
     color: #FFF;
     font-family: Mohave;
-    font-size: 20px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     border: none;
-    border-radius: 25px; 
+    border-radius: 10px; 
     transition: 0.2s;
+    padding: 3px;
+    letter-spacing: 3px;
 }
 .form-col-1 button:hover{
     opacity: 0.6;
@@ -244,7 +285,7 @@ select option[value=""] {
     color: #000000;
 }
 .form-col-1 a{
-    color: #A81E1E;
+    color: #C29807;
     font-family: 'Mohave', sans-serif;
     font-size: 15px;
     font-weight: 700;
