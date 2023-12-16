@@ -9,14 +9,14 @@ include '../conn.php';
         <img src="../assets/img/ojssw.png" alt="PESO-Logo" srcset="">
     </div>
     <div class="list-dropdown">
-                <a href="homepage.php" <?php echo isActivePage("homepage.php"); ?>>Profiling List</a>
-                <a href="profiling_task.php" <?php echo isActivePage("profiling_task.php"); ?>>Profiling Task</a>
+                <a href="homepage.php" <?php echo isActivePage("homepage.php"); ?>>Home</a>
+                <a href="profiling_task.php" <?php echo isActivePage("profiling_task.php"); ?>>Tasks</a>
     </div>
     <div class="list-dropdown-sublist d-none">
         <a href="" class="sub-active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
         <div class="sub-list" id="nav_title">
-                <a href="homepage.php"><i class="bi bi-search"></i>&nbsp;Profiling List</a>
-                <a href="profiling_task.php"><i class="bi bi-bookmark"></i>&nbsp;Profiling Task</a>
+                <a href="homepage.php"><i class="bi bi-search"></i>&nbsp;Home</a>
+                <a href="profiling_task.php"><i class="bi bi-bookmark"></i>&nbsp;Task</a>
                  </div>
     </div>
     <div class="right-corner">

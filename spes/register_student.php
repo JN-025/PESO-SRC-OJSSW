@@ -75,7 +75,7 @@ if (isset($_POST["submit"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Student</title>
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/company_register.css">
+    <link rel="stylesheet" href="../assets/css/spes_register.css">
     <script src="../assets/js/applicant/loader.js"></script>
 
 </head>
@@ -86,7 +86,7 @@ if (isset($_POST["submit"])) {
             <div class="col-1">
             <a href=""><img src="../assets/img/ojssw.png" alt="" srcset=""></a>
                 <div class="wordbox">
-            <h1>PUBLIC EMPLOYMENT SERVICE OFFICE (PESO)</h1>
+                <h1>PUBLIC EMPLOYMENT SERVICE OFFICE (PESO)</h1>
                 <h2>SANTA ROSA, LAGUNA</h2>
                 <div class="field-space"></div>
                 <h3>CONNECTING DREAMS TO CAREERS:</h3>
@@ -125,22 +125,24 @@ if (isset($_POST["submit"])) {
                 <h1>CREATE ACCOUNT</h1>
                 <form id="form" action="" method="post" enctype="multipart/form-data">
                     <div class="wrapper">
+                        
                         <section id="step-0" class="form-step">
+                            
                             <div class="form-col-1">
-                            <input type="text" onkeydown="restrictName(event)"name="firstname" placeholder="First Name" required maxlength="50">
+                                <input type="text" onkeydown="restrictName(event)"name="firstname" placeholder="First Name" required maxlength="50">
                             </div>
                             <div class="form-col-1">
-                            <input type="text" onkeydown="restrictName(event)" name="lastname" placeholder="Last Name" required maxlength="50">
+                                <input type="text" onkeydown="restrictName(event)" name="lastname" placeholder="Last Name" required maxlength="50">
                             </div>
                             <div class="form-col-2">
-                    <input type="number" name="age" id="age"placeholder="Age" min="18" max="90" required>
-                        <div class="field-space"></div>
-                    <select class="dropdown" name="sex" required>
-                            <option value="" selected disabled>Sex</option>
-                            <option value="Female">Female</option>
-                            <option value="Male">Male</option>
-                            </select>
-                        </div>
+                                <input type="number" name="age" id="age"placeholder="Age" min="18" max="90" required>
+                                <div class="field-space"></div>
+                                <select class="dropdown" name="sex" required>
+                                    <option value="" selected disabled>Sex</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                </select>
+                            </div>
                             <div class="form-col-1">
                                 <input type="tel" placeholder="Contact Number. eg 0901-***-**89" name="contactNum" pattern="\d{4}-\d{3}-\d{4}"title="Contact Number format eg 0912-345-6789" required maxlength="13" oninput="formatPhoneNumber(this)">
                             </div>
@@ -153,22 +155,24 @@ if (isset($_POST["submit"])) {
                             <div class="form-col-1">
                                 <input type="password" placeholder="Confirm Password" name="confirm_password" id="myInput2" required maxlength="20">
                             </div>
+                            
                             <div class="form-col-1">
                                 <button class="btn-nav" step_number="1">Next</button>
                                 <h5>By clicking register you agree in our&nbsp;&nbsp;<a href="#" id="myBtn">Terms & Agreement</a></h5>
                                 <h5>Already have an Account?&nbsp;&nbsp;<a href="index.php">LOG IN</a></h5>
                             </div>
+
                         </section>
                         <!--section 2-->
                         <section id="step-1" class="form-step d-none">
-                            <div class="form-col-2">
+                            <div class="form-col-3">
                                 <button class="btn-nav prev" step_number="0">Previous</button>
                             </div>
-                            <div class="form-col-1">
+                            <div class="form-col-1" style="margin-top: 0;">
                                 <h2>Requirements</h2>
                             </div>
 
-                            <div class="form-col-2">
+                            <div class="form-col-3">
                                 <div class="col-left">
                                     <h3>Application Form (front):</h3>
                                 </div>
@@ -176,7 +180,7 @@ if (isset($_POST["submit"])) {
                                     <input type="file" name="appForm_front_img" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-col-2">
+                            <div class="form-col-3">
                                 <div class="col-left">
                                     <h3>Application Form (back):</h3>
                                 </div>
@@ -184,7 +188,7 @@ if (isset($_POST["submit"])) {
                                     <input type="file" name="appForm_back_img" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-col-2">
+                            <div class="form-col-3">
                                 <div class="col-left">
                                     <h3>Birth Certificate:</h3>
                                 </div>
@@ -192,7 +196,7 @@ if (isset($_POST["submit"])) {
                                     <input type="file" name="birthCert_img" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-col-2">
+                            <div class="form-col-3">
                                 <div class="col-left">
                                     <h3>Voter's ID:</h3>
                                 </div>
@@ -200,7 +204,7 @@ if (isset($_POST["submit"])) {
                                     <input type="file" name="voterID_img" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-col-2">
+                            <div class="form-col-3">
                                 <div class="col-left">
                                     <h3>Indigency Certificate:</h3>
                                 </div>
@@ -208,7 +212,7 @@ if (isset($_POST["submit"])) {
                                     <input type="file" name="indigencyCert_img" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-col-2">
+                            <div class="form-col-3">
                                 <div class="col-left">
                                     <h3>Latest Registration Card:</h3>
                                 </div>
@@ -216,7 +220,7 @@ if (isset($_POST["submit"])) {
                                     <input type="file" name="regCard_img" placeholder="">
                                 </div>
                             </div>
-                            <div class="form-col-2">
+                            <div class="form-col-3">
                                 <div class="col-left">
                                     <h3>Class Card:</h3>
                                 </div>
@@ -226,12 +230,12 @@ if (isset($_POST["submit"])) {
                             </div>
                         
                         <div class="form-col-1">
-                        <h4 style="color:red"><b>NOTE:</b> All files must be in PDF or JPEG. Must not exceed 3MB</h4>
+                        <h4 style="color:red; font-size: 1vw;"><b>NOTE:</b> All files must be in PNG or JPEG. Must not exceed 3MB</h4>
                         </div>
                         <div class="form-col-1">
-                            <button name="submit">Submit</button>
+                            <button name="submit">SIGN UP</button>
                             <h5>By clicking register you agree in our&nbsp;&nbsp;<a href="#" id="myBtn">Terms & Agreement</a></h5>
-                            <h5>Already have an Account?&nbsp;&nbsp;<a href="login.php">LOG IN</a></h5>
+                            <h5>Already have an Account?&nbsp;&nbsp;<a href="index.php">LOG IN</a></h5>
                         </div>
                         
                         </section>

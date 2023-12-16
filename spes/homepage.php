@@ -20,7 +20,7 @@ if (!isset($_SESSION['spes_id'])) {
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/Wcompany.css">
+    <link rel="stylesheet" href="../assets/css/spes_home.css">
     <title>Profiling Task</title>
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
@@ -36,20 +36,19 @@ if (!isset($_SESSION['spes_id'])) {
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Profiling List
-                              
-                            </h4>
+                            <h4>Profiling List</h4>
                         </div>
                         <div class="card-body">
 
-                            <table id="myTable" class="table table-bordered table-striped">
+                            <table id="myTable" class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Household Number</th>
+                                        <th style="width: 15%;">Household Number</th>
                                         <th>Name</th>
                                         <th>Birthday</th>
                                         <th>Age</th>
                                         <th>Sex</th>
+                                        <th>Barangay</th>
                                         
                                     </tr>
                                 </thead>
@@ -68,11 +67,11 @@ if (!isset($_SESSION['spes_id'])) {
                                             ?>
                                             <tr>
                                                 <td><?= $profile['householdNum'] ?></td>
-                                                <td><?= $profile['firstname'] ?></td>
+                                                <td><?= $profile['firstname'] ?>&nbsp;&nbsp;<?= $profile['middlename'] ?>&nbsp;&nbsp;<?= $profile['lastname'] ?>&nbsp;&nbsp;<?= $profile['suffix'] ?></td>
                                                 <td><?= $profile['birthday'] ?></td>
                                                 <td><?= $profile['age'] ?></td>
                                                 <td><?= $profile['sex'] ?></td>
-                                            
+                                                <td><?= $profile['brgy'] ?></td>
                                                 
                                             </tr>
                                             <?php
