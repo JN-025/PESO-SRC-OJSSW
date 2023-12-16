@@ -11,31 +11,31 @@ if (isset($_GET['jobPostId'])) {
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $description = nl2br(htmlspecialchars($row['description']));
-        $jobDetails = '<div class="col-2-content" style="position: sticky; top: 75px;">'.'<div class="description"style="flex-wrap: wrap; height:80vh;position:relative; overflow-y: auto;">' .
-            '<div class="desc-col-1" style="padding: 30px 10px; margin: 0; border: 2px solid none; border-radius: 10px; flex: 1;">' .
-            '<h2 style="margin-bottom: 10px;font-size: 30px; font-weight: bold;">' . $row['jobTitle'] . '</h2>' .
-            '<h3 style="font-size: 14px;">Company Name: <span style="font-weight:400">' . $row['companyName'] . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Company Industry: <span style="font-weight:400">' . $row['industry'] . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Salary: <span style="font-weight:400">' .'₱'. $row['salary'] . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Work Location: <span style="font-weight:400">' . $row['workLocation'] . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Slots: <span style="font-weight:400">' . $row['slot'] . '</span></h3>' .
+        $jobDetails = 
+        '<div class="col-2-content col-sticky">'.
+        '<div class="description fulldescription">' .
+            '<div class="desc-col-1 fulldesc-1">' .
+            '<h2>' . $row['jobTitle'] . '</h2>' .
+            '<h3>Company Name: <span>' . $row['companyName'] . '</span></h3>' .
+            '<h3>Company Industry: <span>' . $row['industry'] . '</span></h3>' .
+            '<h3>Salary: <span>' .'₱'. $row['salary'] . '</span></h3>' .
+            '<h3>Work Location: <span>' . $row['workLocation'] . '</span></h3>' .
+            '<h3>Slots: <span>' . $row['slot'] . '</span></h3>' .
+            '<h3>Job Information: <span>' . '<p>'.$description.'</p>' . '</span></h3>' .
+            '<div class="footer-info">'.
+            '<h3>Skills: <span>' . $row['skills'] . '</span></h3>' .
+            '<h3>Experience: <span>' . $row['yrsExperience'] . '</span></h3>' .
+            '<h3>Educational Attainment: <span>' . $row['educBg'] . '</span></h3>' .
             '</div>' .
-            '<div class="desc-col-2" style="position:relative;flex: 0 0 30%;">' .
-            '<div>' .
-            '<div class="full-img">'.
-            '<img style="width:150px;height: 150px;border-radius:10px;"src="' . $row['img'] . '" alt="">' .
             '</div>'.
-
+            '<div class="desc-col-2 fulldesc-2">' .
+            '<div class="full-img">'.
+            '<img src="' . $row['img'] . '" alt="">' .
+            '</div>'.
             '<a href="#question_form" id="modal-link" class="a-modal">Apply</a>' .
             '</div>' .
-            '</div>'.
-            '<div style="display: block;">'.
-            '<h3 style="font-size: 14px;">Job Information: <span style="font-weight:400">' . '<p style="text-align: justify;">'.$description.'</p>' . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Skills: <span style="font-weight:400">' . $row['skills'] . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Experience: <span style="font-weight:400">' . $row['yrsExperience'] . '</span></h3>' .
-            '<h3 style="font-size: 14px;">Educational Attainment: <span style="font-weight:400">' . $row['educBg'] . '</span></h3>' .
-            '</div>' .
-            '</div>';
+        '</div>'.
+        '</div>';
 
         echo $jobDetails;
     } else {
@@ -52,18 +52,51 @@ if (isset($_GET['jobPostId'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato:ital,wght@0,300;1,300&family=Lilita+One&family=Luckiest+Guy&family=Mohave&family=Poppins:wght@400;800&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,200&family=Sunflower:wght@700&display=swap');
-        .full-img{
-            margin: 10px;
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            border-radius: 11px;
-
+        .col-sticky{
+            font-family: 'Mohave';
+            position:sticky; 
+            top: 75px;
+        }
+        .fulldescription{
+            display: flex; 
+            height: 80vh; 
+            position:relative; 
+            overflow-y: auto;
+        }
+        .fulldescription h2{
+            font-size: 30px;
+        }
+        .fulldescription h3{
+            margin: 10px 0;
+            font-size: 17px;
+        }
+        .fulldescription span{
+            font-weight: 400;
+        }
+        .fulldesc-1{
+            display: block;
+            flex: 1;
+            margin-left: 20px;
+        }
+        .fulldesc-2{
+            position: relative;
+            flex: 0.5;
+        }
+        .footer-info{
+            margin-top: 50px;
         }
         .full-img img{
-            z-index: -5;
+            margin-left: 50px;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 15px;
+            width: 150px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         }
         .a-modal{
-            right: 0;
             position: absolute;
+            right: 0;
+            bottom: 0;
             text-decoration:none; 
             padding: 10px; 
             background-color: #A81E1E; 

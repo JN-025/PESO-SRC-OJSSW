@@ -170,7 +170,6 @@ body{
     margin-top: 10px;
 }
 .col-2-content .description{
-    display: flex;
     background-color: #FFFFFF;
     padding: 20px;
     margin: 5%;
@@ -184,29 +183,12 @@ body{
 .preview:hover{
     opacity: 0.6;
 }
-.col-2-content .desc-col-1{
-    flex: 1;
-}
 .col-2-content .desc-col-1 h2{
     font-family: 'Sunflower', sans-serif;
     color: #8A240E;
 }
-.col-2-content .desc-col-1 h3{
-    font-size: 15px;
-    font-weight: 700;
-    margin-right: 5px;
-}
 .inline {
     display: inline;
-}
-.col-2-content .desc-col-2{
-    flex: 0 0 30%;
-}
-.col-2-content .description img{
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 15px;
-    width: 100px;
 }
 .col-2-content .description button{
     margin-left: 50%;
