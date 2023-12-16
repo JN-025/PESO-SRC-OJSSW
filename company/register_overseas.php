@@ -5,11 +5,11 @@ include "../conn.php";
 $msg="";
 
 if (isset($_POST["submit"])) {
-    $companyName = $_POST['companyName'];
-    $industry = $_POST['industry'];
-    $contactPerson = $_POST['contactPerson'];
-    $contactNum = $_POST['contactNum'];
-    $email = $_POST['email'];
+    $companyName = sanitizeInput($_POST['companyName']);
+    $industry = sanitizeInput($_POST['industry']);
+    $contactPerson = sanitizeInput($_POST['contactPerson']);
+    $contactNum = sanitizeInput($_POST['contactNum']);
+    $email = sanitizeInput($_POST['email']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 

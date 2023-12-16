@@ -24,13 +24,7 @@
             $msg = "<div class='alert alert-danger'>Password do not match</div>";
         }
     }
-    function sanitizeInput($input) {
-        $input = trim($input);
-        $input = stripslashes($input);
-        $input = htmlspecialchars($input);
-        
-        return $input;
-    }
+ 
 ?>
 
 <!DOCTYPE html>

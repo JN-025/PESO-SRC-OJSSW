@@ -10,7 +10,8 @@ if (isset($_GET['reset'])) {
             $confirm_password = $_POST['confirm_password'];
 
             if ($password === $confirm_password) {
-                $query = mysqli_query($conn, "UPDATE c_accounttb SET password='{$password}', code='' WHERE code='{$_GET['reset']}'");
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                $query = mysqli_query($conn, "UPDATE c_accounttb SET password='{$hashed_password}', code='' WHERE code='{$_GET['reset']}'");
 
                 if ($query) {
                     $_SESSION['success_message'] = "Password successfully changed.";

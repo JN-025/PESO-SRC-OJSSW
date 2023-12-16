@@ -6,19 +6,19 @@ session_start();
 
 if(isset($_POST["submit"])) {
     $company_id = $_SESSION["company_id"];
-    $jobTitle = $_POST["jobTitle"];
-    $companyName = $_POST["companyName"];
-    $industry = $_POST["industry"];
-    $position = $_POST["position"];
-    $educBg = $_POST["educBg"];
-    $yrsExperience = $_POST["yrsExperience"];
-    $workLocation = $_POST["workLocation"];
-    $salary = $_POST["salary"];
-    $slot = $_POST["slot"];
-    $skills = $_POST["skills"];
-    $typeofHiring = $_POST["typeofHiring"];
+    $jobTitle = sanitizeInput($_POST["jobTitle"]);
+    $companyName = sanitizeInput($_POST["companyName"]);
+    $industry = sanitizeInput($_POST["industry"]);
+    $position = sanitizeInput($_POST["position"]);
+    $educBg = sanitizeInput($_POST["educBg"]);
+    $yrsExperience = sanitizeInput($_POST["yrsExperience"]);
+    $workLocation = sanitizeInput($_POST["workLocation"]);
+    $salary = sanitizeInput($_POST["salary"]);
+    $slot = sanitizeInput($_POST["slot"]);
+    $skills = sanitizeInput($_POST["skills"]);
+    $typeofHiring = sanitizeInput($_POST["typeofHiring"]);
 
-    $description = $_POST["description"];
+    $description = sanitizeInput($_POST["description"]);
 
     if (!empty($_FILES["img"]["name"])) {
         $targetDir = "../jobpost_img/";
@@ -43,16 +43,16 @@ if(isset($_POST["submit"])) {
         }
     }
     
-    $questionNo1 = $_POST["questionNo1"];
-    $questionNo2 = $_POST["questionNo2"];
-    $questionNo3 = $_POST["questionNo3"];
-    $questionNo4 = $_POST["questionNo4"];
-    $questionNo5 = $_POST["questionNo5"];
-    $answerNo1 = $_POST["answerNo1"];
-    $answerNo2 = $_POST["answerNo2"];
-    $answerNo3 = $_POST["answerNo3"];
-    $answerNo4 = $_POST["answerNo4"];
-    $answerNo5 = $_POST["answerNo5"];
+    $questionNo1 = sanitizeInput($_POST["questionNo1"]);
+    $questionNo2 = sanitizeInput($_POST["questionNo2"]);
+    $questionNo3 = sanitizeInput($_POST["questionNo3"]);
+    $questionNo4 = sanitizeInput($_POST["questionNo4"]);
+    $questionNo5 = sanitizeInput($_POST["questionNo5"]);
+    $answerNo1 = sanitizeInput($_POST["answerNo1"]);
+    $answerNo2 = sanitizeInput($_POST["answerNo2"]);
+    $answerNo3 = sanitizeInput($_POST["answerNo3"]);
+    $answerNo4 = sanitizeInput($_POST["answerNo4"]);
+    $answerNo5 = sanitizeInput($_POST["answerNo5"]);
 
     $sql_jobpost = "INSERT INTO c_jobpost (company_id, jobTitle, companyName, industry, position, educBg, yrsExperience, workLocation, salary, slot, skills, typeofHiring, description, img, questionNo1, questionNo2, questionNo3, questionNo4, questionNo5, answerNo1, answerNo2, answerNo3, answerNo4, answerNo5) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql_jobpost);

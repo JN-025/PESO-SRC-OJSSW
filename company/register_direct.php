@@ -5,11 +5,11 @@ include "../conn.php";
 $msg="";
 
 if (isset($_POST["submit"])) {
-    $companyName = $_POST['companyName'];
-    $industry = $_POST['industry'];
-    $contactPerson = $_POST['contactPerson'];
-    $contactNum = $_POST['contactNum'];
-    $email = $_POST['email'];
+    $companyName = sanitizeInput($_POST['companyName']);
+    $industry = sanitizeInput($_POST['industry']);
+    $contactPerson = sanitizeInput($_POST['contactPerson']);
+    $contactNum = sanitizeInput($_POST['contactNum']);
+    $email = sanitizeInput($_POST['email']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
             $bsPermitPath = $uploadFolder . $bsPermitImg['name'];
             $jobOpeningPath = $uploadFolder . $jobOpeningImg['name'];
 
-            $sql = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password, profile_img, dolepermit_img, jobopening_img,type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'Direct' ,'Pending')";
+            $sql = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password, profile_img, dolepermit_img, jobopening_img, type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'Direct' ,'Pending')";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("sssssssss", $companyName, $industry, $contactPerson, $contactNum, $email, $hashed_password, $profilePath, $bsPermitPath, $jobOpeningPath);
 
@@ -51,6 +51,7 @@ if (isset($_POST["submit"])) {
         $msg = "<div class='alert alert-danger'>The password do not match, please try again</div>";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

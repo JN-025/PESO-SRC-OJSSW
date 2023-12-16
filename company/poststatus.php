@@ -66,8 +66,8 @@ $company_id = $_SESSION['company_id'];
     $offset = ($page - 1) * $limit;
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $application_log_id = $_POST['application_log_id'];
-        $new_status = $_POST['new_status'];
+        $application_log_id = sanitizeInput($_POST['application_log_id']);
+        $new_status = sanitizeInput($_POST['new_status']);
 
         $update_sql = "UPDATE application_log SET status = '$new_status' WHERE application_log_id = $application_log_id";
         $conn->query($update_sql);

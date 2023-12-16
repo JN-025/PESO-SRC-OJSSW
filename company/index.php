@@ -1,26 +1,38 @@
 <?php
-    session_start();
-    include("../conn.php");
+session_start();
+include("../conn.php");
 
-    $msg = "";
-    if (isset($_POST['submit'])) {
-        $email = $_POST['email'];
-        $companyName = $_POST['companyName'];
-        $contactPerson = $_POST['contactPerson'];
-        $password = $_POST['password'];
+$msg = "";
 
-        $sql = "SELECT * FROM c_accounttb WHERE email='$email' AND companyName = '$companyName' AND contactPerson = '$contactPerson' AND password='$password' AND status = 'Approved'";
-        $result = mysqli_query($conn, $sql);
+if (isset($_POST['submit'])) {
+    $email = sanitizeInput($_POST['email']);
+    $companyName = sanitizeInput($_POST['companyName']);
+    $contactPerson = sanitizeInput($_POST['contactPerson']);
+    $password = $_POST['password'];
 
+    $sql = "SELECT * FROM c_accounttb WHERE email='$email' AND companyName = '$companyName' AND contactPerson = '$contactPerson' AND status = 'Approved'";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
-            $_SESSION['company_id'] = $row['company_id'];
-            header('location: poststatus.php');
+            $storedHashedPassword = $row['password'];
+
+            if (password_verify($password, $storedHashedPassword)) {
+                $_SESSION['company_id'] = $row['company_id'];
+                header('location: poststatus.php');
+            } else {
+                $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
+            }
         } else {
             $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
         }
+    } else {
+        $msg = "<div class='alert alert-danger'>Error in database query.</div>";
     }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
