@@ -1,7 +1,7 @@
 <?php
 $page_title = "Find Jobs";
     session_start();
-    if (!isset($_SESSION['SESSION_EMAIL'])) {
+    if (!isset($_SESSION['applicant_id'])) {
         header("Location: index.php");
         die();
     }

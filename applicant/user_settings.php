@@ -3,6 +3,11 @@ $page_title = "Settings";
 include "../conn.php";
 session_start();
 
+if (!isset($_SESSION['applicant_id'])) {
+    header("Location: index.php");
+    die();
+}
+
 $applicant_id = $_SESSION["applicant_id"];
 $result = "SELECT * FROM a_accounttb  WHERE applicant_id = '$applicant_id'";
 if($result = mysqli_query($conn, $result)){

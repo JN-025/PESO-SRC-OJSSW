@@ -1,5 +1,10 @@
 <?php
 include '../conn.php';
+
+if (!isset($_SESSION['applicant_id'])) {
+    header("Location: index.php");
+    die();
+}
 $applicant_id = $_SESSION["applicant_id"];
 
 $unreadNotificationQuery = "SELECT COUNT(*) as unread_count FROM notifications WHERE applicant_id = $applicant_id AND is_read = 0";
@@ -45,7 +50,7 @@ $notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
                 <a href="find_jobs.php"><i class="bi bi-search"></i>&nbsp;Find Jobs</a>
                 <a href="multiform_profile.php"><i class="bi bi-bookmark"></i>&nbsp;NSRS FORM</a>
                 <a href="quiz/index.php"><i class="bi bi-controller"></i>&nbsp;Training</a>
-                 <a href="#"><i class="bi bi-exclamation-circle"></i>&nbsp;More Details</a>
+                 <a href="about_peso.php"><i class="bi bi-exclamation-circle"></i>&nbsp;More Details</a>
                  </div>
     </div>
     <div class="right-corner">

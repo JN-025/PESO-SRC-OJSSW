@@ -1,45 +1,66 @@
 <?php
 include '../../conn.php';
-$applicant_id = $_SESSION["applicant_id"];
-$check = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
-$result = mysqli_query($conn, $check);
 
-$formSubmitted = mysqli_num_rows($result) > 0;
+if (!isset($_SESSION['applicant_id'])) {
+    header("Location: index.php");
+    die();
+}
+$applicant_id = $_SESSION["applicant_id"];
+
+$unreadNotificationQuery = "SELECT COUNT(*) as unread_count FROM notifications WHERE applicant_id = $applicant_id AND is_read = 0";
+$unreadNotificationResult = mysqli_query($conn, $unreadNotificationQuery);
+$unreadNotificationData = mysqli_fetch_assoc($unreadNotificationResult);
+$unreadCount = $unreadNotificationData['unread_count'];
+
+$applicantProfileQuery = "SELECT * FROM applicant_profile WHERE applicant_id = $applicant_id";
+$applicantProfileResult = mysqli_query($conn, $applicantProfileQuery);
+$applicantProfileDataExists = mysqli_num_rows($applicantProfileResult) > 0;
+
+$notification_query = "SELECT * FROM notifications WHERE applicant_id = $applicant_id ORDER BY date_added_at DESC LIMIT 4";
+$notification_result = mysqli_query($conn, $notification_query);
+$notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
 
 $notification_query = "SELECT * FROM notifications WHERE applicant_id = $applicant_id ORDER BY date_added_at DESC LIMIT 4";
 $notification_result = mysqli_query($conn, $notification_query);
 $notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
 ?>
+<link rel="stylesheet" href="../../assets/css/font.css">
 <link rel="stylesheet" href="../../assets/css/applicant_topnav.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
 <div class="topnav">
     <div class="peso-logo">
         <img src="../../assets/img/ojssw.png" alt="PESO-Logo" srcset="">
     </div>
     <div class="list-dropdown">
                 <a href="../find_jobs.php" <?php echo isActivePage("../find_jobs.php"); ?>>Find Jobs</a>
-                <?php if (!$formSubmitted) : ?>
-                    <div class="rainbow">
+                    <div class="rainbow  <?php echo $applicantProfileDataExists ? 'hidden' : ''; ?>">
                 <a href="../multiform_profile.php" <?php echo isActivePage("../multiform_profile.php"); ?>>NSRS FORM</a>
                 </div>
-                <?php endif; ?>
                 <a href="index.php" <?php echo isActivePage("index.php"); ?>>Training</a>
                  <a href="../about_peso.php" <?php echo isActivePage("../about_peso.php"); ?>>More Details</a>
     </div>
     <div class="list-dropdown-sublist d-none">
         <a href="" class="sub-active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
         <div class="sub-list" id="nav_title">
-                <a href="find_jobs.php"><i class="bi bi-search"></i>&nbsp;Find Jobs</a>
-                <a href="multiform_profile.php"><i class="bi bi-bookmark"></i>&nbsp;NSRS FORM</a>
-                <a href="quiz/index.php"><i class="bi bi-controller"></i>&nbsp;Training</a>
-                 <a href="#"><i class="bi bi-exclamation-circle"></i>&nbsp;More Details</a>
+                <a href="../find_jobs.php"><i class="bi bi-search"></i>&nbsp;Find Jobs</a>
+                <a href="../multiform_profile.php"><i class="bi bi-bookmark"></i>&nbsp;NSRS FORM</a>
+                <a href="index.php"><i class="bi bi-controller"></i>&nbsp;Training</a>
+                 <a href="../about_peso.php"><i class="bi bi-exclamation-circle"></i>&nbsp;More Details</a>
                  </div>
     </div>
     <div class="right-corner">
         <div class="notification-icon">
             <div class="field-space"></div>
-            <i class="bi bi-bell icon" id="bell-icon"></i>
+            <?php if ($unreadCount > 0) : ?>
+            <span class="badge"><?php echo $unreadCount; ?></span>
+            <?php endif; ?>
+            <i class="bi bi-bell icon" id="bell-icon">
+            </i>
             <div class="notification-dropdown" id="notification-dropdown">
                 <div class="topnav-col-1">
                     <span style="color: green;">Notification</span>
@@ -63,9 +84,9 @@ $notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
         <div class="dropdown">
             <i class="bi bi-person-fill icon" id="person-icon"></i>
             <div class="dropdown-content" id="person-dropdown">
-                <a href="../multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
-                <a href="../user_settings.php"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
-                <a href="../signout.php"><i class="bi bi-box-arrow-in-right" style="margin-left: 18px;left: 0; position:absolute;"></i>Logout</a>
+                <a href="multiform_profile.php"><i class="bi bi-person-lines-fill"style="margin-left: 18px;left: 0; position:absolute;"></i>Profile</a>
+                <a href="user_settings.php"><i class="bi bi-gear" style="margin-left: 18px;left: 0; position:absolute;"></i>Settings</a>
+                <a href="signout.php"><i class="bi bi-box-arrow-in-right" style="margin-left: 18px;left: 0; position:absolute;"></i>Logout</a>
             </div>
         </div>
     </div>

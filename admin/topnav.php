@@ -1,5 +1,9 @@
 <?php
 include '../conn.php';
+if (!isset($_SESSION['applicant_id'])) {
+    header("Location: index.php");
+    die();
+}
 ?>
 <link rel="stylesheet" href="../assets/css/font.css">
 <link rel="stylesheet" href="../assets/css/applicant_topnav.css">
