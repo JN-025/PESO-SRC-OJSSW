@@ -14,6 +14,8 @@ if (isset($_POST["submit"])) {
     $confirm_password = $_POST['confirm_password'];
 
     if ($password === $confirm_password) {
+
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $profileImg = $_FILES['profile_img'];
         $dolePermitImg = $_FILES['dolepermit_img'];
         $listClientsImg = $_FILES['listclients_img'];
@@ -42,10 +44,10 @@ if (isset($_POST["submit"])) {
 
             $sql = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password, profile_img, dolepermit_img, listclients_img, jobopening_img, dolepermitcase_img, type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Local', 'status')";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssssssssss", $companyName, $industry, $contactPerson, $contactNum, $email, $password, $profilePath, $dolePermitPath, $listClientsPath, $jobOpeningPath, $dolePermitCasePath);
+            $stmt->bind_param("sssssssssss", $companyName, $industry, $contactPerson, $contactNum, $email, $hashed_password, $profilePath, $dolePermitPath, $listClientsPath, $jobOpeningPath, $dolePermitCasePath);
 
             if ($stmt->execute()) {
-                $_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>Admin will check the account if eligable to access. We will email you when the account is ready</h4>";
+                $_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>Admin will check the account if eligible to access. We will email you when the account is ready</h4>";
                 header("location:index.php");
             } else {
                 echo "Error: Database insertion";
@@ -157,7 +159,7 @@ if (isset($_POST["submit"])) {
                                 <h3>Company Profile:</h3>
                             </div>
                             <div class="col-right">
-                                <input type="file" name="profile_img" placeholder="">
+                                <input type="file" name="profile_img" placeholder="" required>
                             </div>
                         </div>
                         <div class="form-col-2">
@@ -189,7 +191,7 @@ if (isset($_POST["submit"])) {
                                 <h3 style="font-size: 15px;">Dole Certificate of no Pending Case</h3>
                             </div>
                             <div class="col-right">
-                                <input type="file" name="dolepermitcase_img" placeholder="">
+                                <input type="file" name="dolepermitcase_img" placeholder="" required>
                             </div>
                         </div>
                         <div class="form-col-1">

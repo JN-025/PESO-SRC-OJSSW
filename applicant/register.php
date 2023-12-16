@@ -28,8 +28,9 @@ if(isset($_POST["submit"])){
         $msg = "<div class='alert alert-danger'>{$email} - This email address has been already exists.</div>";
     } else {
         if ($password === $confirm_password) {
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $conn->prepare("INSERT INTO a_accounttb (firstname, lastname, age, Pnum, sex, email, password, code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssiissss", $firstname, $lastname, $age, $Pnum, $sex, $email, $password, $code);
+            $stmt->bind_param("ssiissss", $firstname, $lastname, $age, $Pnum, $sex, $email, $hashed_password, $code);
         
             $result = $stmt->execute();
 

@@ -35,6 +35,7 @@ if (isset($_GET['reset'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Password</title>
+    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/font.css">
     <link rel="stylesheet" href="../assets/css/applicant_login.css">
     <script src="../assets/js/applicant/loader.js"></script>

@@ -14,6 +14,8 @@ if (isset($_POST["submit"])) {
     $confirm_password = $_POST['confirm_password'];
 
     if ($password === $confirm_password) {
+
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $profileImg = $_FILES['profile_img'];
         $bsPermitImg = $_FILES['bspermit_img'];
         $jobOpeningImg = $_FILES['jobopening_img'];
@@ -34,10 +36,10 @@ if (isset($_POST["submit"])) {
 
             $sql = "INSERT INTO c_accounttb (companyName, industry, contactPerson, contactNum, email, password, profile_img, dolepermit_img, jobopening_img,type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'Direct' ,'Pending')";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssssssss", $companyName, $industry, $contactPerson, $contactNum, $email, $password, $profilePath, $bsPermitPath, $jobOpeningPath);
+            $stmt->bind_param("sssssssss", $companyName, $industry, $contactPerson, $contactNum, $email, $hashed_password, $profilePath, $bsPermitPath, $jobOpeningPath);
 
             if ($stmt->execute()) {
-                $_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>Admin will check the account if eligable to access. We will email you when the account is ready</h4>";
+                $_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>Admin will check the account if eligible to access. We will email you when the account is ready</h4>";
                 header("location:index.php");
             } else {
                 echo "Error: Database insertion";

@@ -11,9 +11,10 @@
         $confirm_password = $_POST['confirm_password'];
     
         if ($password == $confirm_password) {
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO p_accounttb (name, position, email, contactNum, password, status) VALUES (?, ?, ?, ? , ?, 'Pending')";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssss", $name, $position, $email, $contactNum, $password);
+            $stmt->bind_param("sssss", $name, $position, $email, $contactNum, $hashed_password);
     
             if ($stmt->execute()) {
                 $_SESSION["form_submitted"] = "<h2>You have successfully request an access!</h2>";
