@@ -153,6 +153,7 @@ select option[value=""] {
     font-size: 18px;   
 }
 .form-col-1 button{
+    cursor: pointer;
     border: none;
     margin: 2% 0;
     height: 6vh;
@@ -168,6 +169,9 @@ select option[value=""] {
 }
 .form-col-1 button:hover{
     opacity: 0.6;
+}
+.form-col-1 button:active{
+    transform: translateY(4px);
 }
 .form-col-1 h5{
     color: #000000;

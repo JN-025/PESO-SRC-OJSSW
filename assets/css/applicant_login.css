@@ -112,9 +112,13 @@
     text-align: center;
 }
 .col-2 label{
+    cursor: pointer;
     line-height: 50px;
     font-size: 20px;
     color: #A81E1E;
+}
+input[type=checkbox]{
+    cursor: pointer;
 }
 input[type=text], input[type=password], input[type=number], input[type=email], select
 {

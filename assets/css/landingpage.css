@@ -70,10 +70,10 @@ button{
     transition: 0.4s;
   }
   button:hover{
-    transform: scale(1.1) perspective(1px);
+    opacity: 0.6;
   }
   button:active{
-    opacity: 0.6;
+    transform: translateY(4px);
   }
 .row-1
 {

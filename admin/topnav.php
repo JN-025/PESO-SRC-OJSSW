@@ -1,6 +1,6 @@
 <?php
 include '../conn.php';
-if (!isset($_SESSION['applicant_id'])) {
+if (!isset($_SESSION['admin_id'])) {
     header("Location: index.php");
     die();
 }
@@ -21,10 +21,9 @@ if (!isset($_SESSION['applicant_id'])) {
     <div class="list-dropdown-sublist d-none">
         <a href="" class="sub-active"> <?php echo $page_title?> <i class="bi bi-caret-down-fill"></i></a>
         <div class="sub-list" id="nav_title">
-                <a href="find_jobs.php"><i class="bi bi-search"></i>&nbsp;Find Jobs</a>
-                <a href="multiform_profile.php"><i class="bi bi-bookmark"></i>&nbsp;NSRS FORM</a>
-                <a href="quiz/index.php"><i class="bi bi-controller"></i>&nbsp;Training</a>
-                 <a href="#"><i class="bi bi-exclamation-circle"></i>&nbsp;More Details</a>
+                <a href="homepage.php"><i class="bi bi-search"></i>&nbsp;PESO</a>
+                <a href="access.php"><i class="bi bi-bookmark"></i>&nbsp;Access</a>
+                <a href="company.php"><i class="bi bi-controller"></i>&nbsp;Company</a>
                  </div>
     </div>
     <div class="right-corner">
@@ -57,8 +56,6 @@ if (!isset($_SESSION['applicant_id'])) {
     const notificationMessage = document.getElementById("notification-message");
     const personIcon = document.getElementById("person-icon");
     const personDropdown = document.getElementById("person-dropdown");
-    /*const navTitle = document.querySelector(".list-dropdown-sublist .sub-active");
-    const subList = document.querySelector(".list-dropdown-sublist .sub-list");*/
     let notifications = [];
 
     function updateNotificationDropdown() {
@@ -67,22 +64,8 @@ if (!isset($_SESSION['applicant_id'])) {
         } else {
         }
     }
-    /*navTitle.addEventListener("click", () => {
-    if (subList.style.display === "block") {
-        subList.style.display = "none";
-    } else {
-        subList.style.display = "block";
-    }
-    });*/
-    bellIcon.addEventListener("click", () => {
-        if (notificationDropdown.style.display === "block") {
             notificationDropdown.style.display = "none";
-        } else {
-            notificationDropdown.style.display = "block";
-            updateNotificationDropdown();
-        }
-    });
-
+            bellIcon.style.display = "none";
     personIcon.addEventListener("click", () => {
         if (personDropdown.style.display === "block") {
             personDropdown.style.display = "none";
