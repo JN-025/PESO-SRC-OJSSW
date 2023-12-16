@@ -29,22 +29,10 @@ if (isset($_GET['jobpost_id']) && isset($_GET['company_id'])) {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<h1>{$row['companyName']}</h1>";
-            echo "<table border='1' class='styled-table'>";
-            echo "<thead>";
-            echo "<tr>";
-            echo "<th>ID No#</th>";
-            echo "<th>Name</th>";
-            echo "<th>Date Added</th>";
-            echo "<th>Status</th>";
-            echo "<th>Action</th>";
-            echo "</tr>";
-            echo "</thead>";
-            echo "<tbody>";
-
             $formattedDate = date("F j, Y | g:i A", strtotime($row['date_added_at']));
             echo "<tr>";
             echo "<td>{$row['application_log_id']}</td>";
+            echo "<td>{$row['companyName']}</td>";
             echo "<td>{$row['fullname']}</td>";
             echo "<td>{$formattedDate}</td>";
             echo "<td>{$row['status']}</td>";
@@ -60,12 +48,9 @@ if (isset($_GET['jobpost_id']) && isset($_GET['company_id'])) {
             echo "</form>";
             echo "</td>";
             echo "</tr>";
-
-            echo "</tbody>";
-            echo "</table>";
         }
     } else {
-        echo "<p>No records found</p>";
+        echo "<tr><td colspan='9'>No records found</td></tr>";
     }
 } else {
     echo "<p>Invalid request. Missing jobpost_id parameter.</p>";
