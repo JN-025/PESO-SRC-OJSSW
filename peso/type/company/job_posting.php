@@ -1,12 +1,14 @@
 <?php
 $page_title = "JOB POSTING";
-include "../conn.php";
-include "../sanitize_function.php";
-
+include "../../../conn.php";
+include "../../../sanitize_function.php";
 session_start();
-
+if (!isset($_SESSION['access_id'])) {
+    header("Location: ../../homepage.php");
+    die();
+}
 if(isset($_POST["submit"])) {
-    $company_id = $_SESSION["company_id"];
+    $access_id = $_SESSION["access_id"];
     $jobTitle = sanitizeInput($_POST["jobTitle"]);
     $companyName = sanitizeInput($_POST["companyName"]);
     $industry = sanitizeInput($_POST["industry"]);
@@ -22,10 +24,10 @@ if(isset($_POST["submit"])) {
     $description = sanitizeInput($_POST["description"]);
 
     if (!empty($_FILES["img"]["name"])) {
-        $targetDir = "../jobpost_img/";
+        $targetDir = "../../../jobpost_img/";
         $target_file = $targetDir . basename($_FILES["img"]["name"]);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
+    
         $check = getimagesize($_FILES["img"]["tmp_name"]);
         if ($check === false) {
             echo "File is not an image.";
@@ -33,11 +35,11 @@ if(isset($_POST["submit"])) {
             echo "File is too large. Please upload an image less than 5MB.";
         } elseif (
             $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif"
         ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            echo "Sorry, only JPG, JPEG,  PNG files are allowed.";
         } else {
             if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+                $target_file = "../jobpost_img/" . $_FILES["img"]["name"];
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
@@ -55,11 +57,11 @@ if(isset($_POST["submit"])) {
     $answerNo4 = sanitizeInput($_POST["answerNo4"]);
     $answerNo5 = sanitizeInput($_POST["answerNo5"]);
 
-    $sql_jobpost = "INSERT INTO jobpost (company_id, jobTitle, companyName, industry, position, educBg, yrsExperience, workLocation, salary, slot, skills, typeofHiring, description, img, questionNo1, questionNo2, questionNo3, questionNo4, questionNo5, answerNo1, answerNo2, answerNo3, answerNo4, answerNo5) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_jobpost = "INSERT INTO jobpost (access_id, jobTitle, companyName, industry, position, educBg, yrsExperience, workLocation, salary, slot, skills, typeofHiring, description, img, questionNo1, questionNo2, questionNo3, questionNo4, questionNo5, answerNo1, answerNo2, answerNo3, answerNo4, answerNo5) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql_jobpost);
-    $stmt -> bind_param("isssssssssssssssssssssss",$company_id, $jobTitle, $companyName, $industry, $position, $educBg, $yrsExperience, $workLocation, $salary, $slot, $skills, $typeofHiring, $description, $target_file, $questionNo1, $questionNo2, $questionNo3, $questionNo4, $questionNo5, $answerNo1, $answerNo2, $answerNo3, $answerNo4, $answerNo5);
+    $stmt -> bind_param("isssssssssssssssssssssss",$access_id, $jobTitle, $companyName, $industry, $position, $educBg, $yrsExperience, $workLocation, $salary, $slot, $skills, $typeofHiring, $description, $target_file, $questionNo1, $questionNo2, $questionNo3, $questionNo4, $questionNo5, $answerNo1, $answerNo2, $answerNo3, $answerNo4, $answerNo5);
     if ($stmt->execute()){
-        header("location: poststatus.php");
+        header("location: company_homepage.php");
         $_SESSION["success_popup"] = "Successfully Posted Job!";
         exit();
     } else {
@@ -73,13 +75,13 @@ if(isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Posting</title>
-    <link rel="stylesheet" href="../assets/css/font.css">
-    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/job_posting.css">
+    <link rel="stylesheet" href="../../../assets/css/font.css">
+    <link rel="shortcut icon" href="../../../assets/img/peso.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../../assets/css/job_posting.css">
 </head>
 <body>
     <?php
-    include "../function.php";
+    include "../../../function.php";
     
     include "topnav.php";
     ?>
@@ -308,6 +310,6 @@ if(isset($_POST["submit"])) {
             </div>
         </form>
     </div>
-    <script src="../assets/js/company/job_posting.js"></script>
+    <script src="../../../assets/js/company/job_posting.js"></script>
 </body>
 </html>

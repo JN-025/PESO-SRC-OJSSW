@@ -12,14 +12,15 @@ session_start();
 require '../vendor/autoload.php';
 
 include "../conn.php";
+include "../sanitize_function.php";
 $msg = "";
 if(isset($_POST["submit"])){
-    $firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
-    $age = $_POST["age"];
-    $sex = $_POST["sex"];
+    $firstname = sanitizeInput($_POST["firstname"]);
+    $lastname = sanitizeInput($_POST["lastname"]);
+    $age = sanitizeInput($_POST["age"]);
+    $sex = sanitizeInput($_POST["sex"]);
     $Pnum = str_replace('-', '', $_POST['Pnum']);
-    $email = $_POST["email"];
+    $email = sanitizeInput($_POST["email"]);
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
     $code = mysqli_real_escape_string($conn, md5(rand()));
@@ -55,7 +56,7 @@ if(isset($_POST["submit"])){
 
                     $mail->isHTML(true);                                 
                     $mail->Subject = 'no-reply';
-                    $mail->Body    = '<h4 style="color: #000">Para ma-verify po ang iyong email ay paclick po ang button sa baba.</h4><div style="width:100%; display: flex; justify-content: center;"><a style="border-radius: 10px; font-size: 30px; padding: 20px 50px; text-align: center; text-decoration: none; background-color: #A81E1E; color:#fff;" href="http://localhost/peso-src-ojssw/applicant/?verification='.$code.'">Verify Account</a></div>';
+                    $mail->Body    = '<h4 style="color: #000">Para ma-verify po ang iyong email ay paclick po ng button sa baba.</h4><div style="width:100%; display: flex; justify-content: center;"><a style="border-radius: 10px; font-size: 30px; padding: 20px 50px; text-align: center; text-decoration: none; background-color: #A81E1E; color:#fff;" href="http://localhost/peso-src-ojssw/applicant/?verification='.$code.'">Verify Account</a></div>';
 
                     $mail->send();
                     echo 'Message has been sent';

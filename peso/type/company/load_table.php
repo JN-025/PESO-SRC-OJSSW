@@ -1,9 +1,9 @@
 <?php
-include "../conn.php";
+include "../../../conn.php";
 
-if (isset($_GET['jobpost_id']) && isset($_GET['company_id'])) {
+if (isset($_GET['jobpost_id']) && isset($_GET['access_id'])) {
     $jobpost_id = $_GET['jobpost_id'];
-    $company_id = $_GET['company_id'];
+    $access_id = $_GET['access_id'];
 
     $sql = "SELECT 
                 application_log.application_log_id,
@@ -20,7 +20,7 @@ if (isset($_GET['jobpost_id']) && isset($_GET['company_id'])) {
             INNER JOIN
                 applicant_profile ON application_log.applicant_id = applicant_profile.applicant_id
             WHERE 
-                jobpost.company_id = $company_id
+                jobpost.access_id = $access_id
                 AND jobpost.jobpost_id = $jobpost_id
             ORDER BY 
                 application_log.date_added_at DESC";

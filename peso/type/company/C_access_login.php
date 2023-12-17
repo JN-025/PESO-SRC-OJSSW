@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
         $_SESSION['access_id'] = $row['access_id'];
-        header('location: company_homepage.php');
+        header('location: poststatus.php');
     } else {
         $msg = "<div class='alert alert-danger'>Email or password do not match, or your account is not approved for company.</div>";
     }

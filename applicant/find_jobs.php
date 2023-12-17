@@ -198,17 +198,17 @@ include '../conn.php';
                  if ((isset($_POST['search']) && (!empty($searchQuery1) || !empty($searchQuery2) || !empty($searchQuery3))) ||
                      (isset($_POST['filter']) && (!empty($filterQuery1) || !empty($filterQuery2) || !empty($filterQuery3) || !empty($filterQuery4) || !empty($filterQuery5)))) {
                      if (isset($_POST['search'])) {
-                         $sql = "SELECT * FROM c_jobpost WHERE jobTitle LIKE '%$searchQuery1%' AND workLocation LIKE '%$searchQuery2%' AND yrsExperience LIKE '%$searchQuery3%' UNION ALL SELECT * FROM p_jobpost WHERE jobTitle LIKE '%$searchQuery1%' AND workLocation LIKE '%$searchQuery2%' AND yrsExperience LIKE '%$searchQuery3%'";
+                         $sql = "SELECT * FROM jobpost WHERE jobTitle LIKE '%$searchQuery1%' AND workLocation LIKE '%$searchQuery2%' AND yrsExperience LIKE '%$searchQuery3%'";
                         } 
                         elseif (isset($_POST['filter'])) {
-                        $sql = "SELECT * FROM c_jobpost WHERE companyName LIKE '%$filterQuery1%' AND workLocation LIKE '%$filterQuery2%' AND workLocation LIKE '%$filterQuery2%' AND salary LIKE '%$filterQuery3%' AND yrsExperience LIKE '%$filterQuery4%' AND skills LIKE '%$filterQuery5%' UNION ALL SELECT * FROM p_jobpost WHERE companyName LIKE '%$filterQuery1%' AND workLocation LIKE '%$filterQuery2%' AND workLocation LIKE '%$filterQuery2%' AND salary LIKE '%$filterQuery3%' AND yrsExperience LIKE '%$filterQuery4%' AND skills LIKE '%$filterQuery5%'";
+                        $sql = "SELECT * FROM jobpost WHERE companyName LIKE '%$filterQuery1%' AND workLocation LIKE '%$filterQuery2%' AND workLocation LIKE '%$filterQuery2%' AND salary LIKE '%$filterQuery3%' AND yrsExperience LIKE '%$filterQuery4%' AND skills LIKE '%$filterQuery5%'";
                      }
                 if (isset($_POST['search']) || isset($_POST['filter'])) {
                     if ($result = mysqli_query($conn, $sql)) {
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                <div class="description preview" onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">
+                                <div class="description preview" onclick="openTab(<?php echo $row['jobpost_id']; ?>, this)">
                                 <div class="desc-col-1">
                                     <h2><?php echo $row['jobTitle']; ?></h2>
                                     <div class="info-row">
@@ -232,7 +232,7 @@ include '../conn.php';
                                     </div>
                                     <div class="desc-col-2 d-none">
                                         <div>
-                                        <button onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">Apply</button>
+                                        <button onclick="openTab(<?php echo $row['jobpost_id']; ?>, this)">Apply</button>
                                         </div>
                                         <img src="<?php echo $row['img']; ?>" alt="No image">
                                     </div>
@@ -248,12 +248,12 @@ include '../conn.php';
                     }
                 }} else {
                 ?><?php
-                        $sql = "SELECT * FROM c_jobpost UNION ALL SELECT * FROM p_jobpost ORDER BY date_added DESC";
+                        $sql = "SELECT * FROM jobpost ORDER BY date_added DESC";
                         if($result = mysqli_query($conn, $sql)){
                             if (mysqli_num_rows($result) > 0) {
                                 while($row = mysqli_fetch_array($result)){
                                     ?>
-                                    <div class="description preview"  onclick="openTab(<?php echo $row['c_jobpost_id']; ?>, this)">
+                                    <div class="description preview"  onclick="openTab(<?php echo $row['jobpost_id']; ?>, this)">
                                     <div class="desc-col-1">
                                     <h2><?php echo $row['jobTitle']; ?></h2>
                                     <div class="info-row">
@@ -318,7 +318,7 @@ function openTab(jobPostId, button) {
 
             col2ContentFull.style.display = "block";
 
-            var buttons = document.querySelectorAll('.description button');
+            var buttons = document.querySelectorAll('.preview');
             buttons.forEach(btn => btn.classList.remove('pressed'));
 
             button.classList.add('pressed');
@@ -329,9 +329,26 @@ function openTab(jobPostId, button) {
 }
 </script>
 <style>
-.description button.pressed {
-    background-color: #BEBEBE;
-    color: #fff;
-    font-weight: bold;
-}
+.pressed {
+        position: relative;
+        border: 2px solid #B22623;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .pressed::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 44px 0 20px 30px;
+        border-top-right-radius: 7px;
+        border-color: #B22623 transparent transparent transparent;
+    }
 </style>

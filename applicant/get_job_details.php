@@ -5,7 +5,7 @@ $applicant_id = $_SESSION["applicant_id"];
 if (isset($_GET['jobPostId'])) {
     $jobPostId = $_GET['jobPostId'];
 
-    $sql = "SELECT * FROM c_jobpost WHERE c_jobpost_id = $jobPostId";
+    $sql = "SELECT * FROM jobpost WHERE jobpost_id = $jobPostId";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
@@ -25,14 +25,16 @@ if (isset($_GET['jobPostId'])) {
             '<div class="footer-info">'.
             '<h3>Skills: <span>' . $row['skills'] . '</span></h3>' .
             '<h3>Experience: <span>' . $row['yrsExperience'] . '</span></h3>' .
+            '<div class="applymodal-btn">'.
             '<h3>Educational Attainment: <span>' . $row['educBg'] . '</span></h3>' .
+            '<a href="#question_form" id="modal-link" class="a-modal">Apply</a>' .
+            '</div>'.
             '</div>' .
             '</div>'.
             '<div class="desc-col-2 fulldesc-2">' .
             '<div class="full-img">'.
             '<img src="' . $row['img'] . '" alt="">' .
             '</div>'.
-            '<a href="#question_form" id="modal-link" class="a-modal">Apply</a>' .
             '</div>' .
         '</div>'.
         '</div>';
@@ -59,7 +61,8 @@ if (isset($_GET['jobPostId'])) {
         }
         .fulldescription{
             display: flex; 
-            height: 80vh; 
+            min-height: auto;
+            max-height: 80vh;
             position:relative; 
             overflow-y: auto;
         }
@@ -79,7 +82,6 @@ if (isset($_GET['jobPostId'])) {
             margin-left: 20px;
         }
         .fulldesc-2{
-            position: relative;
             flex: 0.5;
         }
         .footer-info{
@@ -95,10 +97,10 @@ if (isset($_GET['jobPostId'])) {
         }
         .a-modal{
             position: absolute;
-            right: 0;
-            bottom: 0;
+            right: 20px;
             text-decoration:none; 
-            padding: 10px; 
+            font-family: 'Poppins';
+            padding: 8px 30px; 
             background-color: #A81E1E; 
             color: #fff; 
             box-shadow: 0px 4px 4px 0px #D72121 inset; 
@@ -110,6 +112,13 @@ if (isset($_GET['jobPostId'])) {
         .a-modal:hover{
             opacity: 0.6;
             }
+        .a-modal:active{
+            transform: translateY(4px);
+        }
+        .applymodal-btn{
+            display: flex;
+            padding-bottom: 20px;
+        }
         .modal {
             z-index: 9999;
             display: none;
@@ -262,7 +271,7 @@ if (isset($_GET['jobPostId'])) {
             <h4>First answer the question provided by the company</h4>
 
             <form id="questionForm" action="apply_process.php" method="post">
-            <input type="hidden" name="jobPostId" value="<?php echo $row['c_jobpost_id'] ?>">
+            <input type="hidden" name="jobPostId" value="<?php echo $row['jobpost_id'] ?>">
             <div class="company-question">
             <div class="question-content">
             <h5>Question #1</h5>

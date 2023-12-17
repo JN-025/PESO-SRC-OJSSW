@@ -6,6 +6,7 @@
     }
 
     include '../conn.php';
+    include "../sanitize_function.php";
     $msg = "";
 
     if (isset($_GET['verification'])) {
@@ -32,44 +33,59 @@
             }
         } else {
             header("Location: index.php");
+            exit();
         }
     }
 
     if (isset($_POST['submit'])) {
-        $email = $_POST['email'];
+        $email = sanitizeInput($_POST['email']);
         $password = $_POST['password'];
-
-        if (isset($_POST["remember"])){
+    
+        if (isset($_POST["remember"])) {
             $remember = $_POST["remember"];
         }
-
-        $sql = "SELECT * FROM a_accounttb WHERE email='$email' AND password='$password'";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            $_SESSION['applicant_id'] = $row['applicant_id'];
-            $_SESSION["email"] = $email;
-            $_SESSION["password"] = $password;
-            if (isset($_POST["remember"])){
-                $remember = $_POST["remember"];
-                setcookie("remember_email", $email,time() + 3600*24*365);
-                setcookie("remember", $remember,time() + 3600*24*365);
-            }
-            else {
-                setcookie("remember_email", $email,time() - 3600*24*365);
-                setcookie("remember", $remember,time() - 3600*24*365);
-            }
-            if (empty($row['code'])) {
-                $_SESSION['SESSION_EMAIL'] = $email;
-                header("Location: find_jobs.php");
+    
+        $sql = "SELECT * FROM a_accounttb WHERE email=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        if ($result->num_rows === 1) {
+            $row = $result->fetch_assoc();
+            $hashedPasswordFromDB = $row['password'];
+    
+            if (password_verify($password, $hashedPasswordFromDB)) {
+                $_SESSION['applicant_id'] = $row['applicant_id'];
+                $_SESSION["email"] = $email;
+                $_SESSION["password"] = $password;
+    
+                if (isset($_POST["remember"])) {
+                    $remember = $_POST["remember"];
+                    setcookie("remember_email", $email, time() + 3600 * 24 * 365);
+                    setcookie("remember", $remember, time() + 3600 * 24 * 365);
+                } else {
+                    setcookie("remember_email", $email, time() - 3600 * 24 * 365);
+                    setcookie("remember", $remember, time() - 3600 * 24 * 365);
+                }
+    
+                if (empty($row['code'])) {
+                    $_SESSION['SESSION_EMAIL'] = $email;
+                    header("Location: find_jobs.php");
+                    exit();
+                } else {
+                    $msg = "<div class='alert alert-info'>First verify your account and try again.</div>";
+                }
             } else {
-                $msg = "<div class='alert alert-info'>First verify your account and try again.</div>";
+                $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
             }
         } else {
             $msg = "<div class='alert alert-danger'>Email or password do not match.</div>";
         }
+    
+        $stmt->close();
     }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">

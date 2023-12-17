@@ -5,5 +5,5 @@ function sanitizeInput($input) {
     $input = htmlspecialchars($input);
     
     return $input;
-}
+} 
 ?>
