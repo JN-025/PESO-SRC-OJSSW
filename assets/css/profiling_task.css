@@ -49,6 +49,11 @@ body
     margin: 0;
 }
 
+.modal-footer
+{
+    background-color: white;
+}
+
 .modal-title
 {
     color:#B22623;

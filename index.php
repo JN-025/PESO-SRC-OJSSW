@@ -156,11 +156,11 @@
         
 
     </div>
-    <footer class="footer">
-        <h4>Learn more about PESO Santa Rosa</h4>
-        </footer>
-        
+    <?php 
+    include "footer.php";
+    ?>
 </body>
+
 </html>
 
 <script>
