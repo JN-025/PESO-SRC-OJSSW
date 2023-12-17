@@ -283,6 +283,18 @@ button{
     outline: none;
     box-shadow: 0 0 0 4px rgba(21, 156, 228, 0.4);
     }
+    .alert{
+        height: 90vh;
+    }
+    .alert-danger{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .alert-danger em{
+        position: absolute;
+        right: 35%;
+    }
 @media only screen and (max-width: 880px) {
     .col-2-content-full{
         display: none;

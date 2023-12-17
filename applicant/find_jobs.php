@@ -161,9 +161,10 @@ include '../conn.php';
                         <form method="POST"action="">
                             <h1></h1>
                             <div class="sort-by-type">
-                            <button>Recommended Jobs</button>
-                            <button>Urgent Hiring</button>
+                            <button onclick="setHiringType('Normal')">Recommended Jobs</button>
+                            <button onclick="setHiringType('Urgent Hiring')">Urgent Hiring</button>
                             </div>
+                            <input type="hidden" name="hiringType" id="hiringType" value="Normal">
                             <div class="search-box upper-search">
                             <input type="text" name="search_engine_1" class="search-engine-1" placeholder="&#xf0b1;&nbsp;Job Title" style="font-family:Arial, FontAwesome">
                             <input type="text" name="search_engine_2" class="search-engine-2" placeholder="&#xF842; Location">
@@ -182,6 +183,12 @@ include '../conn.php';
                             <button name="filter"><i class="bi bi-filter "></i> Filter</button>
                             </div>
                         </form>
+                        <script>
+                            function setHiringType(type) {
+                                document.getElementById('hiringType').value = type;
+                                document.forms[0].submit();
+                            }
+                        </script>
                     </div>
                     </div>
                     <div class="col-2-content">
@@ -249,7 +256,8 @@ include '../conn.php';
                     }
                 }} else {
                 ?><?php
-                        $sql = "SELECT * FROM jobpost ORDER BY date_added DESC";
+                $hiringType = isset($_POST['hiringType']) ? $_POST['hiringType'] : 'Normal';
+                        $sql = "SELECT * FROM jobpost WHERE typeofHiring = '$hiringType' ORDER BY date_added DESC";
                         if($result = mysqli_query($conn, $sql)){
                             if (mysqli_num_rows($result) > 0) {
                                 while($row = mysqli_fetch_array($result)){
@@ -289,7 +297,7 @@ include '../conn.php';
                         echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
                     }
                 } else {
-                    echo "Oops! Something went wrong. Please try again later.";
+                    echo '<div class="alert alert-danger"><em>Oops! Something went wrong. Please try again later.</em></div>';
                 }
     
                 mysqli_close($conn);
