@@ -3,11 +3,12 @@ $page_title = "Applicant Access Register";
 session_start();
 // Include config file
 include "../../../conn.php";
+include "../../../sanitize_function.php";
 $msg = ""; 
 
     if (isset($_POST['submit'])) {
         $password = $_POST['password'];
-        $email = $_POST['email'];
+        $email = sanitizeInput($_POST['email']);
 
         $sql = "SELECT * FROM access_account WHERE email=? AND password=? AND status='Approved' AND type='Training'";
         $stmt = $conn->prepare($sql);
@@ -17,14 +18,19 @@ $msg = "";
 
         if ($result->num_rows === 1) {
             $row = $result->fetch_assoc();
+            $hashedPasswordFromDB = $row["password"];
+
+        if (password_verify($password, $hashedPasswordFromDB)) {
             $_SESSION['access_id'] = $row['access_id'];
+            $_SESSION["email"] = $email;
+            $_SESSION["password"] = $password;
             header('location: training_homepage.php');
         } else {
             $msg = "<div class='alert alert-danger'>Email or password do not match, or your account is not approved for training.</div>";
         }
-        
-        $stmt->close();
     }
+    $stmt->close();
+}
 
 ?>
 

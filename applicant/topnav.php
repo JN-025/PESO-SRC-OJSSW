@@ -38,7 +38,7 @@ $notifications = mysqli_fetch_all($notification_result, MYSQLI_ASSOC);
     </div>
     <div class="list-dropdown">
                 <a href="find_jobs.php" <?php echo isActivePage("find_jobs.php"); ?>>Find Jobs</a>
-                    <div class="rainbow  <?php echo $applicantProfileDataExists ? 'hidden' : ''; ?>">
+                    <div class="nsrs-form  <?php echo $applicantProfileDataExists ? 'hidden' : ''; ?>">
                 <a href="multiform_profile.php" <?php echo isActivePage("multiform_profile.php"); ?>>NSRS FORM</a>
                 </div>
                 <a href="quiz/index.php" <?php echo isActivePage("quiz/index.php"); ?>>Training</a>

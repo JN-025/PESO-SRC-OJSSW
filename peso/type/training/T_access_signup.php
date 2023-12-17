@@ -3,6 +3,7 @@ $page_title = "Applicant Access Register";
 session_start();
 // Include config file
 include "../../../conn.php";
+include "../../../sanitize_function.php";
 $msg = ""; 
 
 if (!isset($_SESSION['peso_id'])) {
@@ -12,16 +13,17 @@ if (!isset($_SESSION['peso_id'])) {
 }
 if (isset($_POST["submit"])) {
     $peso_id = $_SESSION['peso_id'];
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $type = $_POST['type'];
+    $name = sanitizeInput($_POST['name']);
+    $email = sanitizeInput($_POST['email']);
+    $type = sanitizeInput($_POST['type']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
     if ($password == $confirm_password) {
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO access_account (peso_id, name, email, type, password, status) VALUES (?, ?, ?, 'Training' , ?, 'Pending')";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("isss", $peso_id, $name, $email, $password);
+        $stmt->bind_param("isss", $peso_id, $name, $email, $hashed_password);
 
         if ($stmt->execute()) {
             $_SESSION["form_submitted"] = "<h2>You have successfully request an access!</h2>";
