@@ -24,10 +24,10 @@ if(isset($_POST["submit"])) {
     $description = sanitizeInput($_POST["description"]);
 
     if (!empty($_FILES["img"]["name"])) {
-        $targetDir = "../jobpost_img/";
+        $targetDir = "../../../jobpost_img/";
         $target_file = $targetDir . basename($_FILES["img"]["name"]);
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
+    
         $check = getimagesize($_FILES["img"]["tmp_name"]);
         if ($check === false) {
             echo "File is not an image.";
@@ -35,11 +35,11 @@ if(isset($_POST["submit"])) {
             echo "File is too large. Please upload an image less than 5MB.";
         } elseif (
             $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif"
         ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            echo "Sorry, only JPG, JPEG,  PNG files are allowed.";
         } else {
             if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+                $target_file = "../jobpost_img/" . $_FILES["img"]["name"];
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
