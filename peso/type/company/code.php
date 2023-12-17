@@ -1,12 +1,12 @@
 <?php
 
-require '../../conn.php';
+require '../../../conn.php';
 
 session_start();
 // Include config file
-include "../../conn.php";
+include "../../../conn.php";
 $alert = ""; 
-if (!isset($_SESSION['peso_id'])) {
+if (!isset($_SESSION['access_id'])) {
     $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
     header("location: homepage.php");
     exit();
@@ -17,10 +17,10 @@ if (!isset($_SESSION['peso_id'])) {
 if(isset($_POST['save_company']))
 {
 
-    $peso_id = mysqli_real_escape_string($conn, $_SESSION['peso_id']);
+    $access_id = mysqli_real_escape_string($conn, $_SESSION['access_id']);
     
 
-    $companyName = mysqli_real_escape_string($conn, $_POST['companyName']);
+    $companyName = mysqli_real_escape_string($conn, $_POST['companyType']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $profileName = mysqli_real_escape_string($conn, $_POST['profileName']);
     $companyWeb = mysqli_real_escape_string($conn, $_POST['companyWeb']);
@@ -36,8 +36,7 @@ if(isset($_POST['save_company']))
     $spokenLanguage = mysqli_real_escape_string($conn, $_POST['spokenLanguage']);
     
 
-
-    if($peso_id == NULL || $companyName == NULL || $email == NULL || $profileName == NULL || $companyWeb == NULL || $industry == NULL || $companyType == NULL || $address == NULL || $companySize == NULL || $regNum == NULL || $workingHrs == NULL || $contactNum == NULL || $dressCode == NULL || $contactPerson == NULL || $spokenLanguage == NULL)
+    if($access_id == NULL || $companyName == NULL || $email == NULL || $industry == NULL || $companyType == NULL || $address == NULL || $companySize == NULL || $regNum == NULL || $workingHrs == NULL || $contactNum == NULL || $contactPerson == NULL)
     {
         $res = [
             'status' => 422,
@@ -48,15 +47,25 @@ if(isset($_POST['save_company']))
     }
 
     
+    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM wcompany WHERE companyName='$companyName' && email='$email' && regNum='$regNum'")) > 0) {
+        $res = [
+            'status' => 200,
+            'message' => 'Company Created Existed'
+        ];
+        echo json_encode($res);
+        return;
+    }
 
-    $query = "INSERT INTO wcompany (peso_id,companyName,email,profileName,companyWeb,industry,companyType,address,companySize,regNum,workingHrs,contactNum,dressCode,contactPerson,spokenLanguage) VALUES ('$peso_id','$companyName','$email','$profileName','$companyWeb','$industry','$companyType','$address','$companySize','$regNum','$workingHrs','$contactNum','$dressCode','$contactPerson','$spokenLanguage')";
+    
+
+    $query = "INSERT INTO wcompany (access_id,companyName,email,profileName,companyWeb,industry,companyType,address,companySize,regNum,workingHrs,contactNum,dressCode,contactPerson,spokenLanguage) VALUES ('$access_id','$companyName','$email','$profileName','$companyWeb','$industry','$companyType','$address','$companySize','$regNum','$workingHrs','$contactNum','$dressCode','$contactPerson','$spokenLanguage')";
     $query_run = mysqli_query($conn, $query);
 
     if($query_run)
     {
         $res = [
             'status' => 200,
-            'message' => 'Profile Created Successfully'
+            'message' => 'Company Created Successfully'
         ];
         echo json_encode($res);
         return;
@@ -65,7 +74,7 @@ if(isset($_POST['save_company']))
     {
         $res = [
             'status' => 500,
-            'message' => 'Profile Not Created'
+            'message' => 'Company Not Created'
         ];
         echo json_encode($res);
         return;
@@ -73,30 +82,26 @@ if(isset($_POST['save_company']))
 }
 
 
-if(isset($_POST['update_profile']))
+if(isset($_POST['update_company']))
 {
-    $profile_id = mysqli_real_escape_string($conn, $_POST['profile_id']);
+    $company_id = mysqli_real_escape_string($conn, $_POST['company_id']);
 
-    $householdNum = mysqli_real_escape_string($conn, $_POST['householdNum']);
-    $age = mysqli_real_escape_string($conn, $_POST['age']);
-    $status = mysqli_real_escape_string($conn, $_POST['status']);
-    $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
-    $sex = mysqli_real_escape_string($conn, $_POST['sex']);
-    $employmentStatus = mysqli_real_escape_string($conn, $_POST['employmentStatus']);
-    $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
-    $civilStatus = mysqli_real_escape_string($conn, $_POST['civilStatus']);
-    $employmentType = mysqli_real_escape_string($conn, $_POST['employmentType']);
-    $middlename = mysqli_real_escape_string($conn, $_POST['middlename']);
+    $companyName = mysqli_real_escape_string($conn, $_POST['companyName']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $profileName = mysqli_real_escape_string($conn, $_POST['profileName']);
+    $companyWeb = mysqli_real_escape_string($conn, $_POST['companyWeb']);
+    $industry = mysqli_real_escape_string($conn, $_POST['industry']);
+    $companyType = mysqli_real_escape_string($conn, $_POST['companyType']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
-    $arrivalDate = mysqli_real_escape_string($conn, $_POST['arrivalDate']);
-    $suffix = mysqli_real_escape_string($conn, $_POST['suffix']);
-    $brgy = mysqli_real_escape_string($conn, $_POST['brgy']);
-    $disabilityType = mysqli_real_escape_string($conn, $_POST['disabilityType']);
-    $birthday = mysqli_real_escape_string($conn, $_POST['birthday']);
-    $educAttainment = mysqli_real_escape_string($conn, $_POST['educAttainment']);
-    $encodedBy = mysqli_real_escape_string($conn, $_POST['encodedBy']);
+    $companySize = mysqli_real_escape_string($conn, $_POST['companySize']);
+    $regNum = mysqli_real_escape_string($conn, $_POST['regNum']);
+    $workingHrs = mysqli_real_escape_string($conn, $_POST['workingHrs']);
+    $contactNum = mysqli_real_escape_string($conn, $_POST['contactNum']);
+    $dressCode = mysqli_real_escape_string($conn, $_POST['dressCode']);
+    $contactPerson = mysqli_real_escape_string($conn, $_POST['contactPerson']);
+    $spokenLanguage = mysqli_real_escape_string($conn, $_POST['spokenLanguage']);
 
-    if($householdNum == NULL || $lastname == NULL || $firstname == NULL || $birthday == NULL || $age == NULL || $sex == NULL || $civilStatus == NULL || $address == NULL || $brgy == NULL || $educAttainment == NULL || $status == NULL || $employmentStatus == NULL|| $encodedBy == NULL)
+    if($companyName == NULL || $email == NULL || $industry == NULL || $companyType == NULL || $address == NULL || $companySize == NULL || $regNum == NULL || $workingHrs == NULL || $contactNum == NULL || $contactPerson == NULL)
     {
         $res = [
             'status' => 422,
@@ -108,15 +113,15 @@ if(isset($_POST['update_profile']))
 
    
 
-    $query = "UPDATE profiling_task SET householdNum='$householdNum', lastname='$lastname', firstname='$firstname', middlename='$middlename', suffix='$suffix', birthday='$birthday', age='$age', sex='$sex', civilStatus='$civilStatus', address='$address', brgy='$brgy', educAttainment='$educAttainment', status='$status', employmentStatus='$employmentStatus', employmentType='$employmentType', arrivalDate='$arrivalDate', disabilityType='$disabilityType', encodedBy='$encodedBy' 
-                WHERE profiling_id='$profile_id'";
+    $query = "UPDATE wcompany SET companyName='$companyName', email='$email', profileName='$profileName', companyWeb='$companyWeb', industry='$industry', companyType='$companyType', address='$address', companySize='$companySize', regNum='$regNum', workingHrs='$workingHrs', contactNum='$contactNum', dressCode='$dressCode', contactPerson='$contactPerson', spokenLanguage='$spokenLanguage' 
+                WHERE wcompany_id='$company_id'";
     $query_run = mysqli_query($conn, $query);
 
     if($query_run)
     {
         $res = [
             'status' => 200,
-            'message' => 'Profile Updated Successfully'
+            'message' => 'Company Updated Successfully'
         ];
         echo json_encode($res);
         return;
@@ -125,7 +130,7 @@ if(isset($_POST['update_profile']))
     {
         $res = [
             'status' => 500,
-            'message' => 'Profile Not Updated'
+            'message' => 'Company Not Updated'
         ];
         echo json_encode($res);
         return;
@@ -133,21 +138,21 @@ if(isset($_POST['update_profile']))
 }
 
 
-if(isset($_GET['profile_id']))
+if(isset($_GET['company_id']))
 {
-    $profile_id = mysqli_real_escape_string($conn, $_GET['profile_id']);
+    $company_id = mysqli_real_escape_string($conn, $_GET['company_id']);
 
-    $query = "SELECT * FROM profiling_task WHERE profiling_id='$profile_id'";
+    $query = "SELECT * FROM wcompany WHERE wcompany_id='$company_id'";
     $query_run = mysqli_query($conn, $query);
 
     if(mysqli_num_rows($query_run) == 1)
     {
-        $profile = mysqli_fetch_array($query_run);
+        $company = mysqli_fetch_array($query_run);
 
         $res = [
             'status' => 200,
-            'message' => 'Profile Fetch Successfully by id',
-            'data' => $profile
+            'message' => 'Company Fetch Successfully by id',
+            'data' => $company
         ];
         echo json_encode($res);
         return;
@@ -156,25 +161,25 @@ if(isset($_GET['profile_id']))
     {
         $res = [
             'status' => 404,
-            'message' => 'Profile Id Not Found'
+            'message' => 'Company Id Not Found'
         ];
         echo json_encode($res);
         return;
     }
 }
 
-if(isset($_POST['delete_profile']))
+if(isset($_POST['delete_company']))
 {
-    $profile_id = mysqli_real_escape_string($conn, $_POST['profile_id']);
+    $company_id = mysqli_real_escape_string($conn, $_POST['company_id']);
 
-    $query = "DELETE FROM profiling_task WHERE profiling_id='$profile_id'";
+    $query = "DELETE FROM wcompany WHERE wcompany_id='$company_id'";
     $query_run = mysqli_query($conn, $query);
 
     if($query_run)
     {
         $res = [
             'status' => 200,
-            'message' => 'Profile Deleted Successfully'
+            'message' => 'Company Deleted Successfully'
         ];
         echo json_encode($res);
         return;
@@ -183,7 +188,7 @@ if(isset($_POST['delete_profile']))
     {
         $res = [
             'status' => 500,
-            'message' => 'Profile Not Deleted'
+            'message' => 'Company Not Deleted'
         ];
         echo json_encode($res);
         return;
