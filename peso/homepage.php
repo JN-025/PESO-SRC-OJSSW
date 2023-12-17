@@ -3,6 +3,7 @@ $page_title = "Homepage";
 session_start();
 // Include config file
 include "../conn.php";
+
 $alert = ""; 
 if (!isset($_SESSION['peso_id'])) {
     $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";

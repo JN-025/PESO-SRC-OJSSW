@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../conn.php";
-
+include "../sanitize_function.php";
 $msg = "";
 
 if (isset($_POST['submit'])) {

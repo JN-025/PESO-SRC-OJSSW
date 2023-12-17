@@ -1,6 +1,7 @@
 <?php
 $page_title = "JOB POSTING";
 include "../conn.php";
+include "../sanitize_function.php";
 
 session_start();
 
