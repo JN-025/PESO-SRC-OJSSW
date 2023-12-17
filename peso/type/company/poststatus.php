@@ -1,7 +1,11 @@
 <?php
-include "../conn.php";
+include "../../../conn.php";
 session_start();
-$company_id = $_SESSION['company_id'];
+$access_id = $_SESSION['access_id'];
+if (!isset($_SESSION['access_id'])) {
+    header("Location: ../../homepage.php");
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +13,9 @@ $company_id = $_SESSION['company_id'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post Status</title>
-    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="stylesheet" href="../assets/css/company_status.css">
+    <link rel="shortcut icon" href="../../../assets/img/peso.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../../assets/css/company_status.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
@@ -27,7 +31,7 @@ $company_id = $_SESSION['company_id'];
                 LEFT JOIN 
                     application_log ON jobpost.jobpost_id = application_log.jobpost_id
                 WHERE 
-                    jobpost.company_id = $company_id
+                    jobpost.access_id = $access_id
                 GROUP BY 
                     jobpost.jobpost_id, jobpost.companyName";
         $result = $conn->query($sql);
@@ -60,7 +64,7 @@ $company_id = $_SESSION['company_id'];
         </div>
         <!---------------------------------Request Table----------------------------->
         <?php
-        include "../conn.php";
+        include "../../../conn.php";
     $limit = 8;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $offset = ($page - 1) * $limit;
@@ -99,7 +103,7 @@ $company_id = $_SESSION['company_id'];
             INNER JOIN
                 applicant_profile ON application_log.applicant_id = applicant_profile.applicant_id
                 WHERE 
-                jobpost.company_id = $company_id
+                jobpost.access_id = $access_id
             ORDER BY 
                 application_log.date_added_at DESC
             LIMIT 
@@ -115,7 +119,7 @@ $company_id = $_SESSION['company_id'];
             var jobpostId = $(this).data("jobpost-id");
             $.ajax({
                 type: "GET",
-                url: "load_table.php?jobpost_id=" + jobpostId + "&company_id=<?php echo $company_id; ?>",
+                url: "load_table.php?jobpost_id=" + jobpostId + "&access_id=<?php echo $access_id; ?>",
                 success: function (data) {
                     $("#defaultTable tbody").empty();
                     $("#defaultTable tbody").append(data);
@@ -179,7 +183,7 @@ $company_id = $_SESSION['company_id'];
 
     </script>
     <?php
-    include "../function.php";
+    include "../../../function.php";
     include "topnav.php";
     ?>
     <?php

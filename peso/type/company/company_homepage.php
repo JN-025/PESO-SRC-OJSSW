@@ -28,14 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $sql = "SELECT 
             application_log.application_log_id,
-            c_jobpost.companyName,
+            jobpost.companyName,
             CONCAT(a_accounttb.lastname, ', ', a_accounttb.firstname, ' ', a_accounttb.middlename) AS fullname,
             application_log.date_added_at,
             application_log.status
         FROM 
             application_log
         INNER JOIN 
-            c_jobpost ON application_log.c_jobpost_id = c_jobpost.c_jobpost_id
+            jobpost ON application_log.jobpost_id = jobpost.jobpost_id
         INNER JOIN 
             a_accounttb ON application_log.applicant_id = a_accounttb.applicant_id
         ORDER BY 
@@ -118,7 +118,7 @@ $(document).ready(function () {
 <body>
 <?php
 include "../../../function.php";
-include "../topnav.php";
+include "topnav.php";
 ?>
 <?php
     if(isset($_SESSION["success_popup"])){
