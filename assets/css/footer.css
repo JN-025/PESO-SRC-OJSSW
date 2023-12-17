@@ -39,6 +39,9 @@ footer .footer-card .footer-box
 
 footer .footer-card .footer-box-2
 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 33.33%;
     height: 110px;
     margin: 0;
