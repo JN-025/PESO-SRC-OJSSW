@@ -189,8 +189,11 @@ footer .footer-card .footer-box-2
 
 }
 
-.logo
+.footer-logo 
 {
-    width: 90%;
-    height: auto;
+    height:10vh;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
 }

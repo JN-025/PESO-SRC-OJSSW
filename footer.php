@@ -6,7 +6,7 @@
   <div class="footer-card">
     <div class="footer-box" style="border: none;">
         <div class="card">
-        <img src="assets/img/logo.png" class="logo" alt="PESO-Logo" srcset="">
+        <div class="footer-logo"><img src="" alt=""></div>
         <h1>©PESO-SRC-OJSSW || All Rights Reserved</h1>
         <h1><a href="#">Terms & Condition</a>  |  <a href="#">Privacy Policy</a><h1>
         </div>
