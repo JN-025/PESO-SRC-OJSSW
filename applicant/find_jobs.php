@@ -304,7 +304,7 @@ include '../conn.php';
                 </div>
             </div>
         </div>
-        <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
     <?php include "../footer.php" ?>
     </div>
     <script src="../assets/js/darkmode.js"></script>
