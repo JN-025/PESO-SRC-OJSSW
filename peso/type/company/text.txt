@@ -1,0 +1,20 @@
+wcompany_id
+
+companyName
+email
+profileName
+
+companyWeb
+industry
+companyType [direct company, local manpower agency, overseas manpower agency]
+
+address
+companySize
+regNum
+
+workingHrs
+contactNum
+dressCode
+
+contactPerson
+spokenLanguage

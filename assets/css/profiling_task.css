@@ -49,13 +49,28 @@ body
     margin: 0;
 }
 
-input[type=text], input[type=number]
+.modal-footer
+{
+    background-color: white;
+}
+
+.modal-title
+{
+    color:#B22623;
+    font-family: Mohave;
+    font-size: 1.8vw;
+    font-weight: bolder;
+    margin-left: 3%;
+}
+input[type=text], input[type=number], input[type=date]
 {
     border: 1px solid #B9B9B9;
     border-radius: 3px;
     height: 30px;
     font-size: 13px;
     font-family: Poppins;
+    width: 95%;
+    padding: 0px 15px;
     
 }
 
@@ -66,7 +81,8 @@ select
     height: 30px;
     font-size: 13px;
     font-family: Poppins;
-
+    width: 95%;
+    padding: 0px 15px;
 }
 
 label
@@ -103,6 +119,8 @@ tr
 td
 {
     background-color: white;
+    align-items:  center;
+
 }
 .add
 {
@@ -157,7 +175,7 @@ td
     color: white;
     float: left;
     height: fit-content;
-    width: 85px;
+    width: 70px;
     border-radius: 5px;
     padding: 3px;
 }
@@ -165,28 +183,30 @@ td
 .save
 {
     height: 40px;
-    width: 100px;
+    width: 15%;
     background-color: #A81E1E;
     box-shadow: 0px 4px 4px 0px #D72121 inset;
     filter: drop-shadow(0px 4px 4px rgba(119, 11, 11, 0.25));
     border: none;
     border-radius: 15px;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
     font-family: Poppins;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .close
 {
     height: 40px;
-    width: 100px;
+    width: 10%;
     background-color: #A9A9A9;
     box-shadow: 0px 4px 4px 0px #C9C9C9 inset;
     filter: drop-shadow(0px 4px 4px #8E8E8E);
     border: none;
     border-radius: 15px;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
     font-family: Poppins;
     float: right;
 }
@@ -204,6 +224,28 @@ td
     width: 100%;
 }
 
+
+.form-container
+{
+    width: 100%;
+    display: flex;
+    background-color: saddlebrown;
+    height: 100px;
+}
+
+.form-container .column-1
+{
+    width: 30%;
+    height: 90px;
+
+}
+
+.form-container .column-1 .input-card
+{
+    height: fit-content;
+    margin-bottom: 5px;
+    background-color: forestgreen;
+}
 .row-1
 {
     width: 100%;
@@ -225,28 +267,60 @@ td
 {
     border: 1px solid #B9B9B9;
     border-radius: 3px;
-    height: fit-content;
-    font-size: 13px;
+    height: 30px;
+    font-size: 15px;
     font-family: Poppins;
+    width: 95%;
+    padding: 3px 15px;
 }
 
 .col-1
 {
-    width: 33.33%;
+    width: 33%;
     background-color: transparent;
     padding: 0px 15px;
 }
 
 .col-2
 {
-    width: 33.33%;
+    width: 33%;
     background-color: transparent;
     padding: 0px 15px;
 }
 
 .col-3
 {
-    width: 33.33%;
-    background-color: pink;
+    width: 33%;
+    background-color: transparent;
     padding: 0px 15px;
 }
+
+
+@media only screen and (max-width: 880px) {
+
+    .row-2
+    {
+        display: grid;
+    }
+    .col-1
+{
+    width: 100%;
+    background-color: transparent;
+    padding: 0px 15px;
+}
+
+.col-2
+{
+    width: 100%;
+    background-color: transparent;
+    padding: 0px 15px;
+}
+
+.col-3
+{
+    width: 100%;
+    background-color: transparent;
+    padding: 0px 15px;
+}
+    
+  }

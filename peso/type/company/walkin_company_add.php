@@ -1,6 +1,15 @@
 <?php
+$page_title = "Tasks";
 session_start();
-include "../conn.php";
+// Include config file
+include "../../../conn.php";
+$alert = ""; 
+if (!isset($_SESSION['peso_id'])) {
+    $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
+    header("location: homepage.php");
+    exit();
+}
+
 
 $msg="";
 
@@ -20,7 +29,7 @@ if (isset($_POST["submit"])) {
         $birthCertImg = $_FILES['birthCert_img'];
         $voterIDImg = $_FILES['voterID_img'];
         $indigencyCertImg = $_FILES['indigencyCert_img'];
-        $regCardImg = $_FILES['regCard_img'];
+        $goodMoralImg = $_FILES['goodMoral_img'];
         $classCardImg = $_FILES['classCard_img'];
 
         $uploadFolder = "requirement_storage/";
@@ -30,7 +39,7 @@ if (isset($_POST["submit"])) {
             $birthCertImg['error'] === 0 &&
             $voterIDImg['error'] === 0 &&
             $indigencyCertImg['error'] === 0 &&
-            $regCardImg['error'] === 0 &&
+            $goodMoralImg['error'] === 0 &&
             $classCardImg['error'] === 0) {
 
             move_uploaded_file($appForm_frontImg['tmp_name'], $uploadFolder . $appForm_frontImg['name']);
@@ -38,7 +47,7 @@ if (isset($_POST["submit"])) {
             move_uploaded_file($birthCertImg['tmp_name'], $uploadFolder . $birthCertImg['name']);
             move_uploaded_file($voterIDImg['tmp_name'], $uploadFolder . $voterIDImg['name']);
             move_uploaded_file($indigencyCertImg['tmp_name'], $uploadFolder . $indigencyCertImg['name']);
-            move_uploaded_file($regCardImg['tmp_name'], $uploadFolder . $regCardImg['name']);
+            move_uploaded_file($goodMoralImg['tmp_name'], $uploadFolder . $goodMoralImg['name']);
             move_uploaded_file($classCardImg['tmp_name'], $uploadFolder . $classCardImg['name']);
 
             $appForm_frontPath = $uploadFolder . $appForm_frontImg['name'];
@@ -46,13 +55,13 @@ if (isset($_POST["submit"])) {
             $birthCertPath = $uploadFolder . $birthCertImg['name'];
             $voterIDPath = $uploadFolder . $voterIDImg['name'];
             $indigencyCertPath = $uploadFolder . $indigencyCertImg['name'];
-            $regCardPath = $uploadFolder . $regCardImg['name'];
+            $goodMoralPath = $uploadFolder . $goodMoralImg['name'];
             $classCardPath = $uploadFolder . $classCardImg['name'];
 
 
-            $sql = "INSERT INTO s_accounttb (firstname, lastname, age, sex, contactNum, email, password, appForm_front_img, appForm_back_img, birthCert_img, voterID_img, indigencyCert_img, regCard_img, classCard_img, type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Student' ,'Pending')";
+            $sql = "INSERT INTO s_accounttb (firstname, lastname, age, sex, contactNum, email, password, appForm_front_img, appForm_back_img, birthCert_img, voterID_img, indigencyCert_img, goodMoral_img, classCard_img, type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Out of School Youth' ,'Pending')";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("ssssssssssssss", $firstname, $lastname, $age, $sex, $contactNum, $email, $password, $appForm_frontPath, $appForm_backPath, $birthCertPath, $voterIDPath, $indigencyCertPath, $regCardPath, $classCardPath);
+            $stmt->bind_param("ssssssssssssss", $firstname, $lastname, $age, $sex, $contactNum, $email, $password, $appForm_frontPath, $appForm_backPath, $birthCertPath, $voterIDPath, $indigencyCertPath, $goodMoralPath, $classCardPath);
 
             if ($stmt->execute()) {
                 $_SESSION["form_submitted"] = "<h2>You have successfully submitted your form!</h2><h4>Admin will check the account if eligable to access. We will email you when the account is ready</h4>";
@@ -68,33 +77,29 @@ if (isset($_POST["submit"])) {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - Student</title>
-    <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/font.css">
-    <link rel="stylesheet" href="../assets/css/spes_register.css">
-    <script src="../assets/js/applicant/loader.js"></script>
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../assets/css/profiling_task.css">
+    <link rel="stylesheet" href="../../../assets/css/spes_register.css">
+    <title>Profiling Task</title>
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 </head>
 <body>
-<div class="loader"><div></div><div></div><div></div><div></div></div>
-<div class="main-container">
-        <div class="main-row">
-            <div class="col-1">
-            <a href=""><img src="../assets/img/ojssw.png" alt="" srcset=""></a>
-                <div class="wordbox">
-                <h1>PUBLIC EMPLOYMENT SERVICE OFFICE (PESO)</h1>
-                <h2>SANTA ROSA, LAGUNA</h2>
-                <div class="field-space"></div>
-                <h3>CONNECTING DREAMS TO CAREERS:</h3>
-                <h3>WHERE YOUR FUTURE BEGINS TODAY!</h3>
-                </div>
-            </div>
-            <div class="col-2">
+    <?php
+    include "../../../function.php";
+    include "../topnav.php";
+    ?>
+    <div class="main-container">
+    <div class="col-2">
             <?php echo $msg; ?>
             <style>
                 .alert {  
@@ -215,10 +220,10 @@ if (isset($_POST["submit"])) {
                             </div>
                             <div class="form-col-3">
                                 <div class="col-left">
-                                    <h3>Latest Registration Card:</h3>
+                                    <h3>Good Moral Certificate:</h3>
                                 </div>
                                 <div class="col-right">
-                                    <input type="file" name="regCard_img" placeholder="">
+                                    <input type="file" name="goodMoral_img" placeholder="">
                                 </div>
                             </div>
                             <div class="form-col-3">
@@ -260,9 +265,8 @@ if (isset($_POST["submit"])) {
                 </div>
                 </form>
             </div>
-        </div>
+
     </div>
-    <script src="../company/job_posting.js"></script>
-    <script src="../assets/js/applicant/script.js"></script>
+
 </body>
 </html>

@@ -2,9 +2,9 @@
 $page_title = "Tasks";
 session_start();
 // Include config file
-include "../conn.php";
+include "../../../conn.php";
 $alert = ""; 
-if (!isset($_SESSION['spes_id'])) {
+if (!isset($_SESSION['peso_id'])) {
     $alert = "<div class='alert alert-danger'style='position:absolute; font-size: 50px;'>Please Login First!<div>";
     header("location: homepage.php");
     exit();
@@ -27,8 +27,8 @@ if (!isset($_SESSION['spes_id'])) {
 </head>
 <body>
     <?php
-    include "../function.php";
-    include "topnav.php";
+    include "../../function.php";
+    include "../topnav.php";
     ?>
     <div class="main-container">
 
@@ -47,57 +47,35 @@ if (!isset($_SESSION['spes_id'])) {
                 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Household Number</label>
-                    <input type="text" name="householdNum" class="" />
+                    <label for="">Company Name</label>
+                    <input type="text" name="companyName" class="" />
                     </div>
                     <div class="col-2">
-                    <label for="">Last Name</label>
-                    <input type="text" name="lastname" class="" />
+                    <label for="">Email</label>
+                    <input type="text" name="email" class="" />
                     </div>
                     <div class="col-3">
-                    <label for="">First Name</label>
-                    <input type="text" name="firstname" class="" />
+                    <label for="">Profile Name</label>
+                    <input type="text" name="profileName" class="" />
                     </div>
                 </div>
 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Middle Name</label>
-                    <input type="text" name="middlename" class="" />
+                    <label for="">Company Website</label>
+                    <input type="text" name="companyWeb" class="" />
                     </div>
                     <div class="col-2">
-                    <label for="">Suffix</label>
-                    <input type="text" name="suffix" class="" />
+                    <label for="">Industry</label>
+                    <input type="text" name="industry" class="" />
                     </div>
                     <div class="col-3">
-                    <label for="">Birthday</label>
-                    <input type="date" name="birthday" class="" />
-
-                    </div>
-                </div>
-
-                <div class="row-2">
-                    <div class="col-1">
-                    <label for="">Age</label>
-                    <input type="text" name="age" class="" />
-                    </div>
-                    <div class="col-2">
-                    <label for="">Sex</label>
-                    <select type="text" name="sex" class="">
-                        <option value="" selected hidden>Sex</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select> 
-                    </div>
-                    <div class="col-3">
-                    <label for="">Civil Status</label>
-                   
-                    <select type="text" name="civilStatus" class="">
-                        <option value="" selected hidden>Civil Status</option>
-                        <option value="Single">Single</option>
-                        <option value="Married">Married</option>
-                        <option value="Widow">Widow</option>
-                        <option value="Separated">Separated</option>
+                    <label for="">Company Type</label>
+                    <select type="text" name="companyType" class="">
+                        <option value="" selected hidden>Type of Company</option>
+                        <option value="Direct Company">Direct Company</option>
+                        <option value="Local Manpower Agency">Local Manpower Agency</option>
+                        <option value="Overseas Manpower Agency">Overseas Manpower Agency</option>
                     </select> 
 
                     </div>
@@ -109,107 +87,46 @@ if (!isset($_SESSION['spes_id'])) {
                     <input type="text" name="address" class="" />
                     </div>
                     <div class="col-2">
-                    <label for="">Barangay</label>
-                    
-                    <select type="text" name="brgy" class="">
-                        <option value="" selected hidden>Barangay</option>
-                        <option value="Aplaya">Aplaya</option>
-                        <option value="Balibago">Balibago</option>
-                        <option value="Caingin">Caingin</option>
-                        <option value="Dila">Dila</option>
-                        <option value="Dita">Dita</option>
-                        <option value="Don Jose">Don Jose</option>
-                        <option value="Ibaba">Ibaba</option>
-                        <option value="Kanluran">Kanluran</option>
-                        <option value="Labas">Labas</option>
-                        <option value="Macabling">Macabling</option>
-                        <option value="Malitlit">Malitlit</option>
-                        <option value="Malusak">Malusak</option>
-                        <option value="Market Area">Market Area</option>
-                        <option value="Pook">Pook</option>
-                        <option value="Pulong Santa Cruz">Pulong Santa Cruz</option>
-                        <option value="Santo Domingo">Santo Domingo</option>
-                        <option value="Sinalhan">Sinalhan</option>
-                        <option value="Tagapo">Tagapo</option>
-                    </select>
+                    <label for="">Company Size</label>
+                    <input type="text" name="companySize" class="" />
                     </div>
                     <div class="col-3">
-                    <label for="">Highest Educational Attainment</label>
-                    <select type="text" name="educAttainment" class="">
-                        <option value="" selected hidden>Status</option>
-                        <option value="Elementary Graduate">Elementary Graduate</option>
-                        <option value="High School Graduate">High School Graduate</option>
-                        <option value="K-12">K-12</option>
-                        <option value="Technical Vocational">Technical Vocational</option>
-                        <option value="Under Graduate">Under Graduate</option>
-                        <option value="College Graduate">College Graduate</option>
-                        <option value="N/A">N/A</option>
-                    </select>
+                    <label for="">regNum</label>
+                    <input type="text" name="regNum" class="" />
 
                     </div>
                 </div>
 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Status</label>
-                    
-                    <select type="text" name="status" class="">
-                        <option value="" selected hidden>Status</option>
-                        <option value="PWD">PWD</option>
-                        <option value="Senior Citizen">Senior Citizen</option>
-                        <option value="Student">Student</option>
-                        <option value="Solo Parent">Solo Parent</option>
-                        <option value="N/A">N/A</option>
-                    </select>
+                    <label for="">Working Hours</label>
+                    <input type="text" name="workingHrs" class="" />
                     </div>
                     <div class="col-2">
-                    <label for="">Employment Status</label>
+                    <label for="">Contact Number</label>
+                    <input type="text" name="contactNum" class="" />
                     
-                    <select type="text" name="employmentStatus" class="">
-                        <option value="" selected hidden>Employment Status</option>
-                        <option value="Employed">Employed</option>
-                        <option value="Unemployed">Unemployed</option>
-                        <option value="Kasambahay">Kasambahay</option>
-                        <option value="OFW">OFW</option>
-                        <option value="Livelihood">Livelihood</option>
-                    </select> 
                     </div>
                     <div class="col-3">
-                    <label for="">If Employed:</label>
-                    
-                    <select type="text" name="employmentType" class="">
-                        <option value="" selected hidden>Type of Employment</option>
-                        <option value="Regular">Regular</option>
-                        <option value="Contractual">Contractual</option>
-                        <option value="Below 18">Below 18 yrs old</option>
-                        <option value="N/A">N/A</option>
-                    </select> 
+                    <label for="">Company Dresscode</label>
+                    <input type="text" name="dressCode" class="" />
 
                     </div>
                 </div>
 
                 <div class="row-2">
                     <div class="col-1">
-                    <label for="">Date of Arrival: (For OFW)</label>
-                    <input type="date" name="arrivalDate" class="" />
+                    <label for="">Contact Person</label>
+                    <input type="text" name="contactPerson" class="" />
                     </div>
                     <div class="col-2">
-                    <label for="">Type of Disability: (For PWD)</label>
-                    <input type="text" name="disabilityType" class="" />
+                    <label for="">Spoken Language</label>
+                    <input type="text" name="spokenLanguage" class="" /> 
                     </div>
-                    <div class="col-3">
-                    <label for="">Encoded By:</label>
-                    <input type="text" name="encodedBy" class="" />
-
-                    </div>
+                    
                 </div>
 
                 
-
-                
-
-                
-
                 
             </div>
             <div class="modal-footer">
