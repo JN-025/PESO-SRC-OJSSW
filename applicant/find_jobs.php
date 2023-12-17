@@ -161,7 +161,8 @@ include '../conn.php';
                         <form method="POST"action="">
                             <h1></h1>
                             <div class="sort-by-type">
-                            <button onclick="setHiringType('Normal')">Recommended Jobs</button>
+                            <button onclick="setHiringType('Normal')">Home</button>
+                            <button>Recommended Jobs</button>
                             <button onclick="setHiringType('Urgent Hiring')">Urgent Hiring</button>
                             </div>
                             <input type="hidden" name="hiringType" id="hiringType" value="Normal">
