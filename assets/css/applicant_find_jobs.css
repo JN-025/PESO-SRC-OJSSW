@@ -190,6 +190,7 @@ body{
 .info-row h3{
     font-size: 22px;
     font-weight: 700;
+    margin-right: 5px;
 }
 .info-row p{
     font-size: 20px;
