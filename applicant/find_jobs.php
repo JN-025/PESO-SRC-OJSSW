@@ -152,7 +152,10 @@ include '../conn.php';
     include "topnav.php";
     ?>
     <div class="main-container">
-    <div class="header-container">
+        <div class="main-row">
+            <div class="col-2">
+                <div class="col-2-row">
+                <div class="header-container">
                 <div class="header">
                         <form method="POST"action="">
                             <h1></h1>
@@ -180,9 +183,6 @@ include '../conn.php';
                         </form>
                     </div>
                     </div>
-        <div class="main-row">
-            <div class="col-2">
-                <div class="col-2-row">
                     <div class="col-2-content">
                     <?php
                  $searchQuery1 = isset($_POST['search_engine_1']) ? $_POST['search_engine_1'] : '';
@@ -304,6 +304,8 @@ include '../conn.php';
                 </div>
             </div>
         </div>
+        <link rel="stylesheet" href="../assets/css/footer.css">
+    <?php include "../footer.php" ?>
     </div>
     <script src="../assets/js/darkmode.js"></script>
 </body>
