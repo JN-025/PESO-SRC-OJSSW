@@ -318,7 +318,7 @@ function openTab(jobPostId, button) {
 
             col2ContentFull.style.display = "block";
 
-            var buttons = document.querySelectorAll('.description button');
+            var buttons = document.querySelectorAll('.preview');
             buttons.forEach(btn => btn.classList.remove('pressed'));
 
             button.classList.add('pressed');
@@ -329,9 +329,26 @@ function openTab(jobPostId, button) {
 }
 </script>
 <style>
-.description button.pressed {
-    background-color: #BEBEBE;
-    color: #fff;
-    font-weight: bold;
-}
+.pressed {
+        position: relative;
+        border: 2px solid #B22623;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .pressed::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 44px 0 20px 30px;
+        border-top-right-radius: 7px;
+        border-color: #B22623 transparent transparent transparent;
+    }
 </style>
