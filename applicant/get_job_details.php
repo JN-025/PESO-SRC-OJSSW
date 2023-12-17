@@ -82,7 +82,6 @@ if (isset($_GET['jobPostId'])) {
             margin-left: 20px;
         }
         .fulldesc-2{
-            position: relative;
             flex: 0.5;
         }
         .footer-info{
