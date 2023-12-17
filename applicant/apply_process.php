@@ -18,7 +18,7 @@ if (isset($_POST['applyButton'])) {
     $answerNo4 = $_POST["answerNo4"];
     $answerNo5 = $_POST["answerNo5"];
 
-    $insertSql = "INSERT INTO application_log (c_jobpost_id, applicant_id, date_added_at, status, answerNo1, answerNo2, answerNo3, answerNo4, answerNo5)
+    $insertSql = "INSERT INTO application_log (jobpost_id, applicant_id, date_added_at, status, answerNo1, answerNo2, answerNo3, answerNo4, answerNo5)
                  VALUES (?, ?, NOW(), 'Pending', ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $insertSql);
     if ($stmt) {

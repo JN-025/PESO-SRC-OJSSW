@@ -71,6 +71,7 @@ include '../conn.php';
                 display: flex;
             }
             .modal-img{
+                height: 10vh;
                 margin-right: 20px;
                 width: 30%;
                 background-image: url(../assets/img/findjobmodal_success.png);

@@ -7,7 +7,7 @@ if (isset($_GET['jobpost_id']) && isset($_GET['access_id'])) {
 
     $sql = "SELECT 
                 application_log.application_log_id,
-                jobpost.companyName,
+                jobpost.jobTitle,
                 CONCAT(a_accounttb.lastname, ', ', a_accounttb.firstname, ' ', a_accounttb.middlename) AS fullname,
                 application_log.date_added_at,
                 application_log.status
@@ -32,7 +32,7 @@ if (isset($_GET['jobpost_id']) && isset($_GET['access_id'])) {
             $formattedDate = date("F j, Y | g:i A", strtotime($row['date_added_at']));
             echo "<tr>";
             echo "<td>{$row['application_log_id']}</td>";
-            echo "<td>{$row['companyName']}</td>";
+            echo "<td>{$row['jobTitle']}</td>";
             echo "<td>{$row['fullname']}</td>";
             echo "<td>{$formattedDate}</td>";
             echo "<td>{$row['status']}</td>";

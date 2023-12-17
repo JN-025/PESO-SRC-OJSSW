@@ -1,5 +1,6 @@
 <?php
 include "../../../conn.php";
+include "../../../sanitize_function.php";
 session_start();
 $access_id = $_SESSION['access_id'];
 if (!isset($_SESSION['access_id'])) {
@@ -24,7 +25,7 @@ if (!isset($_SESSION['access_id'])) {
         <?php
         $sql = "SELECT 
                     jobpost.jobpost_id,
-                    jobpost.companyName,
+                    jobpost.jobTitle,
                     COUNT(application_log.application_log_id) AS total_applicants
                 FROM 
                     jobpost
@@ -33,12 +34,13 @@ if (!isset($_SESSION['access_id'])) {
                 WHERE 
                     jobpost.access_id = $access_id
                 GROUP BY 
-                    jobpost.jobpost_id, jobpost.companyName";
+                    jobpost.jobpost_id, jobpost.jobTitle";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<h1>List of Applicant</h1>";
-            echo "<h3>All of the applicants that applied are being recorded</h3>";
+            echo "<h1>List of Job Posted</h1>";
+            echo "<h3>All of the applicants that applied are being displayed here</h3>";
+            echo "<h3>Press the <span class='highlight-text'>Load&nbsp;</span>Button to generate table</h3>";
             echo "<table border='1'>";
             echo "<tr>";
             echo "<th>Job Title</th>";
@@ -48,7 +50,7 @@ if (!isset($_SESSION['access_id'])) {
 
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>{$row['companyName']}</td>";
+                echo "<td>{$row['jobTitle']}</td>";
                 echo "<td>{$row['total_applicants']}</td>";
                 echo "<th><a class='load-table' data-jobpost-id='{$row['jobpost_id']}'>Load</a></th>";
                 echo "</tr>";
@@ -90,7 +92,7 @@ if (!isset($_SESSION['access_id'])) {
 
     $sql = "SELECT 
                 application_log.application_log_id,
-                jobpost.companyName,
+                jobpost.jobTitle,
                 CONCAT(a_accounttb.lastname, ', ', a_accounttb.firstname, ' ', a_accounttb.middlename) AS fullname,
                 application_log.date_added_at,
                 application_log.status
@@ -307,11 +309,11 @@ if (!isset($_SESSION['access_id'])) {
         <table border="1" class="styled-table">
     <thead>
         <tr>
-        <th onclick="sortTable(0)">ID No#<span id="arrow0"></span></th>
-        <th onclick="sortTable(1)">Company Name<span id="arrow1"></span></th>
-        <th onclick="sortTable(2)">Name <span id="arrow2"></span></th>
-        <th onclick="sortTable(3)">Date Added <span id="arrow3"></span></th>
-        <th onclick="sortTable(4)">Status <span id="arrow4"></span></th>
+        <th onclick="sortTable()">ID No#<span id="arrow"></span></th>
+        <th onclick="sortTable()">Company Name<span id="arrow"></span></th>
+        <th onclick="sortTable()">Name <span id="arrow"></span></th>
+        <th onclick="sortTable()">Date Added <span id="arrow"></span></th>
+        <th onclick="sortTable()">Status <span id="arrow"></span></th>
         <th>Action</th>
         </tr>
     </thead>
@@ -322,7 +324,7 @@ if (!isset($_SESSION['access_id'])) {
                 $formattedDate = date("F j, Y | g:i A", strtotime($row['date_added_at']));
                 echo "<tr>";
                 echo "<td>{$row['application_log_id']}</td>";
-                echo "<td>{$row['companyName']}</td>";
+                echo "<td>{$row['jobTitle']}</td>";
                 echo "<td>{$row['fullname']}</td>";
                 echo "<td>{$formattedDate}</td>";
                 echo "<td>{$row['status']}</td>";

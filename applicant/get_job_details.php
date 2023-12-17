@@ -184,13 +184,20 @@ if (isset($_GET['jobPostId'])) {
             margin-top: 70px;
             overflow-y: auto;
         }
+        .modal-content h2, h4{
+            font-family: 'Poppins';
+        }
+        .modal-content h2{
+            font-size: 24px;
+        }
         .company-question{
+            font-family: 'Mohave';
             position: relative;
             display:flex;
         }
         .question-content{
             font-weight: 600;
-            font-size: 16px;
+            font-size: 20px;
             margin-top: 10px;
             text-align:left;
             width: 70%;
