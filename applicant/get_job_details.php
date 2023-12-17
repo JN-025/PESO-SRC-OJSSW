@@ -61,7 +61,8 @@ if (isset($_GET['jobPostId'])) {
         }
         .fulldescription{
             display: flex; 
-            height: 80vh; 
+            min-height: auto;
+            max-height: 80vh;
             position:relative; 
             overflow-y: auto;
         }

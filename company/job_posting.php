@@ -73,6 +73,7 @@ if(isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Posting</title>
+    <link rel="stylesheet" href="../assets/css/font.css">
     <link rel="shortcut icon" href="../assets/img/peso.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/job_posting.css">
 </head>
@@ -86,7 +87,7 @@ if(isset($_POST["submit"])) {
         <form id="form" action="" method="post" enctype="multipart/form-data">
             <div class="wrapper">
                 <section id="step-0" class="form-step" >
-                    <label for="">Post a Job!</label>
+                    <label for=""><h1>Post a Job!</h1></label>
                     <h2>Job Description</h2>
                     <div class="form-col-1">
                         <input class="description" id="jobTitle" name="jobTitle" type="text" placeholder="Job Title" required maxlength="50">
@@ -116,8 +117,13 @@ if(isset($_POST["submit"])) {
                     <div class="form-col-1">
                         <input type="text" name="skills" placeholder="Skills" required>
                     </div>
-                    <div style="width: 50%;margin-left: 5%; " class="form-col-1">
-                        <input type="text" name="typeofHiring" placeholder="Type of Hiring" required>
+                    <div class="form-col-1 select-option">
+                        <label for="typeofhiring"><h4>Type of Hiring</h4></label>
+                        <select name="typeofHiring" id="typeofhiring" required>
+                            <option value="" selected hidden>Type of Hiring</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Urgent">Urgent</option>
+                        </select>
                     </div>
                     <div class="form-col-2">
                         <div class="flex-button">
@@ -128,10 +134,11 @@ if(isset($_POST["submit"])) {
                             <button class="btn-nav" step_number="1">Next</button>
                         </div>
                     </div>
+                    <progress max="3" value="0"></progress>
                 </section>
                 <!--Step 2-->
                 <section id="step-1" class="form-step d-none">
-                    <label for="">Post a Job!</label>
+                    <label for=""><h1>Post a Job!</h1></label>
                     <h2>Job Description</h2>
                     <h4>Describe the job position. Maximum of 250 words</h4>
                     <div class="form-col-1">
@@ -146,16 +153,17 @@ if(isset($_POST["submit"])) {
                             <button class="btn-nav" step_number="2">Next</button>
                         </div>
                     </div>
+                    <progress max="3" value="1"></progress>
                 </section>
                 <!--Step 3-->
                 <section id="step-2" class="form-step d-none">
-                    <label for="">Post a Job!</label>
+                    <label for=""><h1>Post a Job!</h1></label>
                     <h2>Company Profile Picture</h2>
                     <h4>Note: Photo must be in PNG, JPEG, BMP, or, SVG.</h4>
                     <div class="form-col-1">
                     <div id="drop-area">
                     <form class="my-form">
-                        <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
+                        <p>Upload Images by pressing the icon or by dragging and dropping images onto the dashed field</p>
                         <input type="file" id="fileElem" name="img" onchange="handleFiles(this.files)" required>
                         <label class="select" for="fileElem"><i class="bi bi-cloud-upload"></i></label>
                         <br>
@@ -204,6 +212,35 @@ if(isset($_POST["submit"])) {
                         display: none;
                         }
                     </style>
+                    <script>
+    function handleFiles(files) {
+        const file = files[0];
+        const formData = new FormData();
+        formData.append('img', file);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'upload.php', true);
+
+        xhr.upload.onprogress = function (e) {
+            if (e.lengthComputable) {
+                const percentComplete = (e.loaded / e.total) * 100;
+                document.getElementById('progress-bar').value = percentComplete;
+            }
+        };
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // File upload successful, handle the response if needed
+                console.log('File upload successful');
+            } else {
+                // File upload failed, handle the error if needed
+                console.error('File upload failed');
+            }
+        };
+
+        xhr.send(formData);
+    }
+</script>
                     </div>
                     <div class="form-col-2">
                         <div class="flex-button">
@@ -214,10 +251,11 @@ if(isset($_POST["submit"])) {
                             <button class="btn-nav" step_number="3">Next</button>
                         </div>
                     </div>
+                    <progress max="3" value="2"></progress>
                 </section>
                 <!--Step 4-->
                 <section id="step-3" class="form-step d-none">
-                    <label for="">Post a Jobs!</label>
+                    <label for=""><h1>Post a Jobs!</h1></label>
                     <div class="form-col-1 question-container">
                         <input class="question" id="questionNo1" name="questionNo1" type="text" placeholder="Question #1" required>
                         <select name="answerNo1" id="answerNo1" required>
@@ -267,6 +305,7 @@ if(isset($_POST["submit"])) {
                             <button name="submit">Submit</button>
                         </div>
                     </div>
+                    <progress max="3" value="3"></progress>
                 </section>
             </div>
         </form>
